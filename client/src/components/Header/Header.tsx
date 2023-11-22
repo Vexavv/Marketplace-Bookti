@@ -1,5 +1,6 @@
 import React from 'react';
-import styles from './Header.module.scss'
+import styles from './Header.module.scss';
+import {Link} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 
 const Header = () => {
@@ -7,8 +8,9 @@ const Header = () => {
     console.log(t('Button.logOut'))
     return (
         <header>
+            <div><Link to='/'>Logo</Link></div>
             Header
-            <button>{t('Button.logOut')}</button>
+
 
         </header>
     );
