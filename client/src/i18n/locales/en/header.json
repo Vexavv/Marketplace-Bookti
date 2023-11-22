@@ -1,0 +1,17 @@
+{
+  "Col": "Hi",
+  "Nav": {
+    "services": "Services",
+    "products": "Products",
+    "blog": "Blog",
+    "library": "Library"
+  },
+  "Select": {
+    "uk": "Ukraine",
+    "en": "English"
+  },
+  "Button": {
+    "login": "Login",
+    "logOut": "Log Out"
+  }
+}
