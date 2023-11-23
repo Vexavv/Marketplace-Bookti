@@ -3,7 +3,6 @@ import {Routes, Route,} from "react-router-dom";
 import './App.css'
 
 import Layout from "./components/Layout/Layout";
-import Main from "./pages/Main/Main";
 import About from "./pages/About/About";
 import Home from "./pages/Home/Home";
 import Library from "./pages/Library/Library";
@@ -18,7 +17,6 @@ function App() {
         <Routes>
             <Route path='/' element={<Layout/>}>
                 <Route index element={<Home/>}/>
-                <Route path="/main" element={<Main/>}/>
                 <Route path="/about" element={<About/>}/>
                 <Route path="/library" element={<Library/>}/>
                 <Route path="/blog" element={<Blog/>}/>

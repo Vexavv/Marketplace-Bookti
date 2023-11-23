@@ -1,10 +1,10 @@
 {
   "Col": "Hi",
   "Nav": {
-    "services": "Services",
-    "products": "Products",
-    "blog": "Blog",
-    "library": "Library"
+    "about": "About",
+    "library": "Library",
+    "blog": "Blog"
+
   },
   "Select": {
     "uk": "Ukraine",
