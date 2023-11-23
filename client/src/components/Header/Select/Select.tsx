@@ -21,11 +21,14 @@ const Select = () => {
 
 
     return (
+<>
+    {i18next.language === LOCALS.UK ? <img src="/select/flag-ukraine.svg" alt="Flag-uk"/> : <img src="/vite.svg" alt="Flag-en"/> }
+    <select className={styles.Select} name="select" value={selectValue} onChange={onClickLanguageChange}>
+        <option value="uk" disabled={i18next.language === LOCALS.UK}>{t('Select.uk')}</option>
+        <option value="en" disabled={i18next.language === LOCALS.EN}>{t('Select.en')}</option>
+    </select>
+</>
 
-        <select className={styles.Select} name="select" value={selectValue} onChange={onClickLanguageChange}>
-            <option value="uk" disabled={i18next.language === LOCALS.UK}>{t('Select.uk')}</option>
-            <option value="en" disabled={i18next.language === LOCALS.EN}>{t('Select.en')}</option>
-        </select>
     );
 };
 

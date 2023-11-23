@@ -21,7 +21,6 @@ const Navigation = () => {
 
     return (
         <nav className={styles.Nav}>
-
             <ul className={styles.NavList}>
                 {nav.map(item =>(
                     <li key={item.name} className={styles.NavListItem}> <NavLink className={styles.NavListItemLink} to={item.path}>{item.name}</NavLink></li>
