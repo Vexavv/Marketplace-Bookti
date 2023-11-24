@@ -1,0 +1,20 @@
+.Logo{
+  width: 88px;
+  height: 39px;
+}
+@media (min-width: 500px) {
+  .Logo{
+    width: 88px;
+    height: 39px;
+  }
+}
+@media (min-width: 900px) {
+  .Logo{
+    width: 164px;
+    height: 77px;
+  }
+}
+.LogoMobile{
+  width: 164px;
+  height: 77px;
+}

@@ -1,0 +1,35 @@
+@import '../../../styles/variables.module';
+.Menu{
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  &Close{
+    font-size: 25px;
+    padding: 5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+  }
+  &Logo{
+    display: flex;
+    justify-content: center;
+    margin: 10px 0 ;
+    position: relative;
+    width: 100%;
+    //border-bottom: 1px solid $primary-color ;
+    &::before{
+      content: '';
+      position: absolute;
+      left: 10%; bottom: -40px;
+      width: 80%;
+      height: 1px;
+      background-color:  #C8DDD2;;
+    }
+  }
+  &Nav{
+    margin-top: 70px;
+  }
+}

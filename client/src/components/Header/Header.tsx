@@ -6,11 +6,13 @@ import Navigation from "../Navigation/Navigation";
 import Select from "./Select/Select";
 import {useTranslation} from "react-i18next";
 import Button from "../Button/Button";
-import Drawer from '@mui/material/Drawer';
+import MobileMenu from "./MobileMenu/MobileMenu";
+import Logo from "./Logo/Logo";
 
 const Header = () => {
     const {t} = useTranslation('header')
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
     const mobileMenuToggle = () => {
         setMobileMenuOpen(current => !current)
     }
@@ -20,8 +22,9 @@ const Header = () => {
         <header className={styles.Header}>
             <Container>
                 <div className={styles.HeaderWrapper}>
-                    <Link to='/'><img className={styles.HeaderWrapperLogo} src="/header/Logo.png"
-                                           alt="Logo"/></Link>
+                    <Logo/>
+                    {/*<Link to='/'><img className={styles.HeaderWrapperLogo} src="/header/Logo.png"*/}
+                    {/*                       alt="Logo"/></Link>*/}
                     <img onClick={mobileMenuToggle} className={styles.HeaderWrapperBurger} src="/header/burger.png" alt="burger"/>
 
                     <div className={styles.HeaderWrapperMenu}>
@@ -36,27 +39,8 @@ const Header = () => {
                     </div>
                 </div>
             </Container>
-            <Drawer anchor="left"
-                    component="div"
-                    variant="temporary"
-                    open={mobileMenuOpen}
-                    onClose={mobileMenuToggle}
-                    ModalProps={{ keepMounted: true }}
-                    SlideProps={{ timeout: 400 }}
-                    sx={{
-                        display:{md: 'none'},
-                        '& .MuiDrawer-paper': {
-                            boxSizing: 'border-box',
-                            width: { xs: '100%', sm: '50%', md: 'none' },
-                            color: "#FFF",
-                            display:{md: 'none'}
-                        }
-                    }}>
-                <img onClick={mobileMenuToggle} src="/header/x.svg" alt="close"/>
-            </Drawer>
+            <MobileMenu  mobileMenuOpen={mobileMenuOpen} mobileMenuToggle={mobileMenuToggle}/>
         </header>
-
-
     );
 };
 

@@ -11,11 +11,6 @@
     align-items: center;
     width: 100%;
 
-    &Logo {
-      width: 88px;
-      height: 39px;
-    }
-
     &Burger {
       display: block;
     }
@@ -32,10 +27,6 @@
 
     &Wrapper {
 
-      &Logo {
-        width: 100px;
-        height: 60px;
-      }
     }
   }
 }
@@ -45,11 +36,6 @@
     padding: 27px 0;
 
     &Wrapper {
-
-      &Logo {
-        width: 164px;
-        height: 77px;
-      }
       &Burger {
         display: none;
       }
