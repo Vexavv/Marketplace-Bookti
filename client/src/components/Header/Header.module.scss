@@ -1,0 +1,51 @@
+@import '../../styles/variables.module';
+
+.Header {
+  width: 100%;
+  background: $bg-color;
+  padding: 7px 0;
+
+  &Wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    &Burger {
+      display: block;
+    }
+
+    &Menu {
+      display: none
+    }
+  }
+}
+
+@media (min-width: 500px) {
+  .Header {
+    padding: 10px 0;
+
+    &Wrapper {
+
+    }
+  }
+}
+
+@media (min-width: 900px) {
+  .Header {
+    padding: 27px 0;
+
+    &Wrapper {
+      &Burger {
+        display: none;
+      }
+
+      &Menu {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 100%;
+      }
+    }
+  }
+}
