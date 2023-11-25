@@ -4,7 +4,8 @@ import styles from './Footer.module.scss'
 const Footer = () => {
     return (
         <footer>
-            Footer
+            Footer!!!
+            <p>eeeee</p>
         </footer>
     );
 };
