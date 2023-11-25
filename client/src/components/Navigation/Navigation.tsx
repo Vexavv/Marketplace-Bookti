@@ -2,28 +2,35 @@ import React from 'react';
 import styles from './Navigation.module.scss'
 import {NavLink} from "react-router-dom";
 import {useTranslation} from "react-i18next";
-
+import NavigationProps from './Navigation.props'
+import MobileMenuProps from "../Header/MobileMenu/MobileMenu.props";
 
 interface NavigationMenu {
     name: string,
-    path: string
+    path: string,
+    icon: string
 }
 
 
-const Navigation = () => {
+const Navigation: React.FC<NavigationProps> = ({mobile}) => {
 
-    const { t } = useTranslation('header');
+    const {t} = useTranslation('header');
     const nav: NavigationMenu[] = [
-        {name: t('Nav.about'), path: '/about'},
-        {name: t('Nav.library'), path: '/library'},
-        {name: t('Nav.blog'), path: '/blog'},
+        {name: t('Nav.about'), path: '/about', icon: '/header/clipboard.svg'},
+        {name: t('Nav.library'), path: '/library', icon: '/header/book.svg'},
+        {name: t('Nav.blog'), path: '/blog', icon: '/header/bookmark.svg'}
     ]
 
     return (
-        <nav className={styles.Nav}>
-            <ul className={styles.NavList}>
-                {nav.map(item =>(
-                    <li key={item.name} className={styles.NavListItem}> <NavLink className={styles.NavListItemLink} to={item.path}>{item.name}</NavLink></li>
+        <nav className={mobile ? styles.MobileNav : styles.Nav}>
+            <ul className={mobile ? styles.MobileNavList : styles.NavList}>
+                {nav.map(item => (
+
+                    <li key={item.name} className={mobile ? styles.MobileNavListItem : styles.NavListItem}><NavLink
+                        className={mobile ? styles.MobileNavListItemLink : styles.NavListItemLink}
+                        to={item.path}>
+                        {mobile && <img className={styles.MobileNavListItemLinkIcon} src={item.icon}
+                                        alt="icon"/>} {item.name}</NavLink></li>
                 ))}
             </ul>
 

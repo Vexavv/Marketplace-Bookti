@@ -21,13 +21,13 @@ const Select = () => {
 
 
     return (
-<>
+<div className={styles.Wrapper}>
     {i18next.language === LOCALS.UK ? <img src="/select/flag-ukraine.svg" alt="Flag-uk"/> : <img src="/select/flag-en.svg" alt="Flag-en"/> }
-    <select className={styles.Select} name="select" value={selectValue} onChange={onClickLanguageChange}>
+    <select className={styles.WrapperSelect} name="select" value={selectValue} onChange={onClickLanguageChange}>
         <option value="uk" disabled={i18next.language === LOCALS.UK}>{t('Select.uk')}</option>
         <option value="en" disabled={i18next.language === LOCALS.EN}>{t('Select.en')}</option>
     </select>
-</>
+</div>
 
     );
 };

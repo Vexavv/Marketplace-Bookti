@@ -14,6 +14,7 @@
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   cursor: pointer;
   transition: all 0.5s;
+  color: #000;
   &:hover {
     background: $primary-color;
     color: #FFFFFF;
@@ -27,6 +28,15 @@
     border: 2px solid $primary-color;
   }
 }
-.s{
-  border-radius: 8px;
+
+.MobileMenu{
+  font-size: 16px;
+  width: 254px;
+  margin: 0;
+  color: #FFFFFF;
+  background: $primary-color;
+  box-shadow: none;
+  &:active{
+    background: $hover-color;
+  }
 }

@@ -2,10 +2,10 @@ import React from 'react';
 import styles from './Button.module.scss'
 import{ButtonProps} from './Button.props'
 import cn from 'classnames'
-const Button = ({size, children, className, ...props}: ButtonProps) => {
+const Button = ({name, children, className, ...props}: ButtonProps) => {
     return (
         <button className={cn(styles.Button,className,{
-            [styles.s]: size == 's'
+            [styles.MobileMenu]: name == 'MobileMenu'
         })} {...props}>
             {children}
         </button>

@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import styles from './Header.module.scss';
-import {Link} from "react-router-dom";
 import Container from "../Container/Container";
 import Navigation from "../Navigation/Navigation";
 import Select from "./Select/Select";
@@ -16,30 +15,31 @@ const Header = () => {
     const mobileMenuToggle = () => {
         setMobileMenuOpen(current => !current)
     }
-    
+
     return (
 
         <header className={styles.Header}>
             <Container>
                 <div className={styles.HeaderWrapper}>
                     <Logo/>
-                    {/*<Link to='/'><img className={styles.HeaderWrapperLogo} src="/header/Logo.png"*/}
-                    {/*                       alt="Logo"/></Link>*/}
-                    <img onClick={mobileMenuToggle} className={styles.HeaderWrapperBurger} src="/header/burger.png" alt="burger"/>
+                    <img onClick={mobileMenuToggle} className={styles.HeaderWrapperBurger} src="/header/burger.png"
+                         alt="burger"/>
 
                     <div className={styles.HeaderWrapperMenu}>
                         <Navigation/>
                         <Select/>
                         <div className={styles.HeaderWrapperMenuButtonGroup}>
-                            <Button  onClick={()=>{
-                                console.log('Exit')}}>{t('Button.logOut')}</Button>
-                            <Button  onClick={()=>{
-                                console.log('Login')}}>{t('Button.login')}</Button>
+                            <Button onClick={() => {
+                                console.log('Exit')
+                            }}>{t('Button.login')}</Button>
+                            <Button onClick={() => {
+                                console.log('Login')
+                            }}>{t('Button.registration')}</Button>
                         </div>
                     </div>
                 </div>
             </Container>
-            <MobileMenu  mobileMenuOpen={mobileMenuOpen} mobileMenuToggle={mobileMenuToggle}/>
+            <MobileMenu mobileMenuOpen={mobileMenuOpen} mobileMenuToggle={mobileMenuToggle}/>
         </header>
     );
 };

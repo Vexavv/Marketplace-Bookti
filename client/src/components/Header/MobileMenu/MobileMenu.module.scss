@@ -1,11 +1,14 @@
 @import '../../../styles/variables.module';
-.Menu{
+
+.Menu {
   padding: 22px;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
-  &Close{
+  height: 100%;
+
+  &Close {
     font-size: 25px;
     padding: 5px;
     position: absolute;
@@ -13,23 +16,63 @@
     right: 0;
     cursor: pointer;
   }
-  &Logo{
+
+  &Logo {
     display: flex;
     justify-content: center;
-    margin: 10px 0 ;
+    margin: 10px 0;
     position: relative;
     width: 100%;
     //border-bottom: 1px solid $primary-color ;
-    &::before{
+    &::before {
       content: '';
       position: absolute;
-      left: 10%; bottom: -40px;
+      left: 10%;
+      bottom: -40px;
       width: 80%;
       height: 1px;
-      background-color:  #C8DDD2;;
+      background-color: #C8DDD2;;
     }
   }
-  &Nav{
+
+  &Wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 160px;
     margin-top: 70px;
+
+    &Nav {
+      height: 100%;
+    }
+
+    &Select {
+      margin: 27px 0 0 5px;
+    }
   }
+&Button{
+  margin-top: 200px;
+
+}
+&Content{
+display: flex;
+  margin-top: 16px;
+  &Text{
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color:#000000;
+    margin-right: 5px;
+  }
+  &Link{
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color:$primary-color;
+    text-decoration: underline;
+  }
+}
 }

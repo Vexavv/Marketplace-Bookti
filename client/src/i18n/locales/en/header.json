@@ -1,5 +1,4 @@
 {
-  "Col": "Hi",
   "Nav": {
     "about": "About",
     "library": "Library",
@@ -12,6 +11,6 @@
   },
   "Button": {
     "login": "Login",
-    "logOut": "Log Out"
+    "registration": "Registration"
   }
 }
