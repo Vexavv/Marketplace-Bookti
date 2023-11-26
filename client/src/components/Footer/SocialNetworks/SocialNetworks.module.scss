@@ -1,0 +1,21 @@
+.Social {
+  &List {
+    &Item {
+      font-family: IBM Plex Sans;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 120%;
+      margin-bottom: 15px;
+      &Link {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        color:#000000;
+        &Icon{
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+}

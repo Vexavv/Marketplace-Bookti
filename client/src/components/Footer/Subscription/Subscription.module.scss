@@ -1,0 +1,14 @@
+@import "../../../styles/variables.module";
+
+.Subscription{
+  display: flex;
+  flex-direction: column;
+  &Input{
+    border-radius: 5px;
+    border: 0.5px solid  #777;
+    height: 40px;
+    flex-shrink: 0;
+    margin-bottom: 17px;
+    background:$secondary-bg-color ;
+  }
+}

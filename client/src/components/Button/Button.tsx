@@ -5,7 +5,8 @@ import cn from 'classnames'
 const Button = ({name, children, className, ...props}: ButtonProps) => {
     return (
         <button className={cn(styles.Button,className,{
-            [styles.MobileMenu]: name == 'MobileMenu'
+            [styles.MobileMenu]: name == 'MobileMenu',
+            [styles.SubscriptionButton]: name == 'SubscriptionButton'
         })} {...props}>
             {children}
         </button>
