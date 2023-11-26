@@ -15,7 +15,7 @@ const PrivacyList = () => {
         <nav className={styles.Privacy}>
             <ul>
                 {navList.map(item => (
-                    <li className={styles.PrivacyList}><Link className={styles.PrivacyListLink} to={item.path}>{item.name}</Link></li>
+                    <li className={styles.PrivacyList} key={item.name}><Link className={styles.PrivacyListLink} to={item.path}>{item.name}</Link></li>
                 ))}
             </ul>
         </nav>
