@@ -1,11 +1,22 @@
-#root {
-  max-width: 1440px;
-  margin: 0 auto;
 
-  text-align: center;
+#root {
+    max-width: 1440px;
+    margin: 0 auto;
+    text-align: center;
 
 }
-.active{
 
+.active {
+    color: #25412F;
+}
+
+.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 1.5px;
+    background-color: #25412F;
 }
 

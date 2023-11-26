@@ -44,6 +44,11 @@
       background: $hover-color;
     }
   }
+  .HeaderButton{
+    &:hover{
+      background:$primary-color;
+    }
+  }
 }
 
 
