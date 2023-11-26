@@ -29,10 +29,10 @@ const Header = () => {
                         <Navigation/>
                         <Select/>
                         <div className={styles.HeaderWrapperMenuButtonGroup}>
-                            <Button onClick={() => {
-                                console.log('Exit')
+                            <Button name='HeaderButton' onClick={() => {
+                                console.log('Enter')
                             }}>{t('Button.login')}</Button>
-                            <Button onClick={() => {
+                            <Button name='HeaderButton' onClick={() => {
                                 console.log('Login')
                             }}>{t('Button.registration')}</Button>
                         </div>

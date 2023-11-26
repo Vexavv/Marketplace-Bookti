@@ -9,7 +9,7 @@ const Subscription = () => {
     return (
         <div className={styles.Subscription}>
             <input className={styles.SubscriptionInput} type="text" placeholder={t('Placeholder')}/>
-            <Button name='SubscriptionButton'>{t("Button")}</Button>
+            <Button>{t("Button")}</Button>
         </div>
     );
 };

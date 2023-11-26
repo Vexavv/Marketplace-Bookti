@@ -2,18 +2,27 @@
 
 .Button{
   font-family: Inter;
-  font-size: 12px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  padding: 6px;
+  padding: 12px;
   border-radius: 8px;
-  border: 1px solid $primary-color;
-  margin-right: 5px;
-  background: var(--half-green, rgba(68, 123, 87, 0.00));
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  color: #FFFFFF;
+  background: $primary-color;
   cursor: pointer;
   transition: all 0.5s;
+  box-shadow: none;
+  border:none;
+  &:active{
+    background: $hover-color;
+  }
+}
+
+.HeaderButton{
+  background: #FFFFFF;
+  border: 1px solid $primary-color;
+  margin-left: 13px;
   color: #000;
   &:hover {
     background: $primary-color;
@@ -22,51 +31,28 @@
 }
 
 .MobileMenu{
-  font-size: 16px;
   width: 254px;
   margin: 0;
-  color: #FFFFFF;
-  background: $primary-color;
-  box-shadow: none;
-  &:active{
-    background: $hover-color;
-  }
 }
-.SubscriptionButton{
-  font-size: 16px;
-  margin: 0;
-  color: #FFFFFF;
-  background: $primary-color;
-  box-shadow: none;
-  &:active{
-    background: $hover-color;
-  }
-}
-
-
-
-
-
-
 @media (min-width: 500px) {
 
 }
 @media (min-width: 900px) {
   .Button{
-    font-size: 16px;
-    padding: 12px;
-    border: 2px solid $primary-color;
-  }
-
-  .SubscriptionButton{
-    font-size: 16px;
-    margin: 0;
-    color: #FFFFFF;
-    background: $primary-color;
-    box-shadow: none;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
     &:hover{
       background: $hover-color;
     }
   }
 }
+
+
+
+
+
+
+
+
+
+
 
