@@ -20,14 +20,6 @@
     color: #FFFFFF;
   }
 }
-@media (min-width: 500px) {}
-@media (min-width: 900px) {
-  .Button{
-    font-size: 16px;
-    padding: 12px;
-    border: 2px solid $primary-color;
-  }
-}
 
 .MobileMenu{
   font-size: 16px;
@@ -40,3 +32,41 @@
     background: $hover-color;
   }
 }
+.SubscriptionButton{
+  font-size: 16px;
+  margin: 0;
+  color: #FFFFFF;
+  background: $primary-color;
+  box-shadow: none;
+  &:active{
+    background: $hover-color;
+  }
+}
+
+
+
+
+
+
+@media (min-width: 500px) {
+
+}
+@media (min-width: 900px) {
+  .Button{
+    font-size: 16px;
+    padding: 12px;
+    border: 2px solid $primary-color;
+  }
+
+  .SubscriptionButton{
+    font-size: 16px;
+    margin: 0;
+    color: #FFFFFF;
+    background: $primary-color;
+    box-shadow: none;
+    &:hover{
+      background: $hover-color;
+    }
+  }
+}
+

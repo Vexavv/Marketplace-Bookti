@@ -1,4 +1,5 @@
 interface NavigationProps {
-    mobile?: boolean
+    mobile?: boolean,
+    footer?: boolean
 }
 export default NavigationProps
