@@ -3,5 +3,5 @@ import {ButtonHTMLAttributes, DetailedHTMLProps, ReactNode} from "react";
 
 export interface ButtonProps extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
     children: ReactNode;
-    name?: 'MobileMenu' | 'l' | 'HeaderButton';
+    name?: 'MobileMenu' | 'BannerButton' | 'HeaderButton';
 }

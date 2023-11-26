@@ -7,7 +7,7 @@ const Button = ({name, children, className, ...props}: ButtonProps) => {
         <button className={cn(styles.Button,className,{
             [styles.HeaderButton]: name == 'HeaderButton',
             [styles.MobileMenu]: name == 'MobileMenu',
-            [styles.l]: name == 'l'
+            [styles.BannerButton]: name == 'BannerButton'
         })} {...props}>
             {children}
         </button>
