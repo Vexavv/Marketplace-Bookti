@@ -20,11 +20,11 @@ const Search = () => {
         <Container>
             <div className={styles.Search}>
                 <form className={styles.SearchForm} onSubmit={handleSubmit}>
-                    <input onChange={handleTextChange} value={text} type="text" placeholder="Назва книги або автора"/>
+                    <input onChange={handleTextChange} value={text} type="text" placeholder={t('Search.placeholder')}/>
                     {/*<label>Наприклад: Ремарк, Гаррі Поттер</label>*/}
-                    <Button type='submit'  name='SearchButton'>Знайти</Button>
+                    <Button type='submit'  name='SearchButton'>{t('Search.button')}</Button>
                 </form>
-                <p className={styles.SearchLabel}>Наприклад: Ремарк, Гаррі Поттер</p>
+                <p className={styles.SearchLabel}>{t('Search.text')}</p>
 
             </div>
 

@@ -2,5 +2,10 @@
   "Banner": {
     "slogan": "Communicate using pages, share your story",
     "button": "Add a book"
+  },
+  "Search": {
+    "text": "For example: Remarque, Harry Potter",
+    "placeholder": "Name of the book or author",
+    "button": "Find"
   }
 }

@@ -1,18 +1,13 @@
 @import "../../styles/variables.module";
 
 .Search {
-
   margin-bottom: 50px;
-  //background: linear-gradient(180deg, #C8DDD2 0%, rgba(207, 235, 217, 0.00) 48.59%);
-  //border-radius: 16px;
-  //border: 1px solid  $primary-color;
-  //
-  //height: 200px;
-  &Form{
+  &Form {
     display: flex;
     justify-content: space-between;
     width: 100%;
     margin-bottom: 10px;
+
     input {
       border-radius: 8px;
       border: 1px solid #CFCFCF;
@@ -23,17 +18,19 @@
       background: url("../../../public/home/search.svg") no-repeat;
       background-position: 1% 50%;
       outline: none;
-      &::placeholder{
+
+      &::placeholder {
         color: #B6B6B6;
         font-family: Inter;
-        font-size: 10px;
+        font-size: 12px;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
       }
     }
   }
-  &Label{
+
+  &Label {
     color: #A4A4A4;
     font-family: Inter;
     font-size: 12px;
@@ -41,5 +38,57 @@
     font-weight: 400;
     line-height: normal;
     text-align: left;
+  }
+}
+
+@media (min-width: 500px) {
+  .Search {
+    &Form {
+      justify-content: normal;
+      input {
+        //width: 60%;
+        &::placeholder {
+          font-size: 14px;
+        }
+      }
+    }
+
+    &Label {
+      font-size: 14px;
+    }
+  }
+}
+
+@media (min-width: 900px) {
+
+  .Search {
+    margin-bottom: 100px;
+    background: linear-gradient(180deg, #C8DDD2 0%, rgba(207, 235, 217, 0.00) 48.59%);
+    border-radius: 16px;
+    border: 1px solid $primary-color;
+    padding: 80px ;
+
+    &Form {
+      margin-bottom: 13px;
+
+      input {
+        border-radius: 5px;
+        border: 0.5px solid #777;
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+        margin-right: 25px;
+        padding: 13px 20px;
+        background: none;
+
+        &::placeholder {
+          color: #777;
+          font-size: 16px;
+        }
+      }
+    }
+
+    &Label {
+      color: #777;
+      font-size: 16px;
+    }
   }
 }
