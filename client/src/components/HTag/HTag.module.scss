@@ -1,0 +1,38 @@
+.h1{
+
+}
+.h2{
+  color:  #000;
+  font-family: Inter;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.h3{
+
+}
+.h2Grey{
+  color:  #777;
+  text-align: center;
+  font-family: Inter;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+@media (min-width: 500px) {}
+@media (min-width: 900px) {
+  .h1{
+
+  }
+  .h2{
+    font-size: 48px;
+  }
+  .h3{
+
+  }
+  .h2Grey{
+    font-size: 48px;
+  }
+}
