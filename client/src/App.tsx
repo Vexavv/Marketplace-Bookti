@@ -1,6 +1,6 @@
 import React from "react";
 import {Routes, Route,} from "react-router-dom";
-import './App.css'
+import  './App.css'
 
 import Layout from "./components/Layout/Layout";
 import About from "./pages/About/About";
@@ -16,7 +16,7 @@ function App() {
 
 
   return (
-    <div className="App">
+    <div>
         <Routes>
             <Route path='/' element={<Layout/>}>
                 <Route index element={<Home/>}/>
