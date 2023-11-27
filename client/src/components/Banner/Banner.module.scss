@@ -4,22 +4,94 @@
 background:$secondary-bg-color;
   margin-bottom: 50px;
   padding: 72px 0 86px;
-  display: flex;
-  &Text{
-    color: #000;
-    text-align: center;
-    font-family: Montserrat Alternates;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: 0.72px;
-    margin-bottom: 40px;
+  &Wrapper{
+    display: grid;
+    grid-template-columns:  1fr;
+    grid-template-areas:
+            "text"
+            "img"
+            "button";
+
+    &Text{
+      grid-area: text;
+      color: #000;
+      text-align: center;
+      font-family: Montserrat Alternates;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: 0.72px;
+      margin-bottom: 40px;
+    }
+    &Image{
+      grid-area: img;
+      margin-bottom: 42px;
+
+      &Img{
+        width: 100%;
+        max-width: 300px;
+      }
+
+    }
+    &Button{
+      grid-area: button;
+    }
   }
-  &Img{
-    width: 100%;
-    max-width: 300px;
-    margin-bottom: 42px;
+
+}
+@media (min-width: 500px) {
+  .Banner{
+    &Wrapper{
+      &Text{
+        font-size: 28px;
+        font-weight: 500;
+      }
+      &Image{
+        &Img{
+          width: 100%;
+          max-width: 400px;
+        }
+      }
+    }
+
+  }
+}
+@media (min-width: 900px) {
+  .Banner{
+    margin-bottom: 80px;
+    padding: 15px 0;
+    &Wrapper{
+      display: grid;
+      align-items: center;
+      grid-template-columns:  1fr 1fr;
+      grid-template-areas:
+            "text img"
+            "button img";
+
+      &Text{
+
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 600;
+        margin-bottom: 30px;
+        align-self:end;
+        text-align: left;
+
+
+      }
+      &Image{
+        margin-bottom: 0;
+        &Img{
+          width: 100%;
+          max-width: 411px;
+        }
+      }
+      &Button{
+        align-self:start;
+        justify-self: start;
+      }
+    }
 
   }
 }
