@@ -1,4 +1,45 @@
 @import "../../styles/variables.module";
-.Search{
 
+.Search {
+
+  margin-bottom: 50px;
+  //background: linear-gradient(180deg, #C8DDD2 0%, rgba(207, 235, 217, 0.00) 48.59%);
+  //border-radius: 16px;
+  //border: 1px solid  $primary-color;
+  //
+  //height: 200px;
+  &Form{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
+    input {
+      border-radius: 8px;
+      border: 1px solid #CFCFCF;
+      background: #FFF;
+      width: 70%;
+      margin-right: 7px;
+      padding: 6px 30px;
+      background: url("../../../public/home/search.svg") no-repeat;
+      background-position: 1% 50%;
+      outline: none;
+      &::placeholder{
+        color: #B6B6B6;
+        font-family: Inter;
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+    }
+  }
+  &Label{
+    color: #A4A4A4;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: left;
+  }
 }
