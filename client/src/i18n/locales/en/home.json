@@ -7,5 +7,9 @@
     "text": "For example: Remarque, Harry Potter",
     "placeholder": "Name of the book or author",
     "button": "Find"
+  },
+  "Description": {
+    "text": "BookBridgeHub is an online platform that brings book lovers together and allows them to share their favorite books with other community members. This is where you can find new books to read, share your books with others, and grow your library for free. Give books a second life and get to know new literary masterpieces.",
+    "link": "Learn more"
   }
 }

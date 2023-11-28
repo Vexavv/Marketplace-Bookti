@@ -1,0 +1,85 @@
+@import "../../styles/variables.module";
+
+.Description {
+  display: flex;
+  flex-direction: column;
+
+  &Image {
+    margin-bottom: 25px;
+
+    img {
+      width: 100%;
+      max-width: 850px;
+    }
+  }
+
+  &Content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    &Title {
+      margin-bottom: 25px;
+    }
+
+    &Text {
+      text-align: start;
+      color: #000;
+      font-family: Inter;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%;
+      margin-bottom: 20px;
+    }
+
+    &Link {
+      color: $primary-color;
+      font-family: Inter;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      text-decoration-line: underline;
+      align-self: end;
+    }
+  }
+}
+
+@media (min-width: 500px) {
+}
+
+@media (min-width: 900px) {
+  .Description {
+    flex-direction: row;
+    align-items: center;
+
+    &Image {
+      margin: 0 30px 0 0;
+      width: 50%;
+
+      img {
+        max-width: 650px;
+        min-height: 350px;
+      }
+    }
+
+    &Content {
+      width: 50%;
+
+      &Title {
+        margin-bottom: 25px;
+      }
+
+      &Text {
+        font-size: 18px;
+        margin-bottom: 37px;
+      }
+
+      &Link {
+        font-size: 16px;
+        align-self: start;
+      }
+    }
+  }
+}
