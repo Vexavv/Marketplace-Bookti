@@ -1,0 +1,62 @@
+.Wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+
+  &Title {
+    text-align: start;
+    margin-bottom: 25px;
+  }
+
+  &List {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+
+    &Item {
+margin-bottom: 25px;
+      &Text {
+        font-family: Inter, serif;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%;
+        color:  #000;
+        margin-top: 35px;
+      }
+    }
+  }
+}
+
+@media (min-width: 500px) {
+  .Wrapper {
+    &List {
+      flex-direction: row;
+      flex-wrap: wrap;
+      &Item {
+        width: 50%;
+      }
+    }
+  }
+}
+
+@media (min-width: 900px) {
+  .Wrapper {
+    margin-bottom: 100px;
+    &Title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    &List {
+      flex-direction: row;
+      flex-wrap: nowrap;
+
+      &Item {
+        margin: 0 30px 0 0;
+        width: 25%;
+      }
+    }
+  }
+
+}
