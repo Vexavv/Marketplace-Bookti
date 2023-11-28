@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './HTag.module.scss'
 import {HTagProps} from "./HTag.props";
-
-const HTag = ({tag, children}:HtagProps) => {
+import cn from 'classnames'
+const HTag = ({tag, children}:HTagProps) => {
     switch (tag){
         case 'h1':
             return <h1 className={styles.h1}>{children}</h1>;
@@ -11,7 +11,7 @@ const HTag = ({tag, children}:HtagProps) => {
         case 'h3':
             return <h3 className={styles.h3}>{children}</h3>;
         case 'h2Grey':
-            return <h2 className={styles.h2Grey}>{children}</h2>;
+            return <h2 className={cn(styles.h2,styles.h2Grey)}>{children}</h2>;
         default:
             return <></>
     }
