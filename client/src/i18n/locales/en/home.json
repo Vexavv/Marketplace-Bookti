@@ -20,5 +20,15 @@
       "third": "Choose the method of book exchange (personal meeting, mail or leave at the bookcrossing point)",
       "fourth": "Choose a book that interests you, write an ad to the owner and agree on the volumeн"
     }
+  },
+  "WhatCategories": {
+    "title": "Categories of books",
+    "text": "Check out our collection of the best and most interesting books. You will definitely find what you are looking for.",
+    "List": {
+      "first": "Novels",
+      "second": "Fantasy",
+      "third": "Poetry",
+      "fourth": "Detectives"
+    }
   }
 }

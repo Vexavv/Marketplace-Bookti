@@ -23,10 +23,8 @@ const HowWork = () => {
                 <ul className={styles.WrapperList}>
                     {stepList.map(item => (
                         <li className={styles.WrapperListItem} key={item.title}>
-                            <div>
                                 <img src={item.icon} alt="icon"/>
                                 <p className={styles.WrapperListItemText}>{item.title}</p>
-                            </div>
                         </li>
                     ))}
                 </ul>
