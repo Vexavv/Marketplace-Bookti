@@ -1,7 +1,36 @@
+.Banner{
+  //height: 650px;
+  background-image:url("../../../public/home/backgroun-mob.png");
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position:center center;
+  padding: 100px 0 200px;
+  margin-bottom: 50px;
+&Wrapper{
+&Title{
+margin-bottom: 25px;
+}
+  &Text{
+    color:  #FFF;
+    text-align: center;
+    font-family: Inter, serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 25px;
+  }
+}
+
+
+}
 
 
 
 
-
-@media (min-width: 500px) {}
+@media (min-width: 500px) {
+  .Banner{
+    background-image:url("../../../public/home/background.png");
+  }}
 @media (min-width: 900px) {}
