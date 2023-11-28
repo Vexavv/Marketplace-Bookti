@@ -1,34 +1,37 @@
 import React from 'react';
 import styles from './WhatCategories.module.scss'
 import {useTranslation} from "react-i18next";
-import {List} from "../../types";
+import {NavigationList} from "../../types";
 import Container from "../Container/Container";
 import HTag from "../HTag/HTag";
+import {Link} from "react-router-dom";
+import cn from "classnames";
 
 const WhatCategories = () => {
     const {t} = useTranslation('home')
-    const categoriesList: List[] = [
-        {icon: "/home/categories/first-book.png", title: t('WhatCategories.List.first')},
-        {icon: "/home/categories/second-book.png", title: t('WhatCategories.List.second')},
-        {icon: "/home/categories/third-book.png", title: t('WhatCategories.List.third')},
-        {icon: "/home/categories/fourth-book.png", title: t('WhatCategories.List.fourth')},
+    const categoriesList: NavigationList[] = [
+        {icon: "/home/categories/first-book.png", name: t('WhatCategories.List.first'),path:"#"},
+        {icon: "/home/categories/second-book.png", name: t('WhatCategories.List.second'),path:"#"},
+        {icon: "/home/categories/third-book.png", name: t('WhatCategories.List.third'),path:"#"},
+        {icon: "/home/categories/fourth-book.png", name: t('WhatCategories.List.fourth'),path:"#"},
     ]
     return (
         <Container>
-            <div>
-                <div>
+            <div className={styles.Wrapper}>
+                <div className={styles.WrapperTitle}>
                     <HTag tag='h2'>{t('WhatCategories.title')}</HTag>
                 </div>
-                <p>{t('WhatCategories.text')}</p>
-                <ul>
+                <p className={styles.WrapperText}>{t('WhatCategories.text')}</p>
+                <Link className={cn(styles.WrapperLink,styles.WrapperBigLink)} to='/library'>{t('WhatCategories.link')}</Link>
+                <ul className={styles.WrapperList}>
                     {categoriesList.map(item => (
-                        <li key={item.title}>
+                        <li className={styles.WrapperListItem} key={item.name}>
                             <img src={item.icon} alt="book"/>
-                            <p>{item.title}</p>
+                           <Link to={item.path}><p className={styles.WrapperListItemName}>{item.name}</p></Link>
                         </li>
                     ))}
                 </ul>
-
+                <Link className={cn(styles.WrapperLink,styles.WrapperDisableLink)} to='/library'>{t('WhatCategories.link')}</Link>
             </div>
         </Container>
 
