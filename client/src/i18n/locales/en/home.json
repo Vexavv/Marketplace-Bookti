@@ -11,5 +11,14 @@
   "Description": {
     "text": "BookBridgeHub is an online platform that brings book lovers together and allows them to share their favorite books with other community members. This is where you can find new books to read, share your books with others, and grow your library for free. Give books a second life and get to know new literary masterpieces.",
     "link": "Learn more"
+  },
+  "HowWork": {
+    "title": "How BookBridgeHub works",
+    "List": {
+      "first": "Go to the section \"Library”",
+      "second": "Find the book, author or genre you're looking for",
+      "third": "Choose the method of book exchange (personal meeting, mail or leave at the bookcrossing point)",
+      "fourth": "Choose a book that interests you, write an ad to the owner and agree on the volumeн"
+    }
   }
 }

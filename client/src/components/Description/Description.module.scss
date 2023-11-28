@@ -3,6 +3,7 @@
 .Description {
   display: flex;
   flex-direction: column;
+  margin-bottom: 50px;
 
   &Image {
     margin-bottom: 25px;
@@ -25,7 +26,7 @@
     &Text {
       text-align: start;
       color: #000;
-      font-family: Inter;
+      font-family: Inter, serif;
       font-size: 16px;
       font-style: normal;
       font-weight: 400;
@@ -35,7 +36,7 @@
 
     &Link {
       color: $primary-color;
-      font-family: Inter;
+      font-family: Inter, serif;
       font-size: 14px;
       font-style: normal;
       font-weight: 400;
@@ -53,6 +54,7 @@
   .Description {
     flex-direction: row;
     align-items: center;
+    margin-bottom:100px;
 
     &Image {
       margin: 0 30px 0 0;
