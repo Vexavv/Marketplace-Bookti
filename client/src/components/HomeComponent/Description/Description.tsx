@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './Description.module.scss'
-import Container from "../Container/Container";
+import Container from "../../Container/Container";
 import {Link} from "react-router-dom";
-import HTag from '../HTag/HTag'
+import HTag from '../../HTag/HTag'
 import {useTranslation} from "react-i18next";
 
 const Description = () => {
