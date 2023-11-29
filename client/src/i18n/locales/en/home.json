@@ -36,5 +36,14 @@
     "title": "Register now!",
     "text": "Get access to more than 10 thousand books absolutely free",
     "button": "Sign up "
+  },
+  "BlogCarousel": {
+    "title": "The latest from our blog",
+    "Carousel": {
+      "first": "Novels",
+      "second": "Fantasy",
+      "third": "Poetry",
+      "fourth": "Detectives"
+    }
   }
 }

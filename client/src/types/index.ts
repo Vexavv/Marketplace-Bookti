@@ -4,6 +4,7 @@ export interface NavigationList {
     icon?: string
 }
 export interface List {
+    id?: number,
     icon: string,
     title: string
 }

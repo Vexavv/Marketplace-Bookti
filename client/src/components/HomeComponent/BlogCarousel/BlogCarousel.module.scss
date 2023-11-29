@@ -1,0 +1,28 @@
+.Wrapper{
+margin-bottom: 50px;
+  &Title{
+    text-align: start;
+    margin-bottom: 25px;
+  }
+  &Card{
+//margin: 0 10px;
+    width: 320px;
+    &Image{
+margin-bottom:  20px;
+      img{
+        max-width: 320px;
+      }
+    }
+    &Text{
+      color: #000;
+      font-family: Inter, serif;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+  }
+}
+
+@media (min-width: 500px) {}
+@media (min-width: 900px) {}
