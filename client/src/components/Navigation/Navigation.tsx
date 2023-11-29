@@ -48,31 +48,6 @@ const Navigation: React.FC<NavigationProps> = ({mobile, footer}) => {
 
     );
 
-    // return (
-    //     <nav className={{
-    //             if(mobile) {
-    //                 styles.MobileNav
-    //             }
-    //             if(footer) {
-    //                 styles.FooterNav
-    //             } else{styles.Nav}
-    //         } >
-    //         < ul className={mobile ? styles.MobileNavList : styles.NavList}}>
-    //             {nav.map(item => (
-    //
-    //                 <li key={item.name} className={mobile ? styles.MobileNavListItem : styles.NavListItem}><NavLink
-    //                     className={mobile ? styles.MobileNavListItemLink : styles.NavListItemLink}
-    //                     to={item.path}>
-    //                     {mobile && <img className={styles.MobileNavListItemLinkIcon} src={item.icon}
-    //                                     alt="icon"/>} {item.name}</NavLink></li>
-    //             ))}
-    //         </ul>
-    //
-    //     </nav>
-    // );
-
-
-
 };
 
 export default Navigation;

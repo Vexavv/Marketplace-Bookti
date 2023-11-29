@@ -11,12 +11,12 @@ const responsive = {
     superLargeDesktop: {
         breakpoint: {max: 4000, min: 1441},
         items: 3,
-        slidesToSlide: 1
+        slidesToSlide: 3
     },
     desktop: {
         breakpoint: {max: 1440, min: 901},
         items: 3,
-        slidesToSlide: 1
+        slidesToSlide: 3
     },
     tablet: {
         breakpoint: {max: 900, min: 501},
@@ -25,13 +25,25 @@ const responsive = {
     mobile: {
         breakpoint: {max: 500, min: 0},
         items: 1,
-        slidesToSlide: 2
     }
 };
+
+interface CustomDotProps {
+    active: boolean;
+    onClick: () => void;
+}
+
+const CustomDot: React.FC<CustomDotProps> = ({active, onClick}) => (
+    <span className={`${styles['customDot']} ${active ? styles.active : ''}`} onClick={onClick}/>
+);
 
 
 const BlogCarousel = () => {
     const {t} = useTranslation('home')
+
+
+    // const [activeDotIndex, setActiveDotIndex] = useState(0);
+
 
     const test: List[] = [
         {id: 1, icon: "/home/carouselTest/1.png", title: t('BlogCarousel.Carousel.first')},
@@ -52,25 +64,24 @@ const BlogCarousel = () => {
                 <Carousel
                     responsive={responsive}
                     arrows={false}
-                    renderDotsOutside={true}
-                    rewind={true}
+                    swipeable
+                    // draggable
+                    infinite
                     keyBoardControl={true}
-                    draggable
-                    // showDots={true}
+                    customDot={<CustomDot active={false} onClick={() => {
+                    }}/>}
+                    showDots={true}
+                    renderDotsOutside={true}
                 >
                     {test.map(item => (
                         <div key={item.id} className={styles.WrapperCard}>
                             <div className={styles.WrapperCardImage}>
                                 <img src={item.icon} alt={item.title}/>
                             </div>
-
                             <p className={styles.WrapperCardText}>{item.title}</p>
                         </div>
                     ))}
-
                 </Carousel>
-
-
             </div>
         </Container>
 
