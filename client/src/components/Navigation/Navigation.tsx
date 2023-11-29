@@ -7,7 +7,7 @@ import {NavigationList} from "../../types";
 
 
 
-const Navigation: React.FC<NavigationProps> = ({mobile, footer}) => {
+const Navigation: React.FC<NavigationProps> = ({mobile, footer,onClick}) => {
 
     const {t} = useTranslation('header');
     const nav: NavigationList[] = [
@@ -22,7 +22,7 @@ const Navigation: React.FC<NavigationProps> = ({mobile, footer}) => {
                 <ul className={ styles.FooterNavList}>
                     {nav.map(item => (
 
-                        <li key={item.name} className={styles.FooterNavListItem}><NavLink
+                        <li key={item.name} className={styles.FooterNavListItem} ><NavLink
                             className={styles.FooterNavListItemLink}
                             to={item.path}>{item.name}</NavLink></li>
                     ))}
@@ -32,7 +32,7 @@ const Navigation: React.FC<NavigationProps> = ({mobile, footer}) => {
                 <ul className={mobile ? styles.MobileNavList : styles.NavList}>
                     {nav.map(item => (
 
-                        <li key={item.name} className={mobile ? styles.MobileNavListItem : styles.NavListItem}><NavLink
+                        <li key={item.name} className={mobile ? styles.MobileNavListItem : styles.NavListItem} onClick={onClick}><NavLink
                             className={mobile ? styles.MobileNavListItemLink : styles.NavListItemLink}
                             to={item.path}>
                             {mobile && <img className={styles.MobileNavListItemLinkIcon} src={item.icon}
