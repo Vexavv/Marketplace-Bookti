@@ -8,6 +8,7 @@ import Navigation from "../../Navigation/Navigation";
 import Button from "../../Button/Button";
 import {useTranslation} from "react-i18next";
 import {Link} from "react-router-dom";
+import Divider from '@mui/material/Divider';
 
 const MobileMenu: React.FC<MobileMenuProps> = ({mobileMenuOpen, mobileMenuToggle}) => {
     const {t} = useTranslation(['header', 'mobileMenu'])
@@ -23,19 +24,21 @@ const MobileMenu: React.FC<MobileMenuProps> = ({mobileMenuOpen, mobileMenuToggle
                     display: {md: 'none'},
                     '& .MuiDrawer-paper': {
                         boxSizing: 'border-box',
-                        width: {xs: '70%', sm: '50%', md: 'none'},
+                        width: {xs: '100%', sm: '50%', md: 'none'},
+                        overflow: 'hidden',
                         color: "#FFF",
-                        display: {md: 'none'}
+                        display: {md: 'none'},
+                        '&:active': { color: '#BA933E' }
                     }
                 }}>
             <div className={styles.Menu}>
                 <img className={styles.MenuClose} onClick={mobileMenuToggle} src="/header/x.svg" alt="close"/>
-                <div className={styles.MenuLogo}>
+                <div className={styles.MenuLogo} onClick={mobileMenuToggle}>
                     <Logo mobile={true}/>
                 </div>
                 <div className={styles.MenuWrapper}>
                     <div className={styles.MenuWrapperNav}>
-                        <Navigation mobile={true}/>
+                        <Navigation mobile={true} onClick={mobileMenuToggle}/>
                     </div>
                     <div className={styles.MenuWrapperSelect}>
                         <Select/>
@@ -43,16 +46,16 @@ const MobileMenu: React.FC<MobileMenuProps> = ({mobileMenuOpen, mobileMenuToggle
                 </div>
                 <div className={styles.MenuButton}>
                     <Link to='/'>
-                        <Button name='MobileMenu'>{t('Button.registration')}</Button>
+                        <Button onClick={mobileMenuToggle} name='MobileMenu'>{t('Button.registration')}</Button>
                     </Link>
 
                 </div>
                 <div className={styles.MenuContent}>
                     <p className={styles.MenuContentText}>{t('mobileMenu:account')}</p>
-                    <Link className={styles.MenuContentLink} to='/'>{t('mobileMenu:enter')}</Link>
+                    <Link onClick={mobileMenuToggle} className={styles.MenuContentLink} to='/'>{t('mobileMenu:enter')}</Link>
                 </div>
             </div>
-
+            <Divider sx={{ mb: 2 }} />
         </Drawer>
     );
 };
