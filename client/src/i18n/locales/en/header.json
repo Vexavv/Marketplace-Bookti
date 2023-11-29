@@ -1,0 +1,16 @@
+{
+  "Nav": {
+    "about": "About",
+    "library": "Library",
+    "blog": "Blog"
+
+  },
+  "Select": {
+    "uk": "Ukraine",
+    "en": "English"
+  },
+  "Button": {
+    "login": "Login",
+    "registration": "Registration"
+  }
+}
