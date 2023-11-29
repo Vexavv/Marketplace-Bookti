@@ -23,7 +23,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({mobileMenuOpen, mobileMenuToggle
                     display: {md: 'none'},
                     '& .MuiDrawer-paper': {
                         boxSizing: 'border-box',
-                        width: {xs: '100%', sm: '50%', md: 'none'},
+                        width: {xs: '70%', sm: '50%', md: 'none'},
                         color: "#FFF",
                         display: {md: 'none'}
                     }
