@@ -1,0 +1,93 @@
+.Wrapper {
+  margin-bottom: 50px;
+  position: relative;
+
+  &Title {
+    text-align: start;
+    margin-bottom: 25px;
+  }
+
+  &Card {
+    width: 100%;
+    max-width: 250px;
+    margin: 0 auto 40px;
+
+    &Image {
+      margin-bottom: 20px;
+
+      img {
+        width: 100%;
+        max-width: 250px;
+      }
+    }
+
+    &Text {
+      color: #000;
+      font-family: Inter, serif;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+  }
+}
+
+@media (min-width: 500px) {
+  .Wrapper {
+    &Card {
+      width: 100%;
+      max-width: 280px;
+
+      &Image {
+
+        img {
+          width: 100%;
+          //max-width: 280px;
+        }
+      }
+    }
+  }
+
+}
+
+@media (min-width: 900px) {
+  .Wrapper {
+    margin-bottom: 100px;
+
+    &Title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    &Card {
+      width: 100%;
+      max-width: 400px;
+
+
+      &Image {
+        margin-bottom: 35px;
+
+        img {
+          width: 100%;
+          max-width: 295px;
+        }
+      }
+
+      &Text {
+        font-size: 24px;
+      }
+    }
+  }
+}
+
+.customDot {
+  background-color: #777777;
+  width: 30px;
+  height: 4px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.active {
+  background-color: #B4E2F6;
+}

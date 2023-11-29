@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './HowWork.module.scss'
-import Container from "../Container/Container";
-import HTag from "../HTag/HTag";
+import Container from "../../Container/Container";
+import HTag from "../../HTag/HTag";
 import {useTranslation} from "react-i18next";
-import {List} from "../../types";
+import {List} from "../../../types";
 
 const HowWork = () => {
     const {t} = useTranslation('home')

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Banner.module.scss'
-import Container from "../Container/Container";
-import Button from "../Button/Button";
+import Container from "../../Container/Container";
+import Button from "../../Button/Button";
 import {useTranslation} from "react-i18next";
 
 const Banner = () => {
