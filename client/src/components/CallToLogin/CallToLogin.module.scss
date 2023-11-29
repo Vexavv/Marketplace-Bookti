@@ -1,0 +1,55 @@
+.Banner {
+  background-image: url("/home/backgroun-mob.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  padding: 100px 0 200px;
+  margin-bottom: 50px;
+
+  &Wrapper {
+    &Title {
+      margin-bottom: 25px;
+    }
+
+    &Text {
+      color: #FFF;
+      text-align: center;
+      font-family: Inter, serif;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      margin-bottom: 25px;
+    }
+  }
+}
+
+
+@media (min-width: 500px) {
+  .Banner {
+    background-image: url("/home/background.png");
+  }
+}
+
+@media (min-width: 900px) {
+  .Banner {
+
+    padding: 110px 0 210px;
+    margin-bottom: 100px;
+
+    &Wrapper {
+      width: 45%;
+      margin-left: 6rem;
+
+      &Title {
+        margin-bottom: 30px;
+      }
+
+      &Text {
+        font-size: 24px;
+        margin-bottom: 30px;
+      }
+    }
+  }
+}
+

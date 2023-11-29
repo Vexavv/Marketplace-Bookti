@@ -5,6 +5,7 @@ import Search from "../../components/Search/Search";
 import Description from "../../components/Description/Description";
 import HowWork from "../../components/HowWork/HowWork";
 import WhatCategories from "../../components/WhatCategories/WhatCategories";
+import CallToLogin from "../../components/CallToLogin/CallToLogin";
 const Home = () => {
     return (
         <div>
@@ -13,6 +14,7 @@ const Home = () => {
             <Description/>
             <HowWork/>
             <WhatCategories/>
+            <CallToLogin/>
         </div>
     );
 };

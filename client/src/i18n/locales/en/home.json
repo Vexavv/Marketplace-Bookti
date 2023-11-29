@@ -31,5 +31,10 @@
       "fourth": "Detectives"
     },
     "link": "See all categories"
+  },
+  "CallToLogin": {
+    "title": "Register now!",
+    "text": "Get access to more than 10 thousand books absolutely free",
+    "button": "Sign up "
   }
 }
