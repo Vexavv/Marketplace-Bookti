@@ -41,6 +41,7 @@ const Select = () => {
         <option value="uk" disabled={i18next.language === LOCALS.UK}>{t('Select.uk')}</option>
         <option value="en" disabled={i18next.language === LOCALS.EN}>{t('Select.en')}</option>
     </select>
+    <div>Come</div>
 </div>
 
     );
