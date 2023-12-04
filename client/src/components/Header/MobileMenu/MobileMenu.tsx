@@ -55,7 +55,6 @@ const MobileMenu: React.FC<MobileMenuProps> = ({mobileMenuOpen, mobileMenuToggle
                     <Link onClick={mobileMenuToggle} className={styles.MenuContentLink} to='/'>{t('mobileMenu:enter')}</Link>
                 </div>
             </div>
-            <Divider sx={{ mb: 2 }} />
         </Drawer>
     );
 };
