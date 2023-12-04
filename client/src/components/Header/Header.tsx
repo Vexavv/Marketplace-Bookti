@@ -7,7 +7,7 @@ import {useTranslation} from "react-i18next";
 import Button from "../Button/Button";
 import MobileMenu from "./MobileMenu/MobileMenu";
 import Logo from "./Logo/Logo";
-
+import {Link} from "react-router-dom";
 
 
 const Header = () => {
@@ -22,7 +22,10 @@ const Header = () => {
         <header className={styles.Header}>
             <Container>
                 <div className={styles.HeaderWrapper}>
-                    <Logo/>
+                    <Link to='/'>
+                        <Logo/>
+                    </Link>
+
                     <img onClick={mobileMenuToggle} className={styles.HeaderWrapperBurger} src="/header/burger.png"
                          alt="burger"/>
 
@@ -30,12 +33,12 @@ const Header = () => {
                         <Navigation/>
                         <Select/>
                         <div className={styles.HeaderWrapperMenuButtonGroup}>
-                            <Button name='HeaderButton' onClick={() => {
-                                console.log('Enter')
-                            }}>{t('Button.login')}</Button>
-                            <Button name='HeaderButton' onClick={() => {
-                                console.log('Login')
-                            }}>{t('Button.registration')}</Button>
+                            <Link to='/login'>
+                                <Button name='HeaderButton'>{t('Button.login')}</Button>
+                            </Link>
+                            <Link to='/registration'>
+                                <Button name='HeaderButton'>{t('Button.registration')}</Button>
+                            </Link>
                         </div>
                     </div>
                 </div>

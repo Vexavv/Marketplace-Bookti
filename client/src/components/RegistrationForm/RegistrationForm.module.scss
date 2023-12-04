@@ -1,0 +1,71 @@
+.Wrapper {
+  display: flex;
+  justify-content: center;
+
+  &Form {
+    height: 300px;
+
+    display: flex;
+    flex-direction: column;
+
+&Logo{
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+  position: relative;
+  width: 100%;
+  &::before {
+    content: '';
+    position: absolute;
+    left: 5%;
+    bottom: -40px;
+    width: 90%;
+    height: 1px;
+    background-color: #C8DDD2;
+
+  }
+}
+    &Greetings{
+      color: #000;
+      font-family: Inter, serif;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      margin-top: 70px;
+    }
+
+  }
+
+  &Image {
+    display: none;
+  }
+}
+
+@media (min-width: 500px) {
+  .Wrapper {
+    display: flex;
+
+
+    &Form {
+
+    }
+    &Image {
+
+    }
+  }
+}
+
+@media (min-width: 900px) {
+  .Wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    &Form {
+
+    }
+    &Image {
+      display: block;
+    }
+  }
+}

@@ -11,6 +11,8 @@ import PageNotFound from "./pages/PageNotFound/PageNotFound";
 import Cookies from "./pages/Cookies/Cookies";
 import TermsAndConditions from "./pages/TermsAndConditions/TermsAndConditions";
 import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
+import LogIn from "./pages/LogIn/LogIn";
+import Registration from "./pages/Registration/Registration";
 
 function App() {
 
@@ -26,6 +28,8 @@ function App() {
                 <Route path="/cookies" element={<Cookies/>}/>
                 <Route path="/terms" element={<TermsAndConditions/>}/>
                 <Route path="/privacy" element={<PrivacyPolicy/>}/>
+                <Route path="/login" element={<LogIn/>}/>
+                <Route path="/registration" element={<Registration/>}/>
                 <Route path="*" element={<PageNotFound/>}/>
 
             </Route>
