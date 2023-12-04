@@ -1,11 +1,8 @@
-import {Option} from "./OptionEl/OptionEl.props";
+export interface Options {
+    id:number,
+    value:string,
+    name:string,
+    disabled:string
 
-export type SelectProps = {
-    selected: Option | null;
-    options: Option[];
-    placeholder?: string;
-    mode?: "rows" | "cells";
-    status?: "default" | "invalid";
-    onChange?: (selected: Option["value"]) => void;
-    onClose?: () => void;
-};
+}
+

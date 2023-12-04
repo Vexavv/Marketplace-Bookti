@@ -7,20 +7,12 @@ import {useTranslation} from "react-i18next";
 import Button from "../Button/Button";
 import MobileMenu from "./MobileMenu/MobileMenu";
 import Logo from "./Logo/Logo";
-import options from './options.json'
+
 
 
 const Header = () => {
     const {t} = useTranslation('header')
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-    //-----------------------------------------------------
-    // const [language, setLanguage] = useState('');
-    // const handleLanguageSelect = (value: string) => {
-    //     setLanguage(value);
-    // };
-    //
-    // const selectedLanguage = options.find((item) => item.value === language);
-//--------------------------------------------------
     const mobileMenuToggle = () => {
         setMobileMenuOpen(current => !current)
     }
