@@ -5,4 +5,5 @@ interface Local {
 export const LOCALS: Local = {
     UK: 'uk',
     EN: 'en'
+
 }
