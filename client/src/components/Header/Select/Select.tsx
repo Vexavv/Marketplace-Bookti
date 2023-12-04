@@ -47,12 +47,12 @@ export default function ControlledOpenSelect() {
 
     return (
         <Box sx={{display: 'flex', alignItems: 'center', height: '20px'}}>
-            {i18next.language === LOCALS.EN ?
-                <Avatar sx={{width: 19, height: 13, borderRadius: '3px'}} alt="Flag-en" src="/select/flag-en.svg"
-                        variant="square"/> :
-                <Avatar sx={{width: 19, height: 13, borderRadius: '3px'}} alt="Flag-uk" src="/select/flag-ukraine.svg"
-                        variant="square"/>}
-            <FormControl sx={{m: 1, minWidth: 120,}} size="small" variant="outlined">
+            <FormControl sx={{mt:'4px', minWidth: 120,display: 'flex',flexDirection: 'row',alignItems: 'center' }} size="small" variant="outlined">
+                {i18next.language === LOCALS.EN ?
+                    <Avatar sx={{width: 19, height: 13, borderRadius: '3px'}} alt="Flag-en" src="/select/flag-en.svg"
+                            variant="square"/> :
+                    <Avatar sx={{width: 19, height: 13, borderRadius: '3px'}} alt="Flag-uk" src="/select/flag-ukraine.svg"
+                            variant="square"/>}
                 <Select
                     labelId="demo-controlled-open-select-label"
                     id="demo-controlled-open-select"
