@@ -1,0 +1,63 @@
+.Form {
+  width: 280px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+
+  &VisibilityWrapper {
+    position: relative;
+    width: 100%;
+    &Visibility {
+      position: absolute;
+      top: 20%;
+      right: 5%;
+      cursor: pointer;
+    }
+  }
+
+  &Input {
+    width: 100%;
+    border-radius: 8px;
+    border: 0.5px solid #B0B0B0;
+    outline: none;
+    padding: 12px 0 13px 11px;
+    margin-bottom: 10px;
+
+    &::placeholder {
+      color: #8D8D8D;
+      font-family: Inter, serif;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: 0.16px;
+    }
+
+    &Error {
+      color: red;
+    }
+  }
+&Text{
+  margin: 25px 0;
+  color: #000;
+  font-family: Inter, serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.32px;
+}
+  &Icon{
+    width:50%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 40px;
+
+
+img{
+
+}
+  }
+}

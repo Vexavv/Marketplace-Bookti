@@ -3,8 +3,6 @@
   justify-content: center;
 
   &Form {
-    height: 300px;
-
     display: flex;
     flex-direction: column;
 
@@ -32,7 +30,7 @@
       font-style: normal;
       font-weight: 500;
       line-height: normal;
-      margin-top: 70px;
+      margin: 70px 0 36px;
     }
 
   }
