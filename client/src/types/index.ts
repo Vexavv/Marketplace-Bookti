@@ -8,3 +8,8 @@ export interface List {
     icon: string,
     title: string
 }
+
+export interface LoginForm{
+    email:string,
+    password: string
+}
