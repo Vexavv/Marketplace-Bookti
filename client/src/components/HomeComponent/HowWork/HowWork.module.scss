@@ -17,6 +17,10 @@
 
     &Item {
 margin-bottom: 25px;
+      img{
+        width: 80px;
+        height: 90px;
+      }
       &Text {
         @include primary-font;
         font-size: 18px;
