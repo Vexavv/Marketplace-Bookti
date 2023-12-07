@@ -1,3 +1,5 @@
+@import "../../../styles/mixins.module";
+@import "../../../styles/variables.module";
 .Form {
   width: 280px;
 
@@ -9,11 +11,13 @@
   &VisibilityWrapper {
     position: relative;
     width: 100%;
+    margin-bottom: 60px;
     &Visibility {
       position: absolute;
       top: 20%;
       right: 5%;
       cursor: pointer;
+
     }
   }
 
@@ -26,12 +30,9 @@
     margin-bottom: 10px;
 
     &::placeholder {
-      color: #8D8D8D;
-      font-family: Inter, serif;
+      @include primary-font;
       font-size: 12px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
+      color: #8D8D8D;
       letter-spacing: 0.16px;
     }
 
@@ -40,24 +41,94 @@
     }
   }
 &Text{
+  @include primary-font;
   margin: 25px 0;
   color: #000;
-  font-family: Inter, serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
   letter-spacing: 0.32px;
 }
   &Icon{
     width:50%;
     display: flex;
-    justify-content: space-evenly;
-    margin-bottom: 40px;
+    justify-content: center;
+    //margin-bottom: 40px;
 
+  }
+}
+.Wrapper{
+  display: flex;
+  justify-content: center;
+  margin-top: 130px;
+  &Text{
+    @include primary-font;
+    color:#000000;
+    margin-right: 5px;
+  }
+  &Link{
+    @include primary-font;
+    color:$primary-color;
+    text-decoration: underline;
+  }
+}
 
-img{
+@media (min-width: 500px) {
+  .Form {
+    width: 350px;
+
+    &Input {
+      width: 100%;
+      border-radius: 8px;
+      border: 0.5px solid #B0B0B0;
+      outline: none;
+      padding: 12px 0 13px 11px;
+      margin-bottom: 10px;
+      font-size: 14px;
+
+      &::placeholder {
+        font-size: 14px;
+      }
+    }
+  }
 
 }
+@media (min-width: 900px) {
+  .Form {
+    width: 398px;
+
+    &VisibilityWrapper {
+
+      &Visibility {
+
+      }
+    }
+
+    &Input {
+      border-radius: 0;
+      border: none;
+      border-bottom: 1px solid #777;
+      outline: none;
+      padding: 12px 0 13px;
+      margin-bottom: 10px;
+
+      font-size: 16px;
+      &::placeholder {
+        font-size: 16px;
+
+      }
+
+    }
+    &Text{
+      @include primary-font;
+      margin: 25px 0;
+      color: #000;
+      letter-spacing: 0.32px;
+    }
+    &Icon{
+      width:50%;
+
+
+    }
+  }
+  .Wrapper{
+    margin-top: 90px;
   }
 }

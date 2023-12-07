@@ -1,11 +1,7 @@
 @import '../../styles/variables.module';
-
+@import "../../styles/mixins.module";
 .Button{
-  font-family: Inter;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+ @include primary-font;
   padding: 12px;
   border-radius: 8px;
   color: #FFFFFF;

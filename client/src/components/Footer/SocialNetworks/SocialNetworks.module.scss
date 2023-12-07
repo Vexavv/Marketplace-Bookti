@@ -1,12 +1,9 @@
 @import "../../../styles/variables.module";
+@import "../../../styles/mixins.module";
 .Social {
   &List {
     &Item {
-      font-family: IBM Plex Sans;
-      font-size: 14px;
-      font-style: normal;
-      font-weight: 300;
-      line-height: 120%;
+      @include secondary-font;
       margin-bottom: 15px;
       &Link {
         display: flex;

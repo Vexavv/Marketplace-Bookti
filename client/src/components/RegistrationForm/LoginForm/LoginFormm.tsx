@@ -8,7 +8,7 @@ import Button from "../../Button/Button";
 
 import Visibility from '@mui/icons-material/Visibility'
 import VisibilityOff from '@mui/icons-material/VisibilityOff'
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 
 // initialValues
@@ -38,10 +38,9 @@ const LoginFormm = () => {
     };
 
 
-
     return (
-        <>
-            <Formik initialValues={initialValuesLogin} onSubmit={(values,{resetForm }) => {
+        <div>
+            <Formik initialValues={initialValuesLogin} onSubmit={(values, {resetForm}) => {
                 console.log('Checkout >>>', values)
                 resetForm()
             }} validationSchema={validationSchemaLogin}>
@@ -57,27 +56,33 @@ const LoginFormm = () => {
                             placeholder="Password"
                         />
                         <span className={styles.FormVisibilityWrapperVisibility}
-                              onClick={() => { handleToggle(setIsShowPassword) }}>
-                                        {isShowPassword ? <Visibility /> : <VisibilityOff />}
+                              onClick={() => {
+                                  handleToggle(setIsShowPassword)
+                              }}>
+                                        {isShowPassword ? <Visibility/> : <VisibilityOff/>}
                                     </span>
 
                     </div>
                     <ErrorMessage className={styles.FormInputError} component="span" name="password"/>
+                    <Button name='MobileMenu' type="submit">Увійти</Button>
                     <p className={styles.FormText}>ЧИ</p>
                     <div className={styles.FormIcon}>
-                        <Link to='/'>
-                            <img src="/login/facebook.svg" alt="facebook"/>
-                        </Link>
-                        <Link to='/'>
-                            <img src="/login/google.svg" alt="google"/>
-                        </Link>
+
+                            <img onClick={()=>{
+                                console.log('Facebook')}}  src="/login/facebook.svg" alt="facebook"/>
+
+
+                            <img onClick={()=>{
+                                console.log('Google')}} src="/login/google.svg" alt="google"/>
 
                     </div>
-                    <Button name='MobileMenu' type="submit">Увійти</Button>
-
                 </Form>
             </Formik>
-        </>
+            <div className={styles.Wrapper}>
+                <p className={styles.WrapperText}> Немає аккаунту?</p>
+                <Link className={styles.WrapperLink} to='/registration'>Зареєструватись</Link>
+            </div>
+        </div>
     );
 };
 

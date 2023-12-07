@@ -2,19 +2,26 @@ import React from 'react';
 import styles from './RegistrationForm.module.scss'
 import Logo from "../Header/Logo/Logo";
 import LoginFormm from "./LoginForm/LoginFormm";
+import {Link} from "react-router-dom";
 
 const RegistrationForm = () => {
     return (
         <div className={styles.Wrapper}>
+            <div className={styles.WrapperArrow}>
+                <img src="/login/arrow.svg" alt="arrow"/>
+                <Link className={styles.WrapperArrowLink} to='/'>Назад</Link>
+            </div>
             <div className={styles.WrapperForm}>
+
                 <div className={styles.WrapperFormLogo}>
                     <Logo mobile={true}/>
                 </div>
                 <p className={styles.WrapperFormGreetings}>Ласкаво просимо</p>
                 <LoginFormm/>
+
             </div>
             <div className={styles.WrapperImage}>
-                Image
+                <img src="/login/books.png" alt="books"/>
             </div>
         </div>
     );
