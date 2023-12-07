@@ -77,7 +77,7 @@ export default function ControlledOpenSelect() {
                     <MenuItem value={item.value} key={item.id} disabled={i18next.language === item.disabled} sx={{
                         fontSize: '16px',
                         fontFamily: 'Inter, serif',
-                        marginBottom: '5px',
+                        margin:'5px',
                         borderRadius: '5px',
                         '&:hover': {background: '#447B57', color: '#fff'}
                     }}>{item.name}</MenuItem>
