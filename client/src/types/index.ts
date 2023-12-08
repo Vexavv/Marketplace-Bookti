@@ -10,6 +10,8 @@ export interface List {
 }
 
 export interface LoginForm{
-    email:string,
-    password: string
+    name?: string,
+    email?:string,
+    password: string,
+    confirmPassword?: string
 }

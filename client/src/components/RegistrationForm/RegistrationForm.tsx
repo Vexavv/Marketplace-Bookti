@@ -3,8 +3,9 @@ import styles from './RegistrationForm.module.scss'
 import Logo from "../Header/Logo/Logo";
 import LoginFormm from "./LoginForm/LoginFormm";
 import {Link} from "react-router-dom";
+import {RegistrationFormProps} from "./RegistrationForm.props";
 
-const RegistrationForm = () => {
+const RegistrationForm = ({registration}:RegistrationFormProps) => {
     return (
         <div className={styles.Wrapper}>
             <div className={styles.WrapperArrow}>
@@ -17,7 +18,7 @@ const RegistrationForm = () => {
                     <Logo mobile={true}/>
                 </div>
                 <p className={styles.WrapperFormGreetings}>Ласкаво просимо</p>
-                <LoginFormm/>
+                <LoginFormm registration/>
 
             </div>
             <div className={styles.WrapperImage}>
