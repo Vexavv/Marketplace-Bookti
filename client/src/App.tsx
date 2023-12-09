@@ -13,6 +13,7 @@ import TermsAndConditions from "./pages/TermsAndConditions/TermsAndConditions";
 import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
 import LogIn from "./pages/LogIn/LogIn";
 import Registration from "./pages/Registration/Registration";
+import MyAccount from "./pages/MyAccount/MyAccount";
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
                 <Route path="/privacy" element={<PrivacyPolicy/>}/>
                 <Route path="/login" element={<LogIn/>}/>
                 <Route path="/registration" element={<Registration/>}/>
+                <Route path="/account" element={<MyAccount/>}/>
                 <Route path="*" element={<PageNotFound/>}/>
 
             </Route>
