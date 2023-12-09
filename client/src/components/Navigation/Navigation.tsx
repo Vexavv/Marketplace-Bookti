@@ -8,9 +8,10 @@ import {NavigationList} from "../../types";
 
 
 const Navigation: React.FC<NavigationProps> = ({mobile, footer,onClick}) => {
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
     const {t} = useTranslation('header');
 
+    //--------------------------isLogged-----------------------------
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
     const additionalNav: NavigationList[] = isLoggedIn
         ? [
             { name: 'Books', path: '/about',icon: '/header/clipboard.svg'  },
@@ -26,17 +27,10 @@ const Navigation: React.FC<NavigationProps> = ({mobile, footer,onClick}) => {
         { name: t('Nav.blog'), path: '/blog', icon: '/header/bookmark.svg' },
         // Добавьте дополнительные NavLink только для mobileMenu
     ];
-
+    //--------------------------isLogged-----------------------------
 
 
     // const nav: NavigationList[] = [
-    //     ...(isLoggedIn
-    //         ? [
-    //             { name: 'Books', path: '/about',icon: '/header/clipboard.svg'  },
-    //             { name: 'Favorite', path: '/about', icon: '/header/book.svg' }
-    //         ]
-    //         : []),
-    //
     //     {name: t('Nav.about'), path: '/about', icon: '/header/clipboard.svg'},
     //     {name: t('Nav.library'), path: '/library', icon: '/header/book.svg'},
     //     {name: t('Nav.blog'), path: '/blog', icon: '/header/bookmark.svg'}
