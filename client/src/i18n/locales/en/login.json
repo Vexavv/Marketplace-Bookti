@@ -1,0 +1,27 @@
+{
+  "arrow": "Back",
+  "title": "Welcome",
+  "Error": {
+    "login": {
+      "email": {
+        "email": "Invalid email format",
+        "required": "This field is required"
+      },
+      "password": {
+        "min": "The password must contain from 6 to 30 characters",
+        "max": "The password must contain from 6 to 30 characters",
+        "required": "This field is required"
+      }
+    },
+    "registration": {
+    }
+  },
+  "LoginPlaceholder": {
+    "email": "Email",
+    "password": "Password"
+  },
+  "LoginButton": "Enter",
+  "LoginText": "Don't have an account?",
+  "LoginLink": "Register",
+  "Or": "OR"
+}

@@ -11,6 +11,7 @@ import Visibility from '@mui/icons-material/Visibility'
 import VisibilityOff from '@mui/icons-material/VisibilityOff'
 import {Link} from 'react-router-dom';
 import {LoginFormProps} from "./LoginForm.props";
+import {useTranslation} from "react-i18next";
 
 // initialValues
 const initialValuesLogin: LoginForm = {
@@ -24,22 +25,23 @@ const initialValuesSignIn: LoginForm = {
 }
 
 const LoginFormm = ({registration}: LoginFormProps) => {
+    const {t} = useTranslation('login')
+
     YupPassword(yup)
     const validationSchemaLogin: yup.Schema<LoginForm> = yup.object().shape({
         email: yup.string()
-            .email('Invalid email address')
-            .required('This field is required'),
+            .email(t('Error.login.email.email'))
+            .required(t('Error.login.email.required')),
         password: yup.string()
             .minSymbols(0)
-            .min(6, 'Password must be between 6 and 30 characters')
-            .max(30, 'Password must be between 6 and 30 characters')
-            .minLowercase(5)
-            .required('Password is required field'),
+            .min(6, t('Error.login.password.min'))
+            .max(30, t('Error.login.password.max'))
+            .required(t('Error.login.email.required')),
     })
 
     const validationSchemaRegister: yup.Schema<LoginForm> = yup.object().shape({
         name: yup.string()
-            .matches(/^[a-zA-Zа-яА-Я]+$/, 'Allowed characters for First Name is a-z, A-Z, а-я, А-Я.')
+            .matches(/^[a-zA-Zа-яА-Я]+$/, 'Allowed characters for Name is a-z, A-Z, а-я, А-Я.')
             .min(2, 'First Name must be between 2 and 25 characters.')
             .max(25, 'First Name must be between 2 and 25 characters.')
             .required('First Name is required'),
@@ -114,14 +116,14 @@ const LoginFormm = ({registration}: LoginFormProps) => {
                 }} validationSchema={validationSchemaLogin}>
                     <Form className={styles.Form}>
                         <Field className={styles.FormInput} type="text" name="email"
-                               placeholder="Електрона пошта"/>
+                               placeholder={t('LoginPlaceholder.email')}/>
                         <ErrorMessage className={styles.FormInputError} component="span" name="email"/>
                         <div className={styles.FormVisibilityWrapper}>
                             <Field
                                 className={styles.FormInput}
                                 name="password"
                                 type={isShowPassword ? 'text' : 'password'}
-                                placeholder="Password"
+                                placeholder={t('LoginPlaceholder.password')}
                             />
                             <ErrorMessage className={styles.FormInputError} component="span" name="password"/>
                             <span className={styles.FormVisibilityWrapperVisibility}
@@ -133,8 +135,8 @@ const LoginFormm = ({registration}: LoginFormProps) => {
 
                         </div>
 
-                        <Button name='MobileMenu' type="submit">Увійти</Button>
-                        <p className={styles.FormText}>ЧИ</p>
+                        <Button name='MobileMenu' type="submit">{t('LoginButton')}</Button>
+                        <p className={styles.FormText}>{t('Or')}</p>
                         <div className={styles.FormIcon}>
 
                             <img onClick={() => {
@@ -150,8 +152,8 @@ const LoginFormm = ({registration}: LoginFormProps) => {
                     </Form>
                 </Formik>
                 <div className={styles.Wrapper}>
-                    <p className={styles.WrapperText}> Немає аккаунту?</p>
-                    <Link className={styles.WrapperLink} to='/registration'>Зареєструватись</Link>
+                    <p className={styles.WrapperText}>{t('LoginText')}</p>
+                    <Link className={styles.WrapperLink} to='/registration'>{t('LoginLink')}</Link>
                 </div>
             </div>)}
             </>
