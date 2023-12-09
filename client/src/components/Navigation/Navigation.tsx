@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './Navigation.module.scss'
 import {NavLink} from "react-router-dom";
 import {useTranslation} from "react-i18next";
@@ -8,13 +8,39 @@ import {NavigationList} from "../../types";
 
 
 const Navigation: React.FC<NavigationProps> = ({mobile, footer,onClick}) => {
-
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
     const {t} = useTranslation('header');
+
+    const additionalNav: NavigationList[] = isLoggedIn
+        ? [
+            { name: 'Books', path: '/about',icon: '/header/clipboard.svg'  },
+            { name: 'Favorite', path: '/about', icon: '/header/book.svg' }
+        ]
+        : [];
+
     const nav: NavigationList[] = [
-        {name: t('Nav.about'), path: '/about', icon: '/header/clipboard.svg'},
-        {name: t('Nav.library'), path: '/library', icon: '/header/book.svg'},
-        {name: t('Nav.blog'), path: '/blog', icon: '/header/bookmark.svg'}
-    ]
+        ...(mobile ? additionalNav : []),
+        // Остальные элементы
+        { name: t('Nav.about'), path: '/about', icon: '/header/clipboard.svg' },
+        { name: t('Nav.library'), path: '/library', icon: '/header/book.svg' },
+        { name: t('Nav.blog'), path: '/blog', icon: '/header/bookmark.svg' },
+        // Добавьте дополнительные NavLink только для mobileMenu
+    ];
+
+
+
+    // const nav: NavigationList[] = [
+    //     ...(isLoggedIn
+    //         ? [
+    //             { name: 'Books', path: '/about',icon: '/header/clipboard.svg'  },
+    //             { name: 'Favorite', path: '/about', icon: '/header/book.svg' }
+    //         ]
+    //         : []),
+    //
+    //     {name: t('Nav.about'), path: '/about', icon: '/header/clipboard.svg'},
+    //     {name: t('Nav.library'), path: '/library', icon: '/header/book.svg'},
+    //     {name: t('Nav.blog'), path: '/blog', icon: '/header/bookmark.svg'}
+    // ]
 
     return (
         <>
