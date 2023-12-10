@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {Routes, Route,} from "react-router-dom";
 import  './App.css'
 
@@ -14,10 +14,9 @@ import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
 import LogIn from "./pages/LogIn/LogIn";
 import Registration from "./pages/Registration/Registration";
 import MyAccount from "./pages/MyAccount/MyAccount";
+import styles from "./components/Header/Header.module.scss";
 
 function App() {
-
-
   return (
     <div>
         <Routes>
@@ -36,6 +35,7 @@ function App() {
 
             </Route>
         </Routes>
+
 
     </div>
   )

@@ -17,8 +17,9 @@ const Header = () => {
         setMobileMenuOpen(current => !current)
     }
 //-------------------------------Loggin----------------------------
-    const [isLogged, setIsLogged] = useState(true)
-
+    const [isLogged, setIsLogged] = useState(false)
+//----------------------dropdown----------------------------------
+    const [isOpen, setIsOpen] = useState(false);
 
 
 
@@ -38,12 +39,22 @@ const Header = () => {
                     <div className={styles.HeaderWrapperMenu}>
                         <Navigation/>
                         <Select/>
-                        {isLogged ? (<div>
+                        {isLogged ? (<div  className={`${styles.dropdown} ${isOpen && styles.open}`}
+                                           onMouseEnter={() => setIsOpen(true)}
+                                           onMouseLeave={() => setIsOpen(false)}>
                             <Link to='/account'>
                                 <Button name='UserButton'>
                                     <img className={styles.HeaderWrapperUser} src="/header/user.svg" alt="user"/>
                                     Марія</Button>
                             </Link>
+                            {/*{isOpen && (*/}
+                            {/*    <ul className={styles.menu}>*/}
+                            {/*        <li>ffffff</li>*/}
+
+                            {/*        <li onClick={()=>{*/}
+                            {/*            console.log('hekkekekekek')}}>fffffff</li>*/}
+                            {/*    </ul>*/}
+                            {/*)}*/}
                         </div>) : (<div className={styles.HeaderWrapperMenuButtonGroup}>
                             <Link to='/login'>
                                 <Button name='HeaderButton'>{t('Button.login')}</Button>
