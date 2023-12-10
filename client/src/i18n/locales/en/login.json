@@ -1,0 +1,44 @@
+{
+  "arrow": "Back",
+  "titleLogin": "Welcome back",
+  "titleRegistration": "Welcome",
+  "Error": {
+    "login": {
+      "email": {
+        "email": "Invalid email format",
+        "required": "This field is required"
+      },
+      "password": {
+        "min": "The password must contain at least 6 characters",
+        "max": "The password must contain no more than 30 characters",
+        "required": "This field is required"
+      }
+    },
+    "registration": {
+      "name": {
+        "matches": "Allowed characters for the name: a-z, A-Z, а-я, А-З.",
+        "min": "The name must contain at least 2 characters.",
+        "max": "The name must contain no more than 25 characters.",
+        "required": "A name is required"
+      },
+      "confirmPassword": {
+        "oneOf": "Your password does not match"
+      }
+    }
+  },
+  "LoginPlaceholder": {
+    "email": "Email",
+    "password": "Password"
+  },
+  "RegistrationPlaceholder": {
+    "name": "Name",
+    "confirmPassword": "Confirm password"
+  },
+  "LoginButton": "Enter",
+  "LoginText": "Don't have an account?",
+  "LoginLink": "Register",
+  "RegistrationButton": "Sign up",
+  "RegistrationText": "Already have an account?",
+  "RegistrationLink": "Sign in",
+  "Or": "OR"
+}

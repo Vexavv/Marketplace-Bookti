@@ -10,8 +10,8 @@ const HowWork = () => {
     const stepList: List[] = [
         {icon: "/home/first-step.svg", title: t('HowWork.List.first')},
         {icon: "/home/second-step.svg", title: t('HowWork.List.second')},
-        {icon: "/home/third-step.svg", title: t('HowWork.List.third')},
         {icon: "/home/fourth-step.svg", title: t('HowWork.List.fourth')},
+        {icon: "/home/third-step.svg", title: t('HowWork.List.third')},
     ]
     return (
         <Container>

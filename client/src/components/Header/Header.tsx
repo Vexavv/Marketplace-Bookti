@@ -7,7 +7,7 @@ import {useTranslation} from "react-i18next";
 import Button from "../Button/Button";
 import MobileMenu from "./MobileMenu/MobileMenu";
 import Logo from "./Logo/Logo";
-
+import {Link} from "react-router-dom";
 
 
 const Header = () => {
@@ -16,27 +16,55 @@ const Header = () => {
     const mobileMenuToggle = () => {
         setMobileMenuOpen(current => !current)
     }
+//-------------------------------Loggin----------------------------
+    const [isLogged, setIsLogged] = useState(false)
+//----------------------dropdown----------------------------------
+    const [isOpen, setIsOpen] = useState(false);
 
+
+
+// -----------------------------------------------------------
     return (
 
         <header className={styles.Header}>
             <Container>
                 <div className={styles.HeaderWrapper}>
-                    <Logo/>
+                    <Link to='/'>
+                        <Logo/>
+                    </Link>
+
                     <img onClick={mobileMenuToggle} className={styles.HeaderWrapperBurger} src="/header/burger.png"
                          alt="burger"/>
 
                     <div className={styles.HeaderWrapperMenu}>
                         <Navigation/>
                         <Select/>
-                        <div className={styles.HeaderWrapperMenuButtonGroup}>
-                            <Button name='HeaderButton' onClick={() => {
-                                console.log('Enter')
-                            }}>{t('Button.login')}</Button>
-                            <Button name='HeaderButton' onClick={() => {
-                                console.log('Login')
-                            }}>{t('Button.registration')}</Button>
-                        </div>
+                        {isLogged ? (<div  className={`${styles.dropdown} ${isOpen && styles.open}`}
+                                           onMouseEnter={() => setIsOpen(true)}
+                                           onMouseLeave={() => setIsOpen(false)}>
+                            <Link to='/account'>
+                                <Button name='UserButton'>
+                                    <img className={styles.HeaderWrapperUser} src="/header/user.svg" alt="user"/>
+                                    Марія</Button>
+                            </Link>
+                            {/*{isOpen && (*/}
+                            {/*    <ul className={styles.menu}>*/}
+                            {/*        <li>ffffff</li>*/}
+
+                            {/*        <li onClick={()=>{*/}
+                            {/*            console.log('hekkekekekek')}}>fffffff</li>*/}
+                            {/*    </ul>*/}
+                            {/*)}*/}
+                        </div>) : (<div className={styles.HeaderWrapperMenuButtonGroup}>
+                            <Link to='/login'>
+                                <Button name='HeaderButton'>{t('Button.login')}</Button>
+                            </Link>
+                            <Link to='/registration'>
+                                <Button name='HeaderButton'>{t('Button.registration')}</Button>
+                            </Link>
+                        </div>)}
+
+
                     </div>
                 </div>
             </Container>
