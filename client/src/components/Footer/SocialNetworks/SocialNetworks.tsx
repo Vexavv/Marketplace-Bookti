@@ -13,7 +13,7 @@ const SocialNetworks = () => {
         <nav className={styles.Social}>
             <ul className={styles.SocialList}>
                 {networksList.map(item => (
-                    <li className={styles.SocialListItem} key={item.name}><a className={styles.SocialListItemLink} href={item.path}><img className={styles.SocialListItemLinkIcon} src={item.icon} alt={item.name}/>{item.name}</a></li>
+                    <li className={styles.SocialListItem} key={item.name}><a className={styles.SocialListItemLink} href={item.path} target='_blank'><img className={styles.SocialListItemLinkIcon} src={item.icon} alt={item.name}/>{item.name}</a></li>
                 ))}
             </ul>
         </nav>

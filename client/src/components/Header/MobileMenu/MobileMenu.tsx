@@ -8,7 +8,6 @@ import Navigation from "../../Navigation/Navigation";
 import Button from "../../Button/Button";
 import {useTranslation} from "react-i18next";
 import {Link} from "react-router-dom";
-import Divider from '@mui/material/Divider';
 
 const MobileMenu: React.FC<MobileMenuProps> = ({mobileMenuOpen, mobileMenuToggle}) => {
     const {t} = useTranslation(['header', 'mobileMenu'])
@@ -34,7 +33,9 @@ const MobileMenu: React.FC<MobileMenuProps> = ({mobileMenuOpen, mobileMenuToggle
             <div className={styles.Menu}>
                 <img className={styles.MenuClose} onClick={mobileMenuToggle} src="/header/x.svg" alt="close"/>
                 <div className={styles.MenuLogo} onClick={mobileMenuToggle}>
-                    <Logo mobile={true}/>
+                    <Link to='/'>
+                        <Logo mobile={true}/>
+                    </Link>
                 </div>
                 <div className={styles.MenuWrapper}>
                     <div className={styles.MenuWrapperNav}>
@@ -45,14 +46,14 @@ const MobileMenu: React.FC<MobileMenuProps> = ({mobileMenuOpen, mobileMenuToggle
                     </div>
                 </div>
                 <div className={styles.MenuButton}>
-                    <Link to='/'>
+                    <Link to='/registration'>
                         <Button onClick={mobileMenuToggle} name='MobileMenu'>{t('Button.registration')}</Button>
                     </Link>
 
                 </div>
                 <div className={styles.MenuContent}>
                     <p className={styles.MenuContentText}>{t('mobileMenu:account')}</p>
-                    <Link onClick={mobileMenuToggle} className={styles.MenuContentLink} to='/'>{t('mobileMenu:enter')}</Link>
+                    <Link onClick={mobileMenuToggle} className={styles.MenuContentLink} to='/login'>{t('mobileMenu:enter')}</Link>
                 </div>
             </div>
         </Drawer>

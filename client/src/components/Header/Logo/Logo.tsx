@@ -7,10 +7,10 @@ interface Logo {
 }
 const Logo: React.FC<Logo>  = ({mobile}) => {
     return (
-        <div>
-            <Link to='/'><img className={ mobile ? styles.LogoMobile:styles.Logo} src="/header/Logo.png"
-                              alt="Logo"/></Link>
-        </div>
+        <>
+            <img className={ mobile ? styles.LogoMobile:styles.Logo} src="/header/Logo.png"
+                              alt="Logo"/>
+        </>
     );
 };
 

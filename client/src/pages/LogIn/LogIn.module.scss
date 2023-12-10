@@ -1,0 +1,115 @@
+@import "../../styles/mixins.module";
+
+.Wrapper {
+  display: grid;
+  justify-items: center;
+  grid-template-columns:  1fr;
+  grid-template-areas:
+            "arrow arrow"
+            "form form";
+
+  &Arrow{
+    grid-area: arrow;
+    justify-self: start;
+    &Link{
+      @include primary-font;
+      font-size: 14px;
+      color: #000;
+      display: flex;
+      align-items: center;
+    }
+  }
+  &Form {
+    grid-area: form;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 40px;
+
+    &Logo {
+      display: flex;
+      justify-content: center;
+      margin: 10px 0;
+      position: relative;
+      width: 100%;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 5%;
+        bottom: -40px;
+        width: 90%;
+        height: 1px;
+        background-color: #C8DDD2;
+      }
+    }
+
+    &Greetings {
+      @include primary-font;
+      font-weight: 500;
+      color: #000;
+      margin: 70px 0 36px;
+    }
+
+  }
+
+  &Image {
+    grid-area: image;
+    display: none;
+  }
+}
+
+@media (min-width: 500px) {
+  .Wrapper {
+    justify-items: center;
+    &Form {
+      &Greetings {
+        font-size: 18px;
+      }
+    }
+
+    &Image {
+
+    }
+  }
+}
+
+@media (min-width: 900px) {
+  .Wrapper {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns:  1fr 1fr;
+    grid-template-areas:
+            "arrow arrow"
+            "form image";
+    &Arrow{
+
+      &Link{
+        @include primary-font;
+        color: #000;
+      }
+    }
+
+    &Form {
+      align-items: center;
+      &Logo {
+        &::before {
+          display: none;
+        }
+      }
+      &Greetings {
+        @include primary-font;
+        font-size: 48px;
+        margin: 60px 0 70px;
+      }
+    }
+
+    &Image {
+      display: block;
+      img{
+        width: 100%;
+        max-width: 600px;
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 @import "../../../styles/variables.module";
-
+@import "../../../styles/mixins.module";
 .Search {
   margin-bottom: 50px;
   &Form {
@@ -18,25 +18,20 @@
       background: url("../../../../public/home/search.svg") no-repeat;
       background-position: 1% 50%;
       outline: none;
+      font-size: 12px;
 
       &::placeholder {
+        @include primary-font;
         color: #B6B6B6;
-        font-family: Inter;
         font-size: 12px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
       }
     }
   }
 
   &Label {
-    color: #A4A4A4;
-    font-family: Inter;
+    @include primary-font;
     font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+    color: #A4A4A4;
     text-align: left;
   }
 }
@@ -46,7 +41,7 @@
     &Form {
       justify-content: normal;
       input {
-        //width: 60%;
+        font-size: 14px;
         &::placeholder {
           font-size: 14px;
         }
@@ -78,6 +73,7 @@
         margin-right: 25px;
         padding: 13px 20px;
         background: none;
+        font-size: 16px;
 
         &::placeholder {
           color: #777;

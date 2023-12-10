@@ -1,11 +1,7 @@
 @import '../../styles/variables.module';
-
+@import "../../styles/mixins.module";
 .Button{
-  font-family: Inter;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+ @include primary-font;
   padding: 12px;
   border-radius: 8px;
   color: #FFFFFF;
@@ -24,6 +20,7 @@
   border: 1px solid $primary-color;
   margin-left: 13px;
   color: #000;
+
   &:hover {
     background: $primary-color;
     color: #FFFFFF;
@@ -42,6 +39,14 @@
 .SearchButton{
 width: 30%;
 }
+.UserButton{
+  background: #FFFFFF;
+  border: 1px solid $primary-color;
+  margin-left: 13px;
+  color: #000;
+  display: flex;
+  padding: 12px 20px;
+}
 @media (min-width: 500px) {
 
 }
@@ -59,6 +64,13 @@ width: 30%;
   }
   .SearchButton{
     width: 20%;
+  }
+  .UserButton{
+    display: flex;
+    &:hover{
+      background: #FFFFFF;
+      transform: scale(1.1);
+    }
   }
 }
 

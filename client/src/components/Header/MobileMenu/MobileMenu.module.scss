@@ -1,5 +1,5 @@
 @import '../../../styles/variables.module';
-
+@import "../../../styles/mixins.module";
 .Menu {
   padding: 22px;
   display: flex;
@@ -23,7 +23,6 @@
     margin: 10px 0;
     position: relative;
     width: 100%;
-    //border-bottom: 1px solid $primary-color ;
     &::before {
       content: '';
       position: absolute;
@@ -57,20 +56,12 @@
 display: flex;
   margin-top: 16px;
   &Text{
-    font-family: Inter, serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+   @include primary-font;
     color:#000000;
     margin-right: 5px;
   }
   &Link{
-    font-family: Inter;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+    @include primary-font;
     color:$primary-color;
     text-decoration: underline;
   }

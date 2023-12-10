@@ -1,10 +1,7 @@
+@import "../../../styles/mixins.module";
 .Privacy{
 &List{
-  font-family: IBM Plex Sans;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 300;
-  line-height: 120%;
+  @include secondary-font;
   margin-bottom: 12px;
   &Link{
     color:#000000;

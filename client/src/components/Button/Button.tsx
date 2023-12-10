@@ -8,7 +8,9 @@ const Button = ({name, children, className, ...props}: ButtonProps) => {
             [styles.HeaderButton]: name == 'HeaderButton',
             [styles.MobileMenu]: name == 'MobileMenu',
             [styles.BannerButton]: name == 'BannerButton',
-            [styles.SearchButton]: name == 'SearchButton'
+            [styles.SearchButton]: name == 'SearchButton',
+            [styles.UserButton]: name == 'UserButton'
+
         })} {...props}>
             {children}
         </button>

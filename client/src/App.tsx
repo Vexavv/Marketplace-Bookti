@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {Routes, Route,} from "react-router-dom";
 import  './App.css'
 
@@ -11,10 +11,12 @@ import PageNotFound from "./pages/PageNotFound/PageNotFound";
 import Cookies from "./pages/Cookies/Cookies";
 import TermsAndConditions from "./pages/TermsAndConditions/TermsAndConditions";
 import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
+import LogIn from "./pages/LogIn/LogIn";
+import Registration from "./pages/Registration/Registration";
+import MyAccount from "./pages/MyAccount/MyAccount";
+import styles from "./components/Header/Header.module.scss";
 
 function App() {
-
-
   return (
     <div>
         <Routes>
@@ -26,10 +28,14 @@ function App() {
                 <Route path="/cookies" element={<Cookies/>}/>
                 <Route path="/terms" element={<TermsAndConditions/>}/>
                 <Route path="/privacy" element={<PrivacyPolicy/>}/>
+                <Route path="/login" element={<LogIn/>}/>
+                <Route path="/registration" element={<Registration/>}/>
+                <Route path="/account" element={<MyAccount/>}/>
                 <Route path="*" element={<PageNotFound/>}/>
 
             </Route>
         </Routes>
+
 
     </div>
   )

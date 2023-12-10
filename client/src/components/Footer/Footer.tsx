@@ -32,7 +32,7 @@ const Footer = () => {
 
                     </div>
                     <div className={styles.FooterContentCopyright}>
-                        <p className={styles.FooterContentCopyrightText}> &#169; Copyright {format(new Date(), 'yyyy')}</p>
+                        <p className={styles.FooterContentCopyrightText}> &#169; {t('copyright')} {format(new Date(), 'yyyy')}</p>
                     </div>
                 </div>
 

@@ -10,20 +10,24 @@ import footerUk from './locales/uk/footer.json';
 import footerEn from './locales/en/footer.json';
 import homeUk from './locales/uk/home.json';
 import homeEn from './locales/en/home.json';
+import loginUk from './locales/uk/login.json'
+import loginEn from './locales/en/login.json'
 
 const resources = {
     [LOCALS.UK]: {
         header: headerUk,
         mobileMenu: mobileMenuUk,
         footer:footerUk,
-        home:homeUk
+        home:homeUk,
+        login:loginUk
 
     },
     [LOCALS.EN]: {
         header: headerEn,
         mobileMenu: mobileMenuEN,
         footer: footerEn,
-        home: homeEn
+        home: homeEn,
+        login:loginEn
     }
 };
 
