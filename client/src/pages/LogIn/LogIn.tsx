@@ -6,6 +6,7 @@ import {Link} from "react-router-dom";
 import Logo from "../../components/Header/Logo/Logo";
 import LoginFormm from "../../components/RegistrationForm/LoginForm/LoginFormm";
 import {useTranslation} from "react-i18next";
+
 const LogIn = () => {
     const {t} = useTranslation('login')
     return (
@@ -13,16 +14,15 @@ const LogIn = () => {
             <Container>
                 <div className={styles.Wrapper}>
                     <div className={styles.WrapperArrow}>
-                        <img src="/login/arrow.svg" alt="arrow"/>
-                        <Link className={styles.WrapperArrowLink} to='/'>{t('arrow')}</Link>
+                        <Link className={styles.WrapperArrowLink} to='/'> <img src="/login/arrow.svg" alt="arrow"/> {t('arrow')}</Link>
                     </div>
                     <div className={styles.WrapperForm}>
 
                         <div className={styles.WrapperFormLogo}>
                             <Logo mobile={true}/>
                         </div>
-                        <p className={styles.WrapperFormGreetings}>{t('title')}</p>
-                        <LoginFormm />
+                        <p className={styles.WrapperFormGreetings}>{t('titleLogin')}</p>
+                        <LoginFormm/>
 
                     </div>
                     <div className={styles.WrapperImage}>

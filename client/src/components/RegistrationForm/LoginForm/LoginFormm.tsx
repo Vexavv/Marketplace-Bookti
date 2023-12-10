@@ -5,7 +5,6 @@ import * as yup from 'yup';
 import YupPassword from 'yup-password'
 import {LoginForm} from "../../../types";
 import Button from "../../Button/Button";
-import LogMan from '../../../assets/react.svg'
 
 import Visibility from '@mui/icons-material/Visibility'
 import VisibilityOff from '@mui/icons-material/VisibilityOff'
@@ -20,6 +19,7 @@ const initialValuesLogin: LoginForm = {
 }
 const initialValuesSignIn: LoginForm = {
     name: '',
+    email: '',
     password: '',
     confirmPassword: ''
 }
@@ -41,19 +41,21 @@ const LoginFormm = ({registration}: LoginFormProps) => {
 
     const validationSchemaRegister: yup.Schema<LoginForm> = yup.object().shape({
         name: yup.string()
-            .matches(/^[a-zA-Zа-яА-Я]+$/, 'Allowed characters for Name is a-z, A-Z, а-я, А-Я.')
-            .min(2, 'First Name must be between 2 and 25 characters.')
-            .max(25, 'First Name must be between 2 and 25 characters.')
-            .required('First Name is required'),
+            .matches(/^[a-zA-Zа-яА-Я]+$/, t('Error.registration.name.matches'))
+            .min(2, t('Error.registration.name.min'))
+            .max(25, t('Error.registration.name.max'))
+            .required(t('Error.login.email.required')),
+        email: yup.string()
+            .email(t('Error.login.email.email'))
+            .required(t('Error.login.email.required')),
         password: yup.string()
             .minSymbols(0)
-            .min(6, 'Password must be between 6 and 30 characters')
-            .max(30, 'Password must be between 6 and 30 characters')
-            .minLowercase(5)
-            .required('Password is required field'),
+            .min(6, t('Error.login.password.min'))
+            .max(30, t('Error.login.password.max'))
+            .required(t('Error.login.email.required')),
         confirmPassword: yup.string()
-            .oneOf([yup.ref('password')], 'You password  do not match')
-            .required('Password is required field'),
+            .oneOf([yup.ref('password')], t('Error.registration.confirmPassword.oneOf'))
+            .required(t('Error.login.email.required')),
 
     })
 
@@ -73,16 +75,23 @@ const LoginFormm = ({registration}: LoginFormProps) => {
                                               console.log('Checkout >>>', values)
                                               resetForm()
                                           }}>
-                <Form>
-                    <Field type="text" name="name" placeholder="Name"/>
-                    <ErrorMessage component="span" name="name"/>
+                <Form className={styles.Form}>
+                    <Field className={styles.FormInput} type="text" name="name"
+                           placeholder={t('RegistrationPlaceholder.name')}/>
+                    <ErrorMessage className={styles.FormInputError} component="span" name="name"/>
+
+                    <Field className={styles.FormInput} type="email" name="email"
+                           placeholder={t('LoginPlaceholder.email')}/>
+                    <ErrorMessage className={styles.FormInputError} component="span" name="email"/>
+
                     <div className={styles.FormVisibilityWrapper}>
                         <Field
+                            className={styles.FormInput}
                             name="password"
                             type={isShowPassword ? 'text' : 'password'}
-                            placeholder="Password"
+                            placeholder={t('LoginPlaceholder.password')}
                         />
-                        <ErrorMessage component="span" name="password"/>
+                        <ErrorMessage className={styles.FormInputError} component="span" name="password"/>
                         <span className={styles.FormVisibilityWrapperVisibility}
                               onClick={() => {
                                   handleToggle(setIsShowPassword)
@@ -92,11 +101,12 @@ const LoginFormm = ({registration}: LoginFormProps) => {
                     </div>
                     <div className={styles.FormVisibilityWrapper}>
                         <Field
+                            className={styles.FormInput}
                             name="confirmPassword"
                             type={isShowConfirm ? 'text' : 'password'}
-                            placeholder="ConfirmPassword"
+                            placeholder={t('RegistrationPlaceholder.confirmPassword')}
                         />
-                        <ErrorMessage component="span" name="confirmPassword"/>
+                        <ErrorMessage className={styles.FormInputError} component="span" name="confirmPassword"/>
                         <span className={styles.FormVisibilityWrapperVisibility}
                               onClick={() => {
                                   handleToggle(setIsShowConfirm)
@@ -104,18 +114,35 @@ const LoginFormm = ({registration}: LoginFormProps) => {
                                         {isShowConfirm ? <Visibility/> : <VisibilityOff/>}
                                     </span>
                     </div>
-                    <Button name='MobileMenu' type="submit">Зареєструватися</Button>
-                </Form>
+                    <div className={styles.FormButton}>
+                        <Button name='MobileMenu' type="submit">{t('RegistrationButton')}</Button>
+                    </div>
 
+                    <p className={styles.FormText}>{t('Or')}</p>
+                    <div className={styles.FormIcon}>
+
+                        <img onClick={() => {
+                            console.log('Facebook')
+                        }} src="/login/facebook.svg" alt="facebook"/>
+
+                        <img onClick={() => {
+                            console.log('Google')
+                        }} src="/login/google.svg" alt="google"/>
+
+                    </div>
+                </Form>
             </Formik>
-            {/*<LogMan/>*/}
+                <div className={styles.Wrapper}>
+                    <p className={styles.WrapperText}>{t('RegistrationText')}</p>
+                    <Link className={styles.WrapperLink} to='/login'>{t('RegistrationLink')}</Link>
+                </div>
             </div>) : (<div>
                 <Formik initialValues={initialValuesLogin} onSubmit={(values, {resetForm}) => {
                     console.log('Checkout >>>', values)
                     resetForm()
                 }} validationSchema={validationSchemaLogin}>
                     <Form className={styles.Form}>
-                        <Field className={styles.FormInput} type="text" name="email"
+                        <Field className={styles.FormInput} type="email" name="email"
                                placeholder={t('LoginPlaceholder.email')}/>
                         <ErrorMessage className={styles.FormInputError} component="span" name="email"/>
                         <div className={styles.FormVisibilityWrapper}>
@@ -134,8 +161,10 @@ const LoginFormm = ({registration}: LoginFormProps) => {
                                     </span>
 
                         </div>
+                        <div className={styles.FormButton}>
+                            <Button name='MobileMenu' type="submit">{t('LoginButton')}</Button>
+                        </div>
 
-                        <Button name='MobileMenu' type="submit">{t('LoginButton')}</Button>
                         <p className={styles.FormText}>{t('Or')}</p>
                         <div className={styles.FormIcon}>
 
@@ -156,8 +185,8 @@ const LoginFormm = ({registration}: LoginFormProps) => {
                     <Link className={styles.WrapperLink} to='/registration'>{t('LoginLink')}</Link>
                 </div>
             </div>)}
-            </>
-            );
-            };
+        </>
+    );
+};
 
-            export default LoginFormm;
+export default LoginFormm;

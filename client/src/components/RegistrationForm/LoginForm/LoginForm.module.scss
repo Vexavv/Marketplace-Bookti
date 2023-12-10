@@ -11,7 +11,7 @@
   &VisibilityWrapper {
     position: relative;
     width: 100%;
-    margin-bottom: 60px;
+
     &Visibility {
       position: absolute;
       top: 20%;
@@ -39,6 +39,9 @@
     &Error {
       color: red;
     }
+  }
+  &Button{
+    margin-top: 60px;
   }
 &Text{
   @include primary-font;
