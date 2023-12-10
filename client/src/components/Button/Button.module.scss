@@ -20,6 +20,7 @@
   border: 1px solid $primary-color;
   margin-left: 13px;
   color: #000;
+
   &:hover {
     background: $primary-color;
     color: #FFFFFF;
@@ -38,6 +39,14 @@
 .SearchButton{
 width: 30%;
 }
+.UserButton{
+  background: #FFFFFF;
+  border: 1px solid $primary-color;
+  margin-left: 13px;
+  color: #000;
+  display: flex;
+  padding: 12px 20px;
+}
 @media (min-width: 500px) {
 
 }
@@ -55,6 +64,13 @@ width: 30%;
   }
   .SearchButton{
     width: 20%;
+  }
+  .UserButton{
+    display: flex;
+    &:hover{
+      background: #FFFFFF;
+      //color:#000000;
+    }
   }
 }
 

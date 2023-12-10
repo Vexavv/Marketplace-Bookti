@@ -16,7 +16,13 @@ const Header = () => {
     const mobileMenuToggle = () => {
         setMobileMenuOpen(current => !current)
     }
+//-------------------------------Loggin----------------------------
+    const [isLogged, setIsLogged] = useState(true)
 
+
+
+
+// -----------------------------------------------------------
     return (
 
         <header className={styles.Header}>
@@ -32,14 +38,22 @@ const Header = () => {
                     <div className={styles.HeaderWrapperMenu}>
                         <Navigation/>
                         <Select/>
-                        <div className={styles.HeaderWrapperMenuButtonGroup}>
+                        {isLogged ? (<div>
+                            <Link to='/account'>
+                                <Button name='UserButton'>
+                                    <img className={styles.HeaderWrapperUser} src="/header/user.svg" alt="user"/>
+                                    Марія</Button>
+                            </Link>
+                        </div>) : (<div className={styles.HeaderWrapperMenuButtonGroup}>
                             <Link to='/login'>
                                 <Button name='HeaderButton'>{t('Button.login')}</Button>
                             </Link>
                             <Link to='/registration'>
                                 <Button name='HeaderButton'>{t('Button.registration')}</Button>
                             </Link>
-                        </div>
+                        </div>)}
+
+
                     </div>
                 </div>
             </Container>
