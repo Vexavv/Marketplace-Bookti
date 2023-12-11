@@ -34,8 +34,11 @@ const LoginFormm = ({registration}: LoginFormProps) => {
             .required(t('Error.login.email.required')),
         password: yup.string()
             .minSymbols(0)
-            .min(6, t('Error.login.password.min'))
-            .max(30, t('Error.login.password.max'))
+            .min(8, t('Error.login.password.min'))
+            .max(20, t('Error.login.password.max'))
+            .minLowercase(1,t('Error.login.password.minLowercase'))
+            .minUppercase(1,t('Error.login.password.minUppercase'))
+            .minNumbers(1,t('Error.login.password.minNumbers'))
             .required(t('Error.login.email.required')),
     })
 
@@ -50,8 +53,11 @@ const LoginFormm = ({registration}: LoginFormProps) => {
             .required(t('Error.login.email.required')),
         password: yup.string()
             .minSymbols(0)
-            .min(6, t('Error.login.password.min'))
-            .max(30, t('Error.login.password.max'))
+            .min(8, t('Error.login.password.min'))
+            .max(20, t('Error.login.password.max'))
+            .minLowercase(1,t('Error.login.password.minLowercase'))
+            .minUppercase(1,t('Error.login.password.minUppercase'))
+            .minNumbers(1,t('Error.login.password.minNumbers'))
             .required(t('Error.login.email.required')),
         confirmPassword: yup.string()
             .oneOf([yup.ref('password')], t('Error.registration.confirmPassword.oneOf'))

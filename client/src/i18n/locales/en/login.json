@@ -5,13 +5,16 @@
   "Error": {
     "login": {
       "email": {
-        "email": "Invalid email format",
-        "required": "This field is required"
+        "email": "Invalid email format.",
+        "required": "This field is required."
       },
       "password": {
-        "min": "The password must contain at least 6 characters",
-        "max": "The password must contain no more than 30 characters",
-        "required": "This field is required"
+        "min": "The password must contain at least 8 characters.",
+        "max": "The password must contain no more than 20 characters.",
+        "minLowercase": "The password must contain at least 1 lowercase letter.",
+        "minUppercase": "The password must contain at least 1 capital letter.",
+        "minNumbers": "The password must contain at least 1 digit.",
+        "required": "This field is required."
       }
     },
     "registration": {
@@ -19,10 +22,10 @@
         "matches": "Allowed characters for the name: a-z, A-Z, а-я, А-З.",
         "min": "The name must contain at least 2 characters.",
         "max": "The name must contain no more than 25 characters.",
-        "required": "A name is required"
+        "required": "A name is required."
       },
       "confirmPassword": {
-        "oneOf": "Your password does not match"
+        "oneOf": "Your password does not match!"
       }
     }
   },
