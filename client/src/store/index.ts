@@ -2,6 +2,7 @@ import {combineReducers, configureStore } from '@reduxjs/toolkit';
 import { persistStore, persistReducer } from "redux-persist";
 import storage from 'redux-persist/lib/storage';
 import todoReducer from './slices/todoSlice';
+import modalReducer from './slices/modalSlice';
 
 
 
@@ -15,6 +16,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
     todos: todoReducer,
+    modal:modalReducer,
 })
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 

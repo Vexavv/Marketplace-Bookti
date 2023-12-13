@@ -9,6 +9,8 @@ import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import {Link} from 'react-router-dom';
 import {LoginFormProps} from "./LoginForm.props";
 import {useTranslation} from "react-i18next";
+import {useAppDispatch} from "../../../hook";
+import {openModal} from "../../../store/slices/modalSlice";
 
 // initialValues
 const initialValuesLogin: LoginForm = {
@@ -44,7 +46,7 @@ const initialValuesSignIn: LoginForm = {
 
 const LoginFormm = ({registration}: LoginFormProps) => {
     const {t} = useTranslation('login')
-
+const dispatch = useAppDispatch();
     YupPassword(yup)
     const validationSchemaLogin: yup.Schema<LoginForm> = yup.object().shape({
         email: yup.string()
@@ -91,6 +93,11 @@ const LoginFormm = ({registration}: LoginFormProps) => {
     const handleToggle = (setData: React.Dispatch<React.SetStateAction<boolean>>) => {
         setData((prev: boolean) => !prev);
     };
+    const handleOpenModal = () => {
+        dispatch(openModal({type: 'resetPassword', props: {key: 'value'}}));
+    }
+
+
 
     return (
         <>
@@ -196,7 +203,7 @@ const LoginFormm = ({registration}: LoginFormProps) => {
                                     </span>
 
                         </div>
-                        <span className={styles.FormForgot}>{t('LoginForgotPassword')}</span>
+                        <span className={styles.FormForgot} onClick={handleOpenModal}>{t('LoginForgotPassword')}</span>
                         <div className={styles.FormButton}>
                             <Button name='MobileMenu' type="submit">{t('LoginButton')}</Button>
                         </div>
