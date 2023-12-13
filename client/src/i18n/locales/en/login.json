@@ -26,7 +26,8 @@
       },
       "confirmPassword": {
         "oneOf": "Your password does not match!"
-      }
+      },
+      "checkboxField": "You must agree to the terms of use"
     }
   },
   "LoginPlaceholder": {
@@ -40,6 +41,9 @@
   "LoginButton": "Enter",
   "LoginText": "Don't have an account?",
   "LoginLink": "Register",
+  "LoginForgotPassword": "Forgot your password?",
+  "RegistrationAgree": "I have read and agree to the",
+  "RegistrationTerms": "Terms of Use",
   "RegistrationButton": "Sign up",
   "RegistrationText": "Already have an account?",
   "RegistrationLink": "Sign in",
