@@ -1,16 +1,16 @@
-import React, {useState} from 'react';
+import React, { useState} from 'react';
 import styles from './LoginForm.module.scss'
-import {Formik, Form, Field, ErrorMessage} from 'formik';
+import {Formik, Form, Field, ErrorMessage,} from 'formik';
 import * as yup from 'yup';
 import YupPassword from 'yup-password'
 import {LoginForm} from "../../../types";
 import Button from "../../Button/Button";
-
-import Visibility from '@mui/icons-material/Visibility'
-import VisibilityOff from '@mui/icons-material/VisibilityOff'
+import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import {Link} from 'react-router-dom';
 import {LoginFormProps} from "./LoginForm.props";
 import {useTranslation} from "react-i18next";
+import {useAppDispatch} from "../../../hook";
+import {openModal} from "../../../store/slices/modalSlice";
 
 // initialValues
 const initialValuesLogin: LoginForm = {
@@ -21,12 +21,34 @@ const initialValuesSignIn: LoginForm = {
     name: '',
     email: '',
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
+    checkboxField: false,
 }
+
+//-----------------Error----------------------
+// const FieldWithDynamicPlaceholder: React.FC<any> = (props) => {
+//     const [placeholder, setPlaceholder] = useState(props.placeholder);
+//     const { errors, touched } = useFormikContext<any>();
+//
+//     useEffect(() => {
+//         if (touched[props.name] && errors[props.name]) {
+//             setPlaceholder(errors[props.name]);
+//         } else {
+//             setPlaceholder(props.placeholder);
+//         }
+//     }, [touched, errors, props.name, props.placeholder]);
+//
+//     return <Field {...props} placeholder={placeholder} />;
+// };
+
+
+
+
+
 
 const LoginFormm = ({registration}: LoginFormProps) => {
     const {t} = useTranslation('login')
-
+const dispatch = useAppDispatch();
     YupPassword(yup)
     const validationSchemaLogin: yup.Schema<LoginForm> = yup.object().shape({
         email: yup.string()
@@ -62,6 +84,7 @@ const LoginFormm = ({registration}: LoginFormProps) => {
         confirmPassword: yup.string()
             .oneOf([yup.ref('password')], t('Error.registration.confirmPassword.oneOf'))
             .required(t('Error.login.email.required')),
+        checkboxField: yup.boolean().oneOf([true], t('Error.registration.checkboxField')),
 
     })
 
@@ -72,6 +95,9 @@ const LoginFormm = ({registration}: LoginFormProps) => {
     const handleToggle = (setData: React.Dispatch<React.SetStateAction<boolean>>) => {
         setData((prev: boolean) => !prev);
     };
+    const handleOpenModal = () => {
+        dispatch(openModal({type: 'resetPassword', props: {key: 'value'}}));
+    }
 
     return (
         <>
@@ -102,7 +128,9 @@ const LoginFormm = ({registration}: LoginFormProps) => {
                               onClick={() => {
                                   handleToggle(setIsShowPassword)
                               }}>
-                                        {isShowPassword ? <Visibility/> : <VisibilityOff/>}
+                                        {isShowPassword ?
+                                            <IoEyeOutline className={styles.FormVisibilityWrapperVisibilityIcon}/> :
+                                            <IoEyeOffOutline className={styles.FormVisibilityWrapperVisibilityIcon}/>}
                                     </span>
                     </div>
                     <div className={styles.FormVisibilityWrapper}>
@@ -117,9 +145,17 @@ const LoginFormm = ({registration}: LoginFormProps) => {
                               onClick={() => {
                                   handleToggle(setIsShowConfirm)
                               }}>
-                                        {isShowConfirm ? <Visibility/> : <VisibilityOff/>}
+                                        {isShowConfirm ?
+                                            <IoEyeOutline className={styles.FormVisibilityWrapperVisibilityIcon}/> :
+                                            <IoEyeOffOutline className={styles.FormVisibilityWrapperVisibilityIcon}/>}
                                     </span>
                     </div>
+                    <label className={styles.FormLabel}>
+                        <Field className={styles.FormLabelCheckBox} type="checkbox" name="checkboxField"/>
+                        <p className={styles.FormLabelText}>{t('RegistrationAgree')}</p>
+                        <Link className={styles.FormLabelLink} to='/terms'>{t('RegistrationTerms')}</Link>
+                    </label>
+                    <ErrorMessage className={styles.FormInputError} name="checkboxField" component="span"/>
                     <div className={styles.FormButton}>
                         <Button name='MobileMenu' type="submit">{t('RegistrationButton')}</Button>
                     </div>
@@ -163,10 +199,11 @@ const LoginFormm = ({registration}: LoginFormProps) => {
                                   onClick={() => {
                                       handleToggle(setIsShowPassword)
                                   }}>
-                                        {isShowPassword ? <Visibility/> : <VisibilityOff/>}
+                                        {isShowPassword ? <IoEyeOutline className={styles.FormVisibilityWrapperVisibilityIcon} /> : <IoEyeOffOutline className={styles.FormVisibilityWrapperVisibilityIcon} />}
                                     </span>
 
                         </div>
+                        <span className={styles.FormForgot} onClick={handleOpenModal}>{t('LoginForgotPassword')}</span>
                         <div className={styles.FormButton}>
                             <Button name='MobileMenu' type="submit">{t('LoginButton')}</Button>
                         </div>

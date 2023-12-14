@@ -16,7 +16,7 @@ const CallToLogin = () => {
                     </div>
 
                     <p className={styles.BannerWrapperText}>{t('CallToLogin.text')}</p>
-                   <Link to='/'><Button>{t('CallToLogin.button')}</Button></Link>
+                   <Link to='/registration'><Button>{t('CallToLogin.button')}</Button></Link>
                 </div>
             </Container>
         </div>

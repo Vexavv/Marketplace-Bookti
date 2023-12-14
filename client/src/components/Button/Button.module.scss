@@ -1,7 +1,8 @@
 @import '../../styles/variables.module';
 @import "../../styles/mixins.module";
-.Button{
- @include primary-font;
+
+.Button {
+  @include primary-font;
   padding: 12px;
   border-radius: 8px;
   color: #FFFFFF;
@@ -9,13 +10,14 @@
   cursor: pointer;
   transition: all 0.5s;
   box-shadow: none;
-  border:none;
-  &:active{
+  border: none;
+
+  &:active {
     background: $hover-color;
   }
 }
 
-.HeaderButton{
+.HeaderButton {
   background: #FFFFFF;
   border: 1px solid $primary-color;
   margin-left: 13px;
@@ -27,19 +29,21 @@
   }
 }
 
-.MobileMenu{
+.MobileMenu {
   width: 254px;
   margin: 0;
 }
-.BannerButton{
+
+.BannerButton {
   margin: 0;
   padding: 12px 50px;
 }
 
-.SearchButton{
-width: 30%;
+.SearchButton {
+  width: 30%;
 }
-.UserButton{
+
+.UserButton {
   background: #FFFFFF;
   border: 1px solid $primary-color;
   margin-left: 13px;
@@ -47,27 +51,37 @@ width: 30%;
   display: flex;
   padding: 12px 20px;
 }
+
+.ResetPasswordButton {
+  width: 100%;
+  max-width: 153px;
+
+}
+
 @media (min-width: 500px) {
 
 }
+
 @media (min-width: 900px) {
-  .Button{
+  .Button {
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-    &:hover{
+
+    &:hover {
       background: $hover-color;
     }
   }
-  .HeaderButton{
-    &:hover{
-      background:$primary-color;
+  .HeaderButton {
+    &:hover {
+      background: $primary-color;
     }
   }
-  .SearchButton{
+  .SearchButton {
     width: 20%;
   }
-  .UserButton{
+  .UserButton {
     display: flex;
-    &:hover{
+
+    &:hover {
       background: #FFFFFF;
       transform: scale(1.1);
     }

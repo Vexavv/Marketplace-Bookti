@@ -10,8 +10,10 @@ import footerUk from './locales/uk/footer.json';
 import footerEn from './locales/en/footer.json';
 import homeUk from './locales/uk/home.json';
 import homeEn from './locales/en/home.json';
-import loginUk from './locales/uk/login.json'
-import loginEn from './locales/en/login.json'
+import loginUk from './locales/uk/login.json';
+import loginEn from './locales/en/login.json';
+import modalUK from './locales/uk/modal.json';
+import modalEn from './locales/en/modal.json'
 
 const resources = {
     [LOCALS.UK]: {
@@ -19,7 +21,8 @@ const resources = {
         mobileMenu: mobileMenuUk,
         footer:footerUk,
         home:homeUk,
-        login:loginUk
+        login:loginUk,
+        modal:modalUK
 
     },
     [LOCALS.EN]: {
@@ -27,7 +30,8 @@ const resources = {
         mobileMenu: mobileMenuEN,
         footer: footerEn,
         home: homeEn,
-        login:loginEn
+        login:loginEn,
+        modal:modalEn
     }
 };
 
