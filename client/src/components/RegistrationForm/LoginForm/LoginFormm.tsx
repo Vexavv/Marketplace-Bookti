@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import React, { useState} from 'react';
 import styles from './LoginForm.module.scss'
-import {Formik, Form, Field, ErrorMessage, useFormikContext} from 'formik';
+import {Formik, Form, Field, ErrorMessage,} from 'formik';
 import * as yup from 'yup';
 import YupPassword from 'yup-password'
 import {LoginForm} from "../../../types";
@@ -24,6 +24,8 @@ const initialValuesSignIn: LoginForm = {
     confirmPassword: '',
     checkboxField: false,
 }
+
+//-----------------Error----------------------
 // const FieldWithDynamicPlaceholder: React.FC<any> = (props) => {
 //     const [placeholder, setPlaceholder] = useState(props.placeholder);
 //     const { errors, touched } = useFormikContext<any>();
@@ -96,8 +98,6 @@ const dispatch = useAppDispatch();
     const handleOpenModal = () => {
         dispatch(openModal({type: 'resetPassword', props: {key: 'value'}}));
     }
-
-
 
     return (
         <>

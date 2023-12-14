@@ -12,7 +12,7 @@ export interface List {
 export interface LoginForm{
     name?: string,
     email?:string,
-    password: string,
+    password?: string,
     confirmPassword?: string,
     checkboxField?: boolean
 

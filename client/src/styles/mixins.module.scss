@@ -12,3 +12,10 @@
   font-weight: 300;
   line-height: 120%;
 }
+@mixin third-font{
+  font-family: Montserrat Alternates, serif;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

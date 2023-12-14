@@ -40,6 +40,8 @@
     }
 
     &Error {
+      @include primary-font;
+      font-size: 12px;
       color: red;
     }
   }
@@ -150,6 +152,9 @@
       &::placeholder {
         font-size: 14px;
       }
+      &Error {
+        font-size: 14px;
+      }
     }
   }
 
@@ -176,9 +181,10 @@
       font-size: 16px;
       &::placeholder {
         font-size: 16px;
-
       }
-
+      &Error {
+        font-size: 16px;
+      }
     }
     &Label {
       &CheckBox {
