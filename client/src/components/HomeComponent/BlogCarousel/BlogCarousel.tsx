@@ -6,6 +6,7 @@ import {useTranslation} from "react-i18next";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import {List} from "../../../types";
+import {Link} from "react-router-dom";
 
 const responsive = {
     superLargeDesktop: {
@@ -74,12 +75,16 @@ const BlogCarousel = () => {
                     renderDotsOutside={true}
                 >
                     {test.map(item => (
-                        <div key={item.id} className={styles.WrapperCard}>
-                            <div className={styles.WrapperCardImage}>
-                                <img src={item.icon} alt={item.title}/>
+                        <Link to='#'>
+
+                            <div key={item.id} className={styles.WrapperCard}>
+                                <div className={styles.WrapperCardImage}>
+                                    <img src={item.icon} alt={item.title}/>
+                                </div>
+                                <p className={styles.WrapperCardText}>{item.title}</p>
                             </div>
-                            <p className={styles.WrapperCardText}>{item.title}</p>
-                        </div>
+                        </Link>
+
                     ))}
                 </Carousel>
             </div>

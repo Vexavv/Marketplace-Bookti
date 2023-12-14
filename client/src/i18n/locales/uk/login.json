@@ -27,7 +27,8 @@
       },
       "confirmPassword": {
         "oneOf": "Ваш пароль не збігається!"
-      }
+      },
+      "checkboxField": "Ви повинні погодитись з умовами використання"
     }
   },
   "LoginPlaceholder": {
@@ -41,6 +42,9 @@
   "LoginButton": "Увійти",
   "LoginText": "Немає аккаунту?",
   "LoginLink": "Зареєструватись",
+  "LoginForgotPassword": "Забули пароль?",
+  "RegistrationAgree": "Я прочитав/ла і погоджуюся з",
+  "RegistrationTerms": "Умови використання",
   "RegistrationButton": "Зареєструватися",
   "RegistrationText": "Вже є аккаунт?",
   "RegistrationLink": "Увійти",

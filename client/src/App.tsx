@@ -15,6 +15,7 @@ import LogIn from "./pages/LogIn/LogIn";
 import Registration from "./pages/Registration/Registration";
 import MyAccount from "./pages/MyAccount/MyAccount";
 import styles from "./components/Header/Header.module.scss";
+import Modal from "./components/Modal/Modal";
 
 function App() {
   return (
@@ -36,7 +37,7 @@ function App() {
             </Route>
         </Routes>
 
-
+<Modal/>
     </div>
   )
 }
