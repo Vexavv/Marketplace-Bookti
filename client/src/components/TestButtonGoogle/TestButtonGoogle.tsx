@@ -24,7 +24,7 @@
 
 import React, { useState } from 'react';
 import { useGoogleLogin, TokenResponse } from '@react-oauth/google';
-import jwt from 'jsonwebtoken';
+// import jwt from 'jsonwebtoken';
 const TestButtonGoogle = () => {
     // Стейт для хранения токена
     const [tokenResponse, setTokenResponse] = useState<TokenResponse | null>(null);
@@ -35,7 +35,7 @@ const TestButtonGoogle = () => {
 
             // Сохраняем токен в стейт
             setTokenResponse(response);
-            const decodedToken = jwt.decode(response.access_token);
+            // const decodedToken = jwt.decode(response.access_token);
             // console.log(decodedToken)
         },
     });
