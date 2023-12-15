@@ -20,6 +20,7 @@ import Modal from "./components/Modal/Modal";
 function App() {
   return (
     <div>
+
         <Routes>
             <Route path='/' element={<Layout/>}>
                 <Route index element={<Home/>}/>

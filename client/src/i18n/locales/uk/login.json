@@ -1,6 +1,6 @@
 {
   "arrow": "Назад",
-  "titleLogin": "З поверненням",
+  "titleLogin": "Раді знову бачити",
   "titleRegistration": "Ласкаво просимо",
   "Error": {
     "login": {
@@ -32,19 +32,19 @@
     }
   },
   "LoginPlaceholder": {
-    "email": "Електрона пошта",
+    "email": "Електронна пошта",
     "password": "Пароль"
   },
   "RegistrationPlaceholder": {
     "name": "Ім’я",
-    "confirmPassword": "Підтвердьте пароль"
+    "confirmPassword": "Підтвердити пароль"
   },
   "LoginButton": "Увійти",
   "LoginText": "Немає аккаунту?",
   "LoginLink": "Зареєструватись",
   "LoginForgotPassword": "Забули пароль?",
   "RegistrationAgree": "Я прочитав/ла і погоджуюся з",
-  "RegistrationTerms": "Умови використання",
+  "RegistrationTerms": "Умовами використання",
   "RegistrationButton": "Зареєструватися",
   "RegistrationText": "Вже є аккаунт?",
   "RegistrationLink": "Увійти",

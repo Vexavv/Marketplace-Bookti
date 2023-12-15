@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './LoginForm.module.scss'
 import {Formik, Form, Field, ErrorMessage,} from 'formik';
 import * as yup from 'yup';
@@ -9,8 +9,13 @@ import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import {Link} from 'react-router-dom';
 import {LoginFormProps} from "./LoginForm.props";
 import {useTranslation} from "react-i18next";
-import {useAppDispatch} from "../../../hook";
+import {useAppDispatch, useAppSelector} from "../../../hook";
 import {openModal} from "../../../store/slices/modalSlice";
+
+
+
+import { useGoogleLogin } from '@react-oauth/google';
+import {setUser, logout} from "../../../store/slices/authSlice";
 
 // initialValues
 const initialValuesLogin: LoginForm = {
@@ -99,6 +104,12 @@ const dispatch = useAppDispatch();
         dispatch(openModal({type: 'resetPassword', props: {key: 'value'}}));
     }
 
+//------------------------------Google login ---------------------------------------
+//     const googleLogin = useGoogleLogin({
+//         onSuccess: tokenResponse => console.log(tokenResponse),
+//     });
+
+
     return (
         <>
             {registration ? (<div><Formik initialValues={initialValuesSignIn}
@@ -167,9 +178,7 @@ const dispatch = useAppDispatch();
                             console.log('Facebook')
                         }} src="/login/facebook.svg" alt="facebook"/>
 
-                        <img onClick={() => {
-                            console.log('Google')
-                        }} src="/login/google.svg" alt="google"/>
+                        <img src="/login/google.svg" alt="google"/>
 
                     </div>
                 </Form>
