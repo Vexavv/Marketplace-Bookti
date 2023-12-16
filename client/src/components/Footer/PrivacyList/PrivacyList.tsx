@@ -2,15 +2,16 @@ import React from 'react';
 import styles from './PrivacyList.module.scss'
 import {NavigationList} from "../../../types";
 import {Link} from 'react-router-dom';
+import {useTranslation} from "react-i18next";
 
 
-const navList: NavigationList[] = [
-    {name: 'Privacy Policy', path: '/privacy'},
-    {name: 'Terms And Conditions', path: '/terms'},
-    {name: 'Cookies', path: '/cookies'},
-]
+
 const PrivacyList = () => {
-
+    const {t} = useTranslation('footer')
+    const navList: NavigationList[] = [
+        {name: t('Info.privacy'), path: '/privacy'},
+        {name: t('Info.terms'), path: '/terms'},
+    ]
     return (
         <nav className={styles.Privacy}>
             <ul>

@@ -12,8 +12,8 @@
     "en": "English"
   },
   "Button": {
-    "login": "Login",
-    "registration": "Registration"
+    "login": "Log in",
+    "registration": "Register"
   },
   "Popper": {
     "text": "Hello",

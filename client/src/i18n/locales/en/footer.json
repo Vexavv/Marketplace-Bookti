@@ -1,9 +1,13 @@
 {
   "Title": {
+    "menu": "Links",
     "information": "Information",
-    "privacy policy": "Privacy policy",
     "social networks": "Social networks",
     "subscribe": "Subscribe"
+  },
+  "Info": {
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use"
   },
   "Button": "To subscribe",
   "Placeholder": "E-mail",
