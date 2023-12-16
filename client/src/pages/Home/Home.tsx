@@ -12,7 +12,7 @@ const Home = () => {
     return (
         <div>
 
-            <TestButtonGoogle/>
+            {/*<TestButtonGoogle/>*/}
             
             <Banner/>
             <Search/>
