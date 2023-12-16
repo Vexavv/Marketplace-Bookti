@@ -16,13 +16,15 @@ const TestButtonGoogle = () => {
         },
     });
 
+    // console.log('Data User',tokenResponse)
+    // console.log('Loading',googleLoading )
     const handleLogout = () => {
         dispatch(logout())
     };
     const renderContent = () => {
-        if (googleLoading) {
-            return <p>Loading...</p>;
-        }
+        // if (!googleLoading) {
+        //     return <p>Loading...</p>;
+        // }
 
         if (tokenResponse) {
             return <div><p>{tokenResponse.name}</p>

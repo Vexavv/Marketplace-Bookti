@@ -33,8 +33,6 @@ const initialValuesSignIn: LoginForm = {
 const LoginFormm = ({registration}: LoginFormProps) => {
     const {t} = useTranslation('login')
     const dispatch = useAppDispatch();
-    const tokenResponse = useAppSelector(state => state.auth.data)
-    const googleLoading = useAppSelector(state => state.auth.loadingGoogle)
     const [isShowPassword, setIsShowPassword] = useState(false)
     const [isShowConfirm, setIsShowConfirm] = useState(false)
 
@@ -94,10 +92,10 @@ const LoginFormm = ({registration}: LoginFormProps) => {
             dispatch(fetchUserData(response.access_token));
         },
     });
+    // console.log('Data User',tokenResponse)
+    // console.log('Loading',googleLoading )
 
-    const handleLogout = () => {
-        dispatch(logout())
-    };
+
 
 
     return (
@@ -217,9 +215,7 @@ const LoginFormm = ({registration}: LoginFormProps) => {
                             }} src="/login/facebook.svg" alt="facebook"/>
 
 
-                            <img onClick={() => {
-                                console.log('Google')
-                            }} src="/login/google.svg" alt="google"/>
+                            <img onClick={() => googleLogin()} src="/login/google.svg" alt="google"/>
 
                         </div>
                     </Form>

@@ -2,6 +2,7 @@ import { createSlice, Dispatch, PayloadAction } from '@reduxjs/toolkit';
 import axios, {AxiosResponse} from "axios";
 
 interface User {
+    map(): import("react").ReactNode | Iterable<import("react").ReactNode>;
     name: string;
     email?: string;
     picture: string;
@@ -25,10 +26,10 @@ const authSlice = createSlice({
     reducers: {
         setUser: (state, action: PayloadAction<User | null>) => {
             state.data = action.payload;
-            state.loadingGoogle = true;
         },
         setLoadingGoogle:(state, action: PayloadAction<boolean>) =>{
             state.loadingGoogle = action.payload;
+            state.loadingGoogle = true;
         },
         logout: state => {
             state.data = null;

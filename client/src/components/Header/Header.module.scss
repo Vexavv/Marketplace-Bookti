@@ -57,21 +57,25 @@
 
 
 //--------------------------
-.dropdown {
-  position: relative;
-  display: inline-block;
-
-  .dropdown-menu {
-    display: none;
-    position: absolute;
-    top:10%;
-    left: 100%;
-    background-color: #f9f9f9;
-    //min-width: 160px;
-    z-index: 10;
-  }
-
-  &.open .dropdown-menu {
-    display: block;
-  }
-}
+//.dropdown {
+//  //position: relative;
+//  display: inline-block;
+//
+//
+//
+//  &Menu {
+//    //display: none;
+//    //position: absolute;
+//    //top:9%;
+//    //left: 80%;
+//    background-color: #f9f9f9;
+//    //min-width: 160px;
+//    z-index: 10;
+//    width: 200px;
+//    border: 1px solid black;
+//  }
+//
+//  &.open &Menu {
+//    display: block;
+//  }
+//}
