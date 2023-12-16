@@ -1,0 +1,26 @@
+import React from 'react';
+import styles from './UserImage.module.scss'
+import {UserImageProps} from "./UserImage.props";
+import {Link} from "react-router-dom";
+import Button from "../Button/Button";
+const UserImage = ({picture, name, text, button, onClick, nav}:UserImageProps) => {
+    return (
+        <div className={styles.Wrapper}>
+            <Link to='/account'> <img className={styles.WrapperImg} src={picture} alt="img"/></Link>
+            <p className={styles.WrapperText}>{text} {name} !</p>
+            <div className={styles.WrapperButton}>
+                <Link to={nav ? '/addBook' : "#"}>
+                    <Button onClick={onClick} >
+                        <div className={styles.WrapperButtonContent} >
+                            <p>{button}</p>
+                            <img src="/header/plus.svg" alt="plas"/>
+                        </div>
+                    </Button>
+                </Link>
+
+            </div>
+        </div>
+    );
+};
+
+export default UserImage;
