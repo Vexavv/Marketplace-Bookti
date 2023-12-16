@@ -1,6 +1,6 @@
 {
   "arrow": "Back",
-  "titleLogin": "Welcome back",
+  "titleLogin": "Happy to see you again",
   "titleRegistration": "Welcome",
   "Error": {
     "login": {
@@ -38,7 +38,7 @@
     "name": "Name",
     "confirmPassword": "Confirm password"
   },
-  "LoginButton": "Enter",
+  "LoginButton": "Go in",
   "LoginText": "Don't have an account?",
   "LoginLink": "Register",
   "LoginForgotPassword": "Forgot your password?",

@@ -3,13 +3,13 @@ import styles from './Modal.module.scss'
 import {useAppDispatch, useAppSelector} from "../../hook";
 import {closeModal} from "../../store/slices/modalSlice";
 import { CgClose } from "react-icons/cg";
-
-
 import ResetPassword from './ResetPassword/ResetPassword'
+import AddBook from "./AddBook/AddBook";
 
 const ModalTypes: { [key: string]: React.FC<any> } = {
     // Define your modal component types here...
-    resetPassword: ResetPassword
+    resetPassword: ResetPassword,
+    addBook: AddBook
 };
 const Modal: React.FC  = () => {
     const dispatch = useAppDispatch();

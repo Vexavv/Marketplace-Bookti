@@ -1,16 +1,20 @@
-import React, { useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './LoginForm.module.scss'
 import {Formik, Form, Field, ErrorMessage,} from 'formik';
 import * as yup from 'yup';
 import YupPassword from 'yup-password'
 import {LoginForm} from "../../../types";
 import Button from "../../Button/Button";
-import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
+import {IoEyeOffOutline, IoEyeOutline} from "react-icons/io5";
 import {Link} from 'react-router-dom';
 import {LoginFormProps} from "./LoginForm.props";
 import {useTranslation} from "react-i18next";
-import {useAppDispatch} from "../../../hook";
+import {useAppDispatch, useAppSelector} from "../../../hook";
 import {openModal} from "../../../store/slices/modalSlice";
+
+
+import {TokenResponse, useGoogleLogin} from '@react-oauth/google';
+import {setUser, logout, fetchUserData} from "../../../store/slices/authSlice";
 
 // initialValues
 const initialValuesLogin: LoginForm = {
@@ -25,30 +29,14 @@ const initialValuesSignIn: LoginForm = {
     checkboxField: false,
 }
 
-//-----------------Error----------------------
-// const FieldWithDynamicPlaceholder: React.FC<any> = (props) => {
-//     const [placeholder, setPlaceholder] = useState(props.placeholder);
-//     const { errors, touched } = useFormikContext<any>();
-//
-//     useEffect(() => {
-//         if (touched[props.name] && errors[props.name]) {
-//             setPlaceholder(errors[props.name]);
-//         } else {
-//             setPlaceholder(props.placeholder);
-//         }
-//     }, [touched, errors, props.name, props.placeholder]);
-//
-//     return <Field {...props} placeholder={placeholder} />;
-// };
-
-
-
-
-
 
 const LoginFormm = ({registration}: LoginFormProps) => {
     const {t} = useTranslation('login')
-const dispatch = useAppDispatch();
+    const dispatch = useAppDispatch();
+    const [isShowPassword, setIsShowPassword] = useState(false)
+    const [isShowConfirm, setIsShowConfirm] = useState(false)
+
+//----------------------------Validation-----------------------------------------------------------
     YupPassword(yup)
     const validationSchemaLogin: yup.Schema<LoginForm> = yup.object().shape({
         email: yup.string()
@@ -58,9 +46,9 @@ const dispatch = useAppDispatch();
             .minSymbols(0)
             .min(8, t('Error.login.password.min'))
             .max(20, t('Error.login.password.max'))
-            .minLowercase(1,t('Error.login.password.minLowercase'))
-            .minUppercase(1,t('Error.login.password.minUppercase'))
-            .minNumbers(1,t('Error.login.password.minNumbers'))
+            .minLowercase(1, t('Error.login.password.minLowercase'))
+            .minUppercase(1, t('Error.login.password.minUppercase'))
+            .minNumbers(1, t('Error.login.password.minNumbers'))
             .required(t('Error.login.email.required')),
     })
 
@@ -77,9 +65,9 @@ const dispatch = useAppDispatch();
             .minSymbols(0)
             .min(8, t('Error.login.password.min'))
             .max(20, t('Error.login.password.max'))
-            .minLowercase(1,t('Error.login.password.minLowercase'))
-            .minUppercase(1,t('Error.login.password.minUppercase'))
-            .minNumbers(1,t('Error.login.password.minNumbers'))
+            .minLowercase(1, t('Error.login.password.minLowercase'))
+            .minUppercase(1, t('Error.login.password.minUppercase'))
+            .minNumbers(1, t('Error.login.password.minNumbers'))
             .required(t('Error.login.email.required')),
         confirmPassword: yup.string()
             .oneOf([yup.ref('password')], t('Error.registration.confirmPassword.oneOf'))
@@ -89,15 +77,26 @@ const dispatch = useAppDispatch();
     })
 
 
-    const [isShowPassword, setIsShowPassword] = useState(false)
-    const [isShowConfirm, setIsShowConfirm] = useState(false)
-
+    //-------------------------------Handler----------------------------------
     const handleToggle = (setData: React.Dispatch<React.SetStateAction<boolean>>) => {
         setData((prev: boolean) => !prev);
     };
+    //---------------------------Modal---------------------------------------
     const handleOpenModal = () => {
         dispatch(openModal({type: 'resetPassword', props: {key: 'value'}}));
     }
+
+//------------------------------Google login ---------------------------------------
+    const googleLogin = useGoogleLogin({
+        onSuccess:  (response: TokenResponse) => {
+            dispatch(fetchUserData(response.access_token));
+        },
+    });
+    // console.log('Data User',tokenResponse)
+    // console.log('Loading',googleLoading )
+
+
+
 
     return (
         <>
@@ -167,9 +166,7 @@ const dispatch = useAppDispatch();
                             console.log('Facebook')
                         }} src="/login/facebook.svg" alt="facebook"/>
 
-                        <img onClick={() => {
-                            console.log('Google')
-                        }} src="/login/google.svg" alt="google"/>
+                        <img onClick={() => googleLogin()} src="/login/google.svg" alt="google"/>
 
                     </div>
                 </Form>
@@ -199,7 +196,9 @@ const dispatch = useAppDispatch();
                                   onClick={() => {
                                       handleToggle(setIsShowPassword)
                                   }}>
-                                        {isShowPassword ? <IoEyeOutline className={styles.FormVisibilityWrapperVisibilityIcon} /> : <IoEyeOffOutline className={styles.FormVisibilityWrapperVisibilityIcon} />}
+                                        {isShowPassword ?
+                                            <IoEyeOutline className={styles.FormVisibilityWrapperVisibilityIcon}/> :
+                                            <IoEyeOffOutline className={styles.FormVisibilityWrapperVisibilityIcon}/>}
                                     </span>
 
                         </div>
@@ -216,9 +215,7 @@ const dispatch = useAppDispatch();
                             }} src="/login/facebook.svg" alt="facebook"/>
 
 
-                            <img onClick={() => {
-                                console.log('Google')
-                            }} src="/login/google.svg" alt="google"/>
+                            <img onClick={() => googleLogin()} src="/login/google.svg" alt="google"/>
 
                         </div>
                     </Form>
