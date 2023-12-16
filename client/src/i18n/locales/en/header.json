@@ -2,7 +2,9 @@
   "Nav": {
     "about": "About",
     "library": "Library",
-    "blog": "Blog"
+    "blog": "Blog",
+    "books": "Your books",
+    "favorite": "Saved books"
 
   },
   "Select": {
@@ -12,5 +14,11 @@
   "Button": {
     "login": "Login",
     "registration": "Registration"
+  },
+  "Popper": {
+    "text": "Hello",
+    "button": "Add a book",
+    "exit": "Log Out"
+
   }
 }

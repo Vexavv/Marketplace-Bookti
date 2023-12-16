@@ -45,6 +45,7 @@
 
     &Greetings {
       @include primary-font;
+      font-size: 16px;
       font-weight: 500;
       color: #000;
       margin: 70px 0 36px;
@@ -63,7 +64,7 @@
     justify-items: center;
     &Form {
       &Greetings {
-        font-size: 18px;
+        font-size: 25px;
       }
     }
 
@@ -98,7 +99,7 @@
         }
       }
       &Greetings {
-        @include primary-font;
+        //@include primary-font;
         font-size: 48px;
         margin: 60px 0 70px;
       }

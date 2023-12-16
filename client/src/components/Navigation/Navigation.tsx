@@ -15,7 +15,7 @@ const Navigation: React.FC<NavigationProps> = ({mobile, footer,onClick}) => {
     const additionalNav: NavigationList[] = isLoggedIn
         ? [
             { name: 'Books', path: '/about',icon: '/header/clipboard.svg'  },
-            { name: 'Favorite', path: '/about', icon: '/header/book.svg' }
+            { name: 'Favorite', path: '/about', icon: '/header/heart.svg' }
         ]
         : [];
 

@@ -75,9 +75,9 @@ const BlogCarousel = () => {
                     renderDotsOutside={true}
                 >
                     {test.map(item => (
-                        <Link to='#'>
+                        <Link to='#' key={item.id}>
 
-                            <div key={item.id} className={styles.WrapperCard}>
+                            <div  className={styles.WrapperCard}>
                                 <div className={styles.WrapperCardImage}>
                                     <img src={item.icon} alt={item.title}/>
                                 </div>
