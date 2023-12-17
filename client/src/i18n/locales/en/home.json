@@ -5,7 +5,7 @@
   },
   "Search": {
     "text": "For example: Remarque, Harry Potter",
-    "placeholder": "Name of the book or author",
+    "placeholder": "Title or author",
     "button": "Search"
   },
   "Description": {

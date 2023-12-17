@@ -78,7 +78,7 @@ const PopperUser = () => {
                     {tokenResponse.name}</Button>
 
                 <Popper id={id} open={open} anchorEl={anchorEl}>
-                    <StyledPopperDiv onClick={handleClose}>
+                    <StyledPopperDiv sx={{display:{xs:'none',md:'flex'}}} onClick={handleClose}>
                         <div>
                             <UserImage picture={tokenResponse.picture} name={tokenResponse.name}
                                         text={t('Popper.text')} button={t('Popper.button')} onClick={handleOpenModal}/>
