@@ -9,12 +9,12 @@ import {IoEyeOffOutline, IoEyeOutline} from "react-icons/io5";
 import {Link} from 'react-router-dom';
 import {LoginFormProps} from "./LoginForm.props";
 import {useTranslation} from "react-i18next";
-import {useAppDispatch, useAppSelector} from "../../../hook";
+import {useAppDispatch} from "../../../hook";
 import {openModal} from "../../../store/slices/modalSlice";
 
 
 import {TokenResponse, useGoogleLogin} from '@react-oauth/google';
-import {setUser, logout, fetchUserData} from "../../../store/slices/authSlice";
+import { fetchUserData} from "../../../store/slices/authSlice";
 
 // initialValues
 const initialValuesLogin: LoginForm = {

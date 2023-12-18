@@ -5,12 +5,12 @@
   },
   "Search": {
     "text": "For example: Remarque, Harry Potter",
-    "placeholder": "Name of the book or author",
-    "button": "Find"
+    "placeholder": "Title or author",
+    "button": "Search"
   },
   "Description": {
     "text": "BookBridgeHub is an online platform that brings book lovers together and allows them to share their favorite books with other community members. This is where you can find new books to read, share your books with others, and grow your library for free. Give books a second life and get to know new literary masterpieces.",
-    "link": "Learn more"
+    "link": "Read more"
   },
   "HowWork": {
     "title": "How BookBridgeHub works",
@@ -26,15 +26,15 @@
     "text": "Check out our collection of the best, most interesting books. You're sure to find what you're looking for.",
     "List": {
       "first": "Novels",
-      "second": "Fantasy",
+      "second": "Fiction",
       "third": "Poetry",
       "fourth": "Detectives"
     },
-    "link": "See all categories"
+    "link": "View all categories"
   },
   "CallToLogin": {
     "title": "Register now!",
-    "text": "Get access to more than 10 thousand books absolutely free",
+    "text": "Gain access to more than 10 thousand books absolutely free",
     "button": "Sign up "
   },
   "BlogCarousel": {
