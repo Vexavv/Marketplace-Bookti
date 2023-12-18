@@ -10,7 +10,7 @@ import {openModal} from "../../../store/slices/modalSlice";
 const Banner = () => {
     const {t} = useTranslation('home')
     const dispatch = useAppDispatch()
-    const googleLoading = useAppSelector(state => state.auth.loadingGoogle)
+    const loading = useAppSelector(state => state.auth.loading)
 //----------------Modal------------------------------------
     const handleOpenModal = () => {
         dispatch(openModal({type: 'addBook', props: {key: 'value'}}));
@@ -26,7 +26,7 @@ const Banner = () => {
                         <img className={styles.BannerWrapperImageImg} src="/home/OBJECTS.png" alt="book"/>
                     </div>
                     <div className={styles.BannerWrapperButton}>
-                        {googleLoading ?
+                        {loading ?
                             <Button name='BannerButton' onClick={handleOpenModal}>{t('Banner.button')}</Button> :
                             <Link to="/registration">
                                 <Button name='BannerButton'>{t('Banner.button')}</Button>

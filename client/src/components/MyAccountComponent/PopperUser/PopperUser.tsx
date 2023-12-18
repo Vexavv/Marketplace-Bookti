@@ -31,8 +31,9 @@ const PopperUser = () => {
     const {t} = useTranslation('header')
     const dispatch = useAppDispatch()
 //------------------Selectors-------------------------
-    const tokenResponse = useAppSelector(state => state.auth.data)
-    const googleLoading = useAppSelector(state => state.auth.loadingGoogle)
+    const user = useAppSelector(state => state.auth.data)
+
+    const loading = useAppSelector(state => state.auth.loading)
 //----------------------Logout Google ---------------------
     const handleLogout = () => {
         dispatch(logout())
@@ -60,7 +61,7 @@ const PopperUser = () => {
     ]
     //---------------------Content-----------------------
     const renderContent = () => {
-        if (!googleLoading) {
+        if (!loading) {
             return <div>
                 <Link to='/login'>
                     <Button name='HeaderButton'>{t('Button.login')}</Button>
@@ -71,16 +72,17 @@ const PopperUser = () => {
             </div>;
         }
 
-        if (tokenResponse) {
+        if (user) {
+
             return <div>
                 <Button onClick={handleClick} name='UserButton'>
                     <img className={styles.HeaderWrapperUser} src="/header/user.svg" alt="user"/>
-                    {tokenResponse.name}</Button>
+                    {user.name}</Button>
 
                 <Popper id={id} open={open} anchorEl={anchorEl}>
                     <StyledPopperDiv sx={{display:{xs:'none',md:'flex'}}} onClick={handleClose}>
                         <div>
-                            <UserImage picture={tokenResponse.picture} name={tokenResponse.name}
+                            <UserImage picture={user.picture} name={user.name}
                                         text={t('Popper.text')} button={t('Popper.button')} onClick={handleOpenModal}/>
                         </div>
                         <ul className={styles.PopperNav}>

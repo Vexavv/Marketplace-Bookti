@@ -10,10 +10,10 @@ import {useAppSelector} from "../../hook";
 
 const Registration = () => {
     const {t} = useTranslation('login')
-    const googleLoading = useAppSelector(state => state.auth.loadingGoogle)
+    const loading = useAppSelector(state => state.auth.loading)
     return (
         <>
-            {googleLoading && <Navigate to="/account" replace/>}
+            {loading && <Navigate to="/account" replace/>}
             <div>
                 <Container>
                     <div className={styles.Wrapper}>

@@ -16,22 +16,22 @@ const MobileMenu: React.FC<MobileMenuProps> = ({mobileMenuOpen, mobileMenuToggle
     const {t} = useTranslation(['header', 'mobileMenu'])
     const dispatch = useAppDispatch()
     //---------------------Selectors------------------------
-    const tokenResponse = useAppSelector(state => state.auth.data)
-    const googleLoading = useAppSelector(state => state.auth.loadingGoogle)
+    const user = useAppSelector(state => state.auth.data)
+    const loading = useAppSelector(state => state.auth.loading)
 
     const handleLogout = () => {
         dispatch(logout())
     };
 const renderContent = ()=> {
-    if (!googleLoading) {
+    if (!loading) {
        return <div className={styles.MenuLogo} onClick={mobileMenuToggle}>
             <Link to='/'>
                 <Logo mobile={true}/>
             </Link>
         </div>
     }
-    if (tokenResponse) {
-        return <UserImage picture={tokenResponse.picture} name={tokenResponse.name} text={t('Popper.text')} button={t('Popper.button')} nav={true} onClick={mobileMenuToggle}/>
+    if (user) {
+        return <div onClick={mobileMenuToggle}><UserImage picture={user.picture} name={user.name} text={t('Popper.text')} button={t('Popper.button')} nav={true} onClick={mobileMenuToggle}/> </div>
     }
 }
     return (
@@ -64,7 +64,7 @@ const renderContent = ()=> {
                         <Select/>
                     </div>
                 </div>
-                {googleLoading ? <>
+                {loading ? <>
                     <div className={styles.Closed} onClick={handleLogout}>
                         <img src="/header/log-out.svg" alt="log out"/>
                         <p className={styles.ClosedText}>{t('Popper.exit')}</p>

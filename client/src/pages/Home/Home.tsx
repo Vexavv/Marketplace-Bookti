@@ -8,11 +8,13 @@ import WhatCategories from "../../components/HomeComponent/WhatCategories/WhatCa
 import CallToLogin from "../../components/HomeComponent/CallToLogin/CallToLogin";
 import BlogCarousel from "../../components/HomeComponent/BlogCarousel/BlogCarousel";
 import TestButtonGoogle from "../../components/TestButtonGoogle/TestButtonGoogle";
+import TestButtonFaceBook from "../../components/TestButtonGoogle/TestButtonFaceBook";
 const Home = () => {
     return (
         <div>
 
             {/*<TestButtonGoogle/>*/}
+            <TestButtonFaceBook/>
             
             <Banner/>
             <Search/>

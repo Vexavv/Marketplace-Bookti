@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styles from './Navigation.module.scss'
 import {NavLink} from "react-router-dom";
 import {useTranslation} from "react-i18next";
@@ -10,9 +10,9 @@ import {useAppSelector} from "../../hook";
 const Navigation: React.FC<NavigationProps> = ({mobile, footer, onClick}) => {
     const {t} = useTranslation('header');
     //------------------Selectors----------------------------------------
-    const googleLoading = useAppSelector(state => state.auth.loadingGoogle)
+    const loading = useAppSelector(state => state.auth.loading)
     //--------------------------googleLoading-----------------------------
-    const additionalNav: NavigationList[] = googleLoading
+    const additionalNav: NavigationList[] = loading
         ? [
             {name: t('Nav.books'), path: '/myBooks', icon: '/header/book.svg'},
             {name: t('Nav.favorite'), path: '/favorite', icon: '/header/heart.svg'}

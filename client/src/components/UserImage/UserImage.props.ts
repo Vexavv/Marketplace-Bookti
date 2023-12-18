@@ -1,5 +1,8 @@
+
 export interface UserImageProps{
-    picture:string
+    picture:string | {data: {
+            url: string;
+        };} | undefined
     name:string
     text:string
     button: string

@@ -3,14 +3,14 @@ import styles from './MyAccount.module.scss'
 import {useAppSelector} from "../../hook";
 import { Navigate } from "react-router-dom";
 const MyAccount = () => {
-    const googleLoading = useAppSelector(state => state.auth.loadingGoogle)
+    const loading = useAppSelector(state => state.auth.loading)
     return (
         <>
-            {googleLoading && <div>
+            {loading && <div>
                 <button> Create new book</button>
                 My Account
             </div>}
-            {!googleLoading && <Navigate to="/" replace />}
+            {!loading && <Navigate to="/" replace />}
         </>
 
     );
