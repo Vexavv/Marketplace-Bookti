@@ -15,11 +15,11 @@ const Footer = () => {
             <Container>
                 <div className={styles.FooterContent}>
                     <div className={styles.FooterContentMenu}>
-                        <h3 className={styles.FooterContentMenuTitle}>{t('Title.information')}</h3>
+                        <h3 className={styles.FooterContentMenuTitle}>{t('Title.menu')}</h3>
                         <Navigation footer={true} />
                     </div>
                     <div className={styles.FooterContentPrivacy}>
-                        <h3 className={styles.FooterContentMenuTitle}>{t('Title.privacy policy')}</h3>
+                        <h3 className={styles.FooterContentMenuTitle}>{t('Title.information')}</h3>
                         <PrivacyList/>
                     </div>
                     <div className={styles.FooterContentSocial}>

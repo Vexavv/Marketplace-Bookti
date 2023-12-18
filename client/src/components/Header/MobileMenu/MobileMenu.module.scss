@@ -37,7 +37,7 @@
   &Wrapper {
     display: flex;
     flex-direction: column;
-    height: 160px;
+    height: 200px;
     margin-top: 70px;
 
     &Nav {
@@ -66,4 +66,16 @@ display: flex;
     text-decoration: underline;
   }
 }
+}
+.Closed{
+  cursor: pointer;
+  margin-top: 150px;
+  display: flex;
+  img{
+    margin-right: 10px;
+  }
+  &Text{
+    @include primary-font;
+    color: #000;
+  }
 }
