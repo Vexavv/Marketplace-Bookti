@@ -3,14 +3,14 @@
 
 .Nav {
   width: 100%;
-  height: 100%;
+  //height: 100%;
 
   &List {
     display: flex;
     flex-direction: column;
     list-style: none;
     justify-content: space-between;
-    height: 100%;
+    //width: 500px;
 
     &Item {
       @include primary-font;
@@ -71,9 +71,10 @@
   &List {
 
     &Item {
-      @include secondary-font;
+      @include primary-font;
       margin-bottom: 12px;
-
+      font-weight: 300;
+      font-size: 14px;
 
       &Link {
         color: black;
@@ -101,7 +102,7 @@
 
 @media (min-width: 900px) {
   .Nav {
-    width: 30%;
+    width: 45%;
 
     &List {
       flex-direction: row;

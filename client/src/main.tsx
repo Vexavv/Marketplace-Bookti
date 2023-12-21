@@ -15,7 +15,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
         <GoogleOAuthProvider clientId={import.meta.env.VITE_REACT_APP_GOOGLE_ID}>
             <App />
         </GoogleOAuthProvider>
-    </BrowserRouter>,
+    </BrowserRouter>
         </PersistGate>
     </Provider>
 )

@@ -6,7 +6,7 @@ import Layout from "./components/Layout/Layout";
 import About from "./pages/About/About";
 import Home from "./pages/Home/Home";
 import Library from "./pages/Library/Library";
-import Blog from "./pages/Blog/Blog";
+import Journal from "./pages/Journal/Journal";
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
 import TermsAndConditions from "./pages/TermsAndConditions/TermsAndConditions";
 import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
@@ -14,6 +14,7 @@ import LogIn from "./pages/LogIn/LogIn";
 import Registration from "./pages/Registration/Registration";
 import MyAccount from "./pages/MyAccount/MyAccount";
 import Modal from "./components/Modal/Modal";
+import Forum from "./pages/Forum/Forum";
 
 function App() {
   return (
@@ -24,7 +25,8 @@ function App() {
                 <Route index element={<Home/>}/>
                 <Route path="/about" element={<About/>}/>
                 <Route path="/library" element={<Library/>}/>
-                <Route path="/blog" element={<Blog/>}/>
+                <Route path="/journal" element={<Journal/>}/>
+                <Route path="/forum" element={<Forum/>}/>
                 <Route path="/terms" element={<TermsAndConditions/>}/>
                 <Route path="/privacy" element={<PrivacyPolicy/>}/>
                 <Route path="/login" element={<LogIn/>}/>

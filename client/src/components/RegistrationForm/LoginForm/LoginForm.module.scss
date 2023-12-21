@@ -74,21 +74,21 @@
     }
 
     &Text {
-      @include secondary-font;
-      font-size: 10px;
+      @include primary-font;
+      font-size: 9px;
       color: #000;
       margin-right: 2px;
     }
 
     &Link {
-      @include secondary-font;
+      @include primary-font;
       color: $primary-color;
-      font-size: 10px;
+      font-size: 9px;
     }
   }
 
   &Forgot {
-    @include secondary-font;
+    @include primary-font;
     color: $primary-color;
     font-size: 12px;
     align-self: flex-end;
@@ -154,11 +154,11 @@
     }
     &Label{
       &Text{
-        font-size: 12px;
+        font-size: 11px;
         margin-right: 3px;
       }
       &Link{
-        font-size: 12px;
+        font-size: 11px;
       }
     }
   }
@@ -200,11 +200,11 @@
       }
 
       &Text {
-        font-size: 14px;
+        font-size: 13px;
         margin-right: 5px;
       }
       &Link {
-        font-size: 14px;
+        font-size: 13px;
       }
     }
     &Forgot {

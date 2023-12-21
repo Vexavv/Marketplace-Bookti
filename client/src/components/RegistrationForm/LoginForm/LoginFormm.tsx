@@ -14,7 +14,7 @@ import {openModal} from "../../../store/slices/modalSlice";
 
 
 import {TokenResponse, useGoogleLogin} from '@react-oauth/google';
-import { fetchUserData} from "../../../store/slices/authSlice";
+import {fetchUserData} from "../../../store/slices/authSlice";
 
 // initialValues
 const initialValuesLogin: LoginForm = {
@@ -90,6 +90,7 @@ const LoginFormm = ({registration}: LoginFormProps) => {
     const googleLogin = useGoogleLogin({
         onSuccess:  (response: TokenResponse) => {
             dispatch(fetchUserData(response.access_token));
+
         },
     });
     // console.log('Data User',tokenResponse)
@@ -167,7 +168,6 @@ const LoginFormm = ({registration}: LoginFormProps) => {
                         }} src="/login/facebook.svg" alt="facebook"/>
 
                         <img onClick={() => googleLogin()} src="/login/google.svg" alt="google"/>
-
                     </div>
                 </Form>
             </Formik>

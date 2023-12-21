@@ -2,13 +2,14 @@
   "Nav": {
     "about": "About",
     "library": "Library",
-    "blog": "Blog",
+    "journal": "Journal",
+    "forum": "Forum",
     "books": "Your books",
     "favorite": "Saved books"
 
   },
   "Select": {
-    "uk": "Ukraine",
+    "uk": "Ukrainian",
     "en": "English"
   },
   "Button": {

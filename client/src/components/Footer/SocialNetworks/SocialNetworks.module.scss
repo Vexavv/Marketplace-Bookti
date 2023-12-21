@@ -1,17 +1,24 @@
 @import "../../../styles/variables.module";
 @import "../../../styles/mixins.module";
+
 .Social {
   &List {
+    display: flex;
+    justify-content: space-between;
+
     &Item {
-      @include secondary-font;
-      margin-bottom: 15px;
+      @include primary-font;
+      font-weight: 300;
+      font-size: 14px;
+      //margin-bottom: 15px;
       &Link {
         max-width: 100px;
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        color:#000000;
-        &Icon{
+        color: #000000;
+
+        &Icon {
           margin-right: 8px;
         }
       }
@@ -19,6 +26,27 @@
   }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 500px) {
+  .Social {
+    height: 100%;
 
+    &List {
+      flex-direction: column;
+      height: 100%;
+    }
+  }
+}
+
+@media (min-width: 900px) {
+  .Social {
+
+    &List {
+      display: inline-block;
+      margin-bottom: 15px;
+
+      &Item {
+        margin-bottom: 15px;
+      }
+    }
+  }
 }

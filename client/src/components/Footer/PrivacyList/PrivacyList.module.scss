@@ -1,7 +1,9 @@
 @import "../../../styles/mixins.module";
 .Privacy{
 &List{
-  @include secondary-font;
+  @include primary-font;
+  font-weight: 300;
+  font-size: 14px;
   margin-bottom: 12px;
   &Link{
     color:#000000;

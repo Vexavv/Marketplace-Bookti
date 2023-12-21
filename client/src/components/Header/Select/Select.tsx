@@ -62,7 +62,7 @@ export default function ControlledOpenSelect() {
                     value={selectValue}
                     onChange={handleChange}
                     sx={{
-                        fontSize: '16px', boxShadow: "none", fontFamily: 'Inter, serif',
+                        fontSize: '16px', boxShadow: "none", fontFamily: 'Montserrat, serif',
                         ".MuiOutlinedInput-notchedOutline": {border: 0},
                         "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
                             {
@@ -76,7 +76,7 @@ export default function ControlledOpenSelect() {
                 >{options.map(item => (
                     <MenuItem value={item.value} key={item.id} disabled={i18next.language === item.disabled} sx={{
                         fontSize: '16px',
-                        fontFamily: 'Inter, serif',
+                        fontFamily: 'Montserrat, serif',
                         margin:'5px',
                         borderRadius: '5px',
                         '&:hover': {background: '#447B57', color: '#fff'}

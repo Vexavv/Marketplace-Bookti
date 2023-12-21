@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Registration.module.scss'
-import RegistrationForm from "../../components/RegistrationForm/RegistrationForm";
+
 import Container from "../../components/Container/Container";
 import {Link, Navigate} from "react-router-dom";
 import Logo from "../../components/Header/Logo/Logo";
@@ -10,22 +10,21 @@ import {useAppSelector} from "../../hook";
 
 const Registration = () => {
     const {t} = useTranslation('login')
-    const googleLoading = useAppSelector(state => state.auth.loadingGoogle)
+    const loading = useAppSelector(state => state.auth.loading)
     return (
         <>
-            {googleLoading && <Navigate to="/account" replace/>}
+            {loading && <Navigate to="/account" replace/>}
             <div>
                 <Container>
                     <div className={styles.Wrapper}>
                         <div className={styles.WrapperArrow}>
-                            <Link className={styles.WrapperArrowLink} to='/'> <img src="/login/arrow.svg"
-                                                                                   alt="arrow"/>{t('arrow')}</Link>
+                            <Link className={styles.WrapperArrowLink} to='/'> <img src="/login/arrow.svg" alt="arrow"/>{t('arrow')}</Link>
                         </div>
                         <div className={styles.WrapperForm}>
 
-                            <div className={styles.WrapperFormLogo}>
-                                <Logo mobile={true}/>
-                            </div>
+                            {/*<div className={styles.WrapperFormLogo}>*/}
+                            {/*    <Logo mobile={true}/>*/}
+                            {/*</div>*/}
                             <p className={styles.WrapperFormGreetings}>{t('titleRegistration')}</p>
                             <LoginFormm registration/>
 

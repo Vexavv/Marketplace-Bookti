@@ -1,19 +1,24 @@
 import React from 'react';
 import styles from './LogIn.module.scss'
-import RegistrationForm from "../../components/RegistrationForm/RegistrationForm";
+
 import Container from "../../components/Container/Container";
 import {Link, Navigate} from "react-router-dom";
 import Logo from "../../components/Header/Logo/Logo";
 import LoginFormm from "../../components/RegistrationForm/LoginForm/LoginFormm";
 import {useTranslation} from "react-i18next";
 import {useAppSelector} from "../../hook";
+import {LoginProps} from "./Login.props";
 
-const LogIn = () => {
+
+// import { RouteComponentProps } from 'react-router-dom';
+
+const LogIn = ({title}:LoginProps) => {
     const {t} = useTranslation('login')
-    const googleLoading = useAppSelector(state => state.auth.loadingGoogle)
+
+    const loading = useAppSelector(state => state.auth.loading)
     return (
         <>
-            {googleLoading && <Navigate to="/account" replace/>}
+            {loading && <Navigate to="/account" replace/>}
             <div>
                 <Container>
                     <div className={styles.Wrapper}>
@@ -23,15 +28,16 @@ const LogIn = () => {
                         </div>
                         <div className={styles.WrapperForm}>
 
-                            <div className={styles.WrapperFormLogo}>
-                                <Logo mobile={true}/>
-                            </div>
+                            {/*<div className={styles.WrapperFormLogo}>*/}
+                            {/*    <Logo mobile={true}/>*/}
+                            {/*</div>*/}
                             <p className={styles.WrapperFormGreetings}>{t('titleLogin')}</p>
+
                             <LoginFormm/>
 
                         </div>
                         <div className={styles.WrapperImage}>
-                            <img src="/login/books.png" alt="books"/>
+                        <img src="/login/books.png" alt="books"/>
                         </div>
                     </div>
                 </Container>
