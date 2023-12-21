@@ -1,3 +1,4 @@
+@import "../../../styles/mixins.module";
 .Banner {
   background-image: url("/home/backgroun-mob.png");
   background-repeat: no-repeat;
@@ -12,13 +13,11 @@
     }
 
     &Text {
+      @include primary-font;
       color: #FFF;
       text-align: center;
-      font-family: Inter, serif;
       font-size: 20px;
-      font-style: normal;
       font-weight: 500;
-      line-height: normal;
       margin-bottom: 25px;
     }
   }

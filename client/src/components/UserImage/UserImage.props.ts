@@ -7,5 +7,6 @@ export interface UserImageProps{
     text:string
     button: string
     onClick?: () => void
+    onClick2?:() => void
     nav?:boolean
 }

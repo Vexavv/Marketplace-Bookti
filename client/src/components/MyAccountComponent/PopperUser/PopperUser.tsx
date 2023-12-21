@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './PopperUser.module.scss'
 import Button from "../../Button/Button";
 import {useAppDispatch, useAppSelector} from "../../../hook";
@@ -32,7 +32,7 @@ const PopperUser = () => {
     const dispatch = useAppDispatch()
 //------------------Selectors-------------------------
     const user = useAppSelector(state => state.auth.data)
-
+    console.log('User>>>>>>>>>', user)
     const loading = useAppSelector(state => state.auth.loading)
 //----------------------Logout Google ---------------------
     const handleLogout = () => {
@@ -60,9 +60,24 @@ const PopperUser = () => {
         {name: t('Nav.favorite'), path: "/favorite", icon: "/header/heart.svg"}
     ]
     //---------------------Content-----------------------
+
+
     const renderContent = () => {
         if (!loading) {
             return <div>
+                {/*<Link to={{*/}
+                {/*    pathname: '/login',*/}
+                {/*    state: { title: 'Login' } as { title: string }*/}
+                {/*}}>*/}
+                {/*    <Button name='HeaderButton'>{t('Button.login')}</Button>*/}
+                {/*</Link>*/}
+                {/*<Link to={{*/}
+                {/*    pathname: '/login',*/}
+                {/*    state: { title: 'Registration' }as { title: string }*/}
+                {/*}}>*/}
+                {/*    <Button name='HeaderButton'>{t('Button.registration')}</Button>*/}
+                {/*</Link>*/}
+
                 <Link to='/login'>
                     <Button name='HeaderButton'>{t('Button.login')}</Button>
                 </Link>

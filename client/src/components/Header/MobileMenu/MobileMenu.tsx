@@ -31,7 +31,7 @@ const renderContent = ()=> {
         </div>
     }
     if (user) {
-        return <div onClick={mobileMenuToggle}><UserImage picture={user.picture} name={user.name} text={t('Popper.text')} button={t('Popper.button')} nav={true} onClick={mobileMenuToggle}/> </div>
+        return <div ><UserImage picture={user.picture} name={user.name} text={t('Popper.text')} button={t('Popper.button')} nav={true} onClick2={mobileMenuToggle}/> </div>
     }
 }
     return (

@@ -1,7 +1,7 @@
 {
   "Banner": {
     "slogan": "Communicate using pages, share your story",
-    "button": "Add a book"
+    "button": "Cosy nook"
   },
   "Search": {
     "text": "For example: Remarque, Harry Potter",
@@ -13,7 +13,7 @@
     "link": "Read more"
   },
   "HowWork": {
-    "title": "How BookBridgeHub works",
+    "title": "How it works",
     "List": {
       "first": "Go to the section \"Library”",
       "second": "Find a book, author or genre you like",
@@ -22,8 +22,7 @@
     }
   },
   "WhatCategories": {
-    "title": "Categories of books",
-    "text": "Check out our collection of the best, most interesting books. You're sure to find what you're looking for.",
+    "title": "Recently Arrivals Display",
     "List": {
       "first": "Novels",
       "second": "Fiction",
@@ -38,7 +37,7 @@
     "button": "Sign up "
   },
   "BlogCarousel": {
-    "title": "The latest from our blog",
+    "title": "Exciting Events",
     "Carousel": {
       "first": "Novels",
       "second": "Fantasy",

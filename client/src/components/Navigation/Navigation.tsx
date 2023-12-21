@@ -24,7 +24,9 @@ const Navigation: React.FC<NavigationProps> = ({mobile, footer, onClick}) => {
 
         {name: t('Nav.about'), path: '/about', icon: '/header/clipboard.svg'},
         {name: t('Nav.library'), path: '/library', icon: '/header/book.svg'},
-        {name: t('Nav.blog'), path: '/blog', icon: '/header/bookmark.svg'},
+        {name: t('Nav.journal'), path: '/journal', icon: '/header/bookmark.svg'},
+        {name: t('Nav.forum'), path: '/forum', icon: '/header/bookmark.svg'},
+
     ];
 
 

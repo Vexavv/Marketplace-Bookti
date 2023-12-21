@@ -21,7 +21,6 @@ const WhatCategories = () => {
                 <div className={styles.WrapperTitle}>
                     <HTag tag='h2'>{t('WhatCategories.title')}</HTag>
                 </div>
-                <p className={styles.WrapperText}>{t('WhatCategories.text')}</p>
 
                 <Link className={cn(styles.WrapperLink,styles.WrapperBigLink)} to='/library'>{t('WhatCategories.link')}</Link>
                 <ul className={styles.WrapperList}>

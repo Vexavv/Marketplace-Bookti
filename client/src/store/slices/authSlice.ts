@@ -7,16 +7,14 @@ import axios, { AxiosResponse } from 'axios';
 //     picture?: string;
 // }
 export interface User {
-    map(): import("react").ReactNode | Iterable<import("react").ReactNode>;
     name: string;
     email?: string;
     picture?: string;
 }
 export interface UserFacebook {
-    map(): import("react").ReactNode | Iterable<import("react").ReactNode>;
     name: string;
     email?: string;
-    picture?: {
+    picture: {
         data: {
             url: string;
         };
@@ -26,12 +24,10 @@ export interface UserFacebook {
 interface UserState {
     loading?: boolean;
     data: User | UserFacebook | null;
-    // dataFacebook:UserFacebook | null;
 }
 
 const initialState: UserState = {
     data: null,
-    // dataFacebook:null,
     loading: false,
 
 };
@@ -65,17 +61,15 @@ const authSlice = createSlice({
     name: 'auth',
     initialState,
     reducers: {
-        setUser: (state, action: PayloadAction<User |UserFacebook | null>) => {
+        setUser: (state, action: PayloadAction<User | UserFacebook | null>) => {
             state.data = action.payload;
-            state.loading = true;
         },
-        // setLoadingGoogle: (state, action: PayloadAction<boolean>) => {
-        //     state.loading = action.payload;
-        //     console.log('Action Payload:', action.payload);
-        // },
+        setLoading: (state, action: PayloadAction<boolean>) => {
+            state.loading = action.payload;
+            console.log('Action Payload:', action.payload);
+        },
         logout: state => {
             state.data = null;
-            // state.dataFacebook = null;
             state.loading = false;
         },
         // setUserFacebook: (state, action: PayloadAction<User | null>) => {
@@ -90,7 +84,6 @@ const authSlice = createSlice({
             })
             .addCase(fetchUserData.fulfilled, (state, action: PayloadAction<User>) => {
                 state.data = action.payload;
-                state.loading = true;
             })
             .addCase(fetchUserData.rejected, (state) => {
                 state.loading = false;
@@ -102,7 +95,6 @@ const authSlice = createSlice({
             })
             .addCase(fetchUserDataFaceBook.fulfilled, (state, action: PayloadAction<UserFacebook>) => {
                 state.data = action.payload;
-                state.loading = true;
             })
             .addCase(fetchUserDataFaceBook.rejected, (state) => {
                 state.loading = false;
@@ -110,7 +102,7 @@ const authSlice = createSlice({
     },
 });
 
-export const {setUser,  logout } = authSlice.actions;
+export const {setUser,  logout,setLoading } = authSlice.actions;
 
 export default authSlice.reducer;
 

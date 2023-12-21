@@ -3,13 +3,13 @@
     "menu": "Links",
     "information": "Information",
     "social networks": "Social networks",
-    "subscribe": "Subscribe"
+    "subscribe": ""
   },
   "Info": {
     "privacy": "Privacy Policy",
     "terms": "Terms of Use"
   },
-  "Button": "To subscribe",
+  "Button": "Subscribe",
   "Placeholder": "E-mail",
   "copyright": "Copyright"
 }

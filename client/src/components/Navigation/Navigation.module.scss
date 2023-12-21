@@ -71,9 +71,10 @@
   &List {
 
     &Item {
-      @include secondary-font;
+      @include primary-font;
       margin-bottom: 12px;
-
+      font-weight: 300;
+      font-size: 14px;
 
       &Link {
         color: black;
