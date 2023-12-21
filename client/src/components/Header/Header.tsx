@@ -29,9 +29,19 @@ const Header = () => {
                          alt="burger"/>
 
                     <div className={styles.HeaderWrapperMenu}>
-                        <Navigation/>
-                        <Select/>
-                        <PopperUser/>
+                        {/*<div className={styles.HeaderWrapperMenuNav}>*/}
+                            <Navigation/>
+                        {/*</div>*/}
+
+
+                        <div>
+                            <Select/>
+                        </div>
+
+                        <div>
+                            <PopperUser/>
+                        </div>
+
                     </div>
                 </div>
             </Container>

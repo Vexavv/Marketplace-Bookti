@@ -1,16 +1,23 @@
 @mixin primary-font{
-  font-family: Inter, serif;
+  font-family: Montserrat, serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
 }
-@mixin secondary-font{
-  font-family: IBM Plex Sans, serif;
-  font-size: 14px;
+//@mixin secondary-font{
+//  font-family: IBM Plex Sans, serif;
+//  font-size: 14px;
+//  font-style: normal;
+//  font-weight: 300;
+//  line-height: 120%;
+//}
+@mixin h-tag-font{
+  font-family: Cormorant, serif;
+  font-size: 40px;
   font-style: normal;
-  font-weight: 300;
-  line-height: 120%;
+  font-weight: 700;
+  line-height: normal;
 }
 @mixin third-font{
   font-family: Montserrat Alternates, serif;
