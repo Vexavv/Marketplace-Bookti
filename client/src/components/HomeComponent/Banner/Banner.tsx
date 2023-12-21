@@ -26,12 +26,11 @@ const Banner = () => {
                         <img className={styles.BannerWrapperImageImg} src="/home/OBJECTS.png" alt="book"/>
                     </div>
                     <div className={styles.BannerWrapperButton}>
-                        {loading ?
-                            <Button name='BannerButton' onClick={handleOpenModal}>{t('Banner.button')}</Button> :
-                            <Link to="/registration">
+
+                            <Link to="/forum">
                                 <Button name='BannerButton'>{t('Banner.button')}</Button>
                             </Link>
-                        }
+
                     </div>
                 </div>
             </Container>

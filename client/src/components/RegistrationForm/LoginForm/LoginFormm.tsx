@@ -168,7 +168,6 @@ const LoginFormm = ({registration}: LoginFormProps) => {
                         }} src="/login/facebook.svg" alt="facebook"/>
 
                         <img onClick={() => googleLogin()} src="/login/google.svg" alt="google"/>
-
                     </div>
                 </Form>
             </Formik>
