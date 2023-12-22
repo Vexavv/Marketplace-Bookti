@@ -16,24 +16,34 @@ const WhatCategories = () => {
         {icon: "/home/categories/fourth-book.png", name: t('WhatCategories.List.fourth'),path:"#"},
     ]
     return (
-        <Container>
-            <div className={styles.Wrapper}>
-                <div className={styles.WrapperTitle}>
+
+        <>
+            <div className={styles.Title}>
+                <div className={styles.TitleContainer}>
                     <HTag tag='h2'>{t('WhatCategories.title')}</HTag>
                 </div>
-
-                <Link className={cn(styles.WrapperLink,styles.WrapperBigLink)} to='/library'>{t('WhatCategories.link')}</Link>
-                <ul className={styles.WrapperList}>
-                    {categoriesList.map(item => (
-                        <li className={styles.WrapperListItem} key={item.name}>
-                            <img src={item.icon} alt="book"/>
-                           <Link to={item.path}><p className={styles.WrapperListItemName}>{item.name}</p></Link>
-                        </li>
-                    ))}
-                </ul>
-                <Link className={cn(styles.WrapperLink,styles.WrapperDisableLink)} to='/library'>{t('WhatCategories.link')}</Link>
             </div>
-        </Container>
+            <Container>
+                <div className={styles.Wrapper}>
+
+
+                    <Link className={cn(styles.WrapperLink, styles.WrapperBigLink)}
+                          to='/library'>{t('WhatCategories.link')}</Link>
+                    <ul className={styles.WrapperList}>
+                        {categoriesList.map(item => (
+                            <li className={styles.WrapperListItem} key={item.name}>
+                                <img src={item.icon} alt="book"/>
+                                <Link to={item.path}><p className={styles.WrapperListItemName}>{item.name}</p></Link>
+                            </li>
+                        ))}
+                    </ul>
+                    <Link className={cn(styles.WrapperLink, styles.WrapperDisableLink)}
+                          to='/library'>{t('WhatCategories.link')}</Link>
+                </div>
+            </Container>
+
+
+        </>
 
     );
 };

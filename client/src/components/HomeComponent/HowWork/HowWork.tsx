@@ -14,24 +14,29 @@ const HowWork = () => {
         {icon: "/home/third-step.svg", title: t('HowWork.List.third')},
     ]
     return (
-        <Container>
-            <div className={styles.Wrapper}>
-                <div className={styles.WrapperTitle}>
-                    <HTag tag='h2'>{t('HowWork.title')}</HTag>
-                </div>
-
+        <>
+            <div className={styles.Title}>
+                    <div className={styles.TitleContainer}>
+                        <HTag tag='h2'>{t('HowWork.title')}</HTag>
+                    </div>
+            </div>
+            <Container>
+                <div className={styles.Wrapper}>
                 <ul className={styles.WrapperList}>
-                    {stepList.map(item => (
-                        <li className={styles.WrapperListItem} key={item.title}>
+                        {stepList.map(item => (
+                            <li className={styles.WrapperListItem} key={item.title}>
                                 <img src={item.icon} alt="icon"/>
                                 <p className={styles.WrapperListItemText}>{item.title}</p>
-                        </li>
-                    ))}
-                </ul>
-            </div>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
 
 
-        </Container>
+            </Container>
+
+
+        </>
 
     );
 };

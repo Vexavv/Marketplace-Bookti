@@ -1,15 +1,20 @@
 @import "../../../styles/mixins.module";
+.Title {
+  text-align: start;
+  margin-bottom: 25px;
+  width: 65%;
+  filter: drop-shadow(-1px 6px 3px rgba(50, 50, 0, 0.5));
 
+  &Container{
+    padding: 5px 0 5px 15px;
+    clip-path: polygon(0% 0%, 100% 0, 90% 48%, 100% 100%, 0% 100%);
+    background-color: #E5AB5E;
+  }
+}
 .Wrapper {
   display: flex;
   flex-direction: column;
   margin-bottom: 50px;
-
-  &Title {
-    text-align: start;
-    margin-bottom: 25px;
-  }
-
   &List {
     list-style: none;
     display: flex;
@@ -33,6 +38,9 @@ margin-bottom: 25px;
 }
 
 @media (min-width: 500px) {
+  .Title{
+    width: 45%;
+  }
   .Wrapper {
     &List {
       flex-direction: row;
@@ -45,12 +53,14 @@ margin-bottom: 25px;
 }
 
 @media (min-width: 900px) {
+  .Title {
+    margin-bottom: 60px;
+    &Container{
+      padding: 5px 0 5px 35px;
+    }
+  }
   .Wrapper {
     margin-bottom: 100px;
-    &Title {
-      margin-bottom: 60px;
-    }
-
     &List {
       flex-direction: row;
       flex-wrap: nowrap;
