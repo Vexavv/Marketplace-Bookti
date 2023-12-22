@@ -14,10 +14,10 @@ import {openModal} from "../../../store/slices/modalSlice";
 
 
 import {TokenResponse, useGoogleLogin} from '@react-oauth/google';
-import {fetchUserData, loginAsync} from "../../../store/slices/authSlice";
+import {fetchUserData} from "../../../store/slices/authSlice";
 
 // initialValues
-const initialValuesLogin: LoginForm = {
+const initialValuesLogin: LoginFormValues = {
     email: '',
     password: ''
 }
@@ -187,8 +187,8 @@ const LoginFormm = ({registration}: LoginFormProps) => {
                 </div>
             </div>) : (<div>
 
-                <Formik initialValues={initialValuesLogin} onSubmit={ async (values: LoginForm, { resetForm }: FormikHelpers<LoginForm>) => {
-                     await dispatch(loginAsync(values));
+                <Formik initialValues={initialValuesLogin} onSubmit={ async (values: LoginFormValues, { resetForm }: FormikHelpers<LoginFormValues>) => {
+                     // await dispatch(loginAsync(values));
                     resetForm();
                 }}
 
