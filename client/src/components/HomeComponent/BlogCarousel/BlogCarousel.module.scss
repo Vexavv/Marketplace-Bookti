@@ -1,3 +1,16 @@
+.Title{
+  text-align: start;
+  margin-bottom: 25px;
+  width: 75%;
+  filter: drop-shadow(-1px 6px 3px rgba(50, 50, 0, 0.5));
+  &Container{
+    padding: 5px 0 5px 15px;
+    clip-path: polygon(0% 0%, 100% 0, 90% 48%, 100% 100%, 0% 100%);
+    background-color: #99A1D8;
+  }
+}
+
+
 .Wrapper {
   margin-bottom: 50px;
   position: relative;
@@ -33,6 +46,9 @@
 }
 
 @media (min-width: 500px) {
+  .Title{
+    width: 55%;
+  }
   .Wrapper {
     &Card {
       width: 100%;
@@ -51,6 +67,12 @@
 }
 
 @media (min-width: 900px) {
+  .Title{
+    width: 45%;
+    &Container{
+      padding: 5px 0 5px 35px;
+    }
+  }
   .Wrapper {
     margin-bottom: 100px;
 
