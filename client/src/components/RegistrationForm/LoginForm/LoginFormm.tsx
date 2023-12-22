@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import styles from './LoginForm.module.scss'
-import {Formik, Form, Field, ErrorMessage,} from 'formik';
+import {Formik, Form, Field, ErrorMessage, FormikHelpers,} from 'formik';
 import * as yup from 'yup';
 import YupPassword from 'yup-password'
 import {LoginForm} from "../../../types";
@@ -14,7 +14,7 @@ import {openModal} from "../../../store/slices/modalSlice";
 
 
 import {TokenResponse, useGoogleLogin} from '@react-oauth/google';
-import {fetchUserData} from "../../../store/slices/authSlice";
+import {fetchUserData, loginAsync} from "../../../store/slices/authSlice";
 
 // initialValues
 const initialValuesLogin: LoginForm = {
@@ -29,7 +29,10 @@ const initialValuesSignIn: LoginForm = {
     checkboxField: false,
 }
 
-
+interface LoginFormValues {
+    email: string;
+    password: string;
+}
 const LoginFormm = ({registration}: LoginFormProps) => {
     const {t} = useTranslation('login')
     const dispatch = useAppDispatch();
@@ -96,6 +99,13 @@ const LoginFormm = ({registration}: LoginFormProps) => {
     // console.log('Data User',tokenResponse)
     // console.log('Loading',googleLoading )
 
+//---------------------------FormLogin-------------------------------------
+//     const handleLogin = async () => {
+//         // Используйте formData для отправки данных
+//         await dispatch(loginAsync(formData));
+//
+//         // Теперь вы можете использовать authStatus, чтобы понять успешен ли вход или произошла ошибка
+//     };
 
 
 
@@ -176,10 +186,15 @@ const LoginFormm = ({registration}: LoginFormProps) => {
                     <Link className={styles.WrapperLink} to='/login'>{t('RegistrationLink')}</Link>
                 </div>
             </div>) : (<div>
-                <Formik initialValues={initialValuesLogin} onSubmit={(values, {resetForm}) => {
-                    console.log('Checkout >>>', values)
-                    resetForm()
-                }} validationSchema={validationSchemaLogin}>
+
+                <Formik initialValues={initialValuesLogin} onSubmit={ async (values: LoginForm, { resetForm }: FormikHelpers<LoginForm>) => {
+                     await dispatch(loginAsync(values));
+                    resetForm();
+                }}
+
+
+
+                        validationSchema={validationSchemaLogin}>
                     <Form className={styles.Form}>
                         <Field className={styles.FormInput} type="email" name="email"
                                placeholder={t('LoginPlaceholder.email')}/>
