@@ -57,38 +57,46 @@ const BlogCarousel = () => {
 
 
     return (
-        <Container>
-            <div className={styles.Wrapper}>
-                <div className={styles.WrapperTitle}>
-                    <HTag tag='h2'>{t('BlogCarousel.title')}</HTag>
+        <>
+            <div className={styles.Title}>
+                <div className={styles.TitleContainer}>
+                     <HTag tag='h2'>{t('BlogCarousel.title')}</HTag>
                 </div>
-                <Carousel
-                    responsive={responsive}
-                    arrows={false}
-                    swipeable
-                    // draggable
-                    infinite
-                    keyBoardControl={true}
-                    customDot={<CustomDot active={false} onClick={() => {
-                    }}/>}
-                    showDots={true}
-                    renderDotsOutside={true}
-                >
-                    {test.map(item => (
-                        <Link to='#' key={item.id}>
-
-                            <div  className={styles.WrapperCard}>
-                                <div className={styles.WrapperCardImage}>
-                                    <img src={item.icon} alt={item.title}/>
-                                </div>
-                                <p className={styles.WrapperCardText}>{item.title}</p>
-                            </div>
-                        </Link>
-
-                    ))}
-                </Carousel>
             </div>
-        </Container>
+
+
+            <Container>
+                <div className={styles.Wrapper}>
+                    <Carousel
+                        responsive={responsive}
+                        arrows={false}
+                        swipeable
+                        // draggable
+                        infinite
+                        keyBoardControl={true}
+                        customDot={<CustomDot active={false} onClick={() => {
+                        }}/>}
+                        showDots={true}
+                        renderDotsOutside={true}
+                    >
+                        {test.map(item => (
+                            <Link to='#' key={item.id}>
+
+                                <div className={styles.WrapperCard}>
+                                    <div className={styles.WrapperCardImage}>
+                                        <img src={item.icon} alt={item.title}/>
+                                    </div>
+                                    <p className={styles.WrapperCardText}>{item.title}</p>
+                                </div>
+                            </Link>
+
+                        ))}
+                    </Carousel>
+                </div>
+            </Container>
+
+        </>
+
 
     );
 };
