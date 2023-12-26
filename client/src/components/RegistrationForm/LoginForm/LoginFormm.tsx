@@ -14,7 +14,11 @@ import {openModal} from "../../../store/slices/modalSlice";
 
 
 import {TokenResponse, useGoogleLogin} from '@react-oauth/google';
-import {fetchUserData} from "../../../store/slices/authSlice";
+import {fetchUserData, fetchUserDataFaceBook, loginAsync} from "../../../store/slices/authSlice";
+import {IResolveParams, LoginSocialFacebook} from "reactjs-social-login";
+
+
+
 
 // initialValues
 const initialValuesLogin: LoginFormValues = {
@@ -89,17 +93,16 @@ const LoginFormm = ({registration}: LoginFormProps) => {
         dispatch(openModal({type: 'resetPassword', props: {key: 'value'}}));
     }
 
-//------------------------------Google login ---------------------------------------
+    //------------------------------Google login ---------------------------------------
     const googleLogin = useGoogleLogin({
         onSuccess:  (response: TokenResponse) => {
             dispatch(fetchUserData(response.access_token));
 
         },
     });
-    // console.log('Data User',tokenResponse)
-    // console.log('Loading',googleLoading )
+    //-------------------------------Facebook Login-------------------------------------
 
-//---------------------------FormLogin-------------------------------------
+    //---------------------------FormLogin-------------------------------------
 //     const handleLogin = async () => {
 //         // Используйте formData для отправки данных
 //         await dispatch(loginAsync(formData));
@@ -172,10 +175,19 @@ const LoginFormm = ({registration}: LoginFormProps) => {
 
                     <p className={styles.FormText}>{t('Or')}</p>
                     <div className={styles.FormIcon}>
+                        <LoginSocialFacebook appId={import.meta.env.VITE_REACT_APP_FACEBOOK_ID}
+                                             onResolve={(response: IResolveParams | undefined) => {
+                                                 console.log('RESPONSE', response)
 
-                        <img onClick={() => {
-                            console.log('Facebook')
-                        }} src="/login/facebook.svg" alt="facebook"/>
+                                                 dispatch(fetchUserDataFaceBook(response?.data?.accessToken))
+
+
+                                             }} onReject={(error) => {
+                            console.log(error)
+                        }}>
+                            <img src="/login/facebook.svg" alt="facebook"/>
+                        </LoginSocialFacebook>
+
 
                         <img onClick={() => googleLogin()} src="/login/google.svg" alt="google"/>
                     </div>
@@ -188,7 +200,7 @@ const LoginFormm = ({registration}: LoginFormProps) => {
             </div>) : (<div>
 
                 <Formik initialValues={initialValuesLogin} onSubmit={ async (values: LoginFormValues, { resetForm }: FormikHelpers<LoginFormValues>) => {
-                     // await dispatch(loginAsync(values));
+                     await dispatch(loginAsync(values));
                     resetForm();
                 }}
 
@@ -225,9 +237,18 @@ const LoginFormm = ({registration}: LoginFormProps) => {
                         <p className={styles.FormText}>{t('Or')}</p>
                         <div className={styles.FormIcon}>
 
-                            <img onClick={() => {
-                                console.log('Facebook')
-                            }} src="/login/facebook.svg" alt="facebook"/>
+                            <LoginSocialFacebook appId={import.meta.env.VITE_REACT_APP_FACEBOOK_ID}
+                                                 onResolve={(response: IResolveParams | undefined) => {
+                                                     console.log('RESPONSE', response)
+
+                                                     dispatch(fetchUserDataFaceBook(response?.data?.accessToken))
+
+
+                                                 }} onReject={(error) => {
+                                console.log(error)
+                            }}>
+                                <img src="/login/facebook.svg" alt="facebook"/>
+                            </LoginSocialFacebook>
 
 
                             <img onClick={() => googleLogin()} src="/login/google.svg" alt="google"/>

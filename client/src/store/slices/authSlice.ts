@@ -52,6 +52,7 @@ export const loginAsync = createAsyncThunk(
             credentials
         );
         return response.data;
+
     }
 );
 export const fetchUserData = createAsyncThunk('auth/fetchUserData', async (token: string) => {
@@ -106,6 +107,7 @@ const authSlice = createSlice({
             })
             .addCase(fetchUserData.fulfilled, (state, action: PayloadAction<User>) => {
                 state.data = action.payload;
+                console.log(state.data)
             })
             .addCase(fetchUserData.rejected, (state) => {
                 state.loading = false;
@@ -117,7 +119,7 @@ const authSlice = createSlice({
             })
             .addCase(fetchUserDataFaceBook.fulfilled, (state, action: PayloadAction<UserFacebook>) => {
                 state.data = action.payload;
-                state.loading = false;
+
             })
             .addCase(fetchUserDataFaceBook.rejected, (state) => {
                 state.loading = false;

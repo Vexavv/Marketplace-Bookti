@@ -17,7 +17,7 @@ const Home = () => {
         <div>
 
             {/*<TestButtonGoogle/>*/}
-            {/*<TestButtonFaceBook/>*/}
+            <TestButtonFaceBook/>
             
             <Banner/>
             <Search/>
