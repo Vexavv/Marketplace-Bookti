@@ -1,8 +1,8 @@
 {
   "ResetPassword": {
     "title": "Reset password",
-    "text": "A temporary password will be sent to your e-mail",
-    "input": "Enter your email address",
+    "text": "Enter your e-mail address",
+    "input": "E-mail address",
     "button": "Submit"
   }
 }

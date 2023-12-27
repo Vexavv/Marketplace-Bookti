@@ -65,7 +65,7 @@ const TestButtonGoogle = () => {
                     // dispatch(fetchUserDataFaceBook(response.data.accessToken))
                 }} onReject={(error) => {console.log(error)
                 }}>
-                    <img src={picture} alt=""/>
+                    {/*<img src={picture} alt=""/>*/}
                 </LoginSocialFacebook>
             </>
         );
