@@ -2,7 +2,9 @@
 @import "../../../styles/mixins.module";
 
 .Popper{
-
+&User{
+  margin-right: 5px;
+}
   &Nav{
     display: flex;
     flex-direction: column;

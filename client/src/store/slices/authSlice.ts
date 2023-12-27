@@ -25,6 +25,15 @@ export interface UserFacebook {
 //     confirmPassword: string;
 // }
 
+
+
+// interface User{
+//          email: "string",
+//         first_name: "string",
+//         last_name: "string",
+//         avatar_url: "string"
+// }
+
 interface LoginCredentials {
     email: string;
     password: string;
