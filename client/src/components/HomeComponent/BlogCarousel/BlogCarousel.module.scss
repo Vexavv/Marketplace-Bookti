@@ -7,6 +7,7 @@
     padding: 5px 0 5px 15px;
     clip-path: polygon(0% 0%, 100% 0, 90% 48%, 100% 100%, 0% 100%);
     background-color: #99A1D8;
+
   }
 }
 
@@ -48,6 +49,7 @@
 @media (min-width: 500px) {
   .Title{
     width: 55%;
+    margin-bottom: 35px;
   }
   .Wrapper {
     &Card {
@@ -69,8 +71,10 @@
 @media (min-width: 900px) {
   .Title{
     width: 45%;
+    margin-bottom: 85px;
     &Container{
       padding: 5px 0 5px 35px;
+
     }
   }
   .Wrapper {

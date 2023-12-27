@@ -14,7 +14,7 @@ const Description = () => {
                     <img src="/home/Description-IMG.png" alt="Description"/>
                 </div>
                 <div className={styles.DescriptionContent}>
-                    <div className={styles.DescriptionContentTitle}><HTag tag='h2'>BookBridgeHub</HTag></div>
+                    <div className={styles.DescriptionContentTitle}><HTag tag='h2Black'>BookBridgeHub</HTag></div>
                     <p className={styles.DescriptionContentText}>{t('Description.text')}</p>
                     <Link className={styles.DescriptionContentLink} to='/about'>{t('Description.link')}</Link>
                 </div>

@@ -91,7 +91,7 @@ const PopperUser = () => {
 
             return <div>
                 <Button onClick={handleClick} name='UserButton'>
-                    <img className={styles.HeaderWrapperUser} src="/header/user.svg" alt="user"/>
+                    <img className={styles.PopperUser} src="/header/user.svg" alt="user"/>
                     {user.name}</Button>
 
                 <Popper id={id} open={open} anchorEl={anchorEl}>

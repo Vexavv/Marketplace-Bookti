@@ -2,7 +2,9 @@
 @import "../../../styles/mixins.module";
 
 .Popper{
-
+&User{
+  margin-right: 5px;
+}
   &Nav{
     display: flex;
     flex-direction: column;
@@ -15,6 +17,7 @@
       &Link{
         @include primary-font;
         color: #000;
+        font-size: 14px;
         display: flex;
         align-items: center;
         img{
