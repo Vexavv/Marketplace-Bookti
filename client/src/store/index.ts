@@ -17,6 +17,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
     modal:modalReducer,
     auth:authReducer,
+
 })
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
