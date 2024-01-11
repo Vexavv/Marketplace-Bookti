@@ -12,12 +12,8 @@ import {useTranslation} from "react-i18next";
 import {useAppDispatch} from "../../../hook";
 import {openModal} from "../../../store/slices/modalSlice";
 
-
-import {TokenResponse, useGoogleLogin} from '@react-oauth/google';
-import {fetchUserData, fetchUserDataFaceBook, loginAsync} from "../../../store/slices/authSlice";
-import {IResolveParams, LoginSocialFacebook} from "reactjs-social-login";
-
-
+import {createAccountAsync, loginAsync, getUserAsync} from "../../../store/slices/authSlice";
+// import {getUserAsync} from "../../../store/slices/userSlice";
 
 
 // initialValues
@@ -25,11 +21,11 @@ const initialValuesLogin: LoginFormValues = {
     email: '',
     password: ''
 }
-const initialValuesSignIn: LoginForm = {
-    name: '',
+const initialValuesSignIn: CreateAccountValues = {
+    full_name: '',
     email: '',
     password: '',
-    confirmPassword: '',
+    confirm_password: '',
     checkboxField: false,
 }
 
@@ -37,6 +33,16 @@ interface LoginFormValues {
     email: string;
     password: string;
 }
+
+interface CreateAccountValues {
+    full_name: string;
+    email: string;
+    password: string;
+    confirm_password: string;
+    checkboxField: boolean
+
+}
+
 const LoginFormm = ({registration}: LoginFormProps) => {
     const {t} = useTranslation('login')
     const dispatch = useAppDispatch();
@@ -60,7 +66,7 @@ const LoginFormm = ({registration}: LoginFormProps) => {
     })
 
     const validationSchemaRegister: yup.Schema<LoginForm> = yup.object().shape({
-        name: yup.string()
+        full_name: yup.string()
             .matches(/^[a-zA-Zа-яА-Я]+$/, t('Error.registration.name.matches'))
             .min(2, t('Error.registration.name.min'))
             .max(25, t('Error.registration.name.max'))
@@ -76,7 +82,7 @@ const LoginFormm = ({registration}: LoginFormProps) => {
             .minUppercase(1, t('Error.login.password.minUppercase'))
             .minNumbers(1, t('Error.login.password.minNumbers'))
             .required(t('Error.login.email.required')),
-        confirmPassword: yup.string()
+        confirm_password: yup.string()
             .oneOf([yup.ref('password')], t('Error.registration.confirmPassword.oneOf'))
             .required(t('Error.login.email.required')),
         checkboxField: yup.boolean().oneOf([true], t('Error.registration.checkboxField')),
@@ -94,12 +100,12 @@ const LoginFormm = ({registration}: LoginFormProps) => {
     }
 
     //------------------------------Google login ---------------------------------------
-    const googleLogin = useGoogleLogin({
-        onSuccess:  (response: TokenResponse) => {
-            dispatch(fetchUserData(response.access_token));
-
-        },
-    });
+    // const googleLogin = useGoogleLogin({
+    //     onSuccess:  (response: TokenResponse) => {
+    //         dispatch(fetchUserData(response.access_token));
+    //
+    //     },
+    // });
     //-------------------------------Facebook Login-------------------------------------
 
     //---------------------------FormLogin-------------------------------------
@@ -111,19 +117,22 @@ const LoginFormm = ({registration}: LoginFormProps) => {
 //     };
 
 
-
     return (
         <>
             {registration ? (<div><Formik initialValues={initialValuesSignIn}
                                           validationSchema={validationSchemaRegister}
-                                          onSubmit={(values, {resetForm}) => {
-                                              console.log('Checkout >>>', values)
-                                              resetForm()
-                                          }}>
+
+                                          onSubmit={async (values: CreateAccountValues, {resetForm}: FormikHelpers<CreateAccountValues>) => {
+                                              await dispatch(createAccountAsync(values));
+                                              await dispatch(getUserAsync())
+                                              resetForm();
+                                          }}
+
+            >
                 <Form className={styles.Form}>
-                    <Field className={styles.FormInput} type="text" name="name"
+                    <Field className={styles.FormInput} type="text" name="full_name"
                            placeholder={t('RegistrationPlaceholder.name')}/>
-                    <ErrorMessage className={styles.FormInputError} component="span" name="name"/>
+                    <ErrorMessage className={styles.FormInputError} component="span" name="full_name"/>
 
                     <Field className={styles.FormInput} type="email" name="email"
                            placeholder={t('LoginPlaceholder.email')}/>
@@ -149,11 +158,11 @@ const LoginFormm = ({registration}: LoginFormProps) => {
                     <div className={styles.FormVisibilityWrapper}>
                         <Field
                             className={styles.FormInput}
-                            name="confirmPassword"
+                            name="confirm_password"
                             type={isShowConfirm ? 'text' : 'password'}
                             placeholder={t('RegistrationPlaceholder.confirmPassword')}
                         />
-                        <ErrorMessage className={styles.FormInputError} component="span" name="confirmPassword"/>
+                        <ErrorMessage className={styles.FormInputError} component="span" name="confirm_password"/>
                         <span className={styles.FormVisibilityWrapperVisibility}
                               onClick={() => {
                                   handleToggle(setIsShowConfirm)
@@ -175,21 +184,8 @@ const LoginFormm = ({registration}: LoginFormProps) => {
 
                     <p className={styles.FormText}>{t('Or')}</p>
                     <div className={styles.FormIcon}>
-                        <LoginSocialFacebook appId={import.meta.env.VITE_REACT_APP_FACEBOOK_ID}
-                                             onResolve={(response: IResolveParams | undefined) => {
-                                                 console.log('RESPONSE', response)
-
-                                                 dispatch(fetchUserDataFaceBook(response?.data?.accessToken))
-
-
-                                             }} onReject={(error) => {
-                            console.log(error)
-                        }}>
-                            <img src="/login/facebook.svg" alt="facebook"/>
-                        </LoginSocialFacebook>
-
-
-                        <img onClick={() => googleLogin()} src="/login/google.svg" alt="google"/>
+                        <img src="/login/facebook.svg" alt="facebook"/>
+                        <img src="/login/google.svg" alt="google"/>
                     </div>
                 </Form>
             </Formik>
@@ -199,11 +195,12 @@ const LoginFormm = ({registration}: LoginFormProps) => {
                 </div>
             </div>) : (<div>
 
-                <Formik initialValues={initialValuesLogin} onSubmit={ async (values: LoginFormValues, { resetForm }: FormikHelpers<LoginFormValues>) => {
-                     await dispatch(loginAsync(values));
-                    resetForm();
-                }}
-
+                <Formik initialValues={initialValuesLogin}
+                        onSubmit={async (values: LoginFormValues, {resetForm}: FormikHelpers<LoginFormValues>) => {
+                            await dispatch(loginAsync(values));
+                            await dispatch(getUserAsync())
+                            resetForm();
+                        }}
 
 
                         validationSchema={validationSchemaLogin}>
@@ -236,22 +233,8 @@ const LoginFormm = ({registration}: LoginFormProps) => {
 
                         <p className={styles.FormText}>{t('Or')}</p>
                         <div className={styles.FormIcon}>
-
-                            <LoginSocialFacebook appId={import.meta.env.VITE_REACT_APP_FACEBOOK_ID}
-                                                 onResolve={(response: IResolveParams | undefined) => {
-                                                     console.log('RESPONSE', response)
-
-                                                     dispatch(fetchUserDataFaceBook(response?.data?.accessToken))
-
-
-                                                 }} onReject={(error) => {
-                                console.log(error)
-                            }}>
-                                <img src="/login/facebook.svg" alt="facebook"/>
-                            </LoginSocialFacebook>
-
-
-                            <img onClick={() => googleLogin()} src="/login/google.svg" alt="google"/>
+                            <img src="/login/facebook.svg" alt="facebook"/>
+                            <img src="/login/google.svg" alt="google"/>
 
                         </div>
                     </Form>
