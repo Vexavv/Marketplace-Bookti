@@ -33,12 +33,11 @@ const Header = () => {
                         {/*<div className={styles.HeaderWrapperMenuNav}>*/}
                         <Navigation/>
                         {/*</div>*/}
-                        <div>
+                        <div className={styles.HeaderWrapperMenuCommunication}>
                             <Communication/>
                         </div>
 
-
-                        <div>
+                        <div className={styles.HeaderWrapperMenuSelect}>
                             <Select/>
                         </div>
 

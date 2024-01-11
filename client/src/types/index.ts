@@ -1,7 +1,9 @@
 export interface NavigationList {
     name: string,
     path: string,
-    icon?: string
+    icon?: string,
+    id?: number,
+    dataTitle?: string
 }
 export interface List {
     id?: number,
