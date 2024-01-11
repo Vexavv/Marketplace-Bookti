@@ -44,32 +44,15 @@
         justify-content: flex-end;
         align-items: center;
         width: 100%;
+        &Communication{
+          margin-left: 1rem;
+        }
+        &Select{
+          margin-left: 1rem;
+        }
       }
     }
   }
 }
 
 
-//--------------------------
-//.dropdown {
-//  //position: relative;
-//  display: inline-block;
-//
-//
-//
-//  &Menu {
-//    //display: none;
-//    //position: absolute;
-//    //top:9%;
-//    //left: 80%;
-//    background-color: #f9f9f9;
-//    //min-width: 160px;
-//    z-index: 10;
-//    width: 200px;
-//    border: 1px solid black;
-//  }
-//
-//  &.open &Menu {
-//    display: block;
-//  }
-//}

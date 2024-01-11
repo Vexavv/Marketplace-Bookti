@@ -15,6 +15,9 @@ import Registration from "./pages/Registration/Registration";
 import MyAccount from "./pages/MyAccount/MyAccount";
 import Modal from "./components/Modal/Modal";
 import Forum from "./pages/Forum/Forum";
+import Chat from "./pages/Chat/Chat";
+import Message from "./pages/Message/Message";
+import Bookshelf from "./pages/Bookshelf/Bookshelf";
 
 function App() {
   return (
@@ -28,6 +31,9 @@ function App() {
                 <Route path="/journal" element={<Journal/>}/>
                 <Route path="/forum" element={<Forum/>}/>
                 <Route path="/terms" element={<TermsAndConditions/>}/>
+                <Route path="/chat" element={<Chat/>}/>
+                <Route path="/message" element={<Message/>}/>
+                <Route path="/bookshelf" element={<Bookshelf/>}/>
                 <Route path="/privacy" element={<PrivacyPolicy/>}/>
                 <Route path="/login" element={<LogIn/>}/>
                 <Route path="/registration" element={<Registration/>}/>
