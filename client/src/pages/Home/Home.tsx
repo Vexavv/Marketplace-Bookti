@@ -12,9 +12,6 @@ const Home = () => {
 
     return (
         <div>
-
-
-            
             <Banner/>
             <Search/>
             <Description/>

@@ -31,7 +31,7 @@ const PopperUser = () => {
     const {t} = useTranslation('header')
     const dispatch = useAppDispatch()
 //------------------Selectors-------------------------
-    const user = useAppSelector(state => state.auth.data)
+    const user = useAppSelector(state => state.auth.user)
     console.log('User>>>>>>>>>', user)
     const loading = useAppSelector(state => state.auth.loading)
 //----------------------Logout Google ---------------------
@@ -92,12 +92,12 @@ const PopperUser = () => {
             return <div>
                 <Button onClick={handleClick} name='UserButton'>
                     <img className={styles.PopperUser} src="/header/user.svg" alt="user"/>
-                    {user.name}</Button>
+                    {user.full_name}</Button>
 
                 <Popper id={id} open={open} anchorEl={anchorEl}>
                     <StyledPopperDiv sx={{display:{xs:'none',md:'flex'}}} onClick={handleClose}>
                         <div>
-                            <UserImage picture={user.picture} name={user.name}
+                            <UserImage picture={user.avatar_url} name={user.full_name}
                                         text={t('Popper.text')} button={t('Popper.button')} onClick={handleOpenModal}/>
                         </div>
                         <ul className={styles.PopperNav}>

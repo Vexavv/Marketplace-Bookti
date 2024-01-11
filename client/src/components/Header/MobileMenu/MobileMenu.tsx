@@ -16,7 +16,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({mobileMenuOpen, mobileMenuToggle
     const {t} = useTranslation(['header', 'mobileMenu'])
     const dispatch = useAppDispatch()
     //---------------------Selectors------------------------
-    const user = useAppSelector(state => state.auth.data)
+    const user = useAppSelector(state => state.auth.user)
     const loading = useAppSelector(state => state.auth.loading)
 
     const handleLogout = () => {
@@ -31,7 +31,7 @@ const renderContent = ()=> {
         </div>
     }
     if (user) {
-        return <div ><UserImage picture={user.picture} name={user.name} text={t('Popper.text')} button={t('Popper.button')} nav={true} onClick2={mobileMenuToggle}/> </div>
+        return <div ><UserImage picture={user.avatar_url} name={user.full_name} text={t('Popper.text')} button={t('Popper.button')} nav={true} onClick2={mobileMenuToggle}/> </div>
     }
 }
     return (
