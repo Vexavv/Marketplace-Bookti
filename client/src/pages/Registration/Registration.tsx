@@ -22,9 +22,6 @@ const Registration = () => {
                         </div>
                         <div className={styles.WrapperForm}>
 
-                            {/*<div className={styles.WrapperFormLogo}>*/}
-                            {/*    <Logo mobile={true}/>*/}
-                            {/*</div>*/}
                             <p className={styles.WrapperFormGreetings}>{t('titleRegistration')}</p>
                             <LoginFormm registration/>
 

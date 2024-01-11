@@ -21,9 +21,9 @@ interface Data {
 }
 
 interface User {
-    email: "string",
-    full_name: "string",
-    avatar_url: "string"
+    email: string,
+    full_name: string,
+    avatar_url: string
 }
 
 interface AuthData {
@@ -34,6 +34,7 @@ interface AuthData {
 
 interface UserState {
     loading?: boolean;
+    status?: null | string;
     data: Data | null;
     user: User | null;
 }
@@ -42,6 +43,7 @@ const initialState: UserState = {
     data: null,
     user: null,
     loading: false,
+    status: null,
 
 
 };
@@ -123,32 +125,34 @@ const authSlice = createSlice({
         builder
 
 
-            // .addCase(createAccountAsync.pending, (state) => {
-            //
-            // })
+            .addCase(createAccountAsync.pending, (state) => {
+                state.status = 'loading';
+            })
             .addCase(createAccountAsync.fulfilled, (state, action: PayloadAction<Data>) => {
                 state.data = action.payload;
                 console.log('Data:', action.payload);
+                state.status = 'loaded';
 
             })
-            // .addCase(createAccountAsync.rejected, (state) => {
-            //
-            //     // state.error = action.error.message;
-            // })
+            .addCase(createAccountAsync.rejected, (state) => {
+                state.status = 'loaded';
+                // state.error = action.error.message;
+            })
 
             //-------------------------------------------------------------------------------------------------
-            // .addCase(loginAsync.pending, (state) => {
-            //
-            // })
+            .addCase(loginAsync.pending, (state) => {
+                state.status = 'loading';
+            })
             .addCase(loginAsync.fulfilled, (state, action: PayloadAction<Data>) => {
                 state.data = action.payload;
                 console.log('Data:', action.payload);
+                state.status = 'loaded';
 
             })
-            // .addCase(loginAsync.rejected, (state) => {
-            //
-            //     // state.error = action.error.message;
-            // })
+            .addCase(loginAsync.rejected, (state) => {
+                state.status = 'loaded';
+                // state.error = action.error.message;
+            })
 
             //------------------------------------------------------------------------------------------------------
 
