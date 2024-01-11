@@ -1,7 +1,9 @@
 export interface NavigationList {
+    id?: number,
     name: string,
     path: string,
-    icon?: string
+    icon?: string,
+
 }
 export interface List {
     id?: number,
@@ -16,4 +18,12 @@ export interface LoginForm{
     confirmPassword?: string,
     checkboxField?: boolean
 
+}
+export interface CommunicationList{
+    id: number,
+    name: string,
+    path: string,
+    title?: string,
+    myFunction?: () => void;
+    link:string
 }

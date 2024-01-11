@@ -65,18 +65,6 @@ const PopperUser = () => {
     const renderContent = () => {
         if (!loading) {
             return <div>
-                {/*<Link to={{*/}
-                {/*    pathname: '/login',*/}
-                {/*    state: { title: 'Login' } as { title: string }*/}
-                {/*}}>*/}
-                {/*    <Button name='HeaderButton'>{t('Button.login')}</Button>*/}
-                {/*</Link>*/}
-                {/*<Link to={{*/}
-                {/*    pathname: '/login',*/}
-                {/*    state: { title: 'Registration' }as { title: string }*/}
-                {/*}}>*/}
-                {/*    <Button name='HeaderButton'>{t('Button.registration')}</Button>*/}
-                {/*</Link>*/}
 
                 <Link to='/login'>
                     <Button name='HeaderButton'>{t('Button.login')}</Button>
@@ -110,6 +98,7 @@ const PopperUser = () => {
                                     </li>
                                 ))
                             }
+                            <Link to='/bookshelf'>Bookshelf</Link>
                             <div className={styles.PopperClosed} onClick={handleLogout}>
                                 <img src="/header/log-out.svg" alt="log out"/>
                                 <p className={styles.PopperClosedText}>{t('Popper.exit')}</p>

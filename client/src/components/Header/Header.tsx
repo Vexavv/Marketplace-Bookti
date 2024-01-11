@@ -9,6 +9,7 @@ import MobileMenu from "./MobileMenu/MobileMenu";
 import Logo from "./Logo/Logo";
 import {Link} from "react-router-dom";
 import PopperUser from "../MyAccountComponent/PopperUser/PopperUser";
+import Communication from "./Сommunication/Сommunication";
 
 const Header = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -21,7 +22,7 @@ const Header = () => {
         <header className={styles.Header}>
             <Container>
                 <div className={styles.HeaderWrapper}>
-                <Link to='/'>
+                    <Link to='/'>
                         <Logo/>
                     </Link>
 
@@ -30,11 +31,13 @@ const Header = () => {
 
                     <div className={styles.HeaderWrapperMenu}>
                         {/*<div className={styles.HeaderWrapperMenuNav}>*/}
-                            <Navigation/>
+                        <Navigation/>
                         {/*</div>*/}
+                        <div className={styles.HeaderWrapperMenuCommunication}>
+                            <Communication/>
+                        </div>
 
-
-                        <div>
+                        <div className={styles.HeaderWrapperMenuSelect}>
                             <Select/>
                         </div>
 
