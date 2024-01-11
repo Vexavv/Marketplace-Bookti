@@ -8,6 +8,11 @@
     "favorite": "Saved books"
 
   },
+  "Communication": {
+    "message": "Message",
+    "chat": "Chat",
+    "addBook": "Add a book"
+  },
   "Select": {
     "uk": "Ukrainian",
     "en": "English"
