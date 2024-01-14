@@ -46,7 +46,7 @@ const renderContent = ()=> {
                     display: {md: 'none'},
                     '& .MuiDrawer-paper': {
                         boxSizing: 'border-box',
-                        width: {xs: '100%', sm: '50%', md: 'none'},
+                        width: {xs: '80%', sm: '50%', md: 'none'},
                         overflow: 'hidden',
                         color: "#FFF",
                         display: {md: 'none'},
