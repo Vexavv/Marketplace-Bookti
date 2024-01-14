@@ -1,12 +1,8 @@
 import React from 'react';
 import styles from './UserImage.module.scss'
 import {UserImageProps} from "./UserImage.props";
-import {Link} from "react-router-dom";
-import Button from "../Button/Button";
-import {useAppSelector} from "../../hook";
-
 const UserImage = ({picture, name, text, button, onClick, onClick2, nav}: UserImageProps) => {
-    const loading = useAppSelector(state => state.auth.loading)
+
 
 
     // let imageUrl: string | undefined;
@@ -27,7 +23,7 @@ const UserImage = ({picture, name, text, button, onClick, onClick2, nav}: UserIm
         <div className={styles.Wrapper}>
             <div className={styles.WrapperPicture}>
                 {picture === null ? <img className={styles.WrapperPictureImg} src="/header/user.svg" alt="user"/> :
-                    <img className={styles.WrapperPictureAvatar} src={picture} alt="img"/>}
+                    <img className={styles.WrapperPictureAvatar} src={picture} alt="user-avatar"/>}
             </div>
             <p className={styles.WrapperText}>{text} {name} !</p>
         </div>
