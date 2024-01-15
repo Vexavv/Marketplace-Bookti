@@ -4,14 +4,16 @@ import home from '../i18n/locales/uk/home.json';
 import login from '../i18n/locales/uk/login.json';
 import mobileMenu from '../i18n/locales/uk/mobileMenu.json';
 import modal from '../i18n/locales/uk/modal.json';
+import bookshelf from '../i18n/locales/uk/bookshelf.json';
 
 const resources = {
-  footer,
-  header,
-  home,
-  login,
-  mobileMenu,
-  modal
+    footer,
+    header,
+    home,
+    login,
+    mobileMenu,
+    modal,
+    bookshelf,
 } as const;
 
 export default resources;

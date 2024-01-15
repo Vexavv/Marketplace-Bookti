@@ -1,0 +1,51 @@
+@import '../../../styles/mixins.module.scss';
+@import '../../../styles/variables.module.scss';
+
+.Wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    @media all and (max-width: 900px) {
+        margin-top: 55px;
+    }
+
+    &ListBox {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        margin-left: 80px;
+
+        @media all and (max-width: 900px) {
+            margin-left: 0;
+        }
+
+        &BtnBox {
+            width: 100%;
+            border-top: 1px solid $secondary-bg-color;
+            padding-top: 24px;
+        }
+    }
+
+    &NotExistBooksBlock {
+        > img {
+            max-width: 100%;
+        }
+
+        .TitleBox {
+            > h1 {
+                @include primary-font;
+                white-space: pre-line;
+                font-size: 25px;
+                line-height: 150%;
+                margin-bottom: 25px;
+                margin-top: 17px;
+
+                @media all and (max-width: 900px) {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
