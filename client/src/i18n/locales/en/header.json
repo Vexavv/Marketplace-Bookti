@@ -4,9 +4,12 @@
     "library": "Library",
     "journal": "Journal",
     "forum": "Forum",
-    "books": "Your books",
-    "favorite": "Saved books"
-
+    "account": "Profile",
+    "favorite": "Favorite",
+    "books": "My bookshelf",
+    "read": "I want to read",
+    "reviews": "My reviews",
+    "settings": "My settings"
   },
   "Communication": {
     "message": "Message",

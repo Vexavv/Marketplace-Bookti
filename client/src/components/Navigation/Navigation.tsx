@@ -12,20 +12,13 @@ const Navigation: React.FC<NavigationProps> = ({mobile, footer, onClick}) => {
     //------------------Selectors----------------------------------------
     const loading = useAppSelector(state => state.auth.loading)
     //--------------------------googleLoading-----------------------------
-    const additionalNav: NavigationList[] = loading
-        ? [
-            {name: t('Nav.books'), path: '/myBooks', icon: '/header/book.svg'},
-            {name: t('Nav.favorite'), path: '/favorite', icon: '/header/heart.svg'}
-        ]
-        : [];
+
 
     const nav: NavigationList[] = [
-        ...(mobile ? additionalNav : []),
-
         {name: t('Nav.about'), path: '/about', icon: '/header/clipboard.svg'},
         {name: t('Nav.library'), path: '/library', icon: '/header/book.svg'},
         {name: t('Nav.journal'), path: '/journal', icon: '/header/bookmark.svg'},
-        {name: t('Nav.forum'), path: '/forum', icon: '/header/bookmark.svg'},
+        {name: t('Nav.forum'), path: '/forum', icon: '/header/forum.svg'},
 
     ];
 
