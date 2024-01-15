@@ -1,7 +1,7 @@
 {
   "arrow": "Back",
-  "titleLogin": "Happy to see you again",
-  "titleRegistration": "Welcome",
+  "titleLogin": "Happy to see you again!",
+  "titleRegistration": "Welcome!",
   "Error": {
     "login": {
       "email": {

@@ -23,7 +23,7 @@ const StyledPopperDiv = styled('div')(
         width: 375px;
         padding: 38px 0 59px;
         opacity: 1;
-        margin: 1rem 0;
+        margin: 1rem 2rem;
 
     `,
 );
