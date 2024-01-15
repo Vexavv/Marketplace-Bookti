@@ -7,7 +7,6 @@ const MyAccount = () => {
     return (
         <>
             {loading && <div>
-                <button> Create new book</button>
                 My Account
             </div>}
             {!loading && <Navigate to="/" replace />}

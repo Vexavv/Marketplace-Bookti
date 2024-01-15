@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './UserImage.module.scss'
 import {UserImageProps} from "./UserImage.props";
-const UserImage = ({picture, name, text, button, onClick, onClick2, nav}: UserImageProps) => {
+const UserImage = ({picture, name, text, nav}: UserImageProps) => {
 
 
 

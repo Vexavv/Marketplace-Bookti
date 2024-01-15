@@ -39,10 +39,7 @@ const PopperUser = () => {
         dispatch(logout())
     };
 
-    //---------------Modal----------------------------
-    const handleOpenModal = () => {
-        dispatch(openModal({type: 'addBook', props: {key: 'value'}}));
-    }
+
 //--------------------Popper-----------------------------
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -56,8 +53,12 @@ const PopperUser = () => {
     const open = Boolean(anchorEl);
     const id = open ? 'simple-popper' : undefined;
     const popperList: NavigationList[] = [
-        {name: t('Nav.books'), path: "/myBooks", icon: "/header/book.svg"},
-        {name: t('Nav.favorite'), path: "/favorite", icon: "/header/heart.svg"}
+        {name: t('Nav.account'), path: "/account", icon: "/header/user.svg"},
+        {name: t('Nav.favorite'), path: "/favorite", icon: "/header/paperclip.svg"},
+        {name: t('Nav.books'), path: "/bookshelf", icon: "/header/book.svg"},
+        {name: t('Nav.read'), path: "/wantRead", icon: "/header/heart.svg"},
+        {name: t('Nav.reviews'), path: "/reviews", icon: "/header/star.svg"},
+        {name: t('Nav.settings'), path: "/settings", icon: "/header/settings.svg"}
     ]
     //---------------------Content-----------------------
 
@@ -83,10 +84,10 @@ const PopperUser = () => {
                     {user.full_name}</Button>
 
                 <Popper id={id} open={open} anchorEl={anchorEl}>
-                    <StyledPopperDiv sx={{display:{xs:'none',md:'flex'}}} onClick={handleClose}>
+                    <StyledPopperDiv sx={{display:{xs:'none',md:'flex'},alignItems: 'center' }} onClick={handleClose}>
                         <div>
                             <UserImage picture={user.avatar_url} name={user.full_name}
-                                        text={t('Popper.text')} button={t('Popper.button')} onClick={handleOpenModal}/>
+                                        text={t('Popper.text')}/>
                         </div>
                         <ul className={styles.PopperNav}>
                             {
@@ -98,7 +99,6 @@ const PopperUser = () => {
                                     </li>
                                 ))
                             }
-                            <Link to='/bookshelf'>Bookshelf</Link>
                             <div className={styles.PopperClosed} onClick={handleLogout}>
                                 <img src="/header/log-out.svg" alt="log out"/>
                                 <p className={styles.PopperClosedText}>{t('Popper.exit')}</p>

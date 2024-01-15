@@ -4,22 +4,23 @@
 .Popper{
 &User{
   margin-right: 5px;
+
 }
   &Nav{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     list-style: none;
-    width: 168px;
+    width: 230px;
     margin-top: 30px;
     &Item{
       margin-bottom: 11px;
       &Link{
         @include primary-font;
         color: #000;
-        font-size: 14px;
         display: flex;
         align-items: center;
+        width: 100%;
         img{
           margin-right: 10px;
         }
