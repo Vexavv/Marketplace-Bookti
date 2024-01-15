@@ -18,6 +18,8 @@ import Forum from "./pages/Forum/Forum";
 import Chat from "./pages/Chat/Chat";
 import Message from "./pages/Message/Message";
 import Bookshelf from "./pages/Bookshelf/Bookshelf";
+import Favorite from "./pages/Favorite/Favorite";
+import WantRead from "./pages/WantRead/WantRead";
 
 function App() {
   return (
@@ -34,6 +36,8 @@ function App() {
                 <Route path="/chat" element={<Chat/>}/>
                 <Route path="/message" element={<Message/>}/>
                 <Route path="/bookshelf" element={<Bookshelf/>}/>
+                <Route path="/favorite" element={<Favorite/>}/>
+                <Route path="/wantRead" element={<WantRead/>}/>
                 <Route path="/privacy" element={<PrivacyPolicy/>}/>
                 <Route path="/login" element={<LogIn/>}/>
                 <Route path="/registration" element={<Registration/>}/>
