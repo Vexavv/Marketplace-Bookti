@@ -38,7 +38,7 @@ const Communication = () => {
             path: '/header/communication/add_book.png',
             name: 'plus',
             title: t("Communication.addBook"),
-            link: "",
+            link: "#",
             myFunction: () => {
             }
         }
