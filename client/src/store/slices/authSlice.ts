@@ -1,6 +1,6 @@
 import {createSlice, createAsyncThunk, PayloadAction} from '@reduxjs/toolkit';
 import axios, {AxiosResponse} from 'axios';
-import {BASE_URL} from "../../Constants/api";
+import {BASE_URL} from "../../constants/api";
 
 interface LoginCredentials {
     email: string;
