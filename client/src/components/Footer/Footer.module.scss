@@ -1,103 +1,105 @@
 @import '../../styles/variables.module';
-@import "../../styles/mixins.module";
+@import '../../styles/mixins.module';
+
+$box-shadow-multi: 0 0 0 100vmax $secondary-bg-color;
+
 .Footer {
-  background-color: $secondary-bg-color;
-  padding: 40px 0 20px;
-  height: 100%;
+    background-color: $secondary-bg-color;
+    padding: 20px 0;
+    height: 100%;
 
-  &Content {
-    display: grid;
-    justify-items: start;
-    grid-template-columns:  1fr 1fr;
-    grid-template-areas:
-            "menu privacy"
-            "social social"
-            "subscription subscription"
-            "copyright copyright";
+    &Content {
+        display: grid;
+        justify-items: start;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            'menu privacy'
+            'social social'
+            'subscription subscription'
+            'copyright copyright';
 
-    &Menu {
-      grid-area: menu;
-      height: 100%;
-      width: 100%;
-      text-align: left;
+        &Menu {
+            grid-area: menu;
+            height: 100%;
+            width: 100%;
+            text-align: left;
 
-      &Title {
-        @include primary-font;
-        color: #000000;
-        margin-bottom: 14px;
-      }
+            &Title {
+                @include primary-font;
+                color: #000000;
+                margin-bottom: 14px;
+            }
+        }
+
+        &Privacy {
+            grid-area: privacy;
+            width: 100%;
+            text-align: left;
+            margin-right: 5px;
+        }
+
+        &Social {
+            grid-area: social;
+            width: 100%;
+            text-align: left;
+            margin-top: 47px;
+        }
+
+        &Subscription {
+            grid-area: subscription;
+            width: 100%;
+            text-align: left;
+            margin-top: 50px;
+        }
+
+        &Copyright {
+            grid-area: copyright;
+            width: 100%;
+            text-align: center;
+            padding-top: 44px;
+
+            &Text {
+                @include primary-font;
+                font-size: 14px;
+                font-weight: 300;
+                color: #000000;
+            }
+        }
     }
-
-    &Privacy {
-      grid-area: privacy;
-      width: 100%;
-      text-align: left;
-      margin-right: 5px;
-    }
-
-    &Social {
-      grid-area: social;
-      width: 100%;
-      text-align: left;
-      margin-top: 47px;
-    }
-
-    &Subscription {
-      grid-area: subscription;
-      width: 100%;
-      text-align: left;
-      margin-top: 50px;
-    }
-
-    &Copyright {
-      grid-area: copyright;
-      width: 100%;
-      text-align: center;
-      padding-top: 44px;
-
-      &Text {
-        @include primary-font;
-        font-size: 14px;
-        font-weight: 300;
-        color: #000000;
-      }
-    }
-  }
 }
 @media (min-width: 500px) {
-  .Footer {
-    padding: 40px 0 50px;
+    .Footer {
+        padding: 40px 0 50px;
 
-    &Content {
-      display: grid;
-      justify-items: start;
-      grid-template-areas:
-            "menu privacy"
-            "social subscription"
-            "copyright copyright";
+        &Content {
+            display: grid;
+            justify-items: start;
+            grid-template-areas:
+                'menu privacy'
+                'social subscription'
+                'copyright copyright';
+        }
     }
-  }
 }
 @media (min-width: 900px) {
-  .Footer {
-    padding: 40px 0 80px;
+    .Footer {
+        padding: 40px 0 80px;
 
-    &Content {
+        &Content {
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-areas:
+                'menu privacy social subscription '
+                'copyright copyright copyright copyright';
+            &Social {
+                margin-top: 0;
+            }
+            &Subscription {
+                margin-top: 0;
+            }
 
-      grid-template-columns:  1fr 1fr 1fr 1fr;
-      grid-template-areas:
-            "menu privacy social subscription "
-            "copyright copyright copyright copyright";
-      &Social {
-        margin-top: 0;
-      }
-      &Subscription{
-        margin-top: 0;
-      }
-
-      &Copyright {
-        text-align: left
-      }
+            &Copyright {
+                text-align: left;
+            }
+        }
     }
-  }
 }

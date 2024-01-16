@@ -1,100 +1,142 @@
 @import '../../styles/variables.module';
-@import "../../styles/mixins.module";
+@import '../../styles/mixins.module';
 
 .Button {
-  @include primary-font;
-  padding: 12px;
-  border-radius: 8px;
-  color: #FFFFFF;
-  background: $primary-color;
-  cursor: pointer;
-  transition: all 0.5s;
-  box-shadow: none;
-  border: none;
+    @include primary-font;
+    padding: 12px;
+    border-radius: 8px;
+    color: #ffffff;
+    background: $primary-color;
+    cursor: pointer;
+    transition: all 0.5s;
+    box-shadow: none;
+    border: none;
 
-  &:active {
-    background: $hover-color;
-  }
+    &:active {
+        background: $hover-color;
+    }
 }
 
 .HeaderButton {
-  background: #FFFFFF;
-  border: 1px solid $primary-color;
-  margin-left: 13px;
-  color: #000;
+    background: #ffffff;
+    border: 1px solid $primary-color;
+    margin-left: 13px;
+    color: #000;
 
-  &:hover {
-    background: $primary-color;
-    color: #FFFFFF;
-  }
+    &:hover {
+        background: $primary-color;
+        color: #ffffff;
+    }
 }
 
 .MobileMenu {
-  width: 254px;
-  margin: 0;
+    width: 254px;
+    margin: 0;
 }
 
 .BannerButton {
-  margin: 0;
-  padding: 12px 50px;
+    margin: 0;
+    padding: 12px 50px;
 }
 
 .SearchButton {
-  width: 30%;
+    width: 30%;
 }
 
 .UserButton {
-  background: #FFFFFF;
-  border: 1px solid $primary-color;
-  margin-left: 13px;
-  color: #000;
-  display: flex;
-  padding: 12px 20px;
+    background: #ffffff;
+    border: 1px solid $primary-color;
+    margin-left: 13px;
+    color: #000;
+    display: flex;
+    padding: 12px 20px;
 }
 
 .ResetPasswordButton {
-  width: 100%;
-  max-width: 153px;
+    width: 100%;
+    max-width: 153px;
+}
 
+.BookshelfEdit {
+    height: fit-content !important;
+    display: flex !important;
+    font-size: 15px;
+    gap: 10px;
+    align-items: center !important;
+    color: $primary-color;
+    text-decoration-line: underline !important;
+    background: none !important;
+    box-shadow: none !important;
+    padding: 0;
+    margin-bottom: 12px;
+}
+
+.BookshelfExchange {
+    color: #000;
+    width: 72px;
+    height: 23px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background: #ffffff !important;
+    box-shadow: none !important;
+    border: 1px solid #000;
+    margin-top: 20px;
+}
+
+.BookshelfAdd {
+    width: 175px;
+    height: 38px;
+    color: $primary-color;
+    display: flex;
+    font-size: 15px;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff !important;
+    box-shadow: none !important;
+    border: 1px solid $primary-color;
 }
 
 @media (min-width: 500px) {
-
 }
 
 @media (min-width: 900px) {
-  .Button {
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    .Button {
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 
-    &:hover {
-      background: $hover-color;
+        &:hover {
+            background: $hover-color;
+        }
     }
-  }
-  .HeaderButton {
-    &:hover {
-      background: $primary-color;
+    .HeaderButton {
+        &:hover {
+            background: $primary-color;
+        }
     }
-  }
-  .SearchButton {
-    width: 20%;
-  }
-  .UserButton {
-    display: flex;
+    .SearchButton {
+        width: 20%;
+    }
+    .UserButton {
+        display: flex;
 
-    &:hover {
-      background: #FFFFFF;
-      transform: scale(1.1);
+        &:hover {
+            background: #ffffff;
+            transform: scale(1.1);
+        }
     }
-  }
+    .BookshelfEdit {
+        font-size: 16px;
+        padding: 0;
+    }
+    .BookshelfExchange {
+        font-size: 16px;
+        width: 100px;
+        height: 31px;
+    }
+    .BookshelfAdd {
+        font-size: 16px;
+    }
 }
-
-
-
-
-
-
-
-
-
-
-

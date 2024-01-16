@@ -1,0 +1,25 @@
+{
+    "Nav": "My bookshelf",
+    "BookshelfListNotExist": {
+        "Title": "You haven't added any books Let's do it now!",
+        "Button": "Add a book"
+    },
+    "CounterASide": {
+        "ReadyToTrade": "Ready to trade",
+        "Free": "Free",
+        "OnModeration": "On moderation",
+        "Rejected": "Rejected",
+        "Reserved": "Reserved",
+        "Deactivated": "Deactivated"
+    },
+    "BookItem": {
+        "ExchangeBtn": "Exchange",
+        "EditBnt": "Edit",
+        "Table": {
+            "Author": "The author of book",
+            "Genre": "Book genre",
+            "YearPublication": "Year of publication",
+            "Language": "Language"
+        }
+    }
+}
