@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styles from './Search.module.scss'
-import Container from "../../Container/Container";
-import Button from "../../Button/Button";
+import Container from "../../../uiComponent/Container/Container";
+import Button from "../../../uiComponent/Button/Button";
 import {useTranslation} from "react-i18next";
 
 

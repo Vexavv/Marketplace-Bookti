@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './LogIn.module.scss'
 
-import Container from "../../components/Container/Container";
+import Container from "../../uiComponent/Container/Container";
 import {Link, Navigate} from "react-router-dom";
 import Logo from "../../components/Header/Logo/Logo";
 import LoginFormm from "../../components/RegistrationForm/LoginForm/LoginFormm";

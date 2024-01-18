@@ -35,7 +35,7 @@ const Communication = () => {
         },
         {
             id: 3,
-            path: '/header/communication/add_book.png',
+            path: '/header/communication/add_book.svg',
             name: 'plus',
             title: t("Communication.addBook"),
             link: "#",

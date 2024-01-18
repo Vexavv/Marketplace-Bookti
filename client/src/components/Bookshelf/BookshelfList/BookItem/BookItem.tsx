@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import Button from '../../../Button/Button';
+import Button from '../../../../uiComponent/Button/Button';
 import styles from './BookItem.module.scss';
 import { useTranslation } from 'react-i18next';
 

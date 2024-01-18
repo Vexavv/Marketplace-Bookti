@@ -2,8 +2,8 @@ import React from 'react';
 import styles from './WhatCategories.module.scss'
 import {useTranslation} from "react-i18next";
 import {NavigationList} from "../../../types";
-import Container from "../../Container/Container";
-import HTag from "../../HTag/HTag";
+import Container from "../../../uiComponent/Container/Container";
+import HTag from "../../../uiComponent/HTag/HTag";
 import {Link} from "react-router-dom";
 import cn from "classnames";
 
