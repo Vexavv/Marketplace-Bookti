@@ -84,10 +84,11 @@ const PopperUser = () => {
                     {user.full_name}</Button>
 
                 <Popper id={id} open={open} anchorEl={anchorEl}>
-                    <StyledPopperDiv sx={{display:{xs:'none',md:'flex'},alignItems: 'center' }} onClick={handleClose}>
+                    <StyledPopperDiv sx={{display: {xs: 'none', md: 'flex'}, alignItems: 'center'}}
+                                     onClick={handleClose}>
                         <div>
                             <UserImage picture={user.avatar_url} name={user.full_name}
-                                        text={t('Popper.text')}/>
+                                       text={t('Popper.text')}/>
                         </div>
                         <ul className={styles.PopperNav}>
                             {
