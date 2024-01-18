@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import styles from './Subscription.module.scss'
-import Button from "../../Button/Button";
+import Button from "../../../uiComponent/Button/Button";
 import {useTranslation} from "react-i18next";
 
 

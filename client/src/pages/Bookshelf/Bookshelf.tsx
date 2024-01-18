@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import BookshelfInfo from '../../components/Bookshelf/BookshelfInfo/BookshelfInfo';
 import BookshelfList from '../../components/Bookshelf/BookshelfList/BookshelfList';
-import Container from '../../components/Container/Container';
+import Container from '../../uiComponent/Container/Container';
 import styles from './Bookshelf.module.scss';
 
 const Bookshelf: FC = () => {

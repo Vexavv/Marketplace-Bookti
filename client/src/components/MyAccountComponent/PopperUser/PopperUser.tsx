@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import styles from './PopperUser.module.scss'
-import Button from "../../Button/Button";
+import Button from "../../../uiComponent/Button/Button";
 import {useAppDispatch, useAppSelector} from "../../../hook";
 import {logout} from "../../../store/slices/authSlice";
 import {Link} from "react-router-dom";

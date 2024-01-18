@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './CallToLogin.module.scss'
 import {useTranslation} from "react-i18next";
-import Container from "../../Container/Container";
-import HTag from "../../HTag/HTag";
-import Button from "../../Button/Button";
+import Container from "../../../uiComponent/Container/Container";
+import HTag from "../../../uiComponent/HTag/HTag";
+import Button from "../../../uiComponent/Button/Button";
 import {Link} from "react-router-dom";
 const CallToLogin = () => {
     const {t} = useTranslation('home')

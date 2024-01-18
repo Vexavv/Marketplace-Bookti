@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Footer.module.scss'
-import Container from "../Container/Container";
+import Container from "../../uiComponent/Container/Container";
 import {format} from 'date-fns'
 import Navigation from "../Navigation/Navigation";
 import PrivacyList from './PrivacyList/PrivacyList';

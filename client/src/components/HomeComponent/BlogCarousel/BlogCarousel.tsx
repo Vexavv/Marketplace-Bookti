@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './BlogCarousel.module.scss'
-import Container from "../../Container/Container";
-import HTag from "../../HTag/HTag";
+import Container from "../../../uiComponent/Container/Container";
+import HTag from "../../../uiComponent/HTag/HTag";
 import {useTranslation} from "react-i18next";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";

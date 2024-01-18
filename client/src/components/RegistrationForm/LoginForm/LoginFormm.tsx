@@ -4,7 +4,7 @@ import {Formik, Form, Field, ErrorMessage, FormikHelpers,} from 'formik';
 import * as yup from 'yup';
 import YupPassword from 'yup-password'
 import {LoginForm} from "../../../types";
-import Button from "../../Button/Button";
+import Button from "../../../uiComponent/Button/Button";
 import {IoEyeOffOutline, IoEyeOutline} from "react-icons/io5";
 import {Link} from 'react-router-dom';
 import {LoginFormProps} from "./LoginForm.props";
