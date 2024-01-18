@@ -10,6 +10,7 @@ import {styled, css} from '@mui/system';
 import {NavigationList} from "../../../types";
 import {openModal} from "../../../store/slices/modalSlice";
 import UserImage from "../../UserImage/UserImage";
+import UserNavigation from "../../UserNavigation/UserNavigation";
 
 
 const StyledPopperDiv = styled('div')(
@@ -90,21 +91,7 @@ const PopperUser = () => {
                             <UserImage picture={user.avatar_url} name={user.full_name}
                                        text={t('Popper.text')}/>
                         </div>
-                        <ul className={styles.PopperNav}>
-                            {
-                                popperList.map(item => (
-                                    <li key={item.name} className={styles.PopperNavItem}>
-                                        <Link className={styles.PopperNavItemLink}
-                                              to={item.path}><img src={item.icon} alt="icon"/>{item.name}
-                                        </Link>
-                                    </li>
-                                ))
-                            }
-                            <div className={styles.PopperClosed} onClick={handleLogout}>
-                                <img src="/header/log-out.svg" alt="log out"/>
-                                <p className={styles.PopperClosedText}>{t('Popper.exit')}</p>
-                            </div>
-                        </ul>
+                        <UserNavigation />
                     </StyledPopperDiv>
                 </Popper>
             </div>;

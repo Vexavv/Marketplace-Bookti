@@ -5,6 +5,7 @@ import {useAppSelector} from "../../../hook";
 import Drawer from "@mui/material/Drawer";
 import {useTranslation} from "react-i18next";
 import UserImage from "../../UserImage/UserImage";
+import UserNavigation from "../../UserNavigation/UserNavigation";
 const MobileUser = () => {
     const {t} = useTranslation('header')
     const [mobileUserOpen, setMobileUserOpen] = useState(false)
@@ -39,8 +40,9 @@ const MobileUser = () => {
                              width: {xs: '80%', sm: '50%', md: 'none'},
                              overflow: 'hidden',
                              color: "#FFF",
-                             display: {md: 'none'},
-                             '&:active': {color: '#BA933E'}
+                             display: {sx: 'flex',md: 'none'},
+                             alignItems:'center',
+
                          }
                      }}>
                 <div className={styles.UserPrifile}>
@@ -51,7 +53,7 @@ const MobileUser = () => {
                                        text={t('Popper.text')}/>
                         </div>
                     }
-
+                    <UserNavigation mobileUserToggle={mobileUserToggle}/>
                 </div>
             </Drawer>}
         </div>
