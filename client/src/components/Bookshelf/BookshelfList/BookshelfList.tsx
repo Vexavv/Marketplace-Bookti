@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import BookItem from './BookItem/BookItem';
-import Button from '../../Button/Button';
+import Button from '../../../uiComponent/Button/Button';
 import styles from './BookshelfList.module.scss';
 
 interface IBookshelfListProps {

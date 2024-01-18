@@ -5,7 +5,7 @@ import Drawer from '@mui/material/Drawer';
 import Logo from "../Logo/Logo";
 import Select from "../Select/Select";
 import Navigation from "../../Navigation/Navigation";
-import Button from "../../Button/Button";
+import Button from "../../../uiComponent/Button/Button";
 import {useTranslation} from "react-i18next";
 import {Link} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../../../hook";

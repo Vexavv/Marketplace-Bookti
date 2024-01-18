@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import styles from './PopperUser.module.scss'
-import Button from "../../Button/Button";
+import Button from "../../../uiComponent/Button/Button";
 import {useAppDispatch, useAppSelector} from "../../../hook";
 import {logout} from "../../../store/slices/authSlice";
 import {Link} from "react-router-dom";
@@ -10,6 +10,7 @@ import {styled, css} from '@mui/system';
 import {NavigationList} from "../../../types";
 import {openModal} from "../../../store/slices/modalSlice";
 import UserImage from "../../UserImage/UserImage";
+import UserNavigation from "../../UserNavigation/UserNavigation";
 
 
 const StyledPopperDiv = styled('div')(
@@ -84,26 +85,13 @@ const PopperUser = () => {
                     {user.full_name}</Button>
 
                 <Popper id={id} open={open} anchorEl={anchorEl}>
-                    <StyledPopperDiv sx={{display:{xs:'none',md:'flex'},alignItems: 'center' }} onClick={handleClose}>
+                    <StyledPopperDiv sx={{display: {xs: 'none', md: 'flex'}, alignItems: 'center'}}
+                                     onClick={handleClose}>
                         <div>
                             <UserImage picture={user.avatar_url} name={user.full_name}
-                                        text={t('Popper.text')}/>
+                                       text={t('Popper.text')}/>
                         </div>
-                        <ul className={styles.PopperNav}>
-                            {
-                                popperList.map(item => (
-                                    <li key={item.name} className={styles.PopperNavItem}>
-                                        <Link className={styles.PopperNavItemLink}
-                                              to={item.path}><img src={item.icon} alt="icon"/>{item.name}
-                                        </Link>
-                                    </li>
-                                ))
-                            }
-                            <div className={styles.PopperClosed} onClick={handleLogout}>
-                                <img src="/header/log-out.svg" alt="log out"/>
-                                <p className={styles.PopperClosedText}>{t('Popper.exit')}</p>
-                            </div>
-                        </ul>
+                        <UserNavigation />
                     </StyledPopperDiv>
                 </Popper>
             </div>;

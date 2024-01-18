@@ -1,0 +1,40 @@
+@import "../../styles/variables.module";
+@import "../../styles/mixins.module";
+.Nav{
+  display: flex;
+  flex-direction: column;
+  //align-items: flex-start;
+  list-style: none;
+  width: 230px;
+  margin-top: 30px;
+  &Item{
+    margin-bottom: 11px;
+    &Link{
+      @include primary-font;
+      color: #000;
+      display: flex;
+      align-items: center;
+      width: 100%;
+
+      img{
+        margin-right: 10px;
+      }
+    }
+  }
+  &Closed{
+    cursor: pointer;
+    margin-top: 33px;
+    display: flex;
+    transition: transform 0.3s ease;
+    &:hover{
+      transform: scale(1.5);
+    }
+    img{
+      margin-right: 10px;
+    }
+    &Text{
+      @include primary-font;
+      color: #000;
+    }
+  }
+}
