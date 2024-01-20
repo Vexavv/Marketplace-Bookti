@@ -100,6 +100,20 @@
     border: 1px solid $primary-color;
 }
 
+.AddBook {
+    background: none !important;
+    box-shadow: none !important;
+    padding: 0;
+    text-decoration: underline;
+    color: $primary-color;
+
+    @media (hover: hover) {
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
 @media (min-width: 500px) {
 }
 

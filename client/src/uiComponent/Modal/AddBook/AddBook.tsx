@@ -1,11 +1,7 @@
 import React from 'react';
-import styles from './AddBook.module.scss'
+import AddBookForm from '../../../components/Bookshelf/AddBookForm/AddBookForm';
 const AddBook = () => {
-    return (
-        <div>
-            AddBook
-        </div>
-    );
+    return <AddBookForm />;
 };
 
 export default AddBook;

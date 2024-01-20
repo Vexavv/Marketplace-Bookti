@@ -1,0 +1,35 @@
+{
+    "back": "Back",
+    "form": {
+        "btn-add-photo": "Add a photo of the book",
+        "fild-name": {
+            "value": "The title of the book",
+            "errorMessage": "This field is required."
+        },
+        "fild-author": {
+            "value": "The author of the book",
+            "errorMessage": "This field is required."
+        },
+        "fild-genre": {
+            "value": "Book genre",
+            "errorMessage": "This field is required."
+        },
+        "fild-date": {
+            "value": "Date of writing",
+            "errorMessage": "This field is required."
+        },
+        "fild-language": {
+            "value": "Language",
+            "errorMessage": "This field is required."
+        },
+        "fild-exchange": {
+            "value": "Exchange",
+            "errorMessage": "This field is required."
+        },
+        "fild-plot": {
+            "value": "Write a short description of the plot",
+            "errorMessage": "This field is required."
+        },
+        "btn-public-book": "Publish a book"
+    }
+}

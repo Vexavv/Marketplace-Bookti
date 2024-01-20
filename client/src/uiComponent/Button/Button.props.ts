@@ -15,5 +15,6 @@ export interface ButtonProps
         | 'ResetPasswordButton'
         | 'BookshelfEdit'
         | 'BookshelfExchange'
-        | 'BookshelfAdd';
+        | 'BookshelfAdd'
+        | 'AddBook';
 }
