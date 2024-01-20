@@ -16,6 +16,8 @@ import modalUK from './locales/uk/modal.json';
 import modalEn from './locales/en/modal.json';
 import bookshelfUk from './locales/uk/bookshelf.json';
 import bookshelfEn from './locales/en/bookshelf.json';
+import addBookUk from './locales/uk/add-book.json';
+import addBookEn from './locales/en/add-book.json';
 
 const resources = {
     [LOCALS.UK]: {
@@ -26,6 +28,7 @@ const resources = {
         login: loginUk,
         modal: modalUK,
         bookshelf: bookshelfUk,
+        addBook: addBookUk,
     },
     [LOCALS.EN]: {
         header: headerEn,
@@ -35,6 +38,7 @@ const resources = {
         login: loginEn,
         modal: modalEn,
         bookshelf: bookshelfEn,
+        addBook: addBookEn,
     },
 };
 

@@ -1,0 +1,78 @@
+@import '../../../styles/mixins.module.scss';
+@import '../../../styles/variables.module.scss';
+
+.Wrapper {
+    max-width: 320px;
+    width: 100%;
+    margin: auto;
+    padding-bottom: 70px;
+
+    @media all and (min-width: 900px) {
+        padding-top: 36px;
+        padding-bottom: 60px;
+    }
+
+    &Form {
+        display: grid;
+        gap: 15px;
+
+        > div {
+            > .WrapperFormInput {
+                @include primary-font;
+                width: 100%;
+                outline: none;
+                padding: 12px 10px;
+                border-radius: 8px;
+                border: 1px solid $lite-gray;
+                font-size: 8px;
+
+                @media all and (min-width: 900px) {
+                    font-size: 16px;
+                }
+
+                &::placeholder {
+                    color: $gray;
+                }
+            }
+
+            > .WrapperFormTextarea {
+                @include primary-font;
+                resize: vertical;
+                min-height: 100px;
+                font-size: 8px;
+                width: 100%;
+                outline: none;
+                padding: 12px 10px;
+                border-radius: 8px;
+                border: 1px solid $lite-gray;
+
+                @media all and (min-width: 900px) {
+                    font-size: 16px;
+                }
+            }
+
+            > span {
+                @include primary-font;
+                font-size: 14px;
+                color: red;
+
+                @media all and (max-width: 900px) {
+                    font-size: 8px;
+                }
+            }
+        }
+    }
+}
+
+.Form {
+    display: grid;
+    gap: 15px;
+}
+
+.SelectFileBox {
+    margin: 15px 0 20px 0;
+
+    > input {
+        display: none;
+    }
+}

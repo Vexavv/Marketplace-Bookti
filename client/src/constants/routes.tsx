@@ -17,6 +17,7 @@ import Chat from '../pages/Chat/Chat';
 import Message from '../pages/Message/Message';
 import Favorite from '../pages/Favorite/Favorite';
 import Layout from '../components/Layout/Layout';
+import AddBook from '../pages/AddBook/AddBook';
 
 export const routesConfig: RouteObject[] = [
     {
@@ -28,51 +29,51 @@ export const routesConfig: RouteObject[] = [
                 element: <Home />,
             },
             {
-                path: '/about',
+                path: 'about',
                 element: <About />,
             },
             {
-                path: '/library',
+                path: 'library',
                 element: <Library />,
             },
             {
-                path: '/journal',
+                path: 'journal',
                 element: <Journal />,
             },
             {
-                path: '/forum',
+                path: 'forum',
                 element: <Forum />,
             },
             {
-                path: '/terms',
+                path: 'terms',
                 element: <TermsAndConditions />,
             },
             {
-                path: '/chat',
+                path: 'chat',
                 element: <Chat />,
             },
             {
-                path: '/message',
+                path: 'message',
                 element: <Message />,
             },
             {
-                path: '/favorite',
+                path: 'favorite',
                 element: <Favorite />,
             },
             {
-                path: '/wantRead',
+                path: 'wantRead',
                 element: <WantRead />,
             },
             {
-                path: '/privacy',
+                path: 'privacy',
                 element: <PrivacyPolicy />,
             },
             {
-                path: '/login',
+                path: 'login',
                 element: <LogIn />,
             },
             {
-                path: '/registration',
+                path: 'registration',
                 element: <Registration />,
             },
             {
@@ -81,22 +82,32 @@ export const routesConfig: RouteObject[] = [
             },
             //------------------Private routes-------------------------
             {
-                path: '/account',
+                path: '/',
                 element: <PrivateRoute />,
                 children: [
                     {
-                        path: '/account',
+                        path: 'account',
                         element: <MyAccount />,
                     },
                 ],
             },
             {
-                path: '/bookshelf',
+                path: '/',
                 element: <PrivateRoute />,
                 children: [
                     {
-                        path: '/bookshelf',
+                        path: 'bookshelf',
                         element: <Bookshelf />,
+                    },
+                ],
+            },
+            {
+                path: '/',
+                element: <PrivateRoute />,
+                children: [
+                    {
+                        path: 'bookshelf/add-book',
+                        element: <AddBook />,
                     },
                 ],
             },

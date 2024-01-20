@@ -15,6 +15,7 @@ const Button = ({ name, children, className, ...props }: ButtonProps) => {
                 [styles.BookshelfEdit]: name == 'BookshelfEdit',
                 [styles.BookshelfExchange]: name == 'BookshelfExchange',
                 [styles.BookshelfAdd]: name == 'BookshelfAdd',
+                [styles.AddBook]: name == 'AddBook',
             })}
             {...props}
         >

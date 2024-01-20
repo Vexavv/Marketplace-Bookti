@@ -1,0 +1,35 @@
+{
+    "back": "Назад",
+    "form": {
+        "btn-add-photo": "Додати фото книги",
+        "fild-name": {
+            "value": "Назва книги",
+            "errorMessage": "Це поле є обов'язковим."
+        },
+        "fild-author": {
+            "value": "Автор книги",
+            "errorMessage": "Це поле є обов'язковим."
+        },
+        "fild-genre": {
+            "value": "Жанр книги",
+            "errorMessage": "Це поле є обов'язковим."
+        },
+        "fild-date": {
+            "value": "Дата написання",
+            "errorMessage": "Це поле є обов'язковим."
+        },
+        "fild-language": {
+            "value": "Мова",
+            "errorMessage": "Це поле є обов'язковим."
+        },
+        "fild-exchange": {
+            "value": "Обмін",
+            "errorMessage": "Це поле є обов'язковим."
+        },
+        "fild-plot": {
+            "value": "Написати короткий опис сюжету",
+            "errorMessage": "Це поле є обов'язковим."
+        },
+        "btn-public-book": "Опублікувати книгу"
+    }
+}
