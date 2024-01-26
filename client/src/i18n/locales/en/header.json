@@ -5,9 +5,9 @@
     "journal": "Journal",
     "forum": "Forum",
     "account": "Profile",
-    "favorite": "Favorite",
+    "favorite": "Favorites",
     "books": "My bookshelf",
-    "read": "I want to read",
+    "read": "My wishlist",
     "reviews": "My reviews",
     "settings": "My settings"
   },
@@ -25,8 +25,7 @@
     "registration": "Register"
   },
   "Popper": {
-    "text": "Hello",
-    "button": "Add a book",
+    "text": "Hello,",
     "exit": "Log Out"
 
   }
