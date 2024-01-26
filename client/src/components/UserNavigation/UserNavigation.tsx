@@ -7,20 +7,27 @@ import {useAppDispatch} from "../../hook";
 import {logout} from "../../store/slices/authSlice";
 
 import UserNavigationProps from "./UserNavigation.props";
-const UserNavigation: React.FC<UserNavigationProps>  = ({mobileUserToggle}) => {
+const UserNavigation: React.FC<UserNavigationProps>  = ({mobileUserToggle,mobile}) => {
     const {t} = useTranslation('header')
     const dispatch = useAppDispatch()
     const handleLogout = () => {
         dispatch(logout())
     };
     const popperList: NavigationList[] = [
-        {name: t('Nav.account'), path: "/account", icon: "/header/user.svg"},
-        {name: t('Nav.favorite'), path: "/favorite", icon: "/header/paperclip.svg"},
-        {name: t('Nav.books'), path: "/bookshelf", icon: "/header/book.svg"},
-        {name: t('Nav.read'), path: "/wantRead", icon: "/header/heart.svg"},
-        {name: t('Nav.reviews'), path: "/reviews", icon: "/header/star.svg"},
-        {name: t('Nav.settings'), path: "/settings", icon: "/header/settings.svg"}
-    ]
+        { name: t('Nav.account'), path: "/account", icon: "/header/user.svg" },
+        { name: t('Nav.favorite'), path: "/favorite", icon: "/header/paperclip.svg" },
+        { name: t('Nav.books'), path: "/bookshelf", icon: "/header/book.svg" },
+        { name: t('Nav.read'), path: "/wantRead", icon: "/header/heart.svg" },
+        { name: t('Nav.reviews'), path: "/reviews", icon: "/header/star.svg" },
+        { name: t('Nav.settings'), path: "/settings", icon: "/header/settings.svg" },
+        ...(mobile
+            ? [
+                        { name: t('Communication.chat'), path: "/chat", icon: "/header/communication/message-circle.svg" },
+                        { name: t('Communication.message'), path: "/message", icon: "/header/communication/mail.svg" }
+            ]
+            : [])
+    ];
+
     return (
         <ul className={styles.Nav}>
             {
@@ -32,10 +39,10 @@ const UserNavigation: React.FC<UserNavigationProps>  = ({mobileUserToggle}) => {
                     </li>
                 ))
             }
-            <div className={styles.NavClosed} onClick={handleLogout}>
+            <li className={styles.NavClosed} onClick={handleLogout}>
                 <img src="/header/log-out.svg" alt="log out"/>
                 <p className={styles.NavClosedText}>{t('Popper.exit')}</p>
-            </div>
+            </li>
         </ul>
     );
 };
