@@ -1,7 +1,17 @@
 {
     "back": "Назад",
     "form": {
-        "btn-add-photo": "Додати фото книги",
+        "btn-add-photo": {
+            "values": {
+                "photo-exist": "Додати фото книги",
+                "photo-noexist": "Замінити фото книги"
+            },
+            "errorsMessage": {
+                "req": "Фото книги є обов'язковим.",
+                "file-size": "Розмір файлу не повинен перевищувати 3 Мб.",
+                "type-file": "Дозволяються лише файли зображень."
+            }
+        },
         "fild-name": {
             "value": "Назва книги",
             "errorMessage": "Це поле є обов'язковим."
@@ -15,7 +25,7 @@
             "errorMessage": "Це поле є обов'язковим."
         },
         "fild-date": {
-            "value": "Дата написання",
+            "value": "Рік видання",
             "errorMessage": "Це поле є обов'язковим."
         },
         "fild-language": {
@@ -24,6 +34,7 @@
         },
         "fild-exchange": {
             "value": "Обмін",
+            "value-present": "Подарую",
             "errorMessage": "Це поле є обов'язковим."
         },
         "fild-plot": {

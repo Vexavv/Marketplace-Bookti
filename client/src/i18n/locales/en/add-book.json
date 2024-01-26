@@ -1,21 +1,31 @@
 {
     "back": "Back",
     "form": {
-        "btn-add-photo": "Add a photo of the book",
+        "btn-add-photo": {
+            "values": {
+                "photo-exist": "Replace book cover photo",
+                "photo-noexist": "Upload book cover photo"
+            },
+            "errorsMessage": {
+                "req": "Book cover is required.",
+                "file-size": "File size must not be more than 3MB.",
+                "type-file": "Only iamge files are allowed."
+            }
+        },
         "fild-name": {
-            "value": "The title of the book",
+            "value": "Title",
             "errorMessage": "This field is required."
         },
         "fild-author": {
-            "value": "The author of the book",
+            "value": "Author",
             "errorMessage": "This field is required."
         },
         "fild-genre": {
-            "value": "Book genre",
+            "value": "Genre",
             "errorMessage": "This field is required."
         },
         "fild-date": {
-            "value": "Date of writing",
+            "value": "Published",
             "errorMessage": "This field is required."
         },
         "fild-language": {
@@ -23,13 +33,14 @@
             "errorMessage": "This field is required."
         },
         "fild-exchange": {
-            "value": "Exchange",
+            "value": "Swap book",
+            "value-present": "Donate book",
             "errorMessage": "This field is required."
         },
         "fild-plot": {
-            "value": "Write a short description of the plot",
+            "value": "Synopsis",
             "errorMessage": "This field is required."
         },
-        "btn-public-book": "Publish a book"
+        "btn-public-book": "List a book"
     }
 }

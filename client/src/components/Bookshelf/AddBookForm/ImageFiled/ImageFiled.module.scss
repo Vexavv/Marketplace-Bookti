@@ -1,0 +1,32 @@
+@import '../../../../styles/variables.module.scss';
+@import '../../../../styles/mixins.module.scss';
+
+.Wrapper {
+    button {
+        @include primary-font;
+        cursor: pointer;
+        display: flex;
+        margin: auto;
+        background: none;
+        border: none;
+        margin-bottom: 15px;
+        color: $primary-color;
+        text-decoration: underline;
+
+        @media (hover: hover) {
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    input {
+        display: none;
+    }
+
+    span {
+        @include primary-font;
+        font-size: 14px;
+        color: red;
+    }
+}

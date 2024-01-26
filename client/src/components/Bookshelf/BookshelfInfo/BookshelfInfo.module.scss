@@ -34,8 +34,12 @@
                 font-size: 16px;
             }
 
-            > span {
-                font-weight: 700;
+            > a {
+                color: #000;
+
+                > span {
+                    font-weight: 700;
+                }
             }
         }
     }

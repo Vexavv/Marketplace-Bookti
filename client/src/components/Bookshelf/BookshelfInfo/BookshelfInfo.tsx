@@ -1,6 +1,7 @@
 import { FC } from 'react';
-import styles from './BookshelfInfo.module.scss';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import styles from './BookshelfInfo.module.scss';
 
 const BookshelfInfo: FC = () => {
     const { t } = useTranslation('bookshelf');
@@ -9,28 +10,40 @@ const BookshelfInfo: FC = () => {
         <aside className={styles.Wrapper}>
             <ul>
                 <li>
-                    {t('CounterASide.ReadyToTrade')}
-                    <span> 1</span>
+                    <Link to={''}>
+                        {t('CounterASide.ReadyToTrade')}
+                        <span> 0</span>
+                    </Link>
                 </li>
                 <li>
-                    {t('CounterASide.Free')}
-                    <span> 0</span>
+                    <Link to={''}>
+                        {t('CounterASide.Free')}
+                        <span> 0</span>
+                    </Link>
                 </li>
                 <li>
-                    {t('CounterASide.OnModeration')}
-                    <span> 0</span>
+                    <Link to={''}>
+                        {t('CounterASide.OnModeration')}
+                        <span> 0</span>
+                    </Link>
                 </li>
                 <li>
-                    {t('CounterASide.Rejected')}
-                    <span> 0</span>
+                    <Link to={''}>
+                        {t('CounterASide.Rejected')}
+                        <span> 0</span>
+                    </Link>
                 </li>
                 <li>
-                    {t('CounterASide.Reserved')}
-                    <span> 0</span>
+                    <Link to={''}>
+                        {t('CounterASide.Reserved')}
+                        <span> 0</span>
+                    </Link>
                 </li>
                 <li>
-                    {t('CounterASide.Deactivated')}
-                    <span> 0</span>
+                    <Link to={''}>
+                        {t('CounterASide.Deactivated')}
+                        <span> 0</span>
+                    </Link>
                 </li>
             </ul>
         </aside>
