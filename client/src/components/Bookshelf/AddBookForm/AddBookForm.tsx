@@ -1,17 +1,22 @@
-import * as yup from 'yup';
-import { ChangeEvent, FC, useRef, useState } from 'react';
-import { ErrorMessage, Field, Form, Formik, FormikHelpers } from 'formik';
+import * as Yup from 'yup';
+import { FC, useState } from 'react';
+import { Form, Formik } from 'formik';
 import { useTranslation } from 'react-i18next';
 import BookPhoto from './BookPhoto/BookPhoto';
 import Button from '../../../uiComponent/Button/Button';
-import Select from '../../../uiComponent/Select/Select';
+import ImageFiled from './ImageFiled/ImageFiled';
+import TextField from './TextField/TextField';
+import SelectFiled from './SelectFiled/SelectFiled';
 import styles from './AddBookForm.module.scss';
 
+export type ImageType = null | undefined | File;
+
 interface IFormFilds {
-    bookName: string;
-    bookAuthor: string;
-    bookGenre: string;
-    dateWriting: string;
+    image: ImageType;
+    title: string;
+    author: string;
+    genre: string;
+    date: string;
     language: string;
     exchange: string;
     textarea: string;
@@ -19,142 +24,116 @@ interface IFormFilds {
 
 const AddBookForm: FC = () => {
     const { t } = useTranslation('addBook');
-    const inputRef = useRef<HTMLInputElement>(null);
-    const [image, setImage] = useState<File | undefined>(undefined);
+    const [imageUrl, setImageUrl] = useState<ImageType>(null);
 
-    const handleSelectImg = () => {
-        inputRef.current?.click();
-    };
+    const exchangeOptions = [
+        { label: t('form.fild-exchange.value'), value: 'exchange' },
+        { label: t('form.fild-exchange.value-present'), value: 'present' },
+    ];
 
-    const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
-        const files = e.target.files;
-        if (files && files.length > 0) {
-            setImage(files[0]);
-        }
-    };
-
-    const validationSchemaRegister: yup.Schema<IFormFilds> = yup
-        .object()
-        .shape({
-            bookName: yup.string().required(t('form.fild-name.errorMessage')),
-            bookAuthor: yup
-                .string()
-                .required(t('form.fild-author.errorMessage')),
-            bookGenre: yup.string().required(t('form.fild-genre.errorMessage')),
-            dateWriting: yup
-                .string()
-                .required(t('form.fild-date.errorMessage')),
-            language: yup
-                .string()
-                .required(t('form.fild-language.errorMessage')),
-            exchange: yup
-                .string()
-                .required(t('form.fild-exchange.errorMessage')),
-            textarea: yup.string().required(t('form.fild-plot.errorMessage')),
-        });
+    const validationSchema = Yup.object().shape({
+        image: Yup.mixed()
+            .required(t('form.btn-add-photo.errorsMessage.req'))
+            .test(
+                'fileFormat',
+                t('form.btn-add-photo.errorsMessage.type-file'),
+                (value: any) => {
+                    if (value) {
+                        const supportedFormats = ['jpg', 'png', 'webp', 'jpeg'];
+                        return supportedFormats.includes(
+                            value.name.split('.').pop()
+                        );
+                    }
+                    return true;
+                }
+            )
+            .test(
+                'fileSize',
+                t('form.btn-add-photo.errorsMessage.file-size'),
+                (value: any) => {
+                    if (value) return value.size <= 3145728;
+                    return true;
+                }
+            ),
+        title: Yup.string().required(t('form.fild-name.errorMessage')),
+        author: Yup.string().required(t('form.fild-author.errorMessage')),
+        genre: Yup.string().required(t('form.fild-genre.errorMessage')),
+        date: Yup.string().required(t('form.fild-date.errorMessage')),
+        language: Yup.string().required(t('form.fild-language.errorMessage')),
+        exchange: Yup.string().required(t('form.fild-exchange.errorMessage')),
+        textarea: Yup.string()
+            .required(t('form.fild-plot.errorMessage'))
+            .max(300, 'max length 300 symbols'),
+    });
 
     return (
-        <div className={styles.Wrapper}>
-            <BookPhoto url={image ? URL.createObjectURL(image) : ''} />
-            <div className={styles.SelectFileBox}>
-                <input type="file" ref={inputRef} onChange={handleFileChange} />
-                <Button onClick={handleSelectImg} name="AddBook">
-                    {t('form.btn-add-photo')}
+        <Formik
+            initialValues={{
+                image: null,
+                title: '',
+                author: '',
+                genre: '',
+                date: '',
+                language: '',
+                exchange: t('form.fild-exchange.value'),
+                textarea: '',
+            }}
+            validationSchema={validationSchema}
+            onSubmit={(values: IFormFilds) => {
+                console.log(values);
+            }}
+        >
+            <Form className={styles.Form}>
+                <BookPhoto
+                    url={imageUrl ? URL.createObjectURL(imageUrl) : ''}
+                />
+                <ImageFiled
+                    isUrl={!!imageUrl}
+                    name="image"
+                    type="file"
+                    setImageUrl={setImageUrl}
+                />
+                <TextField
+                    component="input"
+                    name="title"
+                    type="text"
+                    placeholder={t('form.fild-name.value')}
+                />
+                <TextField
+                    component="input"
+                    name="author"
+                    type="text"
+                    placeholder={t('form.fild-author.value')}
+                />
+                <SelectFiled
+                    placeholder={t('form.fild-genre.value')}
+                    name="genre"
+                    options={[{ label: 'default', value: 'default' }]}
+                />
+                <TextField
+                    component="input"
+                    name="date"
+                    type="text"
+                    placeholder={t('form.fild-date.value')}
+                />
+                <TextField
+                    component="input"
+                    name="language"
+                    type="text"
+                    placeholder={t('form.fild-language.value')}
+                />
+                <SelectFiled name="exchange" options={exchangeOptions} />
+                <TextField
+                    component="textarea"
+                    name="textarea"
+                    type="text"
+                    placeholder={t('form.fild-plot.value')}
+                />
+                <Button type="submit" name="BannerButton">
+                    {t('form.btn-public-book')}
                 </Button>
-            </div>
-
-            <Formik
-                initialValues={{
-                    bookName: '',
-                    bookAuthor: '',
-                    bookGenre: '',
-                    dateWriting: '',
-                    language: '',
-                    exchange: '',
-                    textarea: '',
-                }}
-                validationSchema={validationSchemaRegister}
-                onSubmit={(
-                    values: IFormFilds,
-                    { resetForm }: FormikHelpers<IFormFilds>
-                ) => {
-                    alert(JSON.stringify(values, null, 2));
-                    resetForm();
-                }}
-            >
-                <Form className={styles.WrapperForm}>
-                    <div>
-                        <Field
-                            className={styles.WrapperFormInput}
-                            name="bookName"
-                            type="text"
-                            placeholder={t('form.fild-name.value')}
-                        />
-                        <ErrorMessage component="span" name="bookName" />
-                    </div>
-                    <div>
-                        <Field
-                            className={styles.WrapperFormInput}
-                            name="bookAuthor"
-                            type="text"
-                            placeholder={t('form.fild-author.value')}
-                        />
-                        <ErrorMessage component="span" name="bookAuthor" />
-                    </div>
-                    <div>
-                        <Select
-                            name="bookGenre"
-                            options={[]}
-                            title={t('form.fild-genre.value')}
-                        />
-                        <ErrorMessage component="span" name="bookGenre" />
-                    </div>
-                    <div>
-                        <Field
-                            className={styles.WrapperFormInput}
-                            name="dateWriting"
-                            type="text"
-                            placeholder={t('form.fild-date.value')}
-                        />
-                        <ErrorMessage component="span" name="dateWriting" />
-                    </div>
-                    <div>
-                        <Select
-                            name="language"
-                            options={[]}
-                            title={t('form.fild-language.value')}
-                        />
-                        <ErrorMessage component="span" name="language" />
-                    </div>
-                    <div>
-                        <Select
-                            name="exchange"
-                            options={[]}
-                            title={t('form.fild-exchange.value')}
-                        />
-                        <ErrorMessage component="span" name="exchange" />
-                    </div>
-                    <div>
-                        <Field
-                            className={styles.WrapperFormTextarea}
-                            as="textarea"
-                            name="textarea"
-                            type="text"
-                            placeholder={t('form.fild-plot.value')}
-                        />
-                        <ErrorMessage component="span" name="textarea" />
-                    </div>
-
-                    <Button
-                        type="submit"
-                        name="BannerButton"
-                        style={{ marginTop: '30px' }}
-                    >
-                        {t('form.btn-public-book')}
-                    </Button>
-                </Form>
-            </Formik>
-        </div>
+            </Form>
+        </Formik>
     );
 };
 

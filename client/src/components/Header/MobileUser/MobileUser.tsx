@@ -75,7 +75,7 @@ const MobileUser = () => {
                                 />
                             </div>
                         )}
-                        <UserNavigation mobileUserToggle={mobileUserToggle} />
+                        <UserNavigation mobile  mobileUserToggle={mobileUserToggle} />
                     </div>
                 </Drawer>
             )}

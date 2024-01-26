@@ -1,0 +1,37 @@
+@import '../../../../styles/variables.module.scss';
+@import '../../../../styles/mixins.module.scss';
+
+.SelectBox {
+    &Arrow {
+        position: relative;
+
+        select {
+            @include primary-font;
+            width: 100%;
+            padding: 13px 12px;
+            border-radius: 8px;
+            border: 1px solid $gray;
+            outline: none;
+            color: $gray;
+            appearance: none;
+            height: 45px;
+
+            @media all and (max-width: 900px) {
+                font-size: 12px;
+            }
+        }
+
+        img {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 14px;
+        }
+    }
+
+    span {
+        @include primary-font;
+        color: red;
+        font-size: 14px;
+    }
+}
