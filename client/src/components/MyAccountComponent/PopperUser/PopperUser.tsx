@@ -8,9 +8,9 @@ import {Popper} from "@mui/base/Popper";
 import {useTranslation} from "react-i18next";
 import {styled, css} from '@mui/system';
 import {NavigationList} from "../../../types";
-import {openModal} from "../../../store/slices/modalSlice";
 import UserImage from "../../UserImage/UserImage";
 import UserNavigation from "../../UserNavigation/UserNavigation";
+
 
 
 const StyledPopperDiv = styled('div')(
@@ -84,16 +84,18 @@ const PopperUser = () => {
                     <img className={styles.PopperUser} src="/header/user.svg" alt="user"/>
                     {user.full_name}</Button>
 
-                <Popper id={id} open={open} anchorEl={anchorEl}>
-                    <StyledPopperDiv sx={{display: {xs: 'none', md: 'flex'}, alignItems: 'center'}}
-                                     onClick={handleClose}>
-                        <div>
-                            <UserImage picture={user.avatar_url} name={user.full_name}
-                                       text={t('Popper.text')}/>
-                        </div>
-                        <UserNavigation />
-                    </StyledPopperDiv>
-                </Popper>
+    <Popper id={id} open={open} anchorEl={anchorEl}>
+        <StyledPopperDiv sx={{display: {xs: 'none', md: 'flex'}, alignItems: 'center'}}
+                         onClick={handleClose}>
+            <div>
+                <UserImage picture={user.avatar_url} name={user.full_name}
+                           text={t('Popper.text')}/>
+            </div>
+            <UserNavigation />
+        </StyledPopperDiv>
+    </Popper>
+
+
             </div>;
         }
 
