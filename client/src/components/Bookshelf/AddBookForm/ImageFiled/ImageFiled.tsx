@@ -1,7 +1,7 @@
 import { Dispatch, FC, SetStateAction, FocusEvent, useRef } from 'react';
 import { ErrorMessage, Field } from 'formik';
 import { useTranslation } from 'react-i18next';
-import { ImageType } from '../AddBookForm';
+import { ImageType } from '../AddBook.types';
 import styles from './ImageFiled.module.scss';
 
 interface ImageFiledProps {

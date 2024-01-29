@@ -1,32 +1,29 @@
-import {combineReducers, configureStore } from '@reduxjs/toolkit';
-import { persistStore, persistReducer } from "redux-persist";
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import modalReducer from './slices/modalSlice';
-import authReducer from './slices/authSlice'
-
-
+import authReducer from './slices/authSlice';
+import addBookReducer from './slices/addBookSlice';
 
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['auth']
-}
-
-
+    whitelist: ['auth'],
+};
 
 const rootReducer = combineReducers({
-    modal:modalReducer,
-    auth:authReducer,
-
-})
+    modal: modalReducer,
+    auth: authReducer,
+    addBook: addBookReducer,
+});
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const store = configureStore({
     reducer: persistedReducer,
-    middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-        serializableCheck: false,
-    })
+    middleware: getDefaultMiddleware =>
+        getDefaultMiddleware({
+            serializableCheck: false,
+        }),
 });
 
 export default store;

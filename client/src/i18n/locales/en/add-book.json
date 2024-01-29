@@ -42,5 +42,11 @@
             "errorMessage": "This field is required."
         },
         "btn-public-book": "List a book"
+    },
+    "success": {
+        "title-1": "Congratulations!",
+        "title-2": "Your book has been successfully published",
+        "btn-1": "Go to my shelf",
+        "btn-2": "List a book"
     }
 }
