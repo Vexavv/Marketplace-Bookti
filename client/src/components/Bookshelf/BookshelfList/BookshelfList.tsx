@@ -3,16 +3,18 @@ import { useNavigate } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import { openModal } from '../../../store/slices/modalSlice';
 import { useWindowSize } from '../../../hooks/useWindowSize';
-import { useAppDispatch } from '../../../hook';
+import { useAppDispatch, useAppSelector } from '../../../hook';
 import BookItem from './BookItem/BookItem';
 import Button from '../../../uiComponent/Button/Button';
 import styles from './BookshelfList.module.scss';
+import { setStatus } from '../../../store/slices/addBookSlice';
 
 interface IBookshelfListProps {
     books: any[];
 }
 
 const BookshelfList: FC<IBookshelfListProps> = ({ books }) => {
+    const { data } = useAppSelector(state => state.addBook);
     const { t } = useTranslation('bookshelf');
     const { width } = useWindowSize();
     const dispatch = useAppDispatch();
@@ -23,6 +25,7 @@ const BookshelfList: FC<IBookshelfListProps> = ({ books }) => {
     };
 
     const handleOpenModal = () => {
+        if (data) dispatch(setStatus());
         if (width && width <= 900) {
             navigate('/bookshelf/add-book');
         } else {

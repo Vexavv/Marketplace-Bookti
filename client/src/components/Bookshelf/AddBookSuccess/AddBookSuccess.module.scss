@@ -1,0 +1,59 @@
+@import '../../../styles/mixins.module.scss';
+@import '../../../styles/variables.module.scss';
+
+.Wrapper {
+    max-width: 325px;
+    margin: auto;
+
+    &Heading {
+        margin-bottom: 40px;
+        margin-top: 20px;
+
+        h1 {
+            @include primary-font;
+            font-size: 18px;
+        }
+    }
+
+    &BtnsBox {
+        padding-top: 15px;
+        padding-bottom: 70px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        button {
+            &:first-child {
+                margin-bottom: 38px;
+            }
+        }
+
+        &Btn {
+            @include primary-font;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border: 1px solid $primary-color;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &:nth-child(2) {
+                background-color: $primary-color;
+                color: #fff;
+            }
+
+            &:nth-child(3) {
+                box-sizing: border-box;
+                background-color: transparent;
+                color: $primary-color;
+            }
+
+            @media all and (max-width: 900px) {
+                height: 38px;
+            }
+        }
+    }
+}
