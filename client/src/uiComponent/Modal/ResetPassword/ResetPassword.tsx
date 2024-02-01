@@ -17,15 +17,17 @@ const initialValuesEmail: LoginForm = {
 }
 const handleSubmit = async (values: LoginForm ) => {
     try {
-        const response = await axios.post(`${BASE_URL}/authorize/login/resetPassword`, {
+        const response = await axios.post(`${BASE_URL}/authorize/login/resetPassword`,
             values
-        });
+        );
 
         console.log('Response:', response.data);
     } catch (error) {
         console.error('Error:', error);
     }
 };
+
+
 const ResetPassword = () => {
     const dispatch = useAppDispatch()
     const {t} = useTranslation(['login', 'modal']);

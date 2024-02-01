@@ -7,7 +7,7 @@ import YupPassword from 'yup-password'
 import {LoginForm} from "../../../types";
 import {IoEyeOffOutline, IoEyeOutline} from "react-icons/io5";
 import Button from "../../../uiComponent/Button/Button";
-import logo from "../../Header/Logo/Logo";
+
 
 
 interface PasswordValues {
