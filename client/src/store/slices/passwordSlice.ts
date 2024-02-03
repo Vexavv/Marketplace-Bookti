@@ -10,9 +10,10 @@ interface DataPassword {
     "reset_token": string
 }
 interface RenamePassword {
-    "user_id": string,
-    "access_token": string,
-    "refresh_token": string
+    user_id: string,
+    access_token: string,
+    refresh_token: string,
+    status_code?: number
 }
 interface PasswordState {
     loading?: boolean;
@@ -23,7 +24,8 @@ interface PasswordState {
 }
 const initialState: PasswordState = {
     dataPassword: null,
-    dataNewPassword: null
+    dataNewPassword: null,
+    status:'idle'
 
 
 };
@@ -83,13 +85,22 @@ const passwordSlice = createSlice({
 
             .addCase(renamePasswordAsync.pending, (state) => {
                 state.status = 'loading';
+
             })
             .addCase(renamePasswordAsync.fulfilled, (state, action: PayloadAction<RenamePassword>) => {
-                state.dataNewPassword = action.payload;
-                console.log(action.payload)
-                state.status = 'loaded';
+                if (action.payload) {
+                    state.dataNewPassword = action.payload;
+                    console.log(action.payload);
+                    state.status = 'succeeded';
+                } else {
+                    state.status = 'failed';
+                }
+                // state.dataNewPassword = action.payload;
+                // console.log(action.payload)
+                // state.status = 'succeeded';
             })
             .addCase(renamePasswordAsync.rejected, (state) => {
+                state.status = 'idle';
             })
 
     }

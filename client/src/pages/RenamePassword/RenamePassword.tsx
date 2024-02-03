@@ -14,7 +14,7 @@ const RenamePassword = () => {
     const {t} = useTranslation('login');
     const loading = useAppSelector(state => state.auth.loading)
     const status = useAppSelector(state => state.resetPassword.status)
-
+    // console.log(status)
     const handleOpenModal = () => {
         dispatch(openModal({type: 'resetMessage', props: {key: 'value'}}));
         // setTimeout(() => {
@@ -22,17 +22,17 @@ const RenamePassword = () => {
         // }, 3000);
     }
 
-    // useEffect(() => {
-    //     // Редирект на другую страницу, когда status станет 'loading'
-    //     if (status === 'loading') {
-    //         handleOpenModal();
-    //
-    //         // Редирект на другую страницу через 3 секунды
-    //         setTimeout(() => {
-    //             <Navigate to="/login" replace/>;
-    //         }, 3000);
-    //     }
-    // }, [status]);
+    useEffect(() => {
+        // Редирект на другую страницу, когда status станет 'loading'
+        if (status === 'succeeded') {
+            handleOpenModal();
+
+            // Редирект на другую страницу через 3 секунды
+            // setTimeout(() => {
+            //     <Navigate to="/login" replace/>;
+            // }, 3000);
+        }
+    }, [status]);
     return (
         <>
             {!loading && <Container>
@@ -53,7 +53,7 @@ const RenamePassword = () => {
             </Container>
             }
             {loading && <Navigate to="/" replace/>}
-            {status === 'loading' && handleOpenModal()}
+
 
         </>
     );
