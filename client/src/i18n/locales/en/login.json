@@ -2,6 +2,8 @@
   "arrow": "Back",
   "titleLogin": "Happy to see you again!",
   "titleRegistration": "Welcome!",
+  "titleRenamePassword": "Reset password",
+  "textRenamePassword": "Enter a new password",
   "Error": {
     "login": {
       "email": {
@@ -32,7 +34,8 @@
   },
   "LoginPlaceholder": {
     "email": "Email",
-    "password": "Password"
+    "password": "Password",
+    "newPassword": "New password"
   },
   "RegistrationPlaceholder": {
     "name": "Name",
@@ -45,6 +48,7 @@
   "RegistrationAgree": "I have read and agree to the",
   "RegistrationTerms": "Terms of Use",
   "RegistrationButton": "Sign up",
+  "RenameButton": "Save",
   "RegistrationText": "Already have an account?",
   "RegistrationLink": "Sign in",
   "Or": "OR"

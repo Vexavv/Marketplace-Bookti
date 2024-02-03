@@ -5,37 +5,24 @@ import * as yup from 'yup';
 import {LoginForm} from "../../../types";
 import {useTranslation} from "react-i18next";
 import Button from "../../Button/Button";
-import axios from 'axios';
-import {BASE_URL} from "../../../constants/api";
 import {closeModal} from "../../../store/slices/modalSlice";
 import {useAppDispatch} from "../../../hook";
+import {resetPasswordAsync} from "../../../store/slices/passwordSlice";
 
 
 // initialValues
 const initialValuesEmail: LoginForm = {
     email: '',
 }
-const handleSubmit = async (values: LoginForm ) => {
-    try {
-        const response = await axios.post(`${BASE_URL}/authorize/login/resetPassword`, {
-            values
-        });
 
-        console.log('Response:', response.data);
-    } catch (error) {
-        console.error('Error:', error);
-    }
-};
 const ResetPassword = () => {
     const dispatch = useAppDispatch()
     const {t} = useTranslation(['login', 'modal']);
-
     const validationSchemaEmail: yup.Schema<LoginForm> = yup.object().shape({
         email: yup.string()
             .email(t('Error.login.email.email'))
             .required(t('Error.login.email.required')),
     })
-
 
     return (
         <div className={styles.Reset}>
@@ -43,7 +30,7 @@ const ResetPassword = () => {
             <span className={styles.ResetText}>{t('modal:ResetPassword.text')}</span>
             <Formik initialValues={initialValuesEmail} validationSchema={validationSchemaEmail}
                     onSubmit={(values, {resetForm}) => {
-                        handleSubmit(values)
+                        dispatch(resetPasswordAsync(values))
                         resetForm()
                        dispatch(closeModal())
                     }}>
