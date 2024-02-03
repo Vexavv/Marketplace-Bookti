@@ -7,6 +7,8 @@ import YupPassword from 'yup-password'
 import {LoginForm} from "../../../types";
 import {IoEyeOffOutline, IoEyeOutline} from "react-icons/io5";
 import Button from "../../../uiComponent/Button/Button";
+import {handleTogglePassword} from "../../../helpers/handler";
+import {useAppDispatch, useAppSelector} from "../../../hook";
 
 
 
@@ -23,6 +25,14 @@ const initialValuesPassword: PasswordValues = {
 }
 const PasswordForm = () => {
     const {t} = useTranslation('login')
+    const dispatch = useAppDispatch()
+    const dataResetPassword = useAppSelector(state => state.resetPassword.dataPassword)
+    // console.log("dataResetPassword",dataResetPassword)
+    if(dataResetPassword !== null){
+        let resetToken = dataResetPassword.reset_token
+        console.log(resetToken)
+    }
+
     const [isShowPassword, setIsShowPassword] = useState(false)
     const [isShowConfirm, setIsShowConfirm] = useState(false)
     //----------------------------Validation-----------------------------------------------------------
@@ -41,10 +51,6 @@ const PasswordForm = () => {
             .required(t('Error.login.email.required')),
 
     })
-
-    const handleToggle = (setData: React.Dispatch<React.SetStateAction<boolean>>) => {
-        setData((prev: boolean) => !prev);
-    };
 
 
     return (
@@ -66,7 +72,7 @@ const PasswordForm = () => {
                         <ErrorMessage className={styles.FormInputError} component="span" name="password"/>
                         <span className={styles.FormVisibilityWrapperVisibility}
                               onClick={() => {
-                                  handleToggle(setIsShowPassword)
+                                  handleTogglePassword(setIsShowPassword)
                               }}>
                                         {isShowPassword ?
                                             <IoEyeOutline className={styles.FormVisibilityWrapperVisibilityIcon}/> :
@@ -83,7 +89,7 @@ const PasswordForm = () => {
                         <ErrorMessage className={styles.FormInputError} component="span" name="confirm_password"/>
                         <span className={styles.FormVisibilityWrapperVisibility}
                               onClick={() => {
-                                  handleToggle(setIsShowConfirm)
+                                  handleTogglePassword(setIsShowConfirm)
                               }}>
                                         {isShowConfirm ?
                                             <IoEyeOutline className={styles.FormVisibilityWrapperVisibilityIcon}/> :
