@@ -1,5 +1,5 @@
 import {createSlice, createAsyncThunk, PayloadAction} from '@reduxjs/toolkit';
-import axios, {AxiosResponse} from 'axios';
+import axios from 'axios';
 import {BASE_URL} from "../../constants/api";
 import {LoginForm} from "../../types";
 
@@ -16,7 +16,7 @@ interface RenamePassword {
     status_code?: number
 }
 interface PasswordState {
-    loading?: boolean;
+    enter?: boolean;
     status?: null | string;
     dataPassword: DataPassword | null;
     dataNewPassword:RenamePassword |null
@@ -25,9 +25,8 @@ interface PasswordState {
 const initialState: PasswordState = {
     dataPassword: null,
     dataNewPassword: null,
-    status:'idle'
-
-
+    status:'idle',
+    enter:false
 };
 
 export const resetPasswordAsync = createAsyncThunk('password/resetPassword', async (values: LoginForm) => {
@@ -54,7 +53,6 @@ export const renamePasswordAsync = createAsyncThunk('password/renamePassword', a
             ...values,
             reset_token: resetPassword.reset_token,
         };
-
         const response = await axios.post(
             `${BASE_URL}/authorize/login/resetPassword/savePassword`,
             updatedValues
@@ -70,6 +68,12 @@ const passwordSlice = createSlice({
     name:'password',
     initialState,
     reducers: {
+        closeEnter: state => {
+            state.enter = false;
+        },
+        changeStatus: state =>{
+            state.status = 'idle'
+        }
     },
     extraReducers:(builder) =>{
         builder
@@ -78,10 +82,10 @@ const passwordSlice = createSlice({
                 })
             .addCase(resetPasswordAsync.fulfilled, (state, action: PayloadAction<DataPassword>) => {
                 state.dataPassword = action.payload;
+                state.enter = true
             })
             .addCase(resetPasswordAsync.rejected, (state) => {
             })
-
 
             .addCase(renamePasswordAsync.pending, (state) => {
                 state.status = 'loading';
@@ -95,14 +99,12 @@ const passwordSlice = createSlice({
                 } else {
                     state.status = 'failed';
                 }
-                // state.dataNewPassword = action.payload;
-                // console.log(action.payload)
-                // state.status = 'succeeded';
             })
             .addCase(renamePasswordAsync.rejected, (state) => {
-                state.status = 'idle';
+
             })
 
     }
 })
+export const {closeEnter,changeStatus} = passwordSlice.actions;
 export default passwordSlice.reducer;

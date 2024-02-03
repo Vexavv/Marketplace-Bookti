@@ -12,9 +12,9 @@ import {closeModal, openModal} from "../../store/slices/modalSlice";
 const RenamePassword = () => {
     const dispatch = useAppDispatch()
     const {t} = useTranslation('login');
-    const loading = useAppSelector(state => state.auth.loading)
     const status = useAppSelector(state => state.resetPassword.status)
-    // console.log(status)
+    const enter = useAppSelector(state => state.resetPassword.enter)
+
     const handleOpenModal = () => {
         dispatch(openModal({type: 'resetMessage', props: {key: 'value'}}));
         // setTimeout(() => {
@@ -35,7 +35,7 @@ const RenamePassword = () => {
     }, [status]);
     return (
         <>
-            {!loading && <Container>
+            {enter && <Container>
                 <div className={styles.Wrapper}>
                     <div className={styles.WrapperArrow}>
                         <Link className={styles.WrapperArrowLink} to='/'> <img src="/login/arrow.svg"
@@ -52,9 +52,7 @@ const RenamePassword = () => {
                 </div>
             </Container>
             }
-            {loading && <Navigate to="/" replace/>}
-
-
+            {!enter && <Navigate to="/" replace/>}
         </>
     );
 };
