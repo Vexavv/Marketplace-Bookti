@@ -123,8 +123,6 @@ const authSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-
-
             .addCase(createAccountAsync.pending, (state) => {
                 state.status = 'loading';
             })
