@@ -9,16 +9,17 @@ import {IoEyeOffOutline, IoEyeOutline} from "react-icons/io5";
 import Button from "../../../uiComponent/Button/Button";
 import {handleTogglePassword} from "../../../helpers/handler";
 import {useAppDispatch, useAppSelector} from "../../../hook";
+import {renamePasswordAsync} from "../../../store/slices/passwordSlice";
 
 
 
-interface PasswordValues {
-    password: string,
-    confirm_password: string,
-
-
-} // initialValues
-const initialValuesPassword: PasswordValues = {
+// interface PasswordValues {
+//     password: string,
+//     confirm_password: string,
+//
+//
+// } // initialValues
+const initialValuesPassword: LoginForm = {
     password: '',
     confirm_password: '',
 
@@ -26,12 +27,7 @@ const initialValuesPassword: PasswordValues = {
 const PasswordForm = () => {
     const {t} = useTranslation('login')
     const dispatch = useAppDispatch()
-    const dataResetPassword = useAppSelector(state => state.resetPassword.dataPassword)
-    // console.log("dataResetPassword",dataResetPassword)
-    if(dataResetPassword !== null){
-        let resetToken = dataResetPassword.reset_token
-        console.log(resetToken)
-    }
+
 
     const [isShowPassword, setIsShowPassword] = useState(false)
     const [isShowConfirm, setIsShowConfirm] = useState(false)
@@ -57,8 +53,8 @@ const PasswordForm = () => {
         <div>
             <Formik initialValues={initialValuesPassword}
                     validationSchema={validationSchemaPassword}
-                    onSubmit={async (values: PasswordValues, {resetForm}: FormikHelpers<PasswordValues>) => {
-                        await console.log(values)
+                    onSubmit={(values: LoginForm, {resetForm}) => {
+                        dispatch(renamePasswordAsync(values))
                         resetForm();
                     }}>
                 <Form className={styles.Form}>
