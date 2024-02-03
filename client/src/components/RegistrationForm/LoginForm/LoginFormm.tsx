@@ -13,6 +13,7 @@ import {useAppDispatch} from "../../../hook";
 import {openModal} from "../../../store/slices/modalSlice";
 
 import {createAccountAsync, loginAsync, getUserAsync} from "../../../store/slices/authSlice";
+import {handleTogglePassword} from "../../../helpers/handler";
 // import {getUserAsync} from "../../../store/slices/userSlice";
 
 
@@ -89,11 +90,6 @@ const LoginFormm = ({registration}: LoginFormProps) => {
 
     })
 
-
-    //-------------------------------Handler----------------------------------
-    const handleToggle = (setData: React.Dispatch<React.SetStateAction<boolean>>) => {
-        setData((prev: boolean) => !prev);
-    };
     //---------------------------Modal---------------------------------------
     const handleOpenModal = () => {
         dispatch(openModal({type: 'resetPassword', props: {key: 'value'}}));
@@ -148,7 +144,7 @@ const LoginFormm = ({registration}: LoginFormProps) => {
                         <ErrorMessage className={styles.FormInputError} component="span" name="password"/>
                         <span className={styles.FormVisibilityWrapperVisibility}
                               onClick={() => {
-                                  handleToggle(setIsShowPassword)
+                                  handleTogglePassword(setIsShowPassword)
                               }}>
                                         {isShowPassword ?
                                             <IoEyeOutline className={styles.FormVisibilityWrapperVisibilityIcon}/> :
@@ -165,7 +161,7 @@ const LoginFormm = ({registration}: LoginFormProps) => {
                         <ErrorMessage className={styles.FormInputError} component="span" name="confirm_password"/>
                         <span className={styles.FormVisibilityWrapperVisibility}
                               onClick={() => {
-                                  handleToggle(setIsShowConfirm)
+                                  handleTogglePassword(setIsShowConfirm)
                               }}>
                                         {isShowConfirm ?
                                             <IoEyeOutline className={styles.FormVisibilityWrapperVisibilityIcon}/> :
@@ -218,7 +214,7 @@ const LoginFormm = ({registration}: LoginFormProps) => {
                             <ErrorMessage className={styles.FormInputError} component="span" name="password"/>
                             <span className={styles.FormVisibilityWrapperVisibility}
                                   onClick={() => {
-                                      handleToggle(setIsShowPassword)
+                                      handleTogglePassword(setIsShowPassword)
                                   }}>
                                         {isShowPassword ?
                                             <IoEyeOutline className={styles.FormVisibilityWrapperVisibilityIcon}/> :

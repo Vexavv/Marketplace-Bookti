@@ -18,6 +18,7 @@ import Message from '../pages/Message/Message';
 import Favorite from '../pages/Favorite/Favorite';
 import Layout from '../components/Layout/Layout';
 import AddBook from '../pages/AddBook/AddBook';
+import RenamePassword from "../pages/RenamePassword/RenamePassword";
 
 export const routesConfig: RouteObject[] = [
     {
@@ -75,6 +76,10 @@ export const routesConfig: RouteObject[] = [
             {
                 path: 'registration',
                 element: <Registration />,
+            },
+            {
+                path: 'renamePassword',
+                element: <RenamePassword />,
             },
             {
                 path: '*',
