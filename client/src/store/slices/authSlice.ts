@@ -20,7 +20,7 @@ interface Data {
     refresh_token: string;
 }
 
-export interface User {
+interface User {
     email: string;
     full_name: string;
     avatar_url: string;
@@ -116,12 +116,7 @@ const authSlice = createSlice({
     },
     extraReducers: builder => {
         builder
-<<<<<<< HEAD
-
             .addCase(createAccountAsync.pending, state => {
-=======
-            .addCase(createAccountAsync.pending, (state) => {
->>>>>>> 28795960f4a937ef90b14d42878883847649ab9e
                 state.status = 'loading';
             })
             .addCase(
