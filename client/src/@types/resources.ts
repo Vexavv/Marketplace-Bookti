@@ -6,6 +6,7 @@ import mobileMenu from '../i18n/locales/uk/mobileMenu.json';
 import modal from '../i18n/locales/uk/modal.json';
 import bookshelf from '../i18n/locales/uk/bookshelf.json';
 import addBook from '../i18n/locales/uk/add-book.json';
+import profile from '../i18n/locales/uk/profile.json';
 
 const resources = {
     footer,
@@ -16,6 +17,7 @@ const resources = {
     modal,
     bookshelf,
     addBook,
+    profile,
 } as const;
 
 export default resources;

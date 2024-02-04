@@ -1,0 +1,16 @@
+@import '../../../../styles/mixins.module.scss';
+
+.Wrapper {
+    height: 100%;
+    padding-block: 25px;
+
+    &BookEmpty {
+        display: grid;
+        place-items: center;
+        min-height: 300px;
+
+        span {
+            @include flexible-font(18px, 4vw, 20px, 400);
+        }
+    }
+}
