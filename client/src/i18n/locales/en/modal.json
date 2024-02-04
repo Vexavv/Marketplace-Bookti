@@ -4,5 +4,9 @@
     "text": "Enter your e-mail address",
     "input": "E-mail address",
     "button": "Submit"
+  },
+  "ResetMessage": {
+    "text": "Your password has been successfully changed",
+    "button": "To the main"
   }
 }

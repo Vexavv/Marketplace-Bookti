@@ -15,7 +15,7 @@ export interface LoginForm{
     name?: string,
     email?:string,
     password?: string,
-    confirmPassword?: string,
+    confirm_password?: string,
     checkboxField?: boolean
 
 }

@@ -2,6 +2,8 @@
   "arrow": "Назад",
   "titleLogin": "Раді знову бачити!",
   "titleRegistration": "Ласкаво просимо!",
+  "titleRenamePassword": "Скидання пароля",
+  "textRenamePassword": "Введіть новий пароль",
   "Error": {
     "login": {
       "email": {
@@ -33,7 +35,8 @@
   },
   "LoginPlaceholder": {
     "email": "Електронна пошта",
-    "password": "Пароль"
+    "password": "Пароль",
+    "newPassword": "Hовий пароль"
   },
   "RegistrationPlaceholder": {
     "name": "Ім’я",
@@ -46,6 +49,7 @@
   "RegistrationAgree": "Я прочитав/ла і погоджуюся з",
   "RegistrationTerms": "Умовами використання",
   "RegistrationButton": "Зареєструватися",
+  "RenameButton": "Зберегти",
   "RegistrationText": "Вже є аккаунт?",
   "RegistrationLink": "Увійти",
   "Or": "ЧИ"
