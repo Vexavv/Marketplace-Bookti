@@ -1,9 +1,9 @@
-@mixin primary-font{
-  font-family: Montserrat, serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+@mixin primary-font {
+    font-family: Montserrat, serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 //@mixin secondary-font{
 //  font-family: IBM Plex Sans, serif;
@@ -12,17 +12,25 @@
 //  font-weight: 300;
 //  line-height: 120%;
 //}
-@mixin h-tag-font{
-  font-family: Cormorant, serif;
-  font-size: 40px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+@mixin h-tag-font {
+    font-family: Cormorant, serif;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
 }
-@mixin third-font{
-  font-family: Montserrat Alternates, serif;
-  font-size: 25px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+@mixin third-font {
+    font-family: Montserrat Alternates, serif;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+@mixin flexible-font($size-min, $vw, $size-max, $weight, $color: #000) {
+    font-family: Montserrat, serif;
+    font-size: clamp($size-min, $vw, $size-max);
+    font-weight: $weight;
+    font-style: normal;
+    line-height: normal;
+    color: $color;
 }

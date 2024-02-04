@@ -1,6 +1,6 @@
-import {createSlice, createAsyncThunk, PayloadAction} from '@reduxjs/toolkit';
-import axios, {AxiosResponse} from 'axios';
-import {BASE_URL} from "../../constants/api";
+import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
+import axios, { AxiosResponse } from 'axios';
+import { BASE_URL } from '../../constants/api';
 
 interface LoginCredentials {
     email: string;
@@ -10,26 +10,25 @@ interface LoginCredentials {
 interface CreateAccountCredentials {
     email: string;
     password: string;
-    full_name: string,
-    confirm_password: string,
+    full_name: string;
+    confirm_password: string;
 }
 
 interface Data {
-    user_id: string,
-    access_token: string,
-    refresh_token: string
+    user_id: string;
+    access_token: string;
+    refresh_token: string;
 }
 
-interface User {
-    email: string,
-    full_name: string,
-    avatar_url: string
+export interface User {
+    email: string;
+    full_name: string;
+    avatar_url: string;
 }
 
 interface AuthData {
     access_token: string;
     user_id: string;
-
 }
 
 interface UserState {
@@ -44,8 +43,6 @@ const initialState: UserState = {
     user: null,
     loading: false,
     status: null,
-
-
 };
 export const createAccountAsync = createAsyncThunk(
     'auth/createAccount',
@@ -60,8 +57,6 @@ export const createAccountAsync = createAsyncThunk(
             console.error('Error during user fetching:', e);
             throw e;
         }
-
-
     }
 );
 
@@ -78,13 +73,11 @@ export const loginAsync = createAsyncThunk(
             console.error('Error during user fetching:', e);
             throw e;
         }
-
-
     }
 );
 export const getUserAsync = createAsyncThunk(
     'auth/getUser',
-    async (_, {getState}) => {
+    async (_, { getState }) => {
         try {
             let authData: AuthData;
             // @ts-ignore
@@ -118,64 +111,67 @@ const authSlice = createSlice({
         logout: state => {
             state.data = null;
             state.loading = false;
-            state.user = null
+            state.user = null;
         },
     },
-    extraReducers: (builder) => {
+    extraReducers: builder => {
         builder
 
-
-            .addCase(createAccountAsync.pending, (state) => {
+            .addCase(createAccountAsync.pending, state => {
                 state.status = 'loading';
             })
-            .addCase(createAccountAsync.fulfilled, (state, action: PayloadAction<Data>) => {
-                state.data = action.payload;
-                console.log('Data:', action.payload);
-                state.status = 'loaded';
-
-            })
-            .addCase(createAccountAsync.rejected, (state) => {
+            .addCase(
+                createAccountAsync.fulfilled,
+                (state, action: PayloadAction<Data>) => {
+                    state.data = action.payload;
+                    console.log('Data:', action.payload);
+                    state.status = 'loaded';
+                }
+            )
+            .addCase(createAccountAsync.rejected, state => {
                 state.status = 'loaded';
                 // state.error = action.error.message;
             })
 
             //-------------------------------------------------------------------------------------------------
-            .addCase(loginAsync.pending, (state) => {
+            .addCase(loginAsync.pending, state => {
                 state.status = 'loading';
             })
-            .addCase(loginAsync.fulfilled, (state, action: PayloadAction<Data>) => {
-                state.data = action.payload;
-                console.log('Data:', action.payload);
-                state.status = 'loaded';
-
-            })
-            .addCase(loginAsync.rejected, (state) => {
+            .addCase(
+                loginAsync.fulfilled,
+                (state, action: PayloadAction<Data>) => {
+                    state.data = action.payload;
+                    console.log('Data:', action.payload);
+                    state.status = 'loaded';
+                }
+            )
+            .addCase(loginAsync.rejected, state => {
                 state.status = 'loaded';
                 // state.error = action.error.message;
             })
 
             //------------------------------------------------------------------------------------------------------
 
-            .addCase(getUserAsync.pending, (state) => {
+            .addCase(getUserAsync.pending, state => {
                 state.loading = true;
             })
-            .addCase(getUserAsync.fulfilled, (state, action: PayloadAction<User>) => {
-                state.user = action.payload;
-                console.log("UserState >>>>>>>>>>", state.user)
-
-            })
-            .addCase(getUserAsync.rejected, (state) => {
+            .addCase(
+                getUserAsync.fulfilled,
+                (state, action: PayloadAction<User>) => {
+                    state.user = action.payload;
+                    console.log('UserState >>>>>>>>>>', state.user);
+                }
+            )
+            .addCase(getUserAsync.rejected, state => {
                 state.loading = false;
                 // state.error = action.error.message;
             });
-
     },
 });
 
-export const {logout} = authSlice.actions;
+export const { logout } = authSlice.actions;
 
 export default authSlice.reducer;
-
 
 //
 // import {createSlice, createAsyncThunk, PayloadAction} from '@reduxjs/toolkit';

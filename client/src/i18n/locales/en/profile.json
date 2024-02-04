@@ -1,0 +1,18 @@
+{
+    "nav": "Profile",
+    "user-info": {
+        "date-register": "Registration date:",
+        "btns": {
+            "subscribe": "Sign up",
+            "signed": "Signed"
+        }
+    },
+    "list": {
+        "my-bookshelf": "My bookshelf",
+        "interested": "I am interested",
+        "reviews": "Reviews"
+    },
+    "bokkshelf": {
+        "empty": "It's still empty here"
+    }
+}

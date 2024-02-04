@@ -1,0 +1,18 @@
+{
+    "nav": "Профіль",
+    "user-info": {
+        "date-register": "Дата реєстрації:",
+        "btns": {
+            "subscribe": "Підписатися",
+            "signed": "Підписані"
+        }
+    },
+    "list": {
+        "my-bookshelf": "Моя книжная полиця",
+        "interested": "Мене цікавить",
+        "reviews": "Відгуки"
+    },
+    "bokkshelf": {
+        "empty": "Тут поки пусто"
+    }
+}

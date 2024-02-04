@@ -1,0 +1,121 @@
+@import '../../../../../styles/mixins.module.scss';
+@import '../../../../../styles/variables.module.scss';
+
+.UserInfo {
+    display: grid;
+    grid-template-columns: max-content;
+    grid-template-rows: repeat(2, auto);
+    column-gap: 32px;
+
+    @media all and (max-width: 414px) {
+        grid-template-columns: 0.2fr;
+
+        > .ImageBox {
+            grid-area: 1 / 1 / 2 / 2 !important;
+        }
+        > .NameBox {
+            grid-area: 1 / 2 / 2 / 3 !important;
+        }
+        > .NameBoxBtns {
+            margin-top: 0 !important;
+            grid-area: 2 / 1 / 3 / 3 !important;
+        }
+    }
+
+    &ImageBox {
+        grid-area: 1 / 1 / 3 / 2;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: $lite-gray;
+        display: grid;
+        place-items: center;
+        position: relative;
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+
+        &.IsOnline::before {
+            border-radius: 50%;
+            content: '';
+            position: absolute;
+            bottom: 7px;
+            right: 7px;
+            width: 15px;
+            height: 15px;
+            background-color: $lite-green;
+        }
+
+        @media all and (max-width: 900px) {
+            width: 50px;
+            height: 50px;
+
+            &.IsOnline::before {
+                bottom: 2px;
+                right: 2px;
+                width: 10px;
+                height: 10px;
+            }
+
+            img {
+                width: 24px;
+                height: 24px;
+            }
+        }
+
+        img {
+            max-width: 100%;
+        }
+    }
+
+    &NameBox {
+        grid-area: 1 / 2 / 2 / 3;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: space-between;
+
+        span {
+            @include primary-font;
+            font-weight: 600;
+            font-size: clamp(15px, 3vw, 18px);
+        }
+    }
+
+    &BoxBtns {
+        grid-area: 2 / 2 / 3 / 3;
+        margin-top: 16px;
+        display: flex;
+        gap: 15px;
+
+        @media all and (max-width: 1070px) {
+            margin-top: 0;
+        }
+
+        button {
+            @include primary-font;
+            font-size: clamp(14px, 2vw, 18px);
+            cursor: pointer;
+            color: $primary-color;
+            border: 1px solid $primary-color;
+            background-color: transparent;
+            padding: 10px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            @media all and (max-width: 900px) {
+                height: 36px;
+            }
+
+            @media all and (max-width: 600px) {
+                font-weight: 300;
+                padding-block: 7px;
+            }
+
+            &.Subscribe {
+                color: #fff;
+                background-color: $primary-color;
+            }
+        }
+    }
+}

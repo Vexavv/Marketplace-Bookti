@@ -8,10 +8,10 @@ function App() {
     const routes = useRoutes(routesConfig);
 
     return (
-        <div>
+        <>
             {routes}
             <Modal />
-        </div>
+        </>
     );
 }
 
