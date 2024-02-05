@@ -1,0 +1,114 @@
+@import "../../../styles/mixins.module";
+@import "../../../styles/variables.module";
+.Message {
+  padding: 30px 10px;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+            'img'
+            'text'
+            'form';
+  &Img{
+    grid-area: img;
+    width: 120px;
+    height: 150px;
+    margin-bottom: 30px;
+  }
+  &Text{
+    grid-area: text;
+    display: flex;
+    flex-direction: column;
+    //width: 100%;
+margin-bottom: 30px;
+    &Title{
+      @include primary-font;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 24px;
+      margin-bottom: 20px;
+    }
+    &List{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      &Item{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+        color:$gray;
+        @include primary-font;
+        font-size: 14px;
+        line-height: 17px;
+        p{
+          margin: 0;
+          span{
+            color: #000000;
+            @include primary-font;
+            font-size: 15px;
+            line-height: 18px;
+            margin-left: 8px;
+            align-self: flex-start;
+          }
+        }
+        &:last-child {
+          span {
+            margin-left: 55px;
+          }
+        }
+      }
+
+    }
+  }
+  &Form{
+    grid-area: form;
+    display: flex;
+    flex-direction: column;
+    &Input{
+      margin-bottom: 20px;
+      box-sizing: border-box;
+      outline: none;
+      border: 0.5px solid rgb(119, 119, 119);
+      border-radius: 8px;
+      &::placeholder{
+        @include primary-font;
+        color: $gray;
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 120%;
+        letter-spacing: 0;
+        padding: 15px;
+      }
+    }
+    &Error {
+      @include primary-font;
+      font-size: 12px;
+      color: red;
+      margin-bottom: 5px;
+    }
+    &Button{
+     align-self: flex-end;
+    }
+  }
+}
+//@media (min-width: 900px) {
+//  .Message {
+//    padding: 30px 10px;
+//    display: grid;
+//    justify-items: center;
+//    grid-template-columns: 1fr 1fr 1fr ;
+//    grid-template-areas:
+//            'img text text'
+//            'form form form';
+//    &Img{
+//      grid-area: img;
+//    }
+//    &Text{
+//      grid-area: text;
+//    }
+//    &Form{
+//      grid-area: form;
+//    }
+//  }
+//}
