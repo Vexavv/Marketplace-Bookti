@@ -4,7 +4,8 @@
         "btn-add-photo": {
             "values": {
                 "photo-exist": "Replace book cover photo",
-                "photo-noexist": "Upload book cover photo"
+                "photo-noexist": "Upload book cover photo",
+                "can-downloaded": "you can upload files of types \"jpg, png, webp, jpeg\" and up to 3 MB in size"
             },
             "errorsMessage": {
                 "req": "Book cover is required.",
@@ -21,7 +22,8 @@
             "errorMessage": "This field is required."
         },
         "fild-genre": {
-            "value": "Genre",
+            "placeholder": "Genre",
+            "values": ["default"],
             "errorMessage": "This field is required."
         },
         "fild-date": {
@@ -33,13 +35,13 @@
             "errorMessage": "This field is required."
         },
         "fild-exchange": {
-            "value": "Swap book",
-            "value-present": "Donate book",
+            "values": ["Swap book", "Donate book"],
             "errorMessage": "This field is required."
         },
         "fild-plot": {
-            "value": "Synopsis",
-            "errorMessage": "This field is required."
+            "value": "Synopsis, max 300 symbols",
+            "errorMessage": "This field is required.",
+            "errorMaxLeng": "Too Long!"
         },
         "btn-public-book": "List a book"
     },

@@ -8,8 +8,10 @@ interface ImageFiledProps {
     isUrl: boolean;
     name: string;
     type: string;
+    setTouched: any;
     setImageUrl: Dispatch<SetStateAction<ImageType>>;
     error?: string;
+    touch?: boolean;
 }
 
 const ImageFiled: FC<ImageFiledProps> = ({
@@ -18,6 +20,8 @@ const ImageFiled: FC<ImageFiledProps> = ({
     isUrl,
     setImageUrl,
     error,
+    touch,
+    setTouched,
 }) => {
     const { t } = useTranslation('addBook');
     const inputRef = useRef<HTMLInputElement>(null);
@@ -27,13 +31,16 @@ const ImageFiled: FC<ImageFiledProps> = ({
     };
 
     return (
-        <div className={styles.Wrapper}>
+        <div
+            className={styles.Wrapper}
+            title={t('form.btn-add-photo.values.can-downloaded')}
+        >
             <button type="button" onClick={handleSelectImg}>
                 {isUrl
                     ? t('form.btn-add-photo.values.photo-noexist')
                     : t('form.btn-add-photo.values.photo-exist')}
             </button>
-            {error && <span className="error">{error}</span>}
+            {error && touch && <span className="error">{error}</span>}
             <Field name={name} type={type}>
                 {(e: any) => (
                     <input
@@ -45,6 +52,10 @@ const ImageFiled: FC<ImageFiledProps> = ({
                             currentTarget,
                         }: FocusEvent<HTMLInputElement>) => {
                             const file = currentTarget.files?.item(0);
+
+                            setTouched({
+                                image: true,
+                            });
 
                             setImageUrl(file);
                             e.form.setFieldValue('image', file);
