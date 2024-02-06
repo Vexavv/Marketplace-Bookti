@@ -6,12 +6,15 @@ import { CgClose } from 'react-icons/cg';
 import ResetPassword from './ResetPassword/ResetPassword';
 import AddBook from './AddBook/AddBook';
 import ResetMessage from './ResetMessage/ResetMessage'
+import MessageBook from './MessageBook/MessageBook'
+
 
 const ModalTypes: { [key: string]: React.FC<any> } = {
     // Define your modal component types here...
     resetPassword: ResetPassword,
     addBook: AddBook,
-    resetMessage:ResetMessage
+    resetMessage:ResetMessage,
+    bookMessage:MessageBook
 
 };
 const Modal: React.FC = () => {
@@ -36,7 +39,6 @@ const Modal: React.FC = () => {
                         className={styles.ModalContainerContentClosed}
                         onClick={handleClose}
                     />
-
                     <SpecificModal {...props} />
                 </div>
             </div>

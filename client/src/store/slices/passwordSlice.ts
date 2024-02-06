@@ -7,7 +7,7 @@ import {LoginForm} from "../../types";
 
 interface DataPassword {
     user_id: string,
-    "reset_token": string
+    reset_token: string
 }
 interface RenamePassword {
     user_id: string,
