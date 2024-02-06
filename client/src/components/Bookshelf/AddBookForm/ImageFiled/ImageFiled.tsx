@@ -1,5 +1,5 @@
 import { Dispatch, FC, SetStateAction, FocusEvent, useRef } from 'react';
-import { ErrorMessage, Field } from 'formik';
+import { Field } from 'formik';
 import { useTranslation } from 'react-i18next';
 import { ImageType } from '../AddBook.types';
 import styles from './ImageFiled.module.scss';
@@ -9,6 +9,7 @@ interface ImageFiledProps {
     name: string;
     type: string;
     setImageUrl: Dispatch<SetStateAction<ImageType>>;
+    error?: string;
 }
 
 const ImageFiled: FC<ImageFiledProps> = ({
@@ -16,6 +17,7 @@ const ImageFiled: FC<ImageFiledProps> = ({
     type,
     isUrl,
     setImageUrl,
+    error,
 }) => {
     const { t } = useTranslation('addBook');
     const inputRef = useRef<HTMLInputElement>(null);
@@ -31,7 +33,7 @@ const ImageFiled: FC<ImageFiledProps> = ({
                     ? t('form.btn-add-photo.values.photo-noexist')
                     : t('form.btn-add-photo.values.photo-exist')}
             </button>
-            <ErrorMessage name="image" className="error" component={'span'} />
+            {error && <span className="error">{error}</span>}
             <Field name={name} type={type}>
                 {(e: any) => (
                     <input

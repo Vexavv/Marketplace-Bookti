@@ -76,56 +76,59 @@ const AddBookForm: FC = () => {
             validationSchema={validationSchema}
             onSubmit={(values: IFormFilds) => handleSubmit(values)}
         >
-            <Form className={styles.Form}>
-                <BookPhoto
-                    url={imageUrl ? URL.createObjectURL(imageUrl) : ''}
-                />
-                <ImageFiled
-                    isUrl={!!imageUrl}
-                    name="image"
-                    type="file"
-                    setImageUrl={setImageUrl}
-                />
-                <TextField
-                    component="input"
-                    name="title"
-                    type="text"
-                    placeholder={t('form.fild-name.value')}
-                />
-                <TextField
-                    component="input"
-                    name="author"
-                    type="text"
-                    placeholder={t('form.fild-author.value')}
-                />
-                <SelectFiled
-                    placeholder={t('form.fild-genre.value')}
-                    name="genre"
-                    options={[{ label: 'default', value: 'default' }]}
-                />
-                <TextField
-                    component="input"
-                    name="date"
-                    type="text"
-                    placeholder={t('form.fild-date.value')}
-                />
-                <TextField
-                    component="input"
-                    name="language"
-                    type="text"
-                    placeholder={t('form.fild-language.value')}
-                />
-                <SelectFiled name="exchange" options={exchangeOptions} />
-                <TextField
-                    component="textarea"
-                    name="textarea"
-                    type="text"
-                    placeholder={t('form.fild-plot.value')}
-                />
-                <Button type="submit" name="BannerButton">
-                    {t('form.btn-public-book')}
-                </Button>
-            </Form>
+            {({ errors }) => (
+                <Form className={styles.Form}>
+                    <BookPhoto
+                        url={imageUrl ? URL.createObjectURL(imageUrl) : ''}
+                    />
+                    <ImageFiled
+                        isUrl={!!imageUrl}
+                        name="image"
+                        type="file"
+                        setImageUrl={setImageUrl}
+                        error={errors.image}
+                    />
+                    <TextField
+                        component="input"
+                        name="title"
+                        type="text"
+                        placeholder={t('form.fild-name.value')}
+                    />
+                    <TextField
+                        component="input"
+                        name="author"
+                        type="text"
+                        placeholder={t('form.fild-author.value')}
+                    />
+                    <SelectFiled
+                        placeholder={t('form.fild-genre.value')}
+                        name="genre"
+                        options={[{ label: 'default', value: 'default' }]}
+                    />
+                    <TextField
+                        component="input"
+                        name="date"
+                        type="text"
+                        placeholder={t('form.fild-date.value')}
+                    />
+                    <TextField
+                        component="input"
+                        name="language"
+                        type="text"
+                        placeholder={t('form.fild-language.value')}
+                    />
+                    <SelectFiled name="exchange" options={exchangeOptions} />
+                    <TextField
+                        component="textarea"
+                        name="textarea"
+                        type="text"
+                        placeholder={t('form.fild-plot.value')}
+                    />
+                    <Button type="submit" name="BannerButton">
+                        {t('form.btn-public-book')}
+                    </Button>
+                </Form>
+            )}
         </Formik>
     );
 };
