@@ -8,5 +8,10 @@
   "ResetMessage": {
     "text": "Your password has been successfully changed",
     "button": "To the main"
+  },
+  "MessageBook": {
+    "placeholder": "Message text",
+    "error": "Enter the text to send the message",
+    "button": "Send"
   }
 }
