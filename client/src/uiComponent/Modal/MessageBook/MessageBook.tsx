@@ -36,7 +36,7 @@ const MessageBook = () => {
                     <li className={styles.MessageTextListItem}><p>Автор книги <span>Антуан де Сент-Єкзюпері</span></p></li>
                     <li className={styles.MessageTextListItem}><p>Жанр книги <span>Філософська казка</span></p></li>
                     <li className={styles.MessageTextListItem}><p>Рік видання <span>1942 рік</span></p></li>
-                    <li className={styles.MessageTextListItem}><p>Мова        <span>Українська</span></p></li>
+                    <li className={styles.MessageTextListItem}><p>Мова<span>Українська</span></p></li>
                 </ul>
             </div>
             <Formik initialValues={initialValuesLMessage}
@@ -46,7 +46,7 @@ const MessageBook = () => {
                         resetForm();
                     }}>
                 <Form className={styles.MessageForm}>
-                    <Field className={styles.MessageFormInput}  as="textarea" name="text" rows={isMobile ? "8" : isTab ? '6' :"10"}  cols={isMobile ? "35" :isTab ? '50' : "70"}
+                    <Field className={styles.MessageFormInput}  as="textarea" name="text" rows={isMobile ? "6" : isTab ? '8' :"11"}  cols={isMobile ? "35" :isTab ? '50' : "80"}
                            placeholder={t('MessageBook.placeholder')}/>
                     <ErrorMessage className={styles.MessageFormError}  component="span" name="text"/>
                     <div className={styles.MessageFormButton}>
