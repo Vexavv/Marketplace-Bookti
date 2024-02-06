@@ -10,10 +10,6 @@ import {openModal} from "../../../store/slices/modalSlice";
 const Banner = () => {
     const {t} = useTranslation('home')
     const dispatch = useAppDispatch()
-//----------------Modal------------------------------------
-    const handleOpenModal = () => {
-        dispatch(openModal({type: 'bookMessage', props: {key: 'value'}}));
-    }
     //-------------------------------------------------------------------------
     return (
         <div className={styles.Banner}>
@@ -30,7 +26,6 @@ const Banner = () => {
                             <Link to="/forum">
                                 <Button name='BannerButton'>{t('Banner.button')}</Button>
                             </Link>
-<button onClick={handleOpenModal}>click</button>
                     </div>
                 </div>
             </Container>
