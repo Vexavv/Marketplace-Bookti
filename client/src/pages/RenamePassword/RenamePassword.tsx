@@ -6,10 +6,13 @@ import {Link, Navigate} from "react-router-dom";
 import PasswordForm from "../../components/RegistrationForm/PasswordForm/PasswordForm";
 import {useAppDispatch, useAppSelector} from "../../hook";
 import {closeModal, openModal} from "../../store/slices/modalSlice";
+import { useParams } from 'react-router-dom';
 
 
 
 const RenamePassword = () => {
+    const { resetToken } = useParams();
+    console.log(resetToken)
     const dispatch = useAppDispatch()
     const {t} = useTranslation('login');
     const status = useAppSelector(state => state.resetPassword.status)
