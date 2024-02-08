@@ -47,6 +47,7 @@ export const renamePasswordAsync = createAsyncThunk('password/renamePassword', a
     try {
         const state = getState() as { resetToken: string | null };
         const resetToken = state.resetToken;
+        console.log('Token', resetToken)
         if (!resetToken) {
             // Обработка случая, если resetToken отсутствует
             console.error('resetToken отсутствует');
