@@ -46,6 +46,7 @@ export const resetPasswordAsync = createAsyncThunk('password/resetPassword', asy
 export const renamePasswordAsync = createAsyncThunk('password/renamePassword', async (values: LoginForm,{ getState }) => {
     try {
         const state = getState() as { resetToken: string | null };
+        console.log('State', state)
         const resetToken = state.resetToken;
         console.log('Token', resetToken)
         if (!resetToken) {
