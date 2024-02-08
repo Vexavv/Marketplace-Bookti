@@ -51,7 +51,7 @@ export const renamePasswordAsync = createAsyncThunk('password/renamePassword', a
             };
         const resetToken = state.resetPassword.resetToken;
         if (!resetToken) {
-            console.error('resetToken отсутствует');
+            console.error('resetToken none');
             return;
         }
         const updatedValues = {
@@ -86,7 +86,6 @@ const passwordSlice = createSlice({
             .addCase(resetPasswordAsync.pending, (state) => {})
             .addCase(resetPasswordAsync.fulfilled, (state, action: PayloadAction<DataPassword>) => {
                 state.dataPassword = action.payload;
-                console.log(action.payload)
             })
             .addCase(resetPasswordAsync.rejected, (state) => {})
 
@@ -97,7 +96,6 @@ const passwordSlice = createSlice({
             .addCase(renamePasswordAsync.fulfilled, (state, action: PayloadAction<RenamePassword>) => {
                 if (action.payload) {
                     state.dataNewPassword = action.payload;
-                    console.log(action.payload);
                     state.status = 'succeeded';
                 } else {
                     state.status = 'failed';
