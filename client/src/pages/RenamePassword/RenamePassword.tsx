@@ -6,13 +6,17 @@ import {Link, Navigate} from "react-router-dom";
 import PasswordForm from "../../components/RegistrationForm/PasswordForm/PasswordForm";
 import {useAppDispatch, useAppSelector} from "../../hook";
 import {closeModal, openModal} from "../../store/slices/modalSlice";
-import { useParams } from 'react-router-dom';
-
+// import { useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 
 const RenamePassword = () => {
-    const { resetToken } = useParams();
+    // const { resetToken } = useParams();
+    const location = useLocation();
+    const searchParams = new URLSearchParams(location.search);
+    const resetToken = searchParams.get('resetToken');
     console.log(resetToken)
+
     const dispatch = useAppDispatch()
     const {t} = useTranslation('login');
     const status = useAppSelector(state => state.resetPassword.status)
