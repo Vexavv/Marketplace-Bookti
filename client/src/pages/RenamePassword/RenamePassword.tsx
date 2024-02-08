@@ -10,11 +10,12 @@ import {closeModal, openModal} from "../../store/slices/modalSlice";
 import { useLocation } from 'react-router-dom';
 import {Simulate} from "react-dom/test-utils";
 import reset = Simulate.reset;
-import {setResetToken} from "../../store/slices/passwordSlice";
+import {changeStatus, setResetToken} from "../../store/slices/passwordSlice";
+import {useNavigate} from "react-router-dom";
 
 
 const RenamePassword = () => {
-    // const { resetToken } = useParams();
+    const navigate = useNavigate();
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
     const resetToken = searchParams.get('resetToken');
@@ -36,20 +37,19 @@ const RenamePassword = () => {
 
     const handleOpenModal = () => {
         dispatch(openModal({type: 'resetMessage', props: {key: 'value'}}));
-        // setTimeout(() => {
-        //     dispatch(closeModal());
-        // }, 3000);
+        setTimeout(() => {
+            dispatch(closeModal());
+        }, 3000);
     }
 
     useEffect(() => {
-        // Редирект на другую страницу, когда status станет 'loading'
         if (status === 'succeeded') {
             handleOpenModal();
 
-            // Редирект на другую страницу через 3 секунды
-            // setTimeout(() => {
-            //     <Navigate to="/login" replace/>;
-            // }, 3000);
+            setTimeout(() => {
+                dispatch(changeStatus())
+               navigate('/login',{replace:true})
+            }, 4000);
         }
     }, [status]);
     return (
