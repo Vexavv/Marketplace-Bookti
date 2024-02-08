@@ -6,24 +6,19 @@ import {Link, Navigate} from "react-router-dom";
 import PasswordForm from "../../components/RegistrationForm/PasswordForm/PasswordForm";
 import {useAppDispatch, useAppSelector} from "../../hook";
 import {closeModal, openModal} from "../../store/slices/modalSlice";
-// import { useParams } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-import {Simulate} from "react-dom/test-utils";
-import reset = Simulate.reset;
 import {changeStatus, setResetToken} from "../../store/slices/passwordSlice";
 import {useNavigate} from "react-router-dom";
 
 
 const RenamePassword = () => {
     const navigate = useNavigate();
-    const location = useLocation();
-    const searchParams = new URLSearchParams(location.search);
-    const resetToken = searchParams.get('resetToken');
-    console.log(resetToken)
-
     const dispatch = useAppDispatch()
     const {t} = useTranslation('login');
     const status = useAppSelector(state => state.resetPassword.status)
+    const location = useLocation();
+    const searchParams = new URLSearchParams(location.search);
+    const resetToken = searchParams.get('resetToken');
 
     useEffect(() => {
         if (resetToken) {
@@ -31,9 +26,15 @@ const RenamePassword = () => {
         }
     }, [resetToken]);
 
-
-
-
+    useEffect(() => {
+        if (status === 'succeeded') {
+            handleOpenModal();
+            setTimeout(() => {
+                dispatch(changeStatus())
+                navigate('/login',{replace:true})
+            }, 3000);
+        }
+    }, [status]);
 
     const handleOpenModal = () => {
         dispatch(openModal({type: 'resetMessage', props: {key: 'value'}}));
@@ -42,23 +43,12 @@ const RenamePassword = () => {
         }, 3000);
     }
 
-    useEffect(() => {
-        if (status === 'succeeded') {
-            handleOpenModal();
-
-            setTimeout(() => {
-                dispatch(changeStatus())
-               navigate('/login',{replace:true})
-            }, 4000);
-        }
-    }, [status]);
     return (
         <>
             {resetToken && <Container>
                 <div className={styles.Wrapper}>
                     <div className={styles.WrapperArrow}>
-                        <Link className={styles.WrapperArrowLink} to='/'> <img src="/login/arrow.svg"
-                                                                               alt="arrow"/>{t('arrow')}</Link>
+                        <Link className={styles.WrapperArrowLink} to='/'> <img src="/login/arrow.svg" alt="arrow"/>{t('arrow')}</Link>
                     </div>
                     <div className={styles.WrapperForm}>
                         <p className={styles.WrapperFormGreetings}>{t('titleRenamePassword')}</p>
@@ -70,10 +60,7 @@ const RenamePassword = () => {
                     </div>
                 </div>
             </Container>
-
             }
-
-
             {!resetToken && <Navigate to="/" replace/>}
         </>
     );
