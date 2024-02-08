@@ -10,6 +10,7 @@ import {closeModal, openModal} from "../../store/slices/modalSlice";
 import { useLocation } from 'react-router-dom';
 import {Simulate} from "react-dom/test-utils";
 import reset = Simulate.reset;
+import {setResetToken} from "../../store/slices/passwordSlice";
 
 
 const RenamePassword = () => {
@@ -23,6 +24,12 @@ const RenamePassword = () => {
     const {t} = useTranslation('login');
     const status = useAppSelector(state => state.resetPassword.status)
     // const enter = useAppSelector(state => state.resetPassword.enter)
+    useEffect(() => {
+        if (resetToken) {
+            dispatch(setResetToken(resetToken));
+        }
+    }, [resetToken, dispatch]);
+
 
     const handleOpenModal = () => {
         dispatch(openModal({type: 'resetMessage', props: {key: 'value'}}));
