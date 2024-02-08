@@ -13,7 +13,7 @@ const RenamePassword = () => {
     const dispatch = useAppDispatch()
     const {t} = useTranslation('login');
     const status = useAppSelector(state => state.resetPassword.status)
-    const enter = useAppSelector(state => state.resetPassword.enter)
+    // const enter = useAppSelector(state => state.resetPassword.enter)
 
     const handleOpenModal = () => {
         dispatch(openModal({type: 'resetMessage', props: {key: 'value'}}));
@@ -35,7 +35,7 @@ const RenamePassword = () => {
     }, [status]);
     return (
         <>
-            {enter && <Container>
+             <Container>
                 <div className={styles.Wrapper}>
                     <div className={styles.WrapperArrow}>
                         <Link className={styles.WrapperArrowLink} to='/'> <img src="/login/arrow.svg"
@@ -51,8 +51,8 @@ const RenamePassword = () => {
                     </div>
                 </div>
             </Container>
-            }
-            {!enter && <Navigate to="/" replace/>}
+
+            {/*{!enter && <Navigate to="/" replace/>}*/}
         </>
     );
 };
