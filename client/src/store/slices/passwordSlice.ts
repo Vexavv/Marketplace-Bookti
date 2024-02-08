@@ -7,7 +7,6 @@ import {LoginForm} from "../../types";
 
 interface DataPassword {
     user_id: string,
-    "reset_token": string
 }
 interface RenamePassword {
     user_id: string,
@@ -82,10 +81,12 @@ const passwordSlice = createSlice({
                 })
             .addCase(resetPasswordAsync.fulfilled, (state, action: PayloadAction<DataPassword>) => {
                 state.dataPassword = action.payload;
-                state.enter = true
+                console.log(action.payload)
+                // state.enter = true
             })
             .addCase(resetPasswordAsync.rejected, (state) => {
             })
+
 
             .addCase(renamePasswordAsync.pending, (state) => {
                 state.status = 'loading';

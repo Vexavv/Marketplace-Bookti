@@ -4,7 +4,8 @@
         "btn-add-photo": {
             "values": {
                 "photo-exist": "Додати фото книги",
-                "photo-noexist": "Замінити фото книги"
+                "photo-noexist": "Замінити фото книги",
+                "can-downloaded": "можна завантажувати файли типів \"jpg, png, webp, jpeg\" та розміром до 3 МБ"
             },
             "errorsMessage": {
                 "req": "Фото книги є обов'язковим.",
@@ -21,7 +22,8 @@
             "errorMessage": "Це поле є обов'язковим."
         },
         "fild-genre": {
-            "value": "Жанр книги",
+            "placeholder": "Жанр книги",
+            "values": ["default"],
             "errorMessage": "Це поле є обов'язковим."
         },
         "fild-date": {
@@ -33,13 +35,13 @@
             "errorMessage": "Це поле є обов'язковим."
         },
         "fild-exchange": {
-            "value": "Обмін",
-            "value-present": "Подарую",
+            "values": ["Обмін", "Подарую"],
             "errorMessage": "Це поле є обов'язковим."
         },
         "fild-plot": {
-            "value": "Написати короткий опис сюжету",
-            "errorMessage": "Це поле є обов'язковим."
+            "value": "Написати короткий опис сюжету, до 300 символів",
+            "errorMessage": "Це поле є обов'язковим.",
+            "errorMaxLeng": "Надто довго"
         },
         "btn-public-book": "Опублікувати книгу"
     },

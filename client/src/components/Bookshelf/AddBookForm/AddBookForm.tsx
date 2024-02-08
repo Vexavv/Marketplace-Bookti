@@ -17,11 +17,6 @@ const AddBookForm: FC = () => {
     const { t } = useTranslation('addBook');
     const [imageUrl, setImageUrl] = useState<ImageType>(null);
 
-    const exchangeOptions = [
-        { label: t('form.fild-exchange.value'), value: 'exchange' },
-        { label: t('form.fild-exchange.value-present'), value: 'present' },
-    ];
-
     const validationSchema = Yup.object().shape({
         image: Yup.mixed()
             .required(t('form.btn-add-photo.errorsMessage.req'))
@@ -53,8 +48,8 @@ const AddBookForm: FC = () => {
         language: Yup.string().required(t('form.fild-language.errorMessage')),
         exchange: Yup.string().required(t('form.fild-exchange.errorMessage')),
         textarea: Yup.string()
-            .required(t('form.fild-plot.errorMessage'))
-            .max(300, 'max length 300 symbols'),
+            .max(300, t('form.fild-plot.errorMaxLeng'))
+            .required(t('form.fild-plot.errorMessage')),
     });
 
     const handleSubmit = async (data: IFormFilds) => {
@@ -70,62 +65,87 @@ const AddBookForm: FC = () => {
                 genre: '',
                 date: '',
                 language: '',
-                exchange: t('form.fild-exchange.value'),
+                exchange: t('form.fild-exchange.values', {
+                    returnObjects: true,
+                })[0],
                 textarea: '',
             }}
             validationSchema={validationSchema}
             onSubmit={(values: IFormFilds) => handleSubmit(values)}
         >
-            <Form className={styles.Form}>
-                <BookPhoto
-                    url={imageUrl ? URL.createObjectURL(imageUrl) : ''}
-                />
-                <ImageFiled
-                    isUrl={!!imageUrl}
-                    name="image"
-                    type="file"
-                    setImageUrl={setImageUrl}
-                />
-                <TextField
-                    component="input"
-                    name="title"
-                    type="text"
-                    placeholder={t('form.fild-name.value')}
-                />
-                <TextField
-                    component="input"
-                    name="author"
-                    type="text"
-                    placeholder={t('form.fild-author.value')}
-                />
-                <SelectFiled
-                    placeholder={t('form.fild-genre.value')}
-                    name="genre"
-                    options={[{ label: 'default', value: 'default' }]}
-                />
-                <TextField
-                    component="input"
-                    name="date"
-                    type="text"
-                    placeholder={t('form.fild-date.value')}
-                />
-                <TextField
-                    component="input"
-                    name="language"
-                    type="text"
-                    placeholder={t('form.fild-language.value')}
-                />
-                <SelectFiled name="exchange" options={exchangeOptions} />
-                <TextField
-                    component="textarea"
-                    name="textarea"
-                    type="text"
-                    placeholder={t('form.fild-plot.value')}
-                />
-                <Button type="submit" name="BannerButton">
-                    {t('form.btn-public-book')}
-                </Button>
-            </Form>
+            {({ errors, touched, values, setTouched, setFieldValue }) => {
+                return (
+                    <Form className={styles.Form}>
+                        <BookPhoto
+                            url={
+                                imageUrl && !errors.image
+                                    ? URL.createObjectURL(imageUrl)
+                                    : ''
+                            }
+                        />
+                        <ImageFiled
+                            isUrl={!!imageUrl}
+                            name="image"
+                            type="file"
+                            setImageUrl={setImageUrl}
+                            error={errors.image}
+                            touch={touched.image}
+                            setTouched={setTouched}
+                        />
+                        <TextField
+                            component="input"
+                            name="title"
+                            type="text"
+                            placeholder={t('form.fild-name.value')}
+                        />
+                        <TextField
+                            component="input"
+                            name="author"
+                            type="text"
+                            placeholder={t('form.fild-author.value')}
+                        />
+                        <SelectFiled
+                            name="genre"
+                            placehold={t('form.fild-genre.placeholder')}
+                            setvalue={setFieldValue}
+                            value={values.genre}
+                            options={t('form.fild-genre.values', {
+                                returnObjects: true,
+                            })}
+                        />
+
+                        <TextField
+                            component="input"
+                            name="date"
+                            type="text"
+                            placeholder={t('form.fild-date.value')}
+                        />
+                        <TextField
+                            component="input"
+                            name="language"
+                            type="text"
+                            placeholder={t('form.fild-language.value')}
+                        />
+                        <SelectFiled
+                            name="exchange"
+                            setvalue={setFieldValue}
+                            value={values.exchange}
+                            options={t('form.fild-exchange.values', {
+                                returnObjects: true,
+                            })}
+                        />
+                        <TextField
+                            component="textarea"
+                            name="textarea"
+                            type="text"
+                            placeholder={t('form.fild-plot.value')}
+                        />
+                        <Button type="submit" name="BannerButton">
+                            {t('form.btn-public-book')}
+                        </Button>
+                    </Form>
+                );
+            }}
         </Formik>
     );
 };
