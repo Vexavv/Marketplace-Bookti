@@ -23,12 +23,15 @@ const RenamePassword = () => {
     const dispatch = useAppDispatch()
     const {t} = useTranslation('login');
     const status = useAppSelector(state => state.resetPassword.status)
-    // const enter = useAppSelector(state => state.resetPassword.enter)
+
     useEffect(() => {
         if (resetToken) {
             dispatch(setResetToken(resetToken));
         }
-    }, [resetToken, dispatch]);
+    }, [resetToken]);
+
+
+
 
 
     const handleOpenModal = () => {

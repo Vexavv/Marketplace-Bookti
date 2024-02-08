@@ -78,6 +78,7 @@ const passwordSlice = createSlice({
         },
         setResetToken: (state, action) => {
             state.resetToken = action.payload;
+            console.log('Получаю',action.payload)
         },
     },
     extraReducers:(builder) =>{
