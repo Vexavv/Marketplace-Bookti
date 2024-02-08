@@ -78,7 +78,7 @@ export const routesConfig: RouteObject[] = [
                 element: <Registration />,
             },
             {
-                path: 'renamePassword',
+                path: 'renamePassword:resetToken',
                 element: <RenamePassword />,
             },
             {
