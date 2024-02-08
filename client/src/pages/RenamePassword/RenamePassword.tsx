@@ -8,6 +8,8 @@ import {useAppDispatch, useAppSelector} from "../../hook";
 import {closeModal, openModal} from "../../store/slices/modalSlice";
 // import { useParams } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import {Simulate} from "react-dom/test-utils";
+import reset = Simulate.reset;
 
 
 const RenamePassword = () => {
@@ -42,7 +44,7 @@ const RenamePassword = () => {
     }, [status]);
     return (
         <>
-             <Container>
+            {resetToken && <Container>
                 <div className={styles.Wrapper}>
                     <div className={styles.WrapperArrow}>
                         <Link className={styles.WrapperArrowLink} to='/'> <img src="/login/arrow.svg"
@@ -59,7 +61,10 @@ const RenamePassword = () => {
                 </div>
             </Container>
 
-            {/*{!enter && <Navigate to="/" replace/>}*/}
+            }
+
+
+            {!resetToken && <Navigate to="/" replace/>}
         </>
     );
 };
