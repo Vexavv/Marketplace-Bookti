@@ -49,11 +49,8 @@ export const renamePasswordAsync = createAsyncThunk('password/renamePassword', a
             resetPassword: {
                 resetToken: string | null }
             };
-        console.log('State', state)
         const resetToken = state.resetPassword.resetToken;
-        console.log('Token', resetToken)
         if (!resetToken) {
-            // Обработка случая, если resetToken отсутствует
             console.error('resetToken отсутствует');
             return;
         }
@@ -82,7 +79,6 @@ const passwordSlice = createSlice({
         },
         setResetToken: (state, action) => {
             state.resetToken = action.payload;
-            console.log('Получаю',action.payload)
         },
     },
     extraReducers:(builder) =>{

@@ -9,17 +9,17 @@ import {useTranslation} from "react-i18next";
 const ResetMessage = () => {
     const dispatch = useAppDispatch()
     const {t} = useTranslation(['login', 'modal']);
-    const closeHandler = ()=>{
-        dispatch(closeModal());
-        dispatch(changeStatus())
-    }
+    // const closeHandler = ()=>{
+    //     dispatch(closeModal());
+    //     dispatch(changeStatus())
+    // }
     return (
         <div className={styles.Message}>
             <img src="/login/check-circle.svg" alt="check-circle"/>
             <p className={styles.MessageText}>{t('modal:ResetMessage.text')}</p>
-            <Link to='/'>
-                <Button onClick={() => {closeHandler()}} name='ResetPasswordButton' type="submit">{t('modal:ResetMessage.button')}</Button>
-            </Link>
+            {/*<Link to='/'>*/}
+            {/*    <Button onClick={() => {closeHandler()}} name='ResetPasswordButton' type="submit">{t('modal:ResetMessage.button')}</Button>*/}
+            {/*</Link>*/}
 
         </div>
     );
