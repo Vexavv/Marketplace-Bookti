@@ -19,6 +19,7 @@ import Favorite from '../pages/Favorite/Favorite';
 import Layout from '../components/Layout/Layout';
 import AddBook from '../pages/AddBook/AddBook';
 import RenamePassword from "../pages/RenamePassword/RenamePassword";
+import SeparatePage from "../pages/SeparatePage/SeparatePage";
 
 export const routesConfig: RouteObject[] = [
     {
@@ -80,6 +81,10 @@ export const routesConfig: RouteObject[] = [
             {
                 path: 'renamePassword',
                 element: <RenamePassword />,
+            },
+            {
+                path: 'separatePage',
+                element: <SeparatePage />,
             },
             {
                 path: '*',
