@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from './UserInfo.module.scss'
-const UserInfo = () => {
+import styles from './UserInformation.module.scss'
+const UserInformation = () => {
     return (
         <div>
             User
@@ -8,4 +8,4 @@ const UserInfo = () => {
     );
 };
 
-export default UserInfo;
+export default UserInformation;

@@ -1,26 +1,48 @@
 import React from 'react';
 import styles from './SeparatePage.module.scss'
 import {useTranslation} from "react-i18next";
-import { useNavigate } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import BookInfo from "../../components/SeparatePageComponent/BookInfo/BookInfo";
+import UserInformation from "../../components/SeparatePageComponent/UserInformation/UserInformation";
+import Container from "../../uiComponent/Container/Container";
 
 const SeparatePage = () => {
-    const { t } = useTranslation('login');
+    const {t} = useTranslation('login');
     const navigate = useNavigate();
     return (
-        <div>
-            <button className={styles.WrapperBack} onClick={() => navigate(-1)}>
-                <img src="/bookshelf/arrow-back.svg" alt="Back"/>
-                <span>{t('arrow')}</span>
-            </button>
-            <div>
-<BookInfo/>
+        <>
+            <Container>
+                <div className={styles.Wrapper}>
+                    <button className={styles.WrapperBack} onClick={() => navigate(-1)}>
+                        <img src="/bookshelf/arrow-back.svg" alt="Back"/>
+                        <span>{t('arrow')}</span>
+                    </button>
+                    <div className={styles.WrapperContent}>
+                        <BookInfo/>
+                        <UserInformation/>
+                    </div>
+                    <div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur corporis debitis ipsa
+                            quidem
+                            tenetur. Aliquam consequuntur corporis cupiditate deleniti ea est id, laboriosam omnis,
+                            praesentium
+                            quos sapiente vitae voluptatum! A ad aspernatur atque corporis dignissimos error et eum
+                            eveniet
+                            exercitationem magni nam nihil nostrum odio optio perspiciatis placeat praesentium quo
+                            reiciendis
+                            reprehenderit, repudiandae ullam ut veritatis. Ad animi asperiores eius esse exercitationem
+                            fuga
+                            illo ipsam molestiae neque nihil nisi quaerat, reprehenderit, sit. A animi, aperiam
+                            cupiditate esse
+                            eveniet expedita explicabo facere fugiat id impedit incidunt, inventore itaque
+                            necessitatibus neque
+                            odio perspiciatis placeat quam quasi quibusdam, quidem quisquam ullam vitae
+                            voluptatibus!</p>
+                    </div>
+                </div>
+            </Container>
+        </>
 
-            </div>
-            <div>
-
-            </div>
-        </div>
     );
 };
 

@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, DetailedHTMLProps, ReactNode } from 'react';
+import {ButtonHTMLAttributes, DetailedHTMLProps, ReactNode} from 'react';
 
 export interface ButtonProps
     extends DetailedHTMLProps<
@@ -16,5 +16,6 @@ export interface ButtonProps
         | 'BookshelfEdit'
         | 'BookshelfExchange'
         | 'BookshelfAdd'
-        | 'AddBook';
+        | 'AddBook'
+        | 'SeparateExchange'
 }

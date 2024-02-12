@@ -1,5 +1,6 @@
 @import "../../styles/mixins.module";
 .Wrapper{
+
   &Back{
     cursor: pointer;
     background: transparent;
@@ -8,8 +9,15 @@
     display: flex;
     align-items: center;
     gap: 20px;
+    margin-bottom: 15px;
     span {
-      @include flexible-font(16px, 3vw, 18px, 600);
+      @include flexible-font(16px, 3vw, 18px, 400);
     }
+  }
+  &Content{
+    box-sizing: border-box;
+    border: 1px solid rgb(176, 176, 176);
+    border-radius: 8px;
+    padding: 22px;
   }
 }
