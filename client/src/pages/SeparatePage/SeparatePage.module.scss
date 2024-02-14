@@ -1,6 +1,5 @@
 @import "../../styles/mixins.module";
 .Wrapper{
-
   &Back{
     cursor: pointer;
     background: transparent;
@@ -15,9 +14,27 @@
     }
   }
   &Content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     box-sizing: border-box;
     border: 1px solid rgb(176, 176, 176);
     border-radius: 8px;
     padding: 22px;
+  }
+}
+@media (min-width: 900px) {
+  .Wrapper{
+    &Back{
+
+      span {
+        @include flexible-font(16px, 3vw, 18px, 400);
+      }
+    }
+    &Content{
+      flex-direction: row;
+      padding: 22px;
+
+    }
   }
 }

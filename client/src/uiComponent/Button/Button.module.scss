@@ -168,4 +168,13 @@
     .BookshelfAdd {
         font-size: 16px;
     }
+  .SeparateExchange{
+
+    padding: 5px 23px;
+    &:hover {
+      background: $gray;
+      color:#ffffff;
+    }
+
+  }
 }

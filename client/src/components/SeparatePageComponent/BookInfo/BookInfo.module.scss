@@ -4,9 +4,12 @@
 .Info {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 15px;
   border-bottom: 1px solid rgb(200, 221, 210);
-padding-bottom: 15px;
+  padding-bottom: 15px;
+  width: 100%;
+
   &Img {
     width: 100%;
     max-width: 65px;
@@ -18,6 +21,7 @@ padding-bottom: 15px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    width: auto;
 
     &Title {
       @include primary-font;
@@ -45,8 +49,7 @@ padding-bottom: 15px;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-
-
+      width: 100%;
 
 
       &Item {
@@ -74,6 +77,99 @@ padding-bottom: 15px;
         &:last-child {
           span {
             margin-left: 40px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 500px) {
+  .Info {
+
+    &Img {
+      max-width: 100px;
+      height: 120px;
+    }
+
+    &Description {
+      &Title {
+        font-size: 18px;
+      }
+
+      &Actions {
+        margin-bottom: 15px;
+
+        img {
+          margin-left: 15px;
+          width: 26px;
+        }
+      }
+
+      &List {
+        &Item {
+          font-size: 12px;
+          margin-bottom: 10px;
+
+          p {
+            span {
+              font-size: 14px;
+            }
+          }
+
+          &:last-child {
+            span {
+              margin-left: 52px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 900px) {
+  .Info {
+    width: 60%;
+    gap: 25px;
+    justify-content: flex-start;
+
+    &Img {
+      max-width: 180px;
+      height: 220px;
+    }
+
+    &Description {
+      &Title {
+        font-size: 16px;
+        line-height: 20px;
+      }
+
+      &Actions {
+        margin-bottom: 15px;
+
+        img {
+          margin-left: 15px;
+          width: 26px;
+        }
+      }
+
+      &List {
+        &Item {
+          font-size: 16px;
+          margin-bottom: 15px;
+
+          p {
+            span {
+              font-size: 16px;
+              margin-left: 20px;
+            }
+          }
+
+          &:last-child {
+            span {
+              margin-left: 80px;
+            }
           }
         }
       }
