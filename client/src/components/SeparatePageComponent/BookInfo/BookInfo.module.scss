@@ -133,6 +133,8 @@
     width: 60%;
     gap: 25px;
     justify-content: flex-start;
+    border-bottom: none;
+    padding-bottom: 0;
 
     &Img {
       max-width: 180px;

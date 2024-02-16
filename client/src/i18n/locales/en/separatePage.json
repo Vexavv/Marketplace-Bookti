@@ -1,0 +1,14 @@
+{
+  "Title": "Description of the book",
+  "Book": {
+    "button": "Exchange",
+    "author": "Author",
+    "genre": "Genre",
+    "year": "Year",
+    "language": "Language"
+  },
+  "User": {
+    "show": "Show",
+    "button":"Sign up"
+  }
+}

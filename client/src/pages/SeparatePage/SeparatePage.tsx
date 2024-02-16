@@ -5,9 +5,11 @@ import {useNavigate} from 'react-router-dom';
 import BookInfo from "../../components/SeparatePageComponent/BookInfo/BookInfo";
 import UserInformation from "../../components/SeparatePageComponent/UserInformation/UserInformation";
 import Container from "../../uiComponent/Container/Container";
+import {useAppSelector} from "../../hook";
 
 const SeparatePage = () => {
-    const {t} = useTranslation('login');
+    const {t} = useTranslation(['separatePage', 'login']);
+    const { user } = useAppSelector(state => state.auth);
     const navigate = useNavigate();
     return (
         <>
@@ -15,14 +17,15 @@ const SeparatePage = () => {
                 <div className={styles.Wrapper}>
                     <button className={styles.WrapperBack} onClick={() => navigate(-1)}>
                         <img src="/bookshelf/arrow-back.svg" alt="Back"/>
-                        <span>{t('arrow')}</span>
+                        <span>{t('login:arrow')}</span>
                     </button>
                     <div className={styles.WrapperContent}>
                         <BookInfo/>
-                        <UserInformation/>
+                        <UserInformation user={user}/>
                     </div>
-                    <div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur corporis debitis ipsa
+                    <div className={styles.WrapperDescription}>
+                        <h3 className={styles.WrapperDescriptionTitle}>{t('separatePage:Title')}</h3>
+                        <p className={styles.WrapperDescriptionText} >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur corporis debitis ipsa
                             quidem
                             tenetur. Aliquam consequuntur corporis cupiditate deleniti ea est id, laboriosam omnis,
                             praesentium
