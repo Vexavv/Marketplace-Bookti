@@ -27,12 +27,7 @@ const LogIn = ({title}:LoginProps) => {
                                                                                    alt="arrow"/> {t('arrow')}</Link>
                         </div>
                         <div className={styles.WrapperForm}>
-
-                            {/*<div className={styles.WrapperFormLogo}>*/}
-                            {/*    <Logo mobile={true}/>*/}
-                            {/*</div>*/}
                             <p className={styles.WrapperFormGreetings}>{t('titleLogin')}</p>
-
                             <LoginFormm/>
 
                         </div>

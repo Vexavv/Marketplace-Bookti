@@ -8,7 +8,7 @@ export interface NavigationList {
 export interface List {
     id?: number,
     icon: string,
-    title: string
+    title: string | undefined
 }
 
 export interface LoginForm{

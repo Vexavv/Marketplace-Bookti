@@ -113,6 +113,21 @@
         }
     }
 }
+.SeparateExchange{
+  @include primary-font;
+  background: none;
+  box-sizing: border-box;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  color:#000000;
+  font-size: 15px;
+  line-height: 18px;
+  padding: 3px 8px;
+  &:active {
+    background: $gray;
+  }
+
+}
 
 @media (min-width: 500px) {
 }
@@ -153,4 +168,13 @@
     .BookshelfAdd {
         font-size: 16px;
     }
+  .SeparateExchange{
+
+    padding: 5px 23px;
+    &:hover {
+      background: $gray;
+      color:#ffffff;
+    }
+
+  }
 }

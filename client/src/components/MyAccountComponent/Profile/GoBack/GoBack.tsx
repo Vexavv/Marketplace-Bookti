@@ -10,7 +10,7 @@ const GoBack: FC = () => {
     return (
         <nav className={styles.Navigation}>
             <button onClick={() => navigate(-1)}>
-                <img src="bookshelf/arrow-back.svg" alt="Back" />
+                <img src="/bookshelf/arrow-back.svg" alt="Back" />
                 <span>{t('nav')}</span>
             </button>
         </nav>

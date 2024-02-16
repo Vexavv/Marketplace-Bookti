@@ -23,7 +23,7 @@ const ImageFiled: FC<ImageFiledProps> = ({
     touch,
     setTouched,
 }) => {
-    const { t } = useTranslation('addBook');
+    const { t } = useTranslation('add-book');
     const inputRef = useRef<HTMLInputElement>(null);
 
     const handleSelectImg = () => {
