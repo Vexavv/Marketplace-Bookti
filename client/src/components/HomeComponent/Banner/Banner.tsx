@@ -27,7 +27,6 @@ const Banner = () => {
                                 <Button name='BannerButton'>{t('Banner.button')}</Button>
                             </Link>
                     </div>
-                    <Link to='/separatePage'><button>Click</button></Link>
                 </div>
             </Container>
         </div>

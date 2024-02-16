@@ -8,6 +8,7 @@
     "language": "Language"
   },
   "User": {
+    "review": "Add review",
     "show": "Show",
     "button":"Sign up"
   }

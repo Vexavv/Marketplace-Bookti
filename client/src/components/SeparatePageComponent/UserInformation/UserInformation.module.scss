@@ -1,6 +1,12 @@
 @import "../../../styles/variables.module";
+@import "../../../styles/mixins.module";
+
 .Info {
   display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 15px;
+  width: 100%;
 
   &Avatar {
     border-radius: 100px;
@@ -12,6 +18,7 @@
     justify-content: center;
     align-items: center;
     position: relative;
+
     &::before {
       border-radius: 50%;
       content: '';
@@ -27,6 +34,166 @@
   &Data {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    width: 75%;
 
+    &Name {
+      @include primary-font;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 150%;
+    }
+
+    &Rating {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      width: auto;
+
+      &Value {
+        margin: 0 12px 0 5px;
+      }
+
+      p {
+        @include primary-font;
+        font-size: 10px;
+        line-height: 12px;
+        color: rgb(68, 123, 87);
+        cursor: pointer;
+      }
+    }
+
+    &Nav {
+      display: flex;
+      flex-direction: column;
+      margin: 15px 0 20px;
+
+
+      &Item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 5px;
+        &:nth-child(3){
+          cursor: pointer;
+          text-decoration: underline;
+          color: #005BBB;
+          &:hover{
+            text-decoration: none;
+          }
+        }
+
+        &Image {
+          border-radius: 5px;
+          box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.25);
+          background: rgb(255, 255, 255);
+          width: 20px;
+          height: 20px;
+        }
+
+        &Text {
+          @include primary-font;
+          font-size: 10px;
+          line-height: 150%;
+
+        }
+
+      }
+    }
+  }
+}
+@media (min-width: 500px) {
+  .Info {
+    justify-content: center;
+    gap: 20px;
+
+    &Avatar {
+      border-radius: 100px;
+      width: 70px;
+      height: 70px;
+      &::before {
+        right: 5px;
+      }
+    }
+
+    &Data {
+      width: auto;
+      &Name {
+        font-size: 18px;
+      }
+
+      &Rating {
+
+        p {
+          font-size: 14px;
+        }
+      }
+
+      &Nav {
+
+        &Item {
+          gap: 10px;
+          margin-bottom: 10px;
+
+
+          &Image {
+            width: 24px;
+            height: 24px;
+          }
+
+          &Text {
+            font-size: 14px;
+          }
+
+        }
+      }
+    }
+  }
+}
+@media (min-width: 900px) {
+  .Info {
+    gap: 40px;
+    margin-top: 0;
+    align-self: flex-start;
+    width: 50%;
+
+    &Avatar {
+      margin-bottom: 0;
+      width: 100px;
+      height: 100px;
+      &::before {
+        bottom: 7px;
+        right: 7px;
+        width: 15px;
+        height: 15px;
+      }
+    }
+
+    &Data {
+      &Rating {
+        p {
+          font-size: 16px;
+        }
+      }
+
+      &Nav {
+
+        &Item {
+          gap: 14px;
+          margin-bottom: 15px;
+
+          &Image {
+            width: 26px;
+            height: 26px;
+          }
+
+          &Text {
+            @include primary-font;
+            font-size: 14px;
+          }
+
+        }
+      }
+    }
   }
 }

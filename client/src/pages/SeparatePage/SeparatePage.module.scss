@@ -58,6 +58,8 @@
     }
     &Content {
       flex-direction: row;
+      justify-content: space-between;
+      gap: 20px;
       padding: 22px;
     }
     &Description {
