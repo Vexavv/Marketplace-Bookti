@@ -20,6 +20,8 @@ import addBookUk from './locales/uk/add-book.json';
 import addBookEn from './locales/en/add-book.json';
 import profileUk from './locales/uk/profile.json';
 import profileEn from './locales/en/profile.json';
+import separatePageUk from './locales/uk/separatePage.json'
+import separatePageEn from './locales/en/separatePage.json'
 
 const resources = {
     [LOCALS.UK]: {
@@ -32,6 +34,7 @@ const resources = {
         bookshelf: bookshelfUk,
         addBook: addBookUk,
         profile: profileUk,
+        separatePage:separatePageUk,
     },
     [LOCALS.EN]: {
         header: headerEn,
@@ -43,6 +46,7 @@ const resources = {
         bookshelf: bookshelfEn,
         addBook: addBookEn,
         profile: profileEn,
+        separatePage:separatePageEn,
     },
 };
 

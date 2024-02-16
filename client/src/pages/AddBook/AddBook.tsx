@@ -9,7 +9,7 @@ import styles from './AddBook.module.scss';
 
 const AddBook: FC = () => {
     const { status } = useAppSelector(state => state.addBook);
-    const { t } = useTranslation('addBook');
+    const { t } = useTranslation('add-book');
     const navigate = useNavigate();
 
     return (
