@@ -16,8 +16,8 @@ import modalUK from './locales/uk/modal.json';
 import modalEn from './locales/en/modal.json';
 import bookshelfUk from './locales/uk/bookshelf.json';
 import bookshelfEn from './locales/en/bookshelf.json';
-import addBookUk from './locales/uk/add-book.json';
-import addBookEn from './locales/en/add-book.json';
+import addBookUk from './locales/uk/addBook.json';
+import addBookEn from './locales/en/addBook.json';
 import profileUk from './locales/uk/profile.json';
 import profileEn from './locales/en/profile.json';
 import separatePageUk from './locales/uk/separatePage.json'

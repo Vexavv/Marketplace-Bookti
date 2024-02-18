@@ -14,7 +14,7 @@ import styles from './AddBookForm.module.scss';
 
 const AddBookForm: FC = () => {
     const dispatch = useAppDispatch();
-    const { t } = useTranslation('add-book');
+    const { t } = useTranslation('addBook');
     const [imageUrl, setImageUrl] = useState<ImageType>(null);
 
     const validationSchema = Yup.object().shape({
