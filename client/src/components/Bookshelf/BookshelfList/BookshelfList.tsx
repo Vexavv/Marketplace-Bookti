@@ -2,12 +2,12 @@ import { FC } from 'react';
 import { useNavigate } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import { openModal } from '../../../store/slices/modalSlice';
+import { setStatus } from '../../../store/slices/addBookSlice';
 import { useWindowSize } from '../../../hooks/useWindowSize';
 import { useAppDispatch, useAppSelector } from '../../../hook';
 import BookItem from './BookItem/BookItem';
 import Button from '../../../uiComponent/Button/Button';
 import styles from './BookshelfList.module.scss';
-import { setStatus } from '../../../store/slices/addBookSlice';
 
 interface IBookshelfListProps {
     books: any[];

@@ -1,0 +1,35 @@
+@import '../../../../styles/mixins.module.scss';
+@import '../../../../styles/variables.module.scss';
+
+.List {
+    list-style: none;
+    padding-block: 25px;
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    border-bottom: 1px solid $secondary-bg-color;
+
+    @media all and (max-width: 900px) {
+        gap: 10px;
+    }
+
+    &Item {
+        &Link {
+            @include primary-font;
+            font-weight: 500;
+            font-size: clamp(12px, 2vw, 14px);
+            color: #000;
+            text-wrap: nowrap;
+            width: 100% !important;
+            display: block;
+            border: 1px solid #777;
+            padding: 10px;
+            border-radius: 8px;
+
+            &.Active {
+                color: $primary-color;
+                border-color: $primary-color;
+            }
+        }
+    }
+}

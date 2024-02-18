@@ -4,14 +4,14 @@
         "Title": "You haven't listed any books Let's do it right now!",
         "Button": "List a book"
     },
-    "CounterASide": {
-        "ReadyToTrade": "Ready for swapping",
-        "Free": "Donations",
-        "OnModeration": "Under moderation",
-        "Rejected": "Rejected",
-        "Reserved": "Reserved",
-        "Deactivated": "Deactivated"
-    },
+    "CounterASide": [
+        "Ready for swapping",
+        "Donations",
+        "Under moderation",
+        "Rejected",
+        "Reserved",
+        "Deactivated"
+    ],
     "BookItem": {
         "ExchangeBtn": "Exchange",
         "EditBnt": "Edit",

@@ -1,4 +1,4 @@
-import { RouteObject } from 'react-router-dom';
+import { Navigate, RouteObject } from 'react-router-dom';
 import PrivateRoute from '../utils/PrivateRoute/PrivateRoute';
 import Bookshelf from '../pages/Bookshelf/Bookshelf';
 import Home from '../pages/Home/Home';
@@ -18,8 +18,11 @@ import Message from '../pages/Message/Message';
 import Favorite from '../pages/Favorite/Favorite';
 import Layout from '../components/Layout/Layout';
 import AddBook from '../pages/AddBook/AddBook';
-import RenamePassword from "../pages/RenamePassword/RenamePassword";
-import SeparatePage from "../pages/SeparatePage/SeparatePage";
+import RenamePassword from '../pages/RenamePassword/RenamePassword';
+import SeparatePage from '../pages/SeparatePage/SeparatePage';
+import MyBookShelf from '../components/MyAccountComponent/Profile/Tabs/MyBookshelf/MyBookshelf';
+import Reviews from '../components/MyAccountComponent/Profile/Tabs/Reviews/Reviews';
+import Interest from '../components/MyAccountComponent/Profile/Tabs/Interest/Interest';
 
 export const routesConfig: RouteObject[] = [
     {
@@ -98,6 +101,24 @@ export const routesConfig: RouteObject[] = [
                     {
                         path: 'account',
                         element: <MyAccount />,
+                        children: [
+                            {
+                                path: 'my-bookshelf',
+                                element: <MyBookShelf />,
+                            },
+                            {
+                                path: 'interest',
+                                element: <Interest />,
+                            },
+                            {
+                                path: 'reviews',
+                                element: <Reviews />,
+                            },
+                            {
+                                index: true,
+                                element: <Navigate to="my-bookshelf" />,
+                            },
+                        ],
                     },
                 ],
             },
