@@ -10,11 +10,14 @@
     "toc": "i18next-resources-for-ts toc -i ./src/i18n/locales/uk -o ./src/@types/resources.ts"
   },
   "dependencies": {
+    "@algolia/autocomplete-js": "^1.17.0",
+    "@algolia/autocomplete-theme-classic": "^1.17.0",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.18",
     "@mui/material": "^5.14.18",
     "@mui/styled-engine-sc": "^6.0.0-alpha.6",
+    "@opencage/geosearch-core": "^0.1.6",
     "@react-oauth/google": "^0.12.1",
     "@reduxjs/toolkit": "^2.0.1",
     "@types/react-router-dom": "^5.3.3",
