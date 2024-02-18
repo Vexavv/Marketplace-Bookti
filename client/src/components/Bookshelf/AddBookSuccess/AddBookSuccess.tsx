@@ -10,7 +10,7 @@ import Button from '../../../uiComponent/Button/Button';
 import styles from './AddBookSuccess.module.scss';
 
 const AddBookSuccess: FC = () => {
-    const { t } = useTranslation('add-book');
+    const { t } = useTranslation('addBook');
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const { width } = useWindowSize();
