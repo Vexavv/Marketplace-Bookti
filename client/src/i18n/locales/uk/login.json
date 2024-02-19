@@ -35,6 +35,7 @@
   },
   "LoginPlaceholder": {
     "email": "Електронна пошта",
+    "city": "Введіть назву вашого міста",
     "password": "Пароль",
     "newPassword": "Hовий пароль"
   },

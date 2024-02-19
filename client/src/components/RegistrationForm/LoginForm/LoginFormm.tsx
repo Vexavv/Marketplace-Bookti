@@ -15,6 +15,7 @@ import {openModal} from "../../../store/slices/modalSlice";
 import {createAccountAsync, loginAsync, getUserAsync} from "../../../store/slices/authSlice";
 import {handleTogglePassword} from "../../../helpers/handler";
 import PlaceSearch from "../../../uiComponent/PlaceSearch/PlaceSearch";
+import loginFormm from "./LoginFormm";
 // import {getUserAsync} from "../../../store/slices/userSlice";
 
 
@@ -52,6 +53,8 @@ const LoginFormm = ({registration}: LoginFormProps) => {
     const dispatch = useAppDispatch();
     const [isShowPassword, setIsShowPassword] = useState(false)
     const [isShowConfirm, setIsShowConfirm] = useState(false)
+
+
 
 //----------------------------Validation-----------------------------------------------------------
     YupPassword(yup)
@@ -104,18 +107,13 @@ const LoginFormm = ({registration}: LoginFormProps) => {
         <>
             {registration ? (<div><Formik initialValues={initialValuesSignIn}
                                           validationSchema={validationSchemaRegister}
-
                                           onSubmit={async (values: CreateAccountValues, {resetForm}: FormikHelpers<CreateAccountValues>) => {
-                                              console.log(values)
                                               await dispatch(createAccountAsync(values));
                                               await dispatch(getUserAsync())
                                               resetForm();
-
-
                                           }}
 
             >
-                {/*{(props: FormikProps<any>) => (*/}
                 <Form className={styles.Form}>
                     <Field className={styles.FormInput} type="text" name="full_name"
                            placeholder={t('RegistrationPlaceholder.name')}/>
@@ -126,8 +124,23 @@ const LoginFormm = ({registration}: LoginFormProps) => {
                     <ErrorMessage className={styles.FormInputError} component="span" name="email"/>
 
 
-                    <Field className={styles.FormInput} component={PlaceSearch} name="city" placeholder={t('LoginPlaceholder.email')}/>
+                    <Field className={styles.FormInput} component={PlaceSearch} name="city" placeholder={t('LoginPlaceholder.city')}/>
                     <ErrorMessage className={styles.FormInputError} component="span" name="city"/>
+
+                    {/*<Field className={styles.FormInput} type="text" name="city" */}
+                    {/*       onChange={(e: React.ChangeEvent<HTMLInputElement>)=> {*/}
+                    {/*           e.persist();*/}
+                    {/*           setCityValue((prevValue) => {*/}
+                    {/*               console.log('Новое значение:', e.target.value);*/}
+                    {/*               console.log('cityValue в стейте:', prevValue);*/}
+                    {/*               return e.target.value;*/}
+                    {/*           });*/}
+                    {/*       }}*/}
+                    {/*       placeholder={t('LoginPlaceholder.city')}/>*/}
+
+
+
+                    {/*<ErrorMessage className={styles.FormInputError} component="span" name="city"/>*/}
 
 
                     <div className={styles.FormVisibilityWrapper}>
@@ -180,7 +193,6 @@ const LoginFormm = ({registration}: LoginFormProps) => {
                         <img src="/login/google.svg" alt="google"/>
                     </div>
                 </Form>
-                {/*)}*/}
             </Formik>
                 <div className={styles.Wrapper}>
                     <p className={styles.WrapperText}>{t('RegistrationText')}</p>

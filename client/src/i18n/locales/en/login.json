@@ -34,6 +34,7 @@
   },
   "LoginPlaceholder": {
     "email": "Email",
+    "city": "Enter the name of your city",
     "password": "Password",
     "newPassword": "New password"
   },
