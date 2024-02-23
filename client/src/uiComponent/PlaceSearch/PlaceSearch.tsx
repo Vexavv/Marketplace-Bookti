@@ -10,7 +10,7 @@ interface PlaceSearchProps extends FieldProps {
 const PlaceSearch: React.FC<PlaceSearchProps> = ({className, field, form, ...props}) => {
     const [valueCity, setValueCity] = useState(field.value || '')
     const [countries, setCountries] = useState<any>([])
-
+    const [isOpen, setIsOpen] = useState(true)
 
     //------------------------ REQUEST-------------------------------
 
@@ -25,10 +25,17 @@ const PlaceSearch: React.FC<PlaceSearchProps> = ({className, field, form, ...pro
     useEffect(() => {
         fetchCountries()
     }, []);
-    //---------------------------------Filtered Function--------------------
+    //---------------------------------Filtered--------------------
     const filteredCity = countries.filter((city: any) => (
         city.title.toLowerCase().includes(valueCity.toLowerCase())
     ))
+
+    const itemClickHandler = (e: any) => {
+        setIsOpen(!isOpen)
+        setValueCity(e.target.textContent)
+
+        console.log(isOpen)
+    }
 
 
     console.log(valueCity)
@@ -40,6 +47,7 @@ const PlaceSearch: React.FC<PlaceSearchProps> = ({className, field, form, ...pro
         const newValue = event.target.value;
         setValueCity(newValue);
         onChange(event);
+        setIsOpen(true)
     };
     return (
         <>
@@ -51,12 +59,13 @@ const PlaceSearch: React.FC<PlaceSearchProps> = ({className, field, form, ...pro
                 name={name}
                 onBlur={onBlur}
                 {...props}  />
-            <ul className={styles.Gog}>
-                {filteredCity.map(
+            <ul className={styles.Autocomplete}>
+                {valueCity && isOpen ? filteredCity.map(
                     (city: any) => (
-                        <li key={city.id}>{city.title}</li>
+                        <li onClick={itemClickHandler} className={styles.AutocompleteItem}
+                            key={city.id}>{city.title}</li>
                     )
-                )}
+                ) : null}
             </ul>
         </>
 
