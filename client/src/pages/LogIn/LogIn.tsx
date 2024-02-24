@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styles from './LogIn.module.scss'
 
 import Container from "../../uiComponent/Container/Container";
@@ -6,16 +6,37 @@ import {Link, Navigate} from "react-router-dom";
 import Logo from "../../components/Header/Logo/Logo";
 import LoginFormm from "../../components/RegistrationForm/LoginForm/LoginFormm";
 import {useTranslation} from "react-i18next";
-import {useAppSelector} from "../../hook";
+import {useAppDispatch, useAppSelector} from "../../hook";
 import {LoginProps} from "./Login.props";
+import {changeStatus} from "../../store/slices/passwordSlice";
+import {closeModal, openModal} from "../../store/slices/modalSlice";
 
 
 // import { RouteComponentProps } from 'react-router-dom';
 
 const LogIn = ({title}:LoginProps) => {
     const {t} = useTranslation('login')
-
+    const dispatch = useAppDispatch();
     const loading = useAppSelector(state => state.auth.loading)
+    const status = useAppSelector(state => state.resetPassword.status)
+    useEffect(() => {
+        if (status === 'succeeded') {
+            handleOpenModal();
+            setTimeout(() => {
+                dispatch(changeStatus())
+            }, 4000);
+        }
+    }, [status]);
+
+    const handleOpenModal = () => {
+        dispatch(openModal({type: 'sendEmail', props: {key: 'value'}}));
+        setTimeout(() => {
+            dispatch(closeModal());
+        }, 3000);
+    }
+
+
+
     return (
         <>
             {loading && <Navigate to="/account" replace/>}

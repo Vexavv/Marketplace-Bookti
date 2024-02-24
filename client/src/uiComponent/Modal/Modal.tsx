@@ -3,10 +3,11 @@ import styles from './Modal.module.scss';
 import { useAppDispatch, useAppSelector } from '../../hook';
 import { closeModal } from '../../store/slices/modalSlice';
 import { CgClose } from 'react-icons/cg';
-import ResetPassword from './ResetPassword/ResetPassword';
+import ResetPassword from './ResetPasswordModal/ResetPassword/ResetPassword';
 import AddBook from './AddBook/AddBook';
-import ResetMessage from './ResetMessage/ResetMessage'
+import ResetMessage from './ResetPasswordModal/ResetMessage/ResetMessage'
 import MessageBook from './MessageBook/MessageBook'
+import SendEmail from './ResetPasswordModal/SendEmail/SendEmail'
 
 
 const ModalTypes: { [key: string]: React.FC<any> } = {
@@ -14,7 +15,9 @@ const ModalTypes: { [key: string]: React.FC<any> } = {
     resetPassword: ResetPassword,
     addBook: AddBook,
     resetMessage:ResetMessage,
-    bookMessage:MessageBook
+    bookMessage:MessageBook,
+    sendEmail:SendEmail
+
 
 };
 const Modal: React.FC = () => {

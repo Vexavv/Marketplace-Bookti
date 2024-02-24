@@ -16,8 +16,8 @@ const PlaceSearch: React.FC<PlaceSearchProps> = ({className, field, form, ...pro
 
     const fetchCountries = async () => {
         try {
-            const response = await axios.get('https://jsonplaceholder.typicode.com/posts'); // Замените на правильный URL для получения списка стран
-            setCountries(response.data); // Предположим, что setCountries - это функция установки состояния
+            const response = await axios.get('https://jsonplaceholder.typicode.com/albums');
+            setCountries(response.data);
         } catch (error) {
             console.error('Error fetching countries:', error);
         }

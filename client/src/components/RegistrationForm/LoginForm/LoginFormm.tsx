@@ -9,14 +9,12 @@ import {IoEyeOffOutline, IoEyeOutline} from "react-icons/io5";
 import {Link} from 'react-router-dom';
 import {LoginFormProps} from "./LoginForm.props";
 import {useTranslation} from "react-i18next";
-import {useAppDispatch} from "../../../hook";
+import {useAppDispatch, useAppSelector} from "../../../hook";
 import {openModal} from "../../../store/slices/modalSlice";
-
 import {createAccountAsync, loginAsync, getUserAsync} from "../../../store/slices/authSlice";
 import {handleTogglePassword} from "../../../helpers/handler";
 import PlaceSearch from "../../../uiComponent/PlaceSearch/PlaceSearch";
-import loginFormm from "./LoginFormm";
-// import {getUserAsync} from "../../../store/slices/userSlice";
+
 
 
 // initialValues
@@ -126,22 +124,6 @@ const LoginFormm = ({registration}: LoginFormProps) => {
 
                     <Field className={styles.FormInput} component={PlaceSearch} name="city" placeholder={t('LoginPlaceholder.city')}/>
                     <ErrorMessage className={styles.FormInputError} component="span" name="city"/>
-
-                    {/*<Field className={styles.FormInput} type="text" name="city" */}
-                    {/*       onChange={(e: React.ChangeEvent<HTMLInputElement>)=> {*/}
-                    {/*           e.persist();*/}
-                    {/*           setCityValue((prevValue) => {*/}
-                    {/*               console.log('Новое значение:', e.target.value);*/}
-                    {/*               console.log('cityValue в стейте:', prevValue);*/}
-                    {/*               return e.target.value;*/}
-                    {/*           });*/}
-                    {/*       }}*/}
-                    {/*       placeholder={t('LoginPlaceholder.city')}/>*/}
-
-
-
-                    {/*<ErrorMessage className={styles.FormInputError} component="span" name="city"/>*/}
-
 
                     <div className={styles.FormVisibilityWrapper}>
                         <Field
