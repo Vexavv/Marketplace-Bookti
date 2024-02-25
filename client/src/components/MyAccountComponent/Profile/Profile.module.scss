@@ -1,0 +1,29 @@
+@import '../../../styles/mixins.module.scss';
+
+.Wrapper {
+    &Navigation {
+        display: flex;
+        justify-content: start;
+        margin-top: 25px;
+        margin-bottom: 15px;
+
+        @media all and (max-width: 600px) {
+            margin-top: 15px;
+
+            > button {
+                font-weight: 400 !important;
+                gap: 5px !important;
+            }
+        }
+
+        > button {
+            @include flexible-font(16px, 3vw, 18px, 600, '#000');
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: none;
+            border: none;
+        }
+    }
+}

@@ -4,19 +4,21 @@ import storage from 'redux-persist/lib/storage';
 import modalReducer from './slices/modalSlice';
 import authReducer from './slices/authSlice';
 import addBookReducer from './slices/addBookSlice';
-import resetPasswordReducer from './slices/passwordSlice'
+import profileReducer from './slices/profileSlice/profileSlice';
+import resetPasswordReducer from './slices/passwordSlice';
 
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['auth','resetPassword'],
+    whitelist: ['auth', 'resetPassword'],
 };
 
 const rootReducer = combineReducers({
     modal: modalReducer,
     auth: authReducer,
     addBook: addBookReducer,
-    resetPassword:resetPasswordReducer
+    profile: profileReducer,
+    resetPassword: resetPasswordReducer,
 });
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 

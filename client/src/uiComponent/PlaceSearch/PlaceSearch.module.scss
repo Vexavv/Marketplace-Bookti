@@ -1,0 +1,36 @@
+@import "../../styles/mixins.module";
+
+.Autocomplete {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  left: 0;
+  top: 33%;
+  width: 100%;
+  background: #edecec;
+  z-index: 111;
+  border-radius: 8px;
+  max-height: 240px;
+  height: auto;
+  overflow: auto;
+
+  &Item {
+    @include primary-font;
+    font-size: 14px;
+    //text-transform: capitalize;
+    padding: 10px;
+    border-radius: 6px;
+    width: 100%;
+    text-align: left;
+
+
+
+    &:hover {
+      background: #8D8D8D;
+      cursor: pointer;
+      transition: cubic-bezier(1, 0, 0, 1) .3s all;
+
+    }
+  }
+}

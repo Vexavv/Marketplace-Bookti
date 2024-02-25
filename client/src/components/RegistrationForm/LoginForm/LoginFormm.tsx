@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import styles from './LoginForm.module.scss'
-import {Formik, Form, Field, ErrorMessage, FormikHelpers,} from 'formik';
+import {Formik, Form, Field, ErrorMessage, FormikHelpers, FormikProps,} from 'formik';
 import * as yup from 'yup';
 import YupPassword from 'yup-password'
 import {LoginForm} from "../../../types";
@@ -9,12 +9,12 @@ import {IoEyeOffOutline, IoEyeOutline} from "react-icons/io5";
 import {Link} from 'react-router-dom';
 import {LoginFormProps} from "./LoginForm.props";
 import {useTranslation} from "react-i18next";
-import {useAppDispatch} from "../../../hook";
+import {useAppDispatch, useAppSelector} from "../../../hook";
 import {openModal} from "../../../store/slices/modalSlice";
-
 import {createAccountAsync, loginAsync, getUserAsync} from "../../../store/slices/authSlice";
 import {handleTogglePassword} from "../../../helpers/handler";
-// import {getUserAsync} from "../../../store/slices/userSlice";
+import PlaceSearch from "../../../uiComponent/PlaceSearch/PlaceSearch";
+
 
 
 // initialValues
@@ -25,6 +25,7 @@ const initialValuesLogin: LoginFormValues = {
 const initialValuesSignIn: CreateAccountValues = {
     full_name: '',
     email: '',
+    city:'',
     password: '',
     confirm_password: '',
     checkboxField: false,
@@ -38,6 +39,7 @@ interface LoginFormValues {
 interface CreateAccountValues {
     full_name: string;
     email: string;
+    city:string;
     password: string;
     confirm_password: string;
     checkboxField: boolean
@@ -49,6 +51,8 @@ const LoginFormm = ({registration}: LoginFormProps) => {
     const dispatch = useAppDispatch();
     const [isShowPassword, setIsShowPassword] = useState(false)
     const [isShowConfirm, setIsShowConfirm] = useState(false)
+
+
 
 //----------------------------Validation-----------------------------------------------------------
     YupPassword(yup)
@@ -68,12 +72,15 @@ const LoginFormm = ({registration}: LoginFormProps) => {
 
     const validationSchemaRegister: yup.Schema<LoginForm> = yup.object().shape({
         full_name: yup.string()
-            .matches(/^[a-zA-Zа-яА-Я]+$/, t('Error.registration.name.matches'))
+            .matches(/^[a-zA-Zа-яА-Я\s]*$/, t('Error.registration.name.matches'))
             .min(2, t('Error.registration.name.min'))
             .max(25, t('Error.registration.name.max'))
             .required(t('Error.login.email.required')),
         email: yup.string()
             .email(t('Error.login.email.email'))
+            .required(t('Error.login.email.required')),
+        city: yup.string()
+            .matches(/^[a-zA-Zа\s]*$/, t('Error.registration.name.city'))
             .required(t('Error.login.email.required')),
         password: yup.string()
             .minSymbols(0)
@@ -95,29 +102,10 @@ const LoginFormm = ({registration}: LoginFormProps) => {
         dispatch(openModal({type: 'resetPassword', props: {key: 'value'}}));
     }
 
-    //------------------------------Google login ---------------------------------------
-    // const googleLogin = useGoogleLogin({
-    //     onSuccess:  (response: TokenResponse) => {
-    //         dispatch(fetchUserData(response.access_token));
-    //
-    //     },
-    // });
-    //-------------------------------Facebook Login-------------------------------------
-
-    //---------------------------FormLogin-------------------------------------
-//     const handleLogin = async () => {
-//         // Используйте formData для отправки данных
-//         await dispatch(loginAsync(formData));
-//
-//         // Теперь вы можете использовать authStatus, чтобы понять успешен ли вход или произошла ошибка
-//     };
-
-
     return (
         <>
             {registration ? (<div><Formik initialValues={initialValuesSignIn}
                                           validationSchema={validationSchemaRegister}
-
                                           onSubmit={async (values: CreateAccountValues, {resetForm}: FormikHelpers<CreateAccountValues>) => {
                                               await dispatch(createAccountAsync(values));
                                               await dispatch(getUserAsync())
@@ -133,6 +121,10 @@ const LoginFormm = ({registration}: LoginFormProps) => {
                     <Field className={styles.FormInput} type="email" name="email"
                            placeholder={t('LoginPlaceholder.email')}/>
                     <ErrorMessage className={styles.FormInputError} component="span" name="email"/>
+
+
+                    <Field className={styles.FormInput} component={PlaceSearch} name="city" placeholder={t('LoginPlaceholder.city')}/>
+                    <ErrorMessage className={styles.FormInputError} component="span" name="city"/>
 
                     <div className={styles.FormVisibilityWrapper}>
                         <Field

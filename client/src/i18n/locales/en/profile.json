@@ -7,11 +7,11 @@
             "signed": "Signed"
         }
     },
-    "list": {
-        "my-bookshelf": "My bookshelf",
-        "interested": "I am interested",
-        "reviews": "Reviews"
-    },
+    "list": [
+        { "title": "My bookshelf", "link": "my-bookshelf" },
+        { "title": "I am interested", "link": "interest" },
+        { "title": "Reviews", "link": "reviews" }
+    ],
     "bokkshelf": {
         "empty": "It's still empty here"
     }

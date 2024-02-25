@@ -7,11 +7,11 @@
             "signed": "Підписані"
         }
     },
-    "list": {
-        "my-bookshelf": "Моя книжная полиця",
-        "interested": "Мене цікавить",
-        "reviews": "Відгуки"
-    },
+    "list": [
+        { "title": "Моя книжная полиця", "link": "my-bookshelf" },
+        { "title": "Мене цікавить", "link": "interest" },
+        { "title": "Відгуки", "link": "reviews" }
+    ],
     "bokkshelf": {
         "empty": "Тут поки пусто"
     }

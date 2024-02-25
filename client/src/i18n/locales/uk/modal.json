@@ -5,10 +5,11 @@
     "input": "Ел.пошта",
     "button": "Відправити"
   },
-  "ResetMessage": {
-    "text": "Ваш пароль успішно змінено",
-    "button": "На головну"
+  "InformMessage": {
+    "textReset": "Your password has been successfully changed",
+    "textSendEmail": "На Вашу електронну пошту надіслано листа для зміни пароля"
   },
+
   "MessageBook": {
     "placeholder": "Текст повідомлення",
     "error": "Введіть текст для надсилання повідомлення",

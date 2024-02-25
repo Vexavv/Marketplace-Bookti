@@ -14,7 +14,7 @@ import {useNavigate} from "react-router-dom";
 const RenamePassword = () => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch()
-    const {t} = useTranslation('login');
+    const {t} = useTranslation(['login', 'modal']);
     const status = useAppSelector(state => state.resetPassword.status)
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
@@ -37,7 +37,7 @@ const RenamePassword = () => {
     }, [status]);
 
     const handleOpenModal = () => {
-        dispatch(openModal({type: 'resetMessage', props: {key: 'value'}}));
+        dispatch(openModal({type: 'informMessage', props: {key: 'value'},text: t('modal:InformMessage.textReset')}));
         setTimeout(() => {
             dispatch(closeModal());
         }, 3000);
@@ -48,11 +48,11 @@ const RenamePassword = () => {
             {resetToken && <Container>
                 <div className={styles.Wrapper}>
                     <div className={styles.WrapperArrow}>
-                        <Link className={styles.WrapperArrowLink} to='/'> <img src="/login/arrow.svg" alt="arrow"/>{t('arrow')}</Link>
+                        <Link className={styles.WrapperArrowLink} to='/'> <img src="/login/arrow.svg" alt="arrow"/>{t('login:arrow')}</Link>
                     </div>
                     <div className={styles.WrapperForm}>
-                        <p className={styles.WrapperFormGreetings}>{t('titleRenamePassword')}</p>
-                        <p className={styles.WrapperFormText}>{t('textRenamePassword')}</p>
+                        <p className={styles.WrapperFormGreetings}>{t('login:titleRenamePassword')}</p>
+                        <p className={styles.WrapperFormText}>{t('login:textRenamePassword')}</p>
                         <PasswordForm/>
                     </div>
                     <div className={styles.WrapperImage}>

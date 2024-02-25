@@ -85,7 +85,13 @@ const passwordSlice = createSlice({
         builder
             .addCase(resetPasswordAsync.pending, (state) => {})
             .addCase(resetPasswordAsync.fulfilled, (state, action: PayloadAction<DataPassword>) => {
-                state.dataPassword = action.payload;
+                if (action.payload){
+                    state.dataPassword = action.payload;
+                    state.status = 'succeeded';
+                }else {
+                    state.status = 'failed';
+                }
+
             })
             .addCase(resetPasswordAsync.rejected, (state) => {})
 

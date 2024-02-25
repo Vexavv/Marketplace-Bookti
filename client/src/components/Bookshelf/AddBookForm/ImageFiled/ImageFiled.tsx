@@ -2,6 +2,7 @@ import { Dispatch, FC, SetStateAction, FocusEvent, useRef } from 'react';
 import { Field } from 'formik';
 import { useTranslation } from 'react-i18next';
 import { ImageType } from '../AddBook.types';
+import Tooltip from '@mui/material/Tooltip';
 import styles from './ImageFiled.module.scss';
 
 interface ImageFiledProps {
@@ -31,15 +32,14 @@ const ImageFiled: FC<ImageFiledProps> = ({
     };
 
     return (
-        <div
-            className={styles.Wrapper}
-            title={t('form.btn-add-photo.values.can-downloaded')}
-        >
-            <button type="button" onClick={handleSelectImg}>
-                {isUrl
-                    ? t('form.btn-add-photo.values.photo-noexist')
-                    : t('form.btn-add-photo.values.photo-exist')}
-            </button>
+        <div className={styles.Wrapper}>
+            <Tooltip title={t('form.btn-add-photo.values.can-downloaded')}>
+                <button type="button" onClick={handleSelectImg}>
+                    {isUrl
+                        ? t('form.btn-add-photo.values.photo-noexist')
+                        : t('form.btn-add-photo.values.photo-exist')}
+                </button>
+            </Tooltip>
             {error && touch && <span className="error">{error}</span>}
             <Field name={name} type={type}>
                 {(e: any) => (
