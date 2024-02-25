@@ -5,9 +5,9 @@
     "input": "E-mail address",
     "button": "Submit"
   },
-  "ResetMessage": {
-    "text": "Your password has been successfully changed",
-    "button": "To the main"
+  "InformMessage": {
+    "textReset": "Your password has been successfully changed",
+    "textSendEmail": "An email has been sent to your email to change your password"
   },
   "MessageBook": {
     "placeholder": "Message text",

@@ -80,6 +80,7 @@ const LoginFormm = ({registration}: LoginFormProps) => {
             .email(t('Error.login.email.email'))
             .required(t('Error.login.email.required')),
         city: yup.string()
+            .matches(/^[a-zA-Zа\s]*$/, t('Error.registration.name.city'))
             .required(t('Error.login.email.required')),
         password: yup.string()
             .minSymbols(0)
