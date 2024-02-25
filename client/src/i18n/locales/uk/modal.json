@@ -6,7 +6,7 @@
     "button": "Відправити"
   },
   "InformMessage": {
-    "textReset": "Your password has been successfully changed",
+    "textReset": "Ваш пароль успішно змінено",
     "textSendEmail": "На Вашу електронну пошту надіслано листа для зміни пароля"
   },
 
