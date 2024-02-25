@@ -17,7 +17,7 @@ const UserNavigation: React.FC<UserNavigationProps>  = ({mobileUserToggle,mobile
         { name: t('Nav.account'), path: "/account", icon: "/header/user.svg" },
         { name: t('Nav.favorite'), path: "/favorite", icon: "/header/paperclip.svg" },
         { name: t('Nav.books'), path: "/bookshelf", icon: "/header/book.svg" },
-        { name: t('Nav.read'), path: "/wantRead", icon: "/header/heart.svg" },
+        // { name: t('Nav.read'), path: "/wantRead", icon: "/header/heart.svg" },
         { name: t('Nav.reviews'), path: "/reviews", icon: "/header/star.svg" },
         { name: t('Nav.settings'), path: "/settings", icon: "/header/settings.svg" },
         ...(mobile
