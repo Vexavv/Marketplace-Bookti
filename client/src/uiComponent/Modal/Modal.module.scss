@@ -16,7 +16,8 @@
         border-radius: 12px;
         //max-width: 600px;
         //min-width: 320px;
-        width: auto;
+        max-width: 656px;
+        width: 100%;
         position: relative;
         animation: modalShow 0.5s ease-in-out;
         display: flex;

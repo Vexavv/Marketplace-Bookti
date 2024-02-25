@@ -12,7 +12,7 @@ const initialState: IInitialState = {
     data: null,
 };
 
-export const addBoocAsync = createAsyncThunk(
+export const addBookAsync = createAsyncThunk(
     'addBoocAsync',
     async (body: IFormFilds): Promise<IFormFilds | any> => {
         try {
@@ -27,7 +27,7 @@ export const addBoocAsync = createAsyncThunk(
     }
 );
 
-const addBoocSlice = createSlice({
+const addBookSlice = createSlice({
     name: 'addBoocSlice',
     initialState,
     reducers: {
@@ -37,19 +37,19 @@ const addBoocSlice = createSlice({
     },
     extraReducers: builder => {
         builder
-            .addCase(addBoocAsync.pending, state => {
+            .addCase(addBookAsync.pending, state => {
                 state.status = 'loading';
             })
-            .addCase(addBoocAsync.fulfilled, (state, action) => {
+            .addCase(addBookAsync.fulfilled, (state, action) => {
                 state.data = action.payload;
                 state.status = 'success';
             })
-            .addCase(addBoocAsync.rejected, state => {
+            .addCase(addBookAsync.rejected, state => {
                 state.status = 'error';
             });
     },
 });
 
-export const { setStatus } = addBoocSlice.actions;
+export const { setStatus } = addBookSlice.actions;
 
-export default addBoocSlice.reducer;
+export default addBookSlice.reducer;
