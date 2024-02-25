@@ -22,6 +22,7 @@
     "registration": {
       "name": {
         "matches": "Allowed characters for the name: a-z, A-Z, а-я, А-З.",
+        "city": "Enter the name of the city in English",
         "min": "The name must contain at least 2 characters.",
         "max": "The name must contain no more than 25 characters.",
         "required": "A name is required."
@@ -34,6 +35,7 @@
   },
   "LoginPlaceholder": {
     "email": "Email",
+    "city": "Enter the name of your city",
     "password": "Password",
     "newPassword": "New password"
   },

@@ -5,7 +5,7 @@ import Button from "../../../uiComponent/Button/Button";
 import {useTranslation} from "react-i18next";
 import {Link} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../../../hook";
-import {openModal} from "../../../store/slices/modalSlice";
+
 
 const Banner = () => {
     const {t} = useTranslation('home')

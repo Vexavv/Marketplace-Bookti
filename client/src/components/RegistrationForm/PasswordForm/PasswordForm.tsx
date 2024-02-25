@@ -27,8 +27,6 @@ const initialValuesPassword: LoginForm = {
 const PasswordForm = () => {
     const {t} = useTranslation('login')
     const dispatch = useAppDispatch()
-
-
     const [isShowPassword, setIsShowPassword] = useState(false)
     const [isShowConfirm, setIsShowConfirm] = useState(false)
     //----------------------------Validation-----------------------------------------------------------

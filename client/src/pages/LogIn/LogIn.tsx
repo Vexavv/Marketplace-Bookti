@@ -1,21 +1,38 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styles from './LogIn.module.scss'
-
 import Container from "../../uiComponent/Container/Container";
 import {Link, Navigate} from "react-router-dom";
-import Logo from "../../components/Header/Logo/Logo";
 import LoginFormm from "../../components/RegistrationForm/LoginForm/LoginFormm";
 import {useTranslation} from "react-i18next";
-import {useAppSelector} from "../../hook";
+import {useAppDispatch, useAppSelector} from "../../hook";
 import {LoginProps} from "./Login.props";
+import {changeStatus} from "../../store/slices/passwordSlice";
+import {closeModal, openModal} from "../../store/slices/modalSlice";
 
-
-// import { RouteComponentProps } from 'react-router-dom';
 
 const LogIn = ({title}:LoginProps) => {
-    const {t} = useTranslation('login')
-
+    const {t} = useTranslation(['login', 'modal'])
+    const dispatch = useAppDispatch();
     const loading = useAppSelector(state => state.auth.loading)
+    const status = useAppSelector(state => state.resetPassword.status)
+    useEffect(() => {
+        if (status === 'succeeded') {
+            handleOpenModal();
+            setTimeout(() => {
+                dispatch(changeStatus())
+            }, 4000);
+        }
+    }, [status]);
+
+    const handleOpenModal = () => {
+        dispatch(openModal({type: 'informMessage', props: {key: 'value'},text: t('modal:InformMessage.textSendEmail')}));
+        setTimeout(() => {
+            dispatch(closeModal());
+        }, 3000);
+    }
+
+
+
     return (
         <>
             {loading && <Navigate to="/account" replace/>}
@@ -24,12 +41,11 @@ const LogIn = ({title}:LoginProps) => {
                     <div className={styles.Wrapper}>
                         <div className={styles.WrapperArrow}>
                             <Link className={styles.WrapperArrowLink} to='/'> <img src="/login/arrow.svg"
-                                                                                   alt="arrow"/> {t('arrow')}</Link>
+                                                                                   alt="arrow"/> {t('login:arrow')}</Link>
                         </div>
                         <div className={styles.WrapperForm}>
-                            <p className={styles.WrapperFormGreetings}>{t('titleLogin')}</p>
+                            <p className={styles.WrapperFormGreetings}>{t('login:titleLogin')}</p>
                             <LoginFormm/>
-
                         </div>
                         <div className={styles.WrapperImage}>
                         <img src="/login/books.png" alt="books"/>

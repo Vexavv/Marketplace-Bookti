@@ -6,7 +6,7 @@ import './App.css';
 
 function App() {
     const routes = useRoutes(routesConfig);
-
+    
     return (
         <>
             {routes}

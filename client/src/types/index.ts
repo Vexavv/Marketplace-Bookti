@@ -14,6 +14,7 @@ export interface List {
 export interface LoginForm{
     name?: string,
     email?:string,
+    city?:string,
     password?: string,
     confirm_password?: string,
     checkboxField?: boolean
