@@ -14,5 +14,15 @@
     ],
     "bokkshelf": {
         "empty": "It's still empty here"
+    },
+    "interesting": {},
+    "reviews": {
+        "btn-add-review": "Write a review",
+        "form": {
+            "title": "Write a review",
+            "clue": "Your reta",
+            "placeholder": "Enter review here",
+            "btn-submit": "Submit"
+        }
     }
 }

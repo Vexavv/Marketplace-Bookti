@@ -1,0 +1,52 @@
+@import '../../../styles/mixins.module.scss';
+@import '../../../styles/variables.module.scss';
+
+.Form {
+    width: 680px;
+    padding: 65px 0 50px 0;
+
+    > h1 {
+        @include flexible-font(32px, 3vw, 32px, 600, #000);
+    }
+
+    > span {
+        font-size: 35px;
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
+
+    > h2 {
+        @include flexible-font(14px, 3vw, 14px, 600, $gray);
+    }
+
+    &FieldBox {
+        margin: auto;
+        width: 100%;
+        max-width: 530px;
+        display: flex;
+        flex-direction: column;
+
+        > textarea {
+            @include flexible-font(16px, 3vw, 16px, 400, $gray);
+            height: 220px;
+            resize: vertical;
+            outline: none;
+            border-radius: 8px;
+            border: 0.5px solid $gray;
+            padding: 25px;
+            margin-top: 45px;
+        }
+
+        > span {
+            @include flexible-font(16px, 3vw, 16px, 400, $gray);
+            text-align: start;
+            color: red;
+        }
+    }
+
+    > button {
+        margin-top: 30px;
+        width: 100%;
+        max-width: 530px;
+    }
+}
