@@ -23,6 +23,8 @@ import SeparatePage from '../pages/SeparatePage/SeparatePage';
 import MyBookShelf from '../components/MyAccountComponent/Profile/Tabs/MyBookshelf/MyBookshelf';
 import Reviews from '../components/MyAccountComponent/Profile/Tabs/Reviews/Reviews';
 import Interest from '../components/MyAccountComponent/Profile/Tabs/Interest/Interest';
+import MySettings from "../pages/MySettings/MySettings";
+import MySubscriptions from "../pages/MySubscriptions/MySubscriptions";
 
 export const routesConfig: RouteObject[] = [
     {
@@ -61,10 +63,10 @@ export const routesConfig: RouteObject[] = [
                 path: 'message',
                 element: <Message />,
             },
-            {
-                path: 'favorite',
-                element: <Favorite />,
-            },
+            // {
+            //     path: 'favorite',
+            //     element: <Favorite />,
+            // },
             {
                 path: 'wantRead',
                 element: <WantRead />,
@@ -99,6 +101,11 @@ export const routesConfig: RouteObject[] = [
                 element: <PrivateRoute />,
                 children: [
                     {
+                        path: 'favorite',
+                        element: <Favorite />,
+                    },
+
+                    {
                         path: 'account',
                         element: <MyAccount />,
                         children: [
@@ -119,6 +126,14 @@ export const routesConfig: RouteObject[] = [
                                 element: <Navigate to="my-bookshelf" />,
                             },
                         ],
+                    },
+                    {
+                        path: 'subscriptions',
+                        element: <MySubscriptions />,
+                    },
+                    {
+                        path: 'settings',
+                        element: <MySettings />,
                     },
                 ],
             },

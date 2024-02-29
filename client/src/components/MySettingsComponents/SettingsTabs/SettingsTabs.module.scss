@@ -1,0 +1,35 @@
+@import "../../../styles/mixins.module";
+
+.Tabs{
+  display: flex;
+  flex-direction: column;
+  &TabList{
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+    background: rgb(255, 255, 255);
+    list-style: none;
+    padding: 33px 42px;
+    margin-bottom: 20px;
+    &Tab{
+      @include primary-font;
+      color: rgb(0, 0, 0);
+      line-height: 20px;
+      letter-spacing: 0;
+      text-align: left;
+      cursor: pointer;
+      margin-bottom: 11px;
+
+    }
+  }
+  &Panel{
+    border-radius: 12px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+    /* white */
+    background: rgb(255, 255, 255);
+  }
+}
+.ActiveTab {
+  font-weight: 600;
+}

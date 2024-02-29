@@ -6,20 +6,22 @@ import home from '../i18n/locales/uk/home.json';
 import login from '../i18n/locales/uk/login.json';
 import mobileMenu from '../i18n/locales/uk/mobileMenu.json';
 import modal from '../i18n/locales/uk/modal.json';
+import mySettings from '../i18n/locales/uk/mySettings.json';
 import profile from '../i18n/locales/uk/profile.json';
 import separatePage from '../i18n/locales/uk/separatePage.json';
 
 const resources = {
-    addBook,
-    bookshelf,
-    footer,
-    header,
-    home,
-    login,
-    mobileMenu,
-    modal,
-    profile,
-    separatePage
+  addBook,
+  bookshelf,
+  footer,
+  header,
+  home,
+  login,
+  mobileMenu,
+  modal,
+  mySettings,
+  profile,
+  separatePage
 } as const;
 
 export default resources;

@@ -22,6 +22,8 @@ import profileUk from './locales/uk/profile.json';
 import profileEn from './locales/en/profile.json';
 import separatePageUk from './locales/uk/separatePage.json'
 import separatePageEn from './locales/en/separatePage.json'
+import mySettingsUk from './locales/uk/mySettings.json'
+import mySettingsEn from './locales/en/mySettings.json'
 
 const resources = {
     [LOCALS.UK]: {
@@ -35,6 +37,7 @@ const resources = {
         addBook: addBookUk,
         profile: profileUk,
         separatePage:separatePageUk,
+        mySettings:mySettingsUk,
     },
     [LOCALS.EN]: {
         header: headerEn,
@@ -47,6 +50,7 @@ const resources = {
         addBook: addBookEn,
         profile: profileEn,
         separatePage:separatePageEn,
+        mySettings:mySettingsEn,
     },
 };
 

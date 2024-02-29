@@ -1,3 +1,5 @@
+import React from "react";
+
 export interface NavigationList {
     id?: number,
     name: string,
@@ -27,4 +29,10 @@ export interface CommunicationList{
     title?: string,
     myFunction?: () => void;
     link:string
+}
+
+export interface Tab {
+    id: number;
+    label: string;
+    content: React.ReactElement;
 }
