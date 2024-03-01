@@ -1,30 +1,27 @@
-import { Navigate, RouteObject } from 'react-router-dom';
+import { RouteObject } from 'react-router-dom';
+import { bookshelfRoutes } from './bookshelf';
+import { profileRoutes } from './profile';
 import PrivateRoute from '../utils/PrivateRoute/PrivateRoute';
-import Bookshelf from '../pages/Bookshelf/Bookshelf';
-import Home from '../pages/Home/Home';
+import AddBook from '../pages/AddBook/AddBook';
+import Layout from '../components/Layout/Layout';
 import About from '../pages/About/About';
 import Library from '../pages/Library/Library';
 import Journal from '../pages/Journal/Journal';
 import TermsAndConditions from '../pages/TermsAndConditions/TermsAndConditions';
+import Message from '../pages/Message/Message';
+import Favorite from '../pages/Favorite/Favorite';
 import WantRead from '../pages/WantRead/WantRead';
 import PrivacyPolicy from '../pages/PrivacyPolicy/PrivacyPolicy';
 import LogIn from '../pages/LogIn/LogIn';
 import Registration from '../pages/Registration/Registration';
-import MyAccount from '../pages/MyAccount/MyAccount';
-import PageNotFound from '../pages/PageNotFound/PageNotFound';
-import Forum from '../pages/Forum/Forum';
-import Chat from '../pages/Chat/Chat';
-import Message from '../pages/Message/Message';
-import Favorite from '../pages/Favorite/Favorite';
-import Layout from '../components/Layout/Layout';
-import AddBook from '../pages/AddBook/AddBook';
 import RenamePassword from '../pages/RenamePassword/RenamePassword';
 import SeparatePage from '../pages/SeparatePage/SeparatePage';
-import MyBookShelf from '../components/MyAccountComponent/Profile/Tabs/MyBookshelf/MyBookshelf';
-import Reviews from '../components/MyAccountComponent/Profile/Tabs/Reviews/Reviews';
-import Interest from '../components/MyAccountComponent/Profile/Tabs/Interest/Interest';
+import PageNotFound from '../pages/PageNotFound/PageNotFound';
+import Home from '../pages/Home/Home';
+import Forum from '../pages/Forum/Forum';
+import Chat from '../pages/Chat/Chat';
 
-export const routesConfig: RouteObject[] = [
+export const rootRoutes: RouteObject[] = [
     {
         element: <Layout />,
         path: '/',
@@ -97,40 +94,12 @@ export const routesConfig: RouteObject[] = [
             {
                 path: '/',
                 element: <PrivateRoute />,
-                children: [
-                    {
-                        path: 'account',
-                        element: <MyAccount />,
-                        children: [
-                            {
-                                path: 'my-bookshelf',
-                                element: <MyBookShelf />,
-                            },
-                            {
-                                path: 'interest',
-                                element: <Interest />,
-                            },
-                            {
-                                path: 'reviews',
-                                element: <Reviews />,
-                            },
-                            {
-                                index: true,
-                                element: <Navigate to="my-bookshelf" />,
-                            },
-                        ],
-                    },
-                ],
+                children: profileRoutes,
             },
             {
                 path: '/',
                 element: <PrivateRoute />,
-                children: [
-                    {
-                        path: 'bookshelf',
-                        element: <Bookshelf />,
-                    },
-                ],
+                children: bookshelfRoutes,
             },
             {
                 path: '/',

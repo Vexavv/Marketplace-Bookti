@@ -1,18 +1,11 @@
-import React from 'react';
-import { useRoutes } from 'react-router-dom';
-import { routesConfig } from './constants/routes';
-import Modal from './uiComponent/Modal/Modal';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { rootRoutes } from './routing/root';
 import './App.css';
 
+const routes = createBrowserRouter(rootRoutes);
+
 function App() {
-    const routes = useRoutes(routesConfig);
-    
-    return (
-        <>
-            {routes}
-            <Modal />
-        </>
-    );
+    return <RouterProvider router={routes} />;
 }
 
 export default App;

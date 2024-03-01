@@ -3,7 +3,7 @@ import { FC, useState } from 'react';
 import { Form, Formik } from 'formik';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from '../../../hook';
-import { addBookAsync } from '../../../store/slices/addBookSlice';
+import { addBookAsync } from '../../../store/slices/addBookSlice/addBookSliceAsync';
 import { IFormFilds, ImageType } from './AddBook.types';
 import BookPhoto from './BookPhoto/BookPhoto';
 import Button from '../../../uiComponent/Button/Button';

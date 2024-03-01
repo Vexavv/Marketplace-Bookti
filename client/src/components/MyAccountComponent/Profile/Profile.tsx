@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import MyProfile from './MyProfile/MyProfile';
 import Tabs from './Tabs/Tabs';
 import styles from './Profile.module.scss';
-import { BrowserRouter } from 'react-router-dom';
 
 const Profile: FC = () => {
     const { t } = useTranslation('profile');

@@ -1,6 +1,6 @@
-import axios from 'axios';
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { IFormFilds } from '../../components/Bookshelf/AddBookForm/AddBook.types';
+import { createSlice } from '@reduxjs/toolkit';
+import { IFormFilds } from '../../../components/Bookshelf/AddBookForm/AddBook.types';
+import { addBookAsync } from './addBookSliceAsync';
 
 interface IInitialState {
     status: 'success' | 'loading' | 'error' | '';
@@ -11,21 +11,6 @@ const initialState: IInitialState = {
     status: '',
     data: null,
 };
-
-export const addBookAsync = createAsyncThunk(
-    'addBoocAsync',
-    async (body: IFormFilds): Promise<IFormFilds | any> => {
-        try {
-            // const { data } = await axios.post('#', body);
-
-            // return data;
-            return body;
-        } catch (error) {
-            console.error('error adding a new book:', error);
-            throw error;
-        }
-    }
-);
 
 const addBookSlice = createSlice({
     name: 'addBoocSlice',

@@ -1,28 +1,91 @@
 @import '../../styles/mixins.module.scss';
+@import '../../styles/variables.module.scss';
 
 .Wrapper {
-    &Navigation {
-        display: flex;
+    display: grid;
+    grid-template-columns: 263px calc(100% - 263px);
 
-        &Link {
-            @include primary-font;
-            display: flex;
-            align-items: center;
-            color: #000;
-            font-weight: 600;
-            line-height: 150%;
-            font-size: 18px;
-            display: flex;
-            margin-top: 25px;
-            margin-bottom: 45px;
+    @media all and (max-width: 900px) {
+        grid-template-columns: 175px calc(100% - 175px);
+    }
 
-            > img {
-                margin-right: 20px;
+    &Aside {
+        &Navigation {
+            display: flex;
+
+            &Link {
+                @include primary-font;
+                display: flex;
+                align-items: center;
+                color: #000;
+                font-weight: 600;
+                line-height: 150%;
+                font-size: 18px;
+                display: flex;
+                margin-top: 25px;
+                margin-bottom: 45px;
+
+                &.Active {
+                    background-color: #000;
+                }
+
+                > img {
+                    margin-right: 20px;
+                }
+            }
+        }
+
+        &Aside {
+            width: 263px;
+            display: flex;
+            padding: 40px 45px;
+            height: fit-content;
+            border-radius: 8px;
+            box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+
+            @media all and (max-width: 900px) {
+                box-shadow: none;
+                padding: 0;
+                margin-bottom: 24px;
+            }
+
+            > ul {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                @media all and (max-width: 900px) {
+                    gap: 15px;
+                }
+
+                > li {
+                    @include primary-font;
+                    line-height: 150%;
+                    font-size: 18px;
+                    width: max-content;
+                    list-style: none;
+
+                    @media all and (max-width: 900px) {
+                        font-size: 16px;
+                    }
+
+                    > .ListLink {
+                        color: #000;
+
+                        &.Active {
+                            color: $primary-color;
+                        }
+
+                        > span {
+                            font-weight: 700;
+                        }
+                    }
+                }
             }
         }
     }
 
-    &Section {
+    &Content {
         display: flex;
         justify-content: space-between;
         margin-bottom: 100px;
