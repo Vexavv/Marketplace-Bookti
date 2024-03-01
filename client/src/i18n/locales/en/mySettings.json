@@ -1,14 +1,23 @@
 {
   "Back": "My settings",
+  "Button": "Save",
   "Tabs": {
     "data": "Update data",
     "notification": "Notification",
     "password": "Change password"
   },
-  "Label": {
+  "LabelNewPassword": {
     "currentPassword": "Current password",
     "newPassword": "New password",
-    "repeatPassword": "Repeat password",
-    "buttonNewPassword": "Save"
+    "repeatPassword": "Repeat password"
+  },
+  "Notification": {
+    "title": "Email me about:",
+    "LabelCheckBox": {
+      "newMessage": "New message",
+      "booksInterestMe": "Added books that interest me",
+      "reviewAboutMe": "New review about me",
+      "lastAddedBooks": "Recently added books"
+    }
   }
 }

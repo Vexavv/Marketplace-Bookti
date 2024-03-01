@@ -1,0 +1,76 @@
+@import "../../../../styles/mixins.module";
+@import "../../../../styles/variables.module";
+
+.Notification {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 23px 38px;
+
+  &Title {
+    @include primary-font;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 18px;
+    letter-spacing: 0;
+    align-self: flex-start;
+    margin-bottom: 30px;
+  }
+
+  &Form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    &Wrapper {
+margin-bottom: 15px;
+      &CheckBox {
+        appearance: none;
+        background: white;
+        border: 1px solid #ccc;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        position: relative;
+        color: white;
+        border-radius: 8px;
+margin-right: 15px;
+        &:checked {
+          background-color: $primary-color;
+
+          &::after {
+            content: '\2713';
+            position: absolute;
+            top: 5px;
+            left: 10px;
+          }
+        }
+      }
+
+      &Label {
+        @include primary-font;
+        font-size: 12px;
+        line-height: 17px;
+        letter-spacing: 0;
+      }
+    }
+  }
+}
+@media (min-width: 900px) {
+  .Notification {
+    padding: 30px 30px 78px;
+    &Title {
+      @include primary-font;
+      font-size: 16px;
+      margin-bottom: 34px;
+    }
+
+    &Form {
+      &Wrapper {
+        &Label {
+          font-size: 16px;
+          line-height: 20px;
+        }
+      }
+    }
+  }
+}

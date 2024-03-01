@@ -37,3 +37,9 @@ export interface Tab {
     label: string;
     content: React.ReactElement;
 }
+
+export interface FieldSettings {
+    id: number
+    label_text: string
+    name: string
+}

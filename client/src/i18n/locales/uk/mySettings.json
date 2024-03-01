@@ -1,15 +1,24 @@
 {
   "Back": "Мої налаштування",
+  "Button": "Зберегти",
   "Tabs": {
     "data": "Оновити дані",
     "notification": "Сповіщення",
     "password": "Змінити пароль"
   },
-
-  "Label": {
+  "LabelNewPassword": {
     "currentPassword": "Поточний пароль",
     "newPassword": "Новий пароль",
-    "repeatPassword": "Повторити пароль",
-    "buttonNewPassword": "Зберегти"
+    "repeatPassword": "Повторити пароль"
+  },
+  "Notification": {
+    "title": "Надсилати мені ел.листа про:",
+    "LabelCheckBox": {
+      "newMessage": "Нове повідомлення",
+      "booksInterestMe": "Додані книги, які мене цікавлять",
+      "reviewAboutMe": "Новий відгук про мене",
+      "lastAddedBooks": "Останні додані книги"
+    }
   }
+
 }

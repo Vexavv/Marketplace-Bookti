@@ -4,15 +4,10 @@ import {useTranslation} from "react-i18next";
 import {Formik, Form, Field, ErrorMessage, FormikHelpers,} from 'formik';
 import * as yup from "yup";
 import YupPassword from 'yup-password'
-import {LoginForm} from "../../../../types";
+import {FieldSettings, LoginForm} from "../../../../types";
 import Button from "../../../../uiComponent/Button/Button";
 
 
-interface Field {
-    id: number
-    label_text: string
-    name: string
-}
 
 const initialValuesNewPassword: LoginForm = {
     password: '',
@@ -46,14 +41,14 @@ const ChangePassword = () => {
 
     })
 
-    const field: Field[] = [
-        {id: 1, label_text: t('mySettings:Label.currentPassword'), name: 'password'},
-        {id: 2, label_text: t('mySettings:Label.newPassword'), name: 'new_password'},
-        {id: 3, label_text: t('mySettings:Label.repeatPassword'), name: 'confirm_password'}
+    const field: FieldSettings[] = [
+        {id: 1, label_text: t('mySettings:LabelNewPassword.currentPassword'), name: 'password'},
+        {id: 2, label_text: t('mySettings:LabelNewPassword.newPassword'), name: 'new_password'},
+        {id: 3, label_text: t('mySettings:LabelNewPassword.repeatPassword'), name: 'confirm_password'}
     ]
 
     return (
-        <div>
+        <>
             <Formik initialValues={initialValuesNewPassword}
                     validationSchema={validationSchemaNewPassword}
                     onSubmit={(values: LoginForm, {resetForm}) => {
@@ -69,10 +64,10 @@ const ChangePassword = () => {
                             <ErrorMessage className={styles.FormWrapperError} component="span" name={item.name}/>
                         </div>
                     ))}
-                        <Button name='ResetPasswordButton' type="submit">{t('mySettings:Label.buttonNewPassword')}</Button>
+                        <Button name='ResetPasswordButton' type="submit">{t('mySettings:Button')}</Button>
                 </Form>
             </Formik>
-        </div>
+        </>
     );
 };
 

@@ -189,8 +189,6 @@ const LoginFormm = ({registration}: LoginFormProps) => {
                             await dispatch(getUserAsync())
                             resetForm();
                         }}
-
-
                         validationSchema={validationSchemaLogin}>
                     <Form className={styles.Form}>
                         <Field className={styles.FormInput} type="email" name="email"
