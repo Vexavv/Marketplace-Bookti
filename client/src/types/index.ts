@@ -19,6 +19,7 @@ export interface LoginForm{
     city?:string,
     password?: string,
     confirm_password?: string,
+    new_password?: string,
     checkboxField?: boolean
 
 }

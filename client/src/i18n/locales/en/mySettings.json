@@ -4,5 +4,11 @@
     "data": "Update data",
     "notification": "Notification",
     "password": "Change password"
+  },
+  "Label": {
+    "currentPassword": "Current password",
+    "newPassword": "New password",
+    "repeatPassword": "Repeat password",
+    "buttonNewPassword": "Save"
   }
 }

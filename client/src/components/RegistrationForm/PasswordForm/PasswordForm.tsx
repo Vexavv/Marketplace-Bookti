@@ -8,7 +8,7 @@ import {LoginForm} from "../../../types";
 import {IoEyeOffOutline, IoEyeOutline} from "react-icons/io5";
 import Button from "../../../uiComponent/Button/Button";
 import {handleTogglePassword} from "../../../helpers/handler";
-import {useAppDispatch, useAppSelector} from "../../../hook";
+import {useAppDispatch} from "../../../hook";
 import {renamePasswordAsync} from "../../../store/slices/passwordSlice";
 
 

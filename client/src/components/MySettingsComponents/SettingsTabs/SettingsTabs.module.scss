@@ -12,6 +12,7 @@
     list-style: none;
     padding: 33px 42px;
     margin-bottom: 20px;
+    height: 100%;
     &Tab{
       @include primary-font;
       color: rgb(0, 0, 0);
@@ -26,10 +27,23 @@
   &Panel{
     border-radius: 12px;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
-    /* white */
     background: rgb(255, 255, 255);
+    width: auto;
+    padding: 0 15px;
   }
 }
+
+@media (min-width: 900px) {
+  .Tabs{
+    flex-direction: row;
+    gap: 35px;
+    &TabList{
+      margin-bottom: 0;
+      max-height: 150px;
+    }
+  }
+}
+
 .ActiveTab {
   font-weight: 600;
 }

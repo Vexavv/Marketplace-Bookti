@@ -4,5 +4,12 @@
     "data": "Оновити дані",
     "notification": "Сповіщення",
     "password": "Змінити пароль"
+  },
+
+  "Label": {
+    "currentPassword": "Поточний пароль",
+    "newPassword": "Новий пароль",
+    "repeatPassword": "Повторити пароль",
+    "buttonNewPassword": "Зберегти"
   }
 }

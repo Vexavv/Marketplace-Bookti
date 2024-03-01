@@ -12,7 +12,6 @@ import ChangePassword from "../../components/MySettingsComponents/SettingsTabs/C
 
 const MySettings = () => {
     const {t} = useTranslation('mySettings')
-
     const tabData: Tab[] = [
         { id: 1, label: t('Tabs.data'), content: <UpdateData/> },
         { id: 2, label: t('Tabs.notification'), content: <Notification/>},
