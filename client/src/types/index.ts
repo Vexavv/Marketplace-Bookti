@@ -17,6 +17,7 @@ export interface LoginForm{
     name?: string,
     email?:string,
     city?:string,
+    avatar_url?: string,
     password?: string,
     confirm_password?: string,
     new_password?: string,

@@ -41,10 +41,10 @@ const checkBoxField: FieldSettings[] = [
                 }}>
                     <Form className={styles.NotificationForm}>
                         {checkBoxField.map(item => (
-                            <div className={styles.NotificationFormWrapper} key={item.id}>
+                            <ul className={styles.NotificationFormWrapper} key={item.id}>
                                 <Field className={styles.NotificationFormWrapperCheckBox} name={item.name} type='checkbox'></Field>
                                 <label className={styles.NotificationFormWrapperLabel} htmlFor={item.name}>{item.label_text}</label>
-                            </div>
+                            </ul>
                         ))}
                         <Button name='ResetPasswordButton' type="submit">{t('mySettings:Button')}</Button>
                     </Form>
