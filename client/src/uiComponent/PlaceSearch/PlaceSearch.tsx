@@ -7,12 +7,13 @@ import axios from "axios";
 //--------------------------Types-----------------------------------------
 interface PlaceSearchProps extends FieldProps {
     className?: string;
+    update?:boolean
 }
 interface City {
     city: string;
 }
 
-const PlaceSearch: React.FC<PlaceSearchProps> = ({className, field, form, ...props}) => {
+const PlaceSearch: React.FC<PlaceSearchProps> = ({update, className, field, form, ...props}) => {
     const [valueCity, setValueCity] = useState(field.value || '')
     const [cities, setCities] = useState<any>([])
     const [isOpen, setIsOpen] = useState(true)
@@ -65,14 +66,15 @@ const PlaceSearch: React.FC<PlaceSearchProps> = ({className, field, form, ...pro
                 name={name}
                 onBlur={onBlur}
                 {...props}  />
-            <ul className={styles.Autocomplete}>
+            {update ? (<div>update</div>) : <ul className={styles.Autocomplete}>
                 {valueCity && isOpen ? filteredCity.map(
                     (item: { city: string }, index: number) => (
                         <li onClick={itemClickHandler} className={styles.AutocompleteItem}
                             key={index}>{item.city}</li>
                     )
                 ) : null}
-            </ul>
+            </ul>}
+
         </>
 
     );

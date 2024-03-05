@@ -43,4 +43,6 @@ export interface FieldSettings {
     id: number
     label_text: string
     name: string
+    type?:string
+    component?:React.ReactElement
 }

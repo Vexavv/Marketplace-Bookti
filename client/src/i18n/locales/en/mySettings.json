@@ -19,5 +19,17 @@
       "reviewAboutMe": "New review about me",
       "lastAddedBooks": "Recently added books"
     }
+  },
+  "UpdateData": {
+    "text": "Choose a photo at least 200*200",
+    "photoButton": "Download",
+    "LabelUpdate": {
+      "newEmail": "E-mail",
+      "newName": "User name",
+      "newCity": "City",
+      "telegram": "Telegram",
+      "checkBoxAddress": "Show my email address",
+      "checkBoxTelegram": "Show my telegram"
+    }
   }
 }

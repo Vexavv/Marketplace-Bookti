@@ -2,10 +2,8 @@ import React from 'react';
 import styles from './Notification.module.scss'
 import Button from "../../../../uiComponent/Button/Button";
 import {useTranslation} from "react-i18next";
-import {Formik, Form, Field, ErrorMessage, FormikHelpers,} from 'formik';
-import * as yup from "yup";
-import YupPassword from 'yup-password'
-import {FieldSettings, LoginForm} from "../../../../types";
+import {Formik, Form, Field} from 'formik';
+import {FieldSettings} from "../../../../types";
 
 
 interface CheckBoxNotification {

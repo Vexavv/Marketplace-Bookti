@@ -19,6 +19,17 @@
       "reviewAboutMe": "Новий відгук про мене",
       "lastAddedBooks": "Останні додані книги"
     }
+  },
+  "UpdateData": {
+    "text": "Виберіть фото не менше 200*200",
+    "photoButton": "Завантажити",
+    "LabelUpdate": {
+      "newEmail": "Ел.пошта",
+      "newName": "Ім’я користувача",
+      "newCity": "Місто",
+      "telegram": "Телеграм",
+      "checkBoxAddress": "Показати мою адресу ел.пошти",
+      "checkBoxTelegram": "Показати мій телеграм"
+    }
   }
-
 }
