@@ -4,7 +4,7 @@ import {useTranslation} from "react-i18next";
 import {Formik, Form, Field, ErrorMessage, FormikHelpers, FormikProps,} from 'formik';
 import * as yup from 'yup';
 import UserPhoto from "./UserPhoto/UserPhoto";
-import {FieldSettings} from "../../../../types";
+import {FieldSettings, LoginForm} from "../../../../types";
 import PlaceSearch from "../../../../uiComponent/PlaceSearch/PlaceSearch";
 import Button from "../../../../uiComponent/Button/Button";
 
@@ -35,6 +35,24 @@ const initialValuesUpdateForm: UpdateForm = {
 const UpdateData = () => {
     const {t} = useTranslation(['mySettings', 'login'])
 
+
+
+    const validationSchemaUpdate: yup.Schema<UpdateForm> = yup.object().shape({
+        full_name: yup.string()
+            .matches(/^[a-zA-Zа-яА-ЯіІїЇєЄґҐ\s]*$/, t('login:Error.registration.name.matches'))
+            .min(2, t('login:Error.registration.name.min'))
+            .max(25, t('login:Error.registration.name.max')),
+        email: yup.string()
+            .email(t('login:Error.login.email.email')),
+        city: yup.string()
+            .matches(/^[a-zA-Zа\s]*$/, t('login:Error.registration.name.city')),
+        avatar_url:yup.string(),
+
+        // telegram: yup.string()
+        //     .matches(/^[a-zA-Zа-яА-ЯіІїЇєЄґҐ\s]*$/, t('login:Error.registration.name.matches'))
+    })
+
+
     // const inputField: FieldSettings[] = [
     //     {id: 1, label_text: t('mySettings:UpdateData.LabelUpdate.newEmail'), name: 'email'},
     //     {id: 2, label_text: t('mySettings:UpdateData.LabelUpdate.newName'), name: 'full_name', type: 'text'},
@@ -48,7 +66,7 @@ const UpdateData = () => {
     ]
     return (
         <div className={styles.Update}>
-            <Formik initialValues={initialValuesUpdateForm} onSubmit={(values: UpdateForm) => {
+            <Formik initialValues={initialValuesUpdateForm} validationSchema={validationSchemaUpdate} onSubmit={(values: UpdateForm) => {
                 console.log(values)
             }}>
                 <Form className={styles.Form}>

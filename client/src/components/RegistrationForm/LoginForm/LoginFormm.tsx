@@ -107,6 +107,7 @@ const LoginFormm = ({registration}: LoginFormProps) => {
             {registration ? (<div><Formik initialValues={initialValuesSignIn}
                                           validationSchema={validationSchemaRegister}
                                           onSubmit={async (values: CreateAccountValues, {resetForm}: FormikHelpers<CreateAccountValues>) => {
+                                              console.log(values)
                                               await dispatch(createAccountAsync(values));
                                               await dispatch(getUserAsync())
                                               resetForm();

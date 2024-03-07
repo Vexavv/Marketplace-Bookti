@@ -13,11 +13,11 @@ interface City {
     city: string;
 }
 
-const PlaceSearch: React.FC<PlaceSearchProps> = ({update, className, field, form, ...props}) => {
-    const [valueCity, setValueCity] = useState(field.value || '')
-    const [cities, setCities] = useState<any>([])
-    const [isOpen, setIsOpen] = useState(true)
-    const {onChange, onBlur, value, name} = field;
+const PlaceSearch: React.FC<PlaceSearchProps> = ({ update, className, field, form, ...props }) => {
+    const [valueCity, setValueCity] = useState(field.value || '');
+    const [cities, setCities] = useState<any>([]);
+    const [isOpen, setIsOpen] = useState(true);
+    const { onChange, onBlur, value, name } = field;
 
     //------------------------ REQUEST-------------------------------
     const fetchCountries = async () => {
@@ -28,14 +28,14 @@ const PlaceSearch: React.FC<PlaceSearchProps> = ({update, className, field, form
             console.error('Error fetching countries:', error);
         }
     };
-    useEffect(() => {
-        fetchCountries()
-    }, []);
-    //---------------------------------Filtered--------------------
-    const filteredCity:City[] = cities.filter((item:City) => (
-        item.city.toLowerCase().includes(valueCity.toLowerCase())
 
-    ))
+    useEffect(() => {
+        fetchCountries();
+    }, []);
+
+    const filteredCity: City[] = cities.filter((item: City) => (
+        item.city.toLowerCase().includes(valueCity.toLowerCase())
+    ));
 
     useEffect(() => {
         if (filteredCity.length === 0) {
@@ -45,17 +45,24 @@ const PlaceSearch: React.FC<PlaceSearchProps> = ({update, className, field, form
 //---------------------------------- Added to input ----------------------------------
     const itemClickHandler = (e: React.MouseEvent<HTMLLIElement>) => {
         const clickedElement = e.target as HTMLLIElement;
+        const newValue = clickedElement.textContent || '';
+        setValueCity(newValue);
+        onChange({
+            target: {
+                name,
+                value: newValue,
+            },
+        });
         setIsOpen(!isOpen);
-        setValueCity(clickedElement.textContent || '');
-    }
-
+    };
 //--------------------------- Change value input -------------------------------
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const newValue = event.target.value;
         setValueCity(newValue);
         onChange(event);
-        setIsOpen(true)
+        setIsOpen(true);
     };
+
     return (
         <>
             <input
@@ -65,20 +72,19 @@ const PlaceSearch: React.FC<PlaceSearchProps> = ({update, className, field, form
                 value={valueCity}
                 name={name}
                 onBlur={onBlur}
-                {...props}  />
+                {...props}
+            />
             {update ? (<div>update</div>) : <ul className={styles.Autocomplete}>
                 {valueCity && isOpen ? filteredCity.map(
                     (item: { city: string }, index: number) => (
-                        <li onClick={itemClickHandler} className={styles.AutocompleteItem}
-                            key={index}>{item.city}</li>
+                        <li onClick={itemClickHandler} className={styles.AutocompleteItem} key={index}>
+                            {item.city}
+                        </li>
                     )
                 ) : null}
             </ul>}
-
         </>
-
     );
 };
 
 export default PlaceSearch;
-
