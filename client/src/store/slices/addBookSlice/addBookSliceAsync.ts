@@ -6,19 +6,18 @@ import { ISingleBook } from './addBookSlice.types';
 
 export const addBookAsync = createAsyncThunk(
     'addBoocAsync',
-    async (body: IFormFilds, { getState }): Promise<IFormFilds | any> => {
-        // console.log(getState().auth.data?.access_token);
-        console.log(`${BASE_URL}/books`);
+    async (body: IFormFilds, { getState }): Promise<ISingleBook> => {
+        // @ts-ignore
+        const token = getState().auth.data.access_token;
 
         try {
             const { data } = await axios.post<ISingleBook>(
                 `${BASE_URL}/books`,
-                { book_details: '', image: '' },
+                body,
                 {
                     headers: {
-                        // Authorization: `Bearer ${
-                        //     getState().auth.data?.access_token
-                        // }`,
+                        'Content-Type': 'multipart/form-data',
+                        Authorization: `Bearer ${token}`,
                     },
                 }
             );

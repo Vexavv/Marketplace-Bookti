@@ -74,6 +74,8 @@ const AddBookForm: FC = () => {
             onSubmit={(values: IFormFilds) => handleSubmit(values)}
         >
             {({ errors, touched, values, setTouched, setFieldValue }) => {
+                console.log(values);
+
                 return (
                     <Form className={styles.Form}>
                         <BookPhoto

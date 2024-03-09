@@ -45,7 +45,7 @@ const BookshelfList: FC<IBookshelfListProps> = ({ content }) => {
                         <BookItem key={item.id} />
                     ))}
                     <div className={styles.WrapperListBoxBtnBox}>
-                        <Button name="BookshelfAdd">
+                        <Button name="BookshelfAdd" onClick={handleOpenModal}>
                             <img src="/bookshelf/plus.svg" alt="Plus" />
                             {t('BookshelfListNotExist.Button')}
                         </Button>

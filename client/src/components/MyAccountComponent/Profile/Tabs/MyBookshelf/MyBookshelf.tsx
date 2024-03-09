@@ -1,20 +1,30 @@
-import { FC, memo, useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from '../../../../../hook';
-import { getBooksAsync } from '../../../../../store/slices/profileSlice/profileSliceAsync';
+import { FC, memo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useLoaderData } from 'react-router';
+import { IResData } from '../../../../../store/slices/profileSlice/profileSliceTypes';
+import BookItem from './BookItem/BookItem';
+import styles from './MyBookshelf.module.scss';
+import cn from 'classnames';
 
 const MyBookShelf: FC = memo(() => {
-    const { status, data } = useAppSelector(state => state.profile);
-    const dispatch = useAppDispatch();
+    const { t } = useTranslation('profile');
+    const { content } = useLoaderData() as IResData;
 
-    useEffect(() => {
-        const fetchData = () => {
-            dispatch(getBooksAsync());
-        };
-
-        fetchData();
-    }, []);
-
-    return <div>MyBookShelf component</div>;
+    return (
+        <div
+            className={cn(styles.Wrapper, {
+                [styles.IsGrid]: !!content.length,
+            })}
+        >
+            {content.length ? (
+                content.map(item => <BookItem key={item.id} {...item} />)
+            ) : (
+                <div className={styles.WrapperNotExist}>
+                    {t('bokkshelf.empty')}
+                </div>
+            )}
+        </div>
+    );
 });
 
 export default MyBookShelf;

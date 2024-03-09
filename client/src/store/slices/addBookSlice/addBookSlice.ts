@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { IFormFilds } from '../../../components/Bookshelf/AddBookForm/AddBook.types';
 import { addBookAsync } from './addBookSliceAsync';
+import { ISingleBook } from './addBookSlice.types';
 
 interface IInitialState {
     status: 'success' | 'loading' | 'error' | '';
-    data: IFormFilds | null;
+    data: ISingleBook | null;
 }
 
 const initialState: IInitialState = {
