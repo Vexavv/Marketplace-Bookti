@@ -58,7 +58,7 @@ const PopperUser = () => {
         {name: t('Nav.favorite'), path: "/favorite", icon: "/header/paperclip.svg"},
         {name: t('Nav.books'), path: "/bookshelf", icon: "/header/book.svg"},
         {name: t('Nav.read'), path: "/wantRead", icon: "/header/heart.svg"},
-        {name: t('Nav.reviews'), path: "/reviews", icon: "/header/star.svg"},
+        {name: t('Nav.reviews'), path: "/subscriptions", icon: "/header/star.svg"},
         {name: t('Nav.settings'), path: "/settings", icon: "/header/settings.svg"}
     ]
     //---------------------Content-----------------------

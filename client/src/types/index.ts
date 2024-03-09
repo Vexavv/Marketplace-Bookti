@@ -17,6 +17,7 @@ export interface LoginForm{
     city?:string,
     password?: string,
     confirm_password?: string,
+    new_password?: string,
     checkboxField?: boolean
 
 }
@@ -27,4 +28,17 @@ export interface CommunicationList{
     title?: string,
     myFunction?: () => void;
     link:string
+}
+export interface Tab {
+    id: number;
+    label: string;
+    content: React.ReactElement;
+}
+
+export interface FieldSettings {
+    id: number
+    label_text: string
+    name: string
+    type?:string
+    component?:React.ReactElement
 }

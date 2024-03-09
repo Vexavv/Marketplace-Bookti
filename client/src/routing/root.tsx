@@ -20,6 +20,7 @@ import PageNotFound from '../pages/PageNotFound/PageNotFound';
 import Home from '../pages/Home/Home';
 import Forum from '../pages/Forum/Forum';
 import Chat from '../pages/Chat/Chat';
+import MySettings from "../pages/MySettings/MySettings";
 
 export const rootRoutes: RouteObject[] = [
     {
@@ -110,6 +111,10 @@ export const rootRoutes: RouteObject[] = [
                         element: <AddBook />,
                     },
                 ],
+            },
+            {
+                path: 'settings',
+                element: <MySettings />,
             },
         ],
     },
