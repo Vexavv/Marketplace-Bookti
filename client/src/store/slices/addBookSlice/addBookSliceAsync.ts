@@ -10,30 +10,10 @@ export const addBookAsync = createAsyncThunk(
         // @ts-ignore
         const token = getState().auth.data.access_token;
 
-        const formData = new FormData();
-
-        const a = {
-            title: body.title,
-            author: body.author,
-            genre: body.genre,
-            publication_date: '2024-03-02',
-            language: body.language,
-            trade_format: body.exchange,
-            user_id: '',
-            description: body.textarea,
-        };
-
-        if (body.image) {
-            formData.append('book_details', JSON.stringify(a));
-            formData.append('image', body.image);
-        }
-
-        console.log(formData.values);
-
         try {
             const { data } = await axios.post<ISingleBook>(
                 `${BASE_URL}/books`,
-                formData,
+                body,
                 {
                     headers: {
                         'Content-Type': 'multipart/form-data',
@@ -41,8 +21,6 @@ export const addBookAsync = createAsyncThunk(
                     },
                 }
             );
-
-            console.log(data);
 
             return data;
         } catch (error) {
