@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { createSlice } from '@reduxjs/toolkit';
 import { IInitialState } from './profileSliceTypes';
 import { getBooksAsync } from './profileSliceAsync';

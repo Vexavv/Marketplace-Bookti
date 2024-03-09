@@ -72,7 +72,7 @@ const LoginFormm = ({registration}: LoginFormProps) => {
 
     const validationSchemaRegister: yup.Schema<LoginForm> = yup.object().shape({
         full_name: yup.string()
-            .matches(/^[a-zA-Zа-яА-Я\s]*$/, t('Error.registration.name.matches'))
+            .matches(/^[a-zA-Zа-яА-ЯіІїЇєЄґҐ\s]*$/, t('Error.registration.name.matches'))
             .min(2, t('Error.registration.name.min'))
             .max(25, t('Error.registration.name.max'))
             .required(t('Error.login.email.required')),

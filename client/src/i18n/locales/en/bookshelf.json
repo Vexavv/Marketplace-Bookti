@@ -5,12 +5,34 @@
         "Button": "List a book"
     },
     "CounterASide": [
-        "Ready for swapping",
-        "Donations",
-        "Under moderation",
-        "Rejected",
-        "Reserved",
-        "Deactivated"
+        {
+            "title": "Ready for swapping",
+            "link": "swapping"
+        },
+        {
+            "title": "Donations",
+            "link": "donations"
+        },
+        {
+            "title": "My wishlist",
+            "link": "my-wishlist"
+        },
+        {
+            "title": "Under moderation",
+            "link": "moderation"
+        },
+        {
+            "title": "Rejected",
+            "link": "rejected"
+        },
+        {
+            "title": "Reserved",
+            "link": "reserved"
+        },
+        {
+            "title": "Deactivated",
+            "link": "deactivated"
+        }
     ],
     "BookItem": {
         "ExchangeBtn": "Exchange",

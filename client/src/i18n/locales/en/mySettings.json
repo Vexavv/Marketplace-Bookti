@@ -1,0 +1,35 @@
+{
+  "Back": "My settings",
+  "Button": "Save",
+  "Tabs": {
+    "data": "Update profile",
+    "notification": "Notification",
+    "password": "Change password"
+  },
+  "LabelNewPassword": {
+    "currentPassword": "Current password",
+    "newPassword": "New password",
+    "repeatPassword": "Repeat password"
+  },
+  "Notification": {
+    "title": "Email me about:",
+    "LabelCheckBox": {
+      "newMessage": "New message",
+      "booksInterestMe": "Added books that interest me",
+      "reviewAboutMe": "New review about me",
+      "lastAddedBooks": "Recently added books"
+    }
+  },
+  "UpdateData": {
+    "text": "Choose a photo at least 200*200",
+    "photoButton": "Download",
+    "LabelUpdate": {
+      "newEmail": "E-mail",
+      "newName": "User name",
+      "newCity": "City",
+      "telegram": "Telegram",
+      "checkBoxAddress": "Show my email address",
+      "checkBoxTelegram": "Show my telegram"
+    }
+  }
+}

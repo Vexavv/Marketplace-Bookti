@@ -3,7 +3,7 @@ import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import modalReducer from './slices/modalSlice';
 import authReducer from './slices/authSlice';
-import addBookReducer from './slices/addBookSlice';
+import addBookReducer from './slices/addBookSlice/addBookSlice';
 import profileReducer from './slices/profileSlice/profileSlice';
 import resetPasswordReducer from './slices/passwordSlice';
 

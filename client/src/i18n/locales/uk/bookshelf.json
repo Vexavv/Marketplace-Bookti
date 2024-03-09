@@ -5,12 +5,34 @@
         "Button": "Додати книгу"
     },
     "CounterASide": [
-        "Готові до обміну",
-        "Безкоштовні",
-        "На модерації",
-        "Відхилені",
-        "Зарезервовані",
-        "Деактивовані"
+        {
+            "title": "Готові до обміну",
+            "link": "swapping"
+        },
+        {
+            "title": "Безкоштовні",
+            "link": "donations"
+        },
+        {
+            "title": "Мене цікавить",
+            "link": "my-wishlist"
+        },
+        {
+            "title": "На модерації",
+            "link": "moderation"
+        },
+        {
+            "title": "Відхилені",
+            "link": "rejected"
+        },
+        {
+            "title": "Зарезервовані",
+            "link": "reserved"
+        },
+        {
+            "title": "Деактивовані",
+            "link": "deactivated"
+        }
     ],
     "BookItem": {
         "ExchangeBtn": "Обмін",

@@ -14,5 +14,15 @@
     ],
     "bokkshelf": {
         "empty": "Тут поки пусто"
+    },
+    "interesting": {},
+    "reviews": {
+        "btn-add-review": "Додати відгук",
+        "form": {
+            "title": "Додати відгук",
+            "clue": "Ваша оцінка",
+            "placeholder": "Написати відгук",
+            "btn-submit": "Відправити"
+        }
     }
 }

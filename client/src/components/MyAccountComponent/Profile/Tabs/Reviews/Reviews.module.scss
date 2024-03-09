@@ -1,0 +1,26 @@
+@import '../../../../../styles/variables.module.scss';
+@import '../../../../../styles/mixins.module.scss';
+
+.Wrapper {
+    &BtnBox {
+        padding-block: 25px;
+
+        > button {
+            @include flexible-font(24px, 3vw, 24px, 600, #686666);
+            padding-block: 22px;
+            cursor: pointer;
+            border: none;
+            background-color: $mentol;
+            border-radius: 8px;
+            width: 100%;
+            box-shadow: 0 8px 15px 0 rgba(0, 0, 0, 0.25);
+            transition: all 0.2s ease-in-out;
+
+            @media (hover: hover) {
+                &:hover {
+                    transform: translateY(-2px);
+                }
+            }
+        }
+    }
+}

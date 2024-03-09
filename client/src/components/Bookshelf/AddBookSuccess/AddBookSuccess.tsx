@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { closeModal } from '../../../store/slices/modalSlice';
-import { setStatus } from '../../../store/slices/addBookSlice';
+import { setStatus } from '../../../store/slices/addBookSlice/addBookSlice';
 import { useWindowSize } from '../../../hooks/useWindowSize';
 import { useAppDispatch, useAppSelector } from '../../../hook';
 import BookPhoto from '../AddBookForm/BookPhoto/BookPhoto';
@@ -19,6 +19,7 @@ const AddBookSuccess: FC = () => {
     const handleCloseModal = () => {
         if (width && width <= 900) {
             navigate('/bookshelf');
+            console.log('asdasd');
         } else {
             dispatch(closeModal());
         }

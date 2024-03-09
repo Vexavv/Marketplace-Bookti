@@ -2,18 +2,17 @@ import { FC } from 'react';
 import { useNavigate } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import { openModal } from '../../../store/slices/modalSlice';
-import { setStatus } from '../../../store/slices/addBookSlice';
+import { setStatus } from '../../../store/slices/addBookSlice/addBookSlice';
 import { useWindowSize } from '../../../hooks/useWindowSize';
 import { useAppDispatch, useAppSelector } from '../../../hook';
+import { IResData } from '../../../store/slices/profileSlice/profileSliceTypes';
 import BookItem from './BookItem/BookItem';
 import Button from '../../../uiComponent/Button/Button';
 import styles from './BookshelfList.module.scss';
 
-interface IBookshelfListProps {
-    books: any[];
-}
+interface IBookshelfListProps extends IResData {}
 
-const BookshelfList: FC<IBookshelfListProps> = ({ books }) => {
+const BookshelfList: FC<IBookshelfListProps> = ({ content }) => {
     const { data } = useAppSelector(state => state.addBook);
     const { t } = useTranslation('bookshelf');
     const { width } = useWindowSize();
@@ -40,10 +39,10 @@ const BookshelfList: FC<IBookshelfListProps> = ({ books }) => {
 
     return (
         <div className={styles.Wrapper}>
-            {books.length ? (
+            {content.length ? (
                 <div className={styles.WrapperListBox}>
-                    {books.map(item => (
-                        <BookItem key={item} />
+                    {content.map(item => (
+                        <BookItem key={item.id} />
                     ))}
                     <div className={styles.WrapperListBoxBtnBox}>
                         <Button name="BookshelfAdd">

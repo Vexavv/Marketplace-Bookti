@@ -1,0 +1,35 @@
+{
+  "Back": "Мої налаштування",
+  "Button": "Зберегти",
+  "Tabs": {
+    "data": "Оновити профіль",
+    "notification": "Сповіщення",
+    "password": "Змінити пароль"
+  },
+  "LabelNewPassword": {
+    "currentPassword": "Поточний пароль",
+    "newPassword": "Новий пароль",
+    "repeatPassword": "Повторити пароль"
+  },
+  "Notification": {
+    "title": "Надсилати мені ел.листа про:",
+    "LabelCheckBox": {
+      "newMessage": "Нове повідомлення",
+      "booksInterestMe": "Додані книги, які мене цікавлять",
+      "reviewAboutMe": "Новий відгук про мене",
+      "lastAddedBooks": "Останні додані книги"
+    }
+  },
+  "UpdateData": {
+    "text": "Виберіть фото не менше 200*200",
+    "photoButton": "Завантажити",
+    "LabelUpdate": {
+      "newEmail": "Ел.пошта",
+      "newName": "Ім’я користувача",
+      "newCity": "Місто",
+      "telegram": "Телеграм",
+      "checkBoxAddress": "Показати мою адресу ел.пошти",
+      "checkBoxTelegram": "Показати мій телеграм"
+    }
+  }
+}
