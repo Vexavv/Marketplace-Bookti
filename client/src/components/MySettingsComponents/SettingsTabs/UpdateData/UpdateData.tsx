@@ -1,13 +1,12 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import styles from './UpdateData.module.scss'
 import {useTranslation} from "react-i18next";
-import {Formik, Form, Field, ErrorMessage, useFormik } from 'formik';
+import {Formik, Form, Field, ErrorMessage} from 'formik';
 import * as yup from 'yup';
 import UserPhoto from "./UserPhoto/UserPhoto";
-import {FieldSettings, LoginForm} from "../../../../types";
+import {FieldSettings} from "../../../../types";
 import PlaceSearch from "../../../../uiComponent/PlaceSearch/PlaceSearch";
 import Button from "../../../../uiComponent/Button/Button";
-import * as Yup from "yup";
 import {useAppDispatch, useAppSelector} from "../../../../hook";
 
 
@@ -23,28 +22,23 @@ interface UpdateForm {
 }
 
 
-
-
 const UpdateData = () => {
     const {t} = useTranslation(['mySettings', 'login'])
     const dispatch = useAppDispatch()
     const user = useAppSelector(state => state.auth.user)
 
 
+    const initialValuesUpdateForm: UpdateForm = {
+        full_name: user?.full_name || '',
+        email: user?.email || '',
+        city: '',
+        avatar_url: null,
+        telegram: '',
+        show_email: false,
+        show_telegram: false
+    }
 
-    // const initialValuesUpdateForm: UpdateForm = {
-    //     full_name: user?.full_name || '',
-    //     email:  '',
-    //     city: '',
-    //     avatar_url: null,
-    //     telegram: '',
-    //     show_email: false,
-    //     show_telegram: false
-    // }
-
-
-
-    const validationSchemaUpdate: yup.Schema<UpdateForm> = Yup.object().shape({
+    const validationSchemaUpdate: yup.Schema<UpdateForm> = yup.object().shape({
         full_name: yup.string()
             .matches(/^[a-zA-Zа-яА-ЯіІїЇєЄґҐ\s]*$/, t('login:Error.registration.name.matches'))
             .min(2, t('login:Error.registration.name.min'))
@@ -53,58 +47,14 @@ const UpdateData = () => {
             .email(t('login:Error.login.email.email')),
         city: yup.string()
             .matches(/^[a-zA-Zа\s]*$/, t('login:Error.registration.name.city')),
-        // avatar_url:Yup.mixed()
-        //     .test(
-        //         'fileFormat',
-        //         t('login:Error.registration.name.max'),
-        //         (value: any) => {
-        //             if (value) {
-        //                 const supportedFormats = ['jpg', 'png', 'webp', 'jpeg'];
-        //                 return supportedFormats.includes(
-        //                     value.name.split('.').pop()
-        //                 );
-        //             }
-        //             return true;
-        //         }
-        //     )
-        //     .test(
-        //         'fileSize',
-        //         t('login:Error.registration.name.max'),
-        //         (value: any) => {
-        //             if (value) return value.size <= 3145728;
-        //             return true;
-        //         }
-        //     ),
 
-        // telegram: yup.string()
-        //     .matches(/^[a-zA-Zа-яА-ЯіІїЇєЄґҐ\s]*$/, t('login:Error.registration.name.matches'))
     })
-
-
-    const formik = useFormik({
-        initialValues: {
-            full_name: user?.full_name || '',
-            email: user?.email || '',
-            city: '',
-            avatar_url: null,
-            telegram: '',
-            show_email: false,
-            show_telegram: false
-        },
-        validationSchema: validationSchemaUpdate,
-        onSubmit: (values: UpdateForm, { setSubmitting }) => {
-            // Обработка отправки формы (например, диспетчеризация действия)
-            console.log(values);
-            setSubmitting(false);
-        }
-
-    });
 
 
     // const inputField: FieldSettings[] = [
     //     {id: 1, label_text: t('mySettings:UpdateData.LabelUpdate.newEmail'), name: 'email'},
     //     {id: 2, label_text: t('mySettings:UpdateData.LabelUpdate.newName'), name: 'full_name', type: 'text'},
-    //     {id: 3, label_text: t('mySettings:UpdateData.LabelUpdate.newCity'), name: 'city', component:PlaceSearch },
+    //     {id: 3, label_text: t('mySettings:UpdateData.LabelUpdate.newCity'), name: 'city', component:<PlaceSearch field={} form={} meta={} /> },
     //     {id: 4, label_text: t('mySettings:UpdateData.LabelUpdate.telegram'), name: 'telegram', type:'text'},
     // ]
 
@@ -112,11 +62,17 @@ const UpdateData = () => {
         {id: 1, label_text: t('mySettings:UpdateData.LabelUpdate.checkBoxAddress'), name: 'show_email'},
         {id: 2, label_text: t('mySettings:UpdateData.LabelUpdate.checkBoxTelegram'), name: 'show_telegram'},
     ]
+    const handleFormSubmit = (values: UpdateForm, {setSubmitting}: any) => {
+        console.log(values);
+        setSubmitting(false);
+    };
+
     return (
         <div className={styles.Update}>
-            <Formik  initialValues={formik.initialValues}
-                     validationSchema={formik.validationSchema}
-                     onSubmit={formik.handleSubmit}>
+            <Formik initialValues={initialValuesUpdateForm}
+                    validationSchema={validationSchemaUpdate}
+                    onSubmit={handleFormSubmit}
+            >
                 <Form className={styles.Form}>
                     <div className={styles.FormPhoto}>
                         <Field component={UserPhoto} name="avatar_url"/>
@@ -124,37 +80,26 @@ const UpdateData = () => {
                     <div className={styles.FormWrapper}>
                         <label className={styles.FormWrapperLabel}
                                htmlFor="email">{t('mySettings:UpdateData.LabelUpdate.newEmail')}</label>
-                        <Field className={styles.FormWrapperImput} name="email" type='email' value={formik.values.email}
-                               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                                   formik.setFieldValue('email', e.target.value);
-                               }} ></Field>
-                        <ErrorMessage component="span" name='email'/>
+                        <Field className={styles.FormWrapperImput} name="email" type='email'></Field>
+                        <ErrorMessage className={styles.FormWrapperError} component="span" name='email'/>
                     </div>
                     <div className={styles.FormWrapper}>
                         <label className={styles.FormWrapperLabel}
                                htmlFor="text">{t('mySettings:UpdateData.LabelUpdate.newName')}</label>
-
-
-                        <Field className={styles.FormWrapperImput} name="full_name" type='text' value={formik.values.full_name}
-                               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                                   formik.setFieldValue('full_name', e.target.value);
-                               }} ></Field>
-
-
-
-                        <ErrorMessage component="span" name='full_name'/>
+                        <Field className={styles.FormWrapperImput} name="full_name" type='text'></Field>
+                        <ErrorMessage className={styles.FormWrapperError} component="span" name='full_name'/>
                     </div>
                     <div className={styles.FormWrapper}>
                         <label className={styles.FormWrapperLabel}
                                htmlFor="text">{t('mySettings:UpdateData.LabelUpdate.newCity')}</label>
                         <Field className={styles.FormWrapperImput} component={PlaceSearch} name="city"></Field>
-                        <ErrorMessage component="span" name='city'/>
+                        <ErrorMessage className={styles.FormWrapperError} component="span" name='city'/>
                     </div>
                     <div className={styles.FormWrapper}>
                         <label className={styles.FormWrapperLabel}
                                htmlFor="text">{t('mySettings:UpdateData.LabelUpdate.telegram')}</label>
                         <Field className={styles.FormWrapperImput} name="telegram" type='text'></Field>
-                        <ErrorMessage component="span" name='telegram'/>
+                        <ErrorMessage className={styles.FormWrapperError} component="span" name='telegram'/>
                     </div>
                     <div className={styles.FormCheckBoxList}>
                         {checkBoxUpdate.map(item => (
