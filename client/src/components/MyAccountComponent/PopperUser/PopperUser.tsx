@@ -53,14 +53,6 @@ const PopperUser = () => {
 
     const open = Boolean(anchorEl);
     const id = open ? 'simple-popper' : undefined;
-    const popperList: NavigationList[] = [
-        {name: t('Nav.account'), path: "/account", icon: "/header/user.svg"},
-        {name: t('Nav.favorite'), path: "/favorite", icon: "/header/paperclip.svg"},
-        {name: t('Nav.books'), path: "/bookshelf", icon: "/header/book.svg"},
-        {name: t('Nav.read'), path: "/wantRead", icon: "/header/heart.svg"},
-        {name: t('Nav.reviews'), path: "/subscriptions", icon: "/header/star.svg"},
-        {name: t('Nav.settings'), path: "/settings", icon: "/header/settings.svg"}
-    ]
     //---------------------Content-----------------------
 
 
