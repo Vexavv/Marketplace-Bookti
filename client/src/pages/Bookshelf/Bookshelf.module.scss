@@ -6,7 +6,8 @@
     grid-template-columns: 263px calc(100% - 263px);
 
     @media all and (max-width: 900px) {
-        grid-template-columns: 175px calc(100% - 175px);
+        /* grid-template-columns: 175px calc(100% - 175px); */
+        grid-template-columns: 1fr;
     }
 
     &Aside {
@@ -42,6 +43,7 @@
             height: fit-content;
             border-radius: 8px;
             box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+            margin-bottom: 100px;
 
             @media all and (max-width: 900px) {
                 box-shadow: none;

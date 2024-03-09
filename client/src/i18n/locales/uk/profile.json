@@ -8,14 +8,26 @@
         }
     },
     "list": [
-        { "title": "Моя книжная полиця", "link": "my-bookshelf" },
+        { "title": "Моя книжкова полиця", "link": "my-bookshelf" },
         { "title": "Мене цікавить", "link": "interest" },
         { "title": "Відгуки", "link": "reviews" }
     ],
     "bokkshelf": {
+        "empty": "Тут поки пусто",
+        "item": {
+            "btn-exchange": "Обмін",
+            "info-table": {
+                "lang": "Мова"
+            },
+            "tooltip-favorits": {
+                "true": "Видалити з мого списку бажань",
+                "false": "Додати до мого списку бажань"
+            }
+        }
+    },
+    "interesting": {
         "empty": "Тут поки пусто"
     },
-    "interesting": {},
     "reviews": {
         "btn-add-review": "Додати відгук",
         "form": {
@@ -23,6 +35,13 @@
             "clue": "Ваша оцінка",
             "placeholder": "Написати відгук",
             "btn-submit": "Відправити"
+        },
+        "item": {
+            "btn-read-more": {
+                "true": "Читати повністю",
+                "false": "Згорнути"
+            },
+            "btn-translate": "Перекласти"
         }
     }
 }

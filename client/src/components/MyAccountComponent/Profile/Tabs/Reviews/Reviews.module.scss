@@ -6,7 +6,7 @@
         padding-block: 25px;
 
         > button {
-            @include flexible-font(24px, 3vw, 24px, 600, #686666);
+            @include flexible-font(18px, 3vw, 24px, 600, #686666);
             padding-block: 22px;
             cursor: pointer;
             border: none;

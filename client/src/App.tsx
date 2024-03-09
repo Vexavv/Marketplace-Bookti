@@ -5,7 +5,12 @@ import './App.css';
 const routes = createBrowserRouter(rootRoutes);
 
 function App() {
-    return <RouterProvider router={routes} />;
+    return (
+        <RouterProvider
+            router={routes}
+            fallbackElement={<div>Loading...</div>}
+        />
+    );
 }
 
 export default App;

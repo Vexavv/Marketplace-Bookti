@@ -13,16 +13,35 @@
         { "title": "Reviews", "link": "reviews" }
     ],
     "bokkshelf": {
+        "empty": "It's still empty here",
+        "item": {
+            "btn-exchange": "Swap",
+            "info-table": {
+                "lang": "Language"
+            },
+            "tooltip-favorits": {
+                "true": "Remove from my wishlist",
+                "false": "Add to my wishlist"
+            }
+        }
+    },
+    "interesting": {
         "empty": "It's still empty here"
     },
-    "interesting": {},
     "reviews": {
         "btn-add-review": "Write a review",
         "form": {
             "title": "Write a review",
-            "clue": "Your reta",
+            "clue": "Your rate",
             "placeholder": "Enter review here",
             "btn-submit": "Submit"
+        },
+        "item": {
+            "btn-read-more": {
+                "true": "Read in full",
+                "false": "Collapse"
+            },
+            "btn-translate": "Translate"
         }
     }
 }
