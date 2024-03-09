@@ -54,6 +54,7 @@ const AddBookForm: FC = () => {
 
     const handleSubmit = async (data: IFormFilds) => {
         await dispatch(addBookAsync(data));
+        console.log(data)
     };
 
     return (

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './UpdateData.module.scss'
 import {useTranslation} from "react-i18next";
 import {Formik, Form, Field, ErrorMessage, FormikHelpers, FormikProps,} from 'formik';
@@ -7,13 +7,15 @@ import UserPhoto from "./UserPhoto/UserPhoto";
 import {FieldSettings, LoginForm} from "../../../../types";
 import PlaceSearch from "../../../../uiComponent/PlaceSearch/PlaceSearch";
 import Button from "../../../../uiComponent/Button/Button";
+import * as Yup from "yup";
+import {useAppDispatch, useAppSelector} from "../../../../hook";
 
 
 interface UpdateForm {
     full_name?: string,
     email?: string,
     city?: string,
-    avatar_url?: string,
+    avatar_url?: null,
     telegram?: string,
     show_email?: boolean,
     show_telegram?: boolean
@@ -25,7 +27,7 @@ const initialValuesUpdateForm: UpdateForm = {
     full_name: '',
     email: '',
     city: '',
-    avatar_url: '',
+    avatar_url: null,
     telegram: '',
     show_email: false,
     show_telegram: false
@@ -34,7 +36,13 @@ const initialValuesUpdateForm: UpdateForm = {
 
 const UpdateData = () => {
     const {t} = useTranslation(['mySettings', 'login'])
+    const dispatch = useAppDispatch()
+    const user = useAppSelector(state => state.auth.user)
 
+
+    // value={name} onChange={(e: any) => setName(e.target.value)}
+    const [userEmail, setUserEmail] = useState(user && user.email || '')
+    const [name, setName] = useState(user && user.full_name || '')
 
 
     const validationSchemaUpdate: yup.Schema<UpdateForm> = yup.object().shape({
@@ -46,7 +54,28 @@ const UpdateData = () => {
             .email(t('login:Error.login.email.email')),
         city: yup.string()
             .matches(/^[a-zA-Zа\s]*$/, t('login:Error.registration.name.city')),
-        avatar_url:yup.string(),
+        // avatar_url:Yup.mixed()
+        //     .test(
+        //         'fileFormat',
+        //         t('login:Error.registration.name.max'),
+        //         (value: any) => {
+        //             if (value) {
+        //                 const supportedFormats = ['jpg', 'png', 'webp', 'jpeg'];
+        //                 return supportedFormats.includes(
+        //                     value.name.split('.').pop()
+        //                 );
+        //             }
+        //             return true;
+        //         }
+        //     )
+        //     .test(
+        //         'fileSize',
+        //         t('login:Error.registration.name.max'),
+        //         (value: any) => {
+        //             if (value) return value.size <= 3145728;
+        //             return true;
+        //         }
+        //     ),
 
         // telegram: yup.string()
         //     .matches(/^[a-zA-Zа-яА-ЯіІїЇєЄґҐ\s]*$/, t('login:Error.registration.name.matches'))
@@ -76,13 +105,13 @@ const UpdateData = () => {
                     <div className={styles.FormWrapper}>
                         <label className={styles.FormWrapperLabel}
                                htmlFor="email">{t('mySettings:UpdateData.LabelUpdate.newEmail')}</label>
-                        <Field className={styles.FormWrapperImput} name="email" type='email'></Field>
+                        <Field className={styles.FormWrapperImput} name="email" type='email'  ></Field>
                         <ErrorMessage component="span" name='email'/>
                     </div>
                     <div className={styles.FormWrapper}>
                         <label className={styles.FormWrapperLabel}
                                htmlFor="text">{t('mySettings:UpdateData.LabelUpdate.newName')}</label>
-                        <Field className={styles.FormWrapperImput} name="full_name" type='text'></Field>
+                        <Field className={styles.FormWrapperImput} name="full_name" type='text' ></Field>
                         <ErrorMessage component="span" name='full_name'/>
                     </div>
                     <div className={styles.FormWrapper}>
