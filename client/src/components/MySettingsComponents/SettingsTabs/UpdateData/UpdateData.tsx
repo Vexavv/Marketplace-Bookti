@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './UpdateData.module.scss'
 import {useTranslation} from "react-i18next";
-import {Formik, Form, Field, ErrorMessage, FormikHelpers, FormikProps,} from 'formik';
+import {Formik, Form, Field, ErrorMessage, useFormik } from 'formik';
 import * as yup from 'yup';
 import UserPhoto from "./UserPhoto/UserPhoto";
 import {FieldSettings, LoginForm} from "../../../../types";
@@ -22,16 +22,7 @@ interface UpdateForm {
 
 }
 
-// initialValues
-const initialValuesUpdateForm: UpdateForm = {
-    full_name: '',
-    email: '',
-    city: '',
-    avatar_url: null,
-    telegram: '',
-    show_email: false,
-    show_telegram: false
-}
+
 
 
 const UpdateData = () => {
@@ -40,12 +31,20 @@ const UpdateData = () => {
     const user = useAppSelector(state => state.auth.user)
 
 
-    // value={name} onChange={(e: any) => setName(e.target.value)}
-    const [userEmail, setUserEmail] = useState(user && user.email || '')
-    const [name, setName] = useState(user && user.full_name || '')
+
+    // const initialValuesUpdateForm: UpdateForm = {
+    //     full_name: user?.full_name || '',
+    //     email:  '',
+    //     city: '',
+    //     avatar_url: null,
+    //     telegram: '',
+    //     show_email: false,
+    //     show_telegram: false
+    // }
 
 
-    const validationSchemaUpdate: yup.Schema<UpdateForm> = yup.object().shape({
+
+    const validationSchemaUpdate: yup.Schema<UpdateForm> = Yup.object().shape({
         full_name: yup.string()
             .matches(/^[a-zA-Zа-яА-ЯіІїЇєЄґҐ\s]*$/, t('login:Error.registration.name.matches'))
             .min(2, t('login:Error.registration.name.min'))
@@ -82,6 +81,26 @@ const UpdateData = () => {
     })
 
 
+    const formik = useFormik({
+        initialValues: {
+            full_name: user?.full_name || '',
+            email: user?.email || '',
+            city: '',
+            avatar_url: null,
+            telegram: '',
+            show_email: false,
+            show_telegram: false
+        },
+        validationSchema: validationSchemaUpdate,
+        onSubmit: (values: UpdateForm, { setSubmitting }) => {
+            // Обработка отправки формы (например, диспетчеризация действия)
+            console.log(values);
+            setSubmitting(false);
+        }
+
+    });
+
+
     // const inputField: FieldSettings[] = [
     //     {id: 1, label_text: t('mySettings:UpdateData.LabelUpdate.newEmail'), name: 'email'},
     //     {id: 2, label_text: t('mySettings:UpdateData.LabelUpdate.newName'), name: 'full_name', type: 'text'},
@@ -95,9 +114,9 @@ const UpdateData = () => {
     ]
     return (
         <div className={styles.Update}>
-            <Formik initialValues={initialValuesUpdateForm} validationSchema={validationSchemaUpdate} onSubmit={(values: UpdateForm) => {
-                console.log(values)
-            }}>
+            <Formik  initialValues={formik.initialValues}
+                     validationSchema={formik.validationSchema}
+                     onSubmit={formik.handleSubmit}>
                 <Form className={styles.Form}>
                     <div className={styles.FormPhoto}>
                         <Field component={UserPhoto} name="avatar_url"/>
@@ -105,13 +124,24 @@ const UpdateData = () => {
                     <div className={styles.FormWrapper}>
                         <label className={styles.FormWrapperLabel}
                                htmlFor="email">{t('mySettings:UpdateData.LabelUpdate.newEmail')}</label>
-                        <Field className={styles.FormWrapperImput} name="email" type='email'  ></Field>
+                        <Field className={styles.FormWrapperImput} name="email" type='email' value={formik.values.email}
+                               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                                   formik.setFieldValue('email', e.target.value);
+                               }} ></Field>
                         <ErrorMessage component="span" name='email'/>
                     </div>
                     <div className={styles.FormWrapper}>
                         <label className={styles.FormWrapperLabel}
                                htmlFor="text">{t('mySettings:UpdateData.LabelUpdate.newName')}</label>
-                        <Field className={styles.FormWrapperImput} name="full_name" type='text' ></Field>
+
+
+                        <Field className={styles.FormWrapperImput} name="full_name" type='text' value={formik.values.full_name}
+                               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                                   formik.setFieldValue('full_name', e.target.value);
+                               }} ></Field>
+
+
+
                         <ErrorMessage component="span" name='full_name'/>
                     </div>
                     <div className={styles.FormWrapper}>
