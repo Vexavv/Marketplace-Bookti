@@ -1,6 +1,6 @@
-import { RouteObject } from 'react-router-dom';
-import { bookshelfRoutes } from './bookshelf';
-import { profileRoutes } from './profile';
+import {RouteObject} from 'react-router-dom';
+import {bookshelfRoutes} from './bookshelf';
+import {profileRoutes} from './profile';
 import PrivateRoute from '../utils/PrivateRoute/PrivateRoute';
 import AddBook from '../pages/AddBook/AddBook';
 import Layout from '../components/Layout/Layout';
@@ -20,97 +20,115 @@ import PageNotFound from '../pages/PageNotFound/PageNotFound';
 import Home from '../pages/Home/Home';
 import Forum from '../pages/Forum/Forum';
 import Chat from '../pages/Chat/Chat';
+import MySettings from "../pages/MySettings/MySettings";
+import MySubscriptions from "../pages/MySubscriptions/MySubscriptions";
 
 export const rootRoutes: RouteObject[] = [
     {
-        element: <Layout />,
+        element: <Layout/>,
         path: '/',
         children: [
             {
                 index: true,
-                element: <Home />,
+                element: <Home/>,
             },
             {
                 path: 'about',
-                element: <About />,
+                element: <About/>,
             },
             {
                 path: 'library',
-                element: <Library />,
+                element: <Library/>,
             },
             {
                 path: 'journal',
-                element: <Journal />,
+                element: <Journal/>,
             },
             {
                 path: 'forum',
-                element: <Forum />,
+                element: <Forum/>,
             },
             {
                 path: 'terms',
-                element: <TermsAndConditions />,
+                element: <TermsAndConditions/>,
             },
             {
                 path: 'chat',
-                element: <Chat />,
+                element: <Chat/>,
             },
             {
                 path: 'message',
-                element: <Message />,
-            },
-            {
-                path: 'favorite',
-                element: <Favorite />,
+                element: <Message/>,
             },
             {
                 path: 'wantRead',
-                element: <WantRead />,
+                element: <WantRead/>,
             },
             {
                 path: 'privacy',
-                element: <PrivacyPolicy />,
+                element: <PrivacyPolicy/>,
             },
             {
                 path: 'login',
-                element: <LogIn />,
+                element: <LogIn/>,
             },
             {
                 path: 'registration',
-                element: <Registration />,
+                element: <Registration/>,
             },
             {
                 path: 'renamePassword',
-                element: <RenamePassword />,
+                element: <RenamePassword/>,
             },
             {
                 path: 'separatePage',
-                element: <SeparatePage />,
+                element: <SeparatePage/>,
             },
             {
                 path: '*',
-                element: <PageNotFound />,
+                element: <PageNotFound/>,
             },
             //------------------Private routes-------------------------
             {
                 path: '/',
-                element: <PrivateRoute />,
+                element: <PrivateRoute/>,
                 children: profileRoutes,
             },
             {
                 path: '/',
-                element: <PrivateRoute />,
+                element: <PrivateRoute/>,
                 children: bookshelfRoutes,
             },
             {
                 path: '/',
-                element: <PrivateRoute />,
+                element: <PrivateRoute/>,
                 children: [
                     {
                         path: 'bookshelf/add-book',
-                        element: <AddBook />,
+                        element: <AddBook/>,
                     },
                 ],
             },
+            {
+                path: '/',
+                element: <PrivateRoute/>,
+                children: [
+                    {
+                        path: 'settings',
+                        element: <MySettings/>,
+                    },
+                    {
+                        path: 'subscriptions',
+                        element: <MySubscriptions/>,
+                    },
+                    {
+                        path: 'favorite',
+                        element: <Favorite />,
+                    },
+
+                ],
+            },
+
         ],
     },
 ];
