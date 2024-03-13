@@ -40,7 +40,7 @@ const UpdateData = () => {
 
     const validationSchemaUpdate: yup.Schema<UpdateForm> = yup.object().shape({
         full_name: yup.string()
-            .matches(/^[a-zA-Zа-яА-ЯіІїЇєЄґҐ\s]*$/, t('login:Error.registration.name.matches'))
+            .matches(/^(?!^\s*$)[a-zA-Zа-яА-ЯіІїЇєЄґҐ\s]+$/, t('login:Error.registration.name.matches'))
             .min(2, t('login:Error.registration.name.min'))
             .max(25, t('login:Error.registration.name.max'))
             .required(t('login:Error.login.email.required')),
