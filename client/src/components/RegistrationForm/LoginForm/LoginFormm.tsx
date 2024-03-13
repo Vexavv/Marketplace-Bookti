@@ -80,7 +80,7 @@ const LoginFormm = ({registration}: LoginFormProps) => {
             .email(t('Error.login.email.email'))
             .required(t('Error.login.email.required')),
         city: yup.string()
-            .matches(/^[a-zA-Zа\s]*$/, t('Error.registration.name.city'))
+            .matches(/^[a-zA-Zа\s'-]*$/u, t('Error.registration.name.city'))
             .required(t('Error.login.email.required')),
         password: yup.string()
             .minSymbols(0)
@@ -107,6 +107,7 @@ const LoginFormm = ({registration}: LoginFormProps) => {
             {registration ? (<div><Formik initialValues={initialValuesSignIn}
                                           validationSchema={validationSchemaRegister}
                                           onSubmit={async (values: CreateAccountValues, {resetForm}: FormikHelpers<CreateAccountValues>) => {
+                                              console.log(values)
                                               await dispatch(createAccountAsync(values));
                                               await dispatch(getUserAsync())
                                               resetForm();

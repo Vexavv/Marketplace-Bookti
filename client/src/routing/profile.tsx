@@ -5,6 +5,7 @@ import Interest from '../components/MyAccountComponent/Profile/Tabs/Interest/Int
 import Reviews from '../components/MyAccountComponent/Profile/Tabs/Reviews/Reviews';
 
 import bookshelfTabsService from '../services/BookshelfTabsService/bookshelf.tabs.service';
+import Loader from '../uiComponent/Loader/Loader';
 
 export const profileRoutes: RouteObject[] = [
     {
@@ -19,6 +20,7 @@ export const profileRoutes: RouteObject[] = [
 
                     return data;
                 },
+                HydrateFallback: Loader,
                 errorElement: <div>error</div>,
             },
             {
@@ -27,6 +29,7 @@ export const profileRoutes: RouteObject[] = [
                 loader: async () => {
                     return { content: [] };
                 },
+                HydrateFallback: Loader,
                 errorElement: <div>error</div>,
             },
             {
@@ -42,6 +45,7 @@ export const profileRoutes: RouteObject[] = [
                         ],
                     };
                 },
+                HydrateFallback: Loader,
                 errorElement: <div>error</div>,
             },
             {

@@ -44,9 +44,17 @@ const PlaceSearch: React.FC<PlaceSearchProps> = ({className, field, form, ...pro
 //---------------------------------- Added to input ----------------------------------
     const itemClickHandler = (e: React.MouseEvent<HTMLLIElement>) => {
         const clickedElement = e.target as HTMLLIElement;
+        const newValue = clickedElement.textContent || '';
+        setValueCity(newValue);
+        onChange({
+            target: {
+                name,
+                value: newValue,
+            },
+        });
         setIsOpen(!isOpen);
-        setValueCity(clickedElement.textContent || '');
-    }
+    };
+
 
 //--------------------------- Change value input -------------------------------
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
