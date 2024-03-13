@@ -46,6 +46,7 @@ const UpdateData = () => {
             .required(t('login:Error.login.email.required')),
         email: yup.string()
             .email(t('login:Error.login.email.email'))
+            .matches(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(\.[A-Za-z]{2,})+$/, t('login:Error.login.email.email'))
             .required(t('login:Error.login.email.required')),
         city: yup.string()
             .matches(/^[a-zA-Zа\s'-]*$/u, t('login:Error.registration.name.city'))
