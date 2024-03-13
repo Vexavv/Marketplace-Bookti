@@ -78,6 +78,7 @@ const LoginFormm = ({registration}: LoginFormProps) => {
             .required(t('Error.login.email.required')),
         email: yup.string()
             .email(t('Error.login.email.email'))
+            .matches(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(\.[A-Za-z]{2,})+$/, t('Error.login.email.email'))
             .required(t('Error.login.email.required')),
         city: yup.string()
             .matches(/^[a-zA-Zа\s'-]*$/u, t('Error.registration.name.city'))
