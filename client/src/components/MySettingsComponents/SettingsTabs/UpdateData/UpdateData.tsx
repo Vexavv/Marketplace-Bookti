@@ -13,7 +13,7 @@ import {useAppDispatch, useAppSelector} from "../../../../hook";
 interface UpdateForm {
     full_name?: string,
     email?: string,
-    city?: string,
+    city: string,
     avatar_url?: null,
     telegram?: string,
     show_email?: boolean,
@@ -43,13 +43,13 @@ const UpdateData = () => {
             .matches(/^[a-zA-Zа-яА-ЯіІїЇєЄґҐ\s]*$/, t('login:Error.registration.name.matches'))
             .min(2, t('login:Error.registration.name.min'))
             .max(25, t('login:Error.registration.name.max'))
-        .required(t('login:Error.login.email.required')),
+            .required(t('login:Error.login.email.required')),
         email: yup.string()
             .email(t('login:Error.login.email.email'))
-        .required(t('login:Error.login.email.required')),
+            .required(t('login:Error.login.email.required')),
         city: yup.string()
-            .matches(/^[a-zA-Zа\s]*$/, t('login:Error.registration.name.city')),
-
+            .matches(/^[a-zA-Zа\s'-]*$/u, t('login:Error.registration.name.city'))
+            .required(t('login:Error.login.email.required')),
     })
 
 

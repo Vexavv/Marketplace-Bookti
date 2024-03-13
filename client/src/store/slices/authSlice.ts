@@ -10,6 +10,7 @@ interface LoginCredentials {
 interface CreateAccountCredentials {
     email: string;
     password: string;
+    city:string;
     full_name: string;
     confirm_password: string;
 }
@@ -24,6 +25,7 @@ export interface User {
     email: string;
     full_name: string;
     avatar_url: string;
+    city:string;
 }
 
 interface AuthData {
@@ -83,9 +85,7 @@ export const getUserAsync = createAsyncThunk(
             // @ts-ignore
             authData = getState().auth.data as AuthData;
             const token = authData.access_token;
-            console.log('UserToken', token);
             const id = authData.user_id;
-            console.log('UserID', id);
 
             const response: AxiosResponse<User> = await axios.get(
                 `${BASE_URL}/users/${id}`,
