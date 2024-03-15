@@ -7,6 +7,7 @@ import login from '../i18n/locales/uk/login.json';
 import mobileMenu from '../i18n/locales/uk/mobileMenu.json';
 import modal from '../i18n/locales/uk/modal.json';
 import mySettings from '../i18n/locales/uk/mySettings.json';
+import mySubscriptions from '../i18n/locales/uk/mySubscriptions.json';
 import profile from '../i18n/locales/uk/profile.json';
 import separatePage from '../i18n/locales/uk/separatePage.json';
 
@@ -20,6 +21,7 @@ const resources = {
   mobileMenu,
   modal,
   mySettings,
+  mySubscriptions,
   profile,
   separatePage
 } as const;

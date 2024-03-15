@@ -4,7 +4,6 @@ import Container from "../../uiComponent/Container/Container";
 import SettingsTabs from "../../components/MySettingsComponents/SettingsTabs/SettingsTabs";
 import {Tab} from "../../types";
 import {useTranslation} from "react-i18next";
-import {useNavigate} from "react-router-dom";
 import Back from "../../uiComponent/Back/Back";
 import UpdateData from "../../components/MySettingsComponents/SettingsTabs/UpdateData/UpdateData";
 import Notification from "../../components/MySettingsComponents/SettingsTabs/Notification/Notification";

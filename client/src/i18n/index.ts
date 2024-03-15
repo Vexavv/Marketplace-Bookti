@@ -25,6 +25,8 @@ import separatePageUk from './locales/uk/separatePage.json'
 import separatePageEn from './locales/en/separatePage.json'
 import mySettingsUk from './locales/uk/mySettings.json'
 import mySettingsEn from './locales/en/mySettings.json'
+import mySubscriptionsUk from './locales/uk/mySubscriptions.json'
+import mySubscriptionsEn from './locales/en/mySubscriptions.json'
 
 const resources = {
     [LOCALS.UK]: {
@@ -39,6 +41,7 @@ const resources = {
         profile: profileUk,
         separatePage:separatePageUk,
         mySettings:mySettingsUk,
+        mySubscriptions:mySubscriptionsUk
     },
     [LOCALS.EN]: {
         header: headerEn,
@@ -52,6 +55,7 @@ const resources = {
         profile: profileEn,
         separatePage:separatePageEn,
         mySettings:mySettingsEn,
+        mySubscriptions:mySubscriptionsEn
     },
 };
 
