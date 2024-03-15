@@ -5,22 +5,29 @@ import Container from "../../uiComponent/Container/Container";
 import Back from "../../uiComponent/Back/Back";
 import {useWindowSize} from "../../hooks/useWindowSize";
 import {Tab} from "../../types";
+import MySubscriptionsUsers from "../../components/MySubscriptionsComponent/MySubscriptionsUsers/MySubscriptionsUsers";
+import NewUsers from "../../components/MySubscriptionsComponent/NewUsers/NewUsers";
+import SettingsTabs from "../../uiComponent/SettingsTabs/SettingsTabs";
 
 const MySubscriptions = () => {
     const {t} = useTranslation('mySubscriptions')
-const subscriptionTabs: Tab[] = [
-    {id:1, label:t('Tabs.subscriptions'),content:<div></div>},
-    {id:2, label:t('Tabs.users'),content:<div></div>}
-]
-    const { width } = useWindowSize();
+    const subscriptionTabs: Tab[] = [
+        {id: 1, label: t('Tabs.subscriptions'), content: <MySubscriptionsUsers/>},
+        {id: 2, label: t('Tabs.users'), content: <NewUsers/>}
+    ]
+    const {width} = useWindowSize();
     return (
         <Container>
             <Back text={t('Back')}/>
-            {width && width <= 900 ? <div>
-                MySubscriptions
-            </div> : <div>
-                My Dextop Version
-            </div>}
+            {width && width <= 900 ?
+                <SettingsTabs tabs={subscriptionTabs} classNamePanel={styles.TabsPanel} classNameTabs={styles.Tabs}
+                              classNameTabList={styles.TabsTabList}
+                              classNameTab={styles.TabsTabListTab}
+                />
+                : <div>
+                    <MySubscriptionsUsers/>
+                    <NewUsers/>
+                </div>}
 
 
         </Container>

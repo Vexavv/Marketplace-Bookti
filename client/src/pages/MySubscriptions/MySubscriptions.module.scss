@@ -1,0 +1,22 @@
+@import "../../styles/mixins.module";
+  .Tabs{
+    display: flex;
+    flex-direction: column;
+    &TabList{
+      display: flex;
+      list-style: none;
+      justify-content: space-around;
+      background: rgb(255, 255, 255);
+      &Tab{
+        @include primary-font;
+        color: rgb(0, 0, 0);
+        line-height: 20px;
+        letter-spacing: 0;
+        cursor: pointer;
+      }
+
+    }
+    &Panel{
+
+    }
+  }
