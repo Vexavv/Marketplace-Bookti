@@ -4,10 +4,10 @@ import {useTranslation} from "react-i18next";
 import {Formik, Form, Field, ErrorMessage} from 'formik';
 import * as yup from 'yup';
 import UserPhoto from "./UserPhoto/UserPhoto";
-import {FieldSettings} from "../../../../types";
-import PlaceSearch from "../../../../uiComponent/PlaceSearch/PlaceSearch";
-import Button from "../../../../uiComponent/Button/Button";
-import {useAppDispatch, useAppSelector} from "../../../../hook";
+import {FieldSettings} from "../../../types";
+import PlaceSearch from "../../../uiComponent/PlaceSearch/PlaceSearch";
+import Button from "../../../uiComponent/Button/Button";
+import {useAppDispatch, useAppSelector} from "../../../hook";
 
 
 interface UpdateForm {

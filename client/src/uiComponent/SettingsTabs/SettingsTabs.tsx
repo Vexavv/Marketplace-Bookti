@@ -2,8 +2,7 @@ import React, {useState} from 'react';
 import styles from './SettingsTabs.module.scss'
 import {SettingTabsProps} from "./SettingsTabs.props";
 
-
-const SettingsTabs: React.FC<SettingTabsProps> = ({ tabs })  => {
+const SettingsTabs: React.FC<SettingTabsProps> = ({ tabs,classNameTab, classNameTabs, classNameTabList, classNamePanel })  => {
     const [activeTab, setActiveTab] = useState<number>(tabs[0]?.id || 0);
 
     const handleTabClick = (tabId: number) => {
@@ -11,13 +10,13 @@ const SettingsTabs: React.FC<SettingTabsProps> = ({ tabs })  => {
     };
 
     return (
-        <div className={styles.Tabs}>
-            <ul className={styles.TabsTabList}>
+        <div className={classNameTabs}>
+            <ul className={classNameTabList}>
                 {tabs.map(tab =>(
-                    <li className={`${styles.TabsTabListTab} ${activeTab === tab.id ? styles.ActiveTab : ''}`} key={tab.id} onClick={() => handleTabClick(tab.id)}>{tab.label}</li>
+                    <li className={`${classNameTab} ${activeTab === tab.id ? styles.ActiveTab : ''}`} key={tab.id} onClick={() => handleTabClick(tab.id)}>{tab.label}</li>
                 ))}
             </ul>
-            <div className={styles.TabsPanel}>
+            <div className={classNamePanel}>
                 {tabs.map((tab) =>
                     activeTab === tab.id ? (
                         <div key={tab.id}>{tab.content}</div>
