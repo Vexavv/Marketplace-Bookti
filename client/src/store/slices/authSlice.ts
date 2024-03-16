@@ -11,7 +11,7 @@ interface LoginCredentials {
 interface CreateAccountCredentials {
     email: string;
     password: string;
-    city:string;
+    location:string;
     full_name: string;
     confirm_password: string;
 }

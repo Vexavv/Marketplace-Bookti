@@ -1,8 +1,9 @@
 import React from 'react';
 import styles from './Button.module.scss';
-import { ButtonProps } from './Button.props';
+import {ButtonProps} from './Button.props';
 import cn from 'classnames';
-const Button = ({ name, children, className, ...props }: ButtonProps) => {
+
+const Button = ({name, children, className, ...props}: ButtonProps) => {
     return (
         <button
             className={cn(styles.Button, className, {
@@ -16,7 +17,8 @@ const Button = ({ name, children, className, ...props }: ButtonProps) => {
                 [styles.BookshelfExchange]: name == 'BookshelfExchange',
                 [styles.BookshelfAdd]: name == 'BookshelfAdd',
                 [styles.AddBook]: name == 'AddBook',
-                [styles.SeparateExchange]: name == 'SeparateExchange'
+                [styles.SeparateExchange]: name == 'SeparateExchange',
+                [styles.SubscriptionUser]: name == 'SubscriptionUser'
             })}
             {...props}
         >
