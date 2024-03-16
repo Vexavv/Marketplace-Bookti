@@ -1,8 +1,10 @@
 @import "../../../styles/mixins.module";
 
 .MyUsers{
-  //margin-top: 40px ;
+  display: flex;
+  flex-direction: column;
   padding: 35px 0;
+
   &Item{
     box-sizing: border-box;
     border: 0.5px solid rgb(119, 119, 119);
@@ -10,6 +12,9 @@
     background: rgb(255, 255, 255);
     list-style: none;
     margin-bottom: 20px;
+    align-self: center;
+    width: 100%;
+    max-width: 615px;
     &Content{
       display: flex;
       align-items: center;
@@ -23,6 +28,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+
       }
       &Text{
         display: flex;
