@@ -4,8 +4,8 @@ import {useTranslation} from "react-i18next";
 import {Formik, Form, Field, ErrorMessage, FormikHelpers,} from 'formik';
 import * as yup from "yup";
 import YupPassword from 'yup-password'
-import {FieldSettings, LoginForm} from "../../../../types";
-import Button from "../../../../uiComponent/Button/Button";
+import {FieldSettings, LoginForm} from "../../../types";
+import Button from "../../../uiComponent/Button/Button";
 
 
 

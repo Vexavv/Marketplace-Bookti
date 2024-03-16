@@ -25,7 +25,7 @@ const initialValuesLogin: LoginFormValues = {
 const initialValuesSignIn: CreateAccountValues = {
     full_name: '',
     email: '',
-    city:'',
+    location:'',
     password: '',
     confirm_password: '',
     checkboxField: false,
@@ -39,7 +39,7 @@ interface LoginFormValues {
 interface CreateAccountValues {
     full_name: string;
     email: string;
-    city:string;
+    location:string;
     password: string;
     confirm_password: string;
     checkboxField: boolean
@@ -80,7 +80,7 @@ const LoginFormm = ({registration}: LoginFormProps) => {
             .email(t('Error.login.email.email'))
             .matches(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(\.[A-Za-z]{2,})+$/, t('Error.login.email.email'))
             .required(t('Error.login.email.required')),
-        city: yup.string()
+        location: yup.string()
             .matches(/^[a-zA-Zа\s'-]*$/u, t('Error.registration.name.city'))
             .required(t('Error.login.email.required')),
         password: yup.string()
@@ -125,8 +125,8 @@ const LoginFormm = ({registration}: LoginFormProps) => {
                     <ErrorMessage className={styles.FormInputError} component="span" name="email"/>
 
 
-                    <Field className={styles.FormInput} component={PlaceSearch} name="city" placeholder={t('LoginPlaceholder.city')}/>
-                    <ErrorMessage className={styles.FormInputError} component="span" name="city"/>
+                    <Field className={styles.FormInput} component={PlaceSearch} name="location" placeholder={t('LoginPlaceholder.city')}/>
+                    <ErrorMessage className={styles.FormInputError} component="span" name="location"/>
 
                     <div className={styles.FormVisibilityWrapper}>
                         <Field

@@ -1,0 +1,54 @@
+@import "../../styles/mixins.module";
+//
+//.Tabs{
+//  display: flex;
+//  flex-direction: column;
+//  &TabList{
+//    display: flex;
+//    flex-direction: column;
+//    border-radius: 12px;
+//    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+//    background: rgb(255, 255, 255);
+//    list-style: none;
+//    padding: 33px 42px;
+//    margin-bottom: 20px;
+//    height: 100%;
+//    &Tab{
+//      @include primary-font;
+//      color: rgb(0, 0, 0);
+//      line-height: 20px;
+//      letter-spacing: 0;
+//      text-align: left;
+//      cursor: pointer;
+//      margin-bottom: 11px;
+//
+//    }
+//  }
+//  &Panel{
+//    border-radius: 12px;
+//    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+//    background: rgb(255, 255, 255);
+//    width: auto;
+//    padding: 0 15px;
+//    margin-bottom: 30px;
+//  }
+//}
+//
+//@media (min-width: 900px) {
+//  .Tabs{
+//    flex-direction: row;
+//    gap: 35px;
+//    &TabList{
+//      margin-bottom: 0;
+//      max-height: 150px;
+//    }
+//    &Panel{
+//      margin-bottom: 62px;
+//    }
+//  }
+//}
+
+.ActiveTab {
+  font-weight: 600;
+  color: rgb(0, 0, 0);
+}

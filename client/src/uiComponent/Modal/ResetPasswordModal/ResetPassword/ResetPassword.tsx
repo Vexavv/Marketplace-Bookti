@@ -22,6 +22,7 @@ const ResetPassword = () => {
     const validationSchemaEmail: yup.Schema<LoginForm> = yup.object().shape({
         email: yup.string()
             .email(t('Error.login.email.email'))
+            .matches(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(\.[A-Za-z]{2,})+$/, t('login:Error.login.email.email'))
             .required(t('Error.login.email.required')),
     })
 

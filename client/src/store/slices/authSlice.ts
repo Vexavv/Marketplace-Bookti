@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios, { AxiosResponse } from 'axios';
 import { BASE_URL } from '../../constants/api';
+import {User} from "../../types";
 
 interface LoginCredentials {
     email: string;
@@ -10,7 +11,7 @@ interface LoginCredentials {
 interface CreateAccountCredentials {
     email: string;
     password: string;
-    city:string;
+    location:string;
     full_name: string;
     confirm_password: string;
 }
@@ -21,12 +22,12 @@ interface Data {
     refresh_token: string;
 }
 
-export interface User {
-    email: string;
-    full_name: string;
-    avatar_url: string;
-    city:string;
-}
+// export interface User {
+//     email: string;
+//     full_name: string;
+//     avatar_url: string;
+//     city:string;
+// }
 
 interface AuthData {
     access_token: string;

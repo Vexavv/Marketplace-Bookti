@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useRef, useState } from 'react';
 import styles from './UserPhoto.module.scss';
-import Button from "../../../../../uiComponent/Button/Button";
+import Button from "../../../../uiComponent/Button/Button";
 import {useTranslation} from "react-i18next";
 interface UserPhotoProps {
     field: { name: string; value: File | null; onChange: (event: ChangeEvent<HTMLInputElement>) => void };

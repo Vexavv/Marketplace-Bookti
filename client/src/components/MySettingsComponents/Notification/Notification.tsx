@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './Notification.module.scss'
-import Button from "../../../../uiComponent/Button/Button";
+import Button from "../../../uiComponent/Button/Button";
 import {useTranslation} from "react-i18next";
 import {Formik, Form, Field} from 'formik';
-import {FieldSettings} from "../../../../types";
+import {FieldSettings} from "../../../types";
 
 
 interface CheckBoxNotification {

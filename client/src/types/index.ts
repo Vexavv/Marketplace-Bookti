@@ -42,3 +42,10 @@ export interface FieldSettings {
     type?:string
     component?:React.ReactElement
 }
+export interface User {
+    id?:number
+    email: string;
+    full_name: string;
+    avatar_url: string;
+    location:string;
+}

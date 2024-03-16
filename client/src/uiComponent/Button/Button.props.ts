@@ -18,4 +18,5 @@ export interface ButtonProps
         | 'BookshelfAdd'
         | 'AddBook'
         | 'SeparateExchange'
+        | 'SubscriptionUser'
 }

@@ -4,16 +4,16 @@ import {useTranslation} from "react-i18next";
 import {Formik, Form, Field, ErrorMessage} from 'formik';
 import * as yup from 'yup';
 import UserPhoto from "./UserPhoto/UserPhoto";
-import {FieldSettings} from "../../../../types";
-import PlaceSearch from "../../../../uiComponent/PlaceSearch/PlaceSearch";
-import Button from "../../../../uiComponent/Button/Button";
-import {useAppDispatch, useAppSelector} from "../../../../hook";
+import {FieldSettings} from "../../../types";
+import PlaceSearch from "../../../uiComponent/PlaceSearch/PlaceSearch";
+import Button from "../../../uiComponent/Button/Button";
+import {useAppDispatch, useAppSelector} from "../../../hook";
 
 
 interface UpdateForm {
     full_name?: string,
     email?: string,
-    city: string,
+    location: string,
     avatar_url?: null,
     telegram?: string,
     show_email?: boolean,
@@ -27,11 +27,10 @@ const UpdateData = () => {
     const dispatch = useAppDispatch()
     const user = useAppSelector(state => state.auth.user)
 
-
     const initialValuesUpdateForm: UpdateForm = {
         full_name: user?.full_name || '',
         email: user?.email || '',
-        city: '',
+        location:user?.location || '',
         avatar_url: null,
         telegram: '',
         show_email: false,
@@ -48,7 +47,7 @@ const UpdateData = () => {
             .email(t('login:Error.login.email.email'))
             .matches(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(\.[A-Za-z]{2,})+$/, t('login:Error.login.email.email'))
             .required(t('login:Error.login.email.required')),
-        city: yup.string()
+        location: yup.string()
             .matches(/^[a-zA-Zа\s'-]*$/u, t('login:Error.registration.name.city'))
             .required(t('login:Error.login.email.required')),
     })
@@ -95,8 +94,8 @@ const UpdateData = () => {
                     <div className={styles.FormWrapper}>
                         <label className={styles.FormWrapperLabel}
                                htmlFor="text">{t('mySettings:UpdateData.LabelUpdate.newCity')}</label>
-                        <Field className={styles.FormWrapperImput} component={PlaceSearch} name="city"></Field>
-                        <ErrorMessage className={styles.FormWrapperError} component="span" name='city'/>
+                        <Field className={styles.FormWrapperImput} component={PlaceSearch} name="location"></Field>
+                        <ErrorMessage className={styles.FormWrapperError} component="span" name='location'/>
                     </div>
                     <div className={styles.FormWrapper}>
                         <label className={styles.FormWrapperLabel}

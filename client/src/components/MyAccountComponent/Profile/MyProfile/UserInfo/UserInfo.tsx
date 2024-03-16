@@ -1,10 +1,11 @@
 import { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { User } from '../../../../../store/slices/authSlice';
+
 import { useWindowSize } from '../../../../../hooks/useWindowSize';
 import { Rating } from 'react-simple-star-rating';
 import styles from './UserInfo.module.scss';
 import cn from 'classnames';
+import {User} from "../../../../../types";
 
 interface IUserInfoProps {
     user: User | null;
