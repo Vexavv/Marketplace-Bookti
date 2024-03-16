@@ -25,9 +25,8 @@ const MySubscriptionsUsers = () => {
                             <p className={styles.MyUsersItemContentTextCity}>{item.location}</p>
                         </div>
                         <div className={styles.MyUsersItemContentButton}>
-                            <Button name='SubscriptionUser'>{t('Button')}</Button>
+                            <Button name='SubscriptionUser'> <img style={{marginRight:'5px'}} src="/subscriptions/Vector.png" alt="Vector"/> {t('Button')}</Button>
                         </div>
-
                     </div>
                 </li>
             ))}

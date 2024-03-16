@@ -11,7 +11,7 @@ const UserInformation: FC<UserInformationProps> = ({user}) => {
     const { width } = useWindowSize();
     const [rating, setRating] = useState(0)
     const navigationLinks: List[]= [
-        {id:1,icon:'/profile/map-pin.svg/',title:user?.full_name},
+        {id:1,icon:'/profile/map-pin.svg/',title:user?.location},
         {id:2,icon:'/profile/mail.svg/',title:user?.email},
         {id:3,icon:'/profile/location.svg/',title:t('User.show')}
     ]
