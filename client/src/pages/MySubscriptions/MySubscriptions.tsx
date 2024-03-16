@@ -13,24 +13,29 @@ const MySubscriptions = () => {
     const {t} = useTranslation('mySubscriptions')
     const subscriptionTabs: Tab[] = [
         {id: 1, label: t('Tabs.subscriptions'), content: <MySubscriptionsUsers/>},
-        {id: 2, label: t('Tabs.users'), content: <NewUsers/>}
+        {id: 2, label: t('Tabs.users'), content: <NewUsers/>},
     ]
     const {width} = useWindowSize();
     return (
-        <Container>
-            <Back text={t('Back')}/>
-            {width && width <= 900 ?
-                <SettingsTabs tabs={subscriptionTabs} classNamePanel={styles.TabsPanel} classNameTabs={styles.Tabs}
-                              classNameTabList={styles.TabsTabList}
-                              classNameTab={styles.TabsTabListTab}
-                />
-                : <div>
-                    <MySubscriptionsUsers/>
-                    <NewUsers/>
-                </div>}
+
+            <Container>
+                <Back text={t('Back')}/>
+                {width && width <= 900 ?
+                    <SettingsTabs tabs={subscriptionTabs}
+                                  classNamePanel={styles.TabsPanel}
+                                  classNameTabs={styles.Tabs}
+                                  classNameTabList={styles.TabsList}
+                                  classNameTab={styles.TabsListTab}
+                    />
+                    : <div>
+                        <MySubscriptionsUsers/>
+                        <NewUsers/>
+                    </div>}
 
 
-        </Container>
+            </Container>
+
+
 
     );
 };

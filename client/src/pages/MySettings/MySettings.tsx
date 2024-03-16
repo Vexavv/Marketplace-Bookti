@@ -19,8 +19,11 @@ const MySettings = () => {
     return (
         <Container>
             <Back text={t('Back')}/>
-            <SettingsTabs tabs={tabData} classNamePanel={styles.TabsPanel} classNameTabs={styles.Tabs}
-                          classNameTabList={styles.TabsTabList} classNameTab={styles.TabsTabListTab}/>
+            <SettingsTabs tabs={tabData}
+                          classNamePanel={styles.TabsPanel}
+                          classNameTabs={styles.Tabs}
+                          classNameTabList={styles.TabsList}
+                          classNameTab={styles.TabsListTab}/>
         </Container>
 
     );
