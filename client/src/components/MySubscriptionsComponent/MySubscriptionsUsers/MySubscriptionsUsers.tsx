@@ -3,6 +3,7 @@ import styles from './MySubscriptionsUsers.module.scss'
 import {User} from "../../../types";
 import Button from "../../../uiComponent/Button/Button";
 import {useTranslation} from "react-i18next";
+import {useWindowSize} from "../../../hooks/useWindowSize";
 
 const mySubscriptionsUsers: User[] = [
     {id: 1, avatar_url: "", full_name: "Вася Семенов", location: "Kyiv", email: ""},
@@ -10,14 +11,17 @@ const mySubscriptionsUsers: User[] = [
 ]
 const MySubscriptionsUsers = () => {
     const {t} = useTranslation('mySubscriptions')
+    const {width} = useWindowSize();
     return (
         <ul className={styles.MyUsers}>
             {mySubscriptionsUsers.map(item => (
                 <li className={styles.MyUsersItem} key={item.id}>
                     <div className={styles.MyUsersItemContent}>
                         <div className={styles.MyUsersItemContentAvatar}>
-                            {item.avatar_url ? <img src={item.avatar_url} alt="user-avatar" style={{ width: '50px', height: '50px' }}/>
-                                : <img src="/header/user.svg" alt="user" style={{ width: '40px', height: '40px' }}/>
+                            {item.avatar_url ? <img src={item.avatar_url} alt="user-avatar" style={width && width <= 400 ?{ width: '40px', height: '40px' } : width && width >= 900
+                                    ? { width: '70px', height: '70px' }
+                                    : { width: '50px', height: '50px' }}/>
+                                : <img src="/header/user.svg" alt="user" style={width && width <= 400 ?{ width: '30px', height: '30px' }:{ width: '40px', height: '40px' }}/>
                             }
                         </div>
                         <div className={styles.MyUsersItemContentText}>
@@ -25,9 +29,8 @@ const MySubscriptionsUsers = () => {
                             <p className={styles.MyUsersItemContentTextCity}>{item.location}</p>
                         </div>
                         <div className={styles.MyUsersItemContentButton}>
-                            <Button name='SubscriptionUser'>{t('Button')}</Button>
+                            <Button name='SubscriptionUser'> <img style={{marginRight:'5px'}} src="/subscriptions/Vector.png" alt="Vector"/> {t('Button')}</Button>
                         </div>
-
                     </div>
                 </li>
             ))}

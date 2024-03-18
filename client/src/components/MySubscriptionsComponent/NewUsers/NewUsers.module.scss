@@ -1,0 +1,159 @@
+@import "../../../styles/mixins.module";
+
+.New {
+  &Title {
+
+  }
+
+  &List {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+    list-style: none;
+
+    &Item {
+      display: flex;
+      align-items: center;
+      padding: 8px;
+      box-sizing: border-box;
+      border: 0.5px solid rgb(199, 87, 4);
+      border-radius: 12px;
+      background: rgb(255, 255, 255);
+      margin-bottom: 10px;
+      align-self: center;
+      width: 100%;
+      max-width: 615px;
+
+      &Avatar {
+        border-radius: 100px;
+        background: #D9D9D9;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      &Text {
+        display: flex;
+        flex-direction: column;
+        margin-left: 15px;
+        align-items: flex-start;
+
+        &Name {
+          @include primary-font;
+          font-size: 13px;
+          font-weight: 500;
+          line-height: 18px;
+          margin-bottom: 5px;
+          color: #666666;
+        }
+
+        &City {
+          @include primary-font;
+          font-size: 10px;
+          font-weight: 500;
+          line-height: 15px;
+          color: #666666;
+        }
+      }
+
+      &Arrow {
+        margin-left: auto;
+        cursor: pointer;
+
+        img {
+          width: 30px;
+        }
+
+      }
+    }
+  }
+}
+@media (min-width: 400px) {
+  .New {
+    &Title {
+
+    }
+
+    &List {
+      padding: 35px 0;
+      &Item {
+        margin-bottom: 20px;
+
+        &Avatar {
+          width: 50px;
+          height: 50px;
+        }
+
+        &Text {
+          margin-left: 30px;
+          &Name {
+
+            font-size: 15px;
+          }
+
+          &City {
+            font-size: 12px;
+          }
+        }
+
+      }
+    }
+  }
+}
+@media (min-width: 900px) {
+  .New {
+    border-radius: 15px;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);
+    background: rgb(255, 255, 255);
+    width: 100%;
+    max-width: 330px;
+
+    &Title {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding-top: 35px;
+      h3 {
+        @include primary-font;
+        color: rgb(102, 102, 102);
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 24px;
+        letter-spacing: 0;
+      }
+      a{
+        @include h-tag-font;
+        color: rgb(199, 87, 4);
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 15px;
+        letter-spacing: 0;
+        text-decoration-line: underline;
+      }
+    }
+
+    &List {
+      padding: 29px 0 0;
+
+      &Item {
+        max-width: 290px;
+
+        &Text {
+          margin-left: 18px;
+        }
+
+        &Arrow {
+          margin-left: auto;
+          cursor: pointer;
+
+          img {
+            width: 20px;
+          }
+
+        }
+      }
+    }
+  }
+}

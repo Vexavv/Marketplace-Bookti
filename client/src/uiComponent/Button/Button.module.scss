@@ -128,13 +128,17 @@
   }
 
 }
+
 .SubscriptionUser{
   background: rgba(227, 225, 225, 0.66);
   color: rgb(68, 123, 87);
-  font-size: 13px;
+  font-size: 11px;
 }
 
-@media (min-width: 500px) {
+@media (min-width: 400px) {
+  .SubscriptionUser{
+    font-size: 13px;
+  }
 }
 
 @media (min-width: 900px) {
@@ -174,12 +178,16 @@
         font-size: 16px;
     }
   .SeparateExchange{
-
     padding: 5px 23px;
     &:hover {
       background: $gray;
       color:#ffffff;
     }
-
+  }
+  .SubscriptionUser{
+    font-size: 18px;
+    &:hover{
+      background: rgba(227, 225, 225, 0.66);
+    }
   }
 }

@@ -8,7 +8,8 @@
     "login": {
       "email": {
         "email": "Invalid email format.",
-        "required": "This field is required."
+        "required": "This field is required.",
+        "max": "The email must contain no more than 225 characters."
       },
       "password": {
         "min": "The password must contain at least 8 characters.",

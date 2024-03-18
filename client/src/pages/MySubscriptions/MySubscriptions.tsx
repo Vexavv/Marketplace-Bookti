@@ -27,7 +27,7 @@ const MySubscriptions = () => {
                                   classNameTabList={styles.TabsList}
                                   classNameTab={styles.TabsListTab}
                     />
-                    : <div>
+                    : <div className={styles.Wrapper}>
                         <MySubscriptionsUsers/>
                         <NewUsers/>
                     </div>}

@@ -59,6 +59,8 @@ const LoginFormm = ({registration}: LoginFormProps) => {
     const validationSchemaLogin: yup.Schema<LoginForm> = yup.object().shape({
         email: yup.string()
             .email(t('Error.login.email.email'))
+            .matches(/^[A-Za-z0-9._%+&-]+@[A-Za-z0-9-]+(\.[A-Za-z]{2,})+$/, t('Error.login.email.email'))
+            .max(225, t('Error.login.email.max'))
             .required(t('Error.login.email.required')),
         password: yup.string()
             .minSymbols(0)
@@ -78,7 +80,8 @@ const LoginFormm = ({registration}: LoginFormProps) => {
             .required(t('Error.login.email.required')),
         email: yup.string()
             .email(t('Error.login.email.email'))
-            .matches(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(\.[A-Za-z]{2,})+$/, t('Error.login.email.email'))
+            .matches(/^[A-Za-z0-9._%+&-]+@[A-Za-z0-9-]+(\.[A-Za-z]{2,})+$/, t('Error.login.email.email'))
+            .max(225, t('Error.login.email.max'))
             .required(t('Error.login.email.required')),
         location: yup.string()
             .matches(/^[a-zA-Zа\s'-]*$/u, t('Error.registration.name.city'))
