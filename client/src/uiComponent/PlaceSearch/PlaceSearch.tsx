@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import styles from './PlaceSearch.module.scss'
-import {FieldProps, FieldMetaProps} from 'formik';
+import {FieldProps} from 'formik';
 import axios from "axios";
+import {useAppSelector} from "../../hook";
+
 
 
 //--------------------------Types-----------------------------------------
@@ -13,7 +15,8 @@ interface City {
 }
 
 const PlaceSearch: React.FC<PlaceSearchProps> = ({className, field, form, ...props}) => {
-    const [valueCity, setValueCity] = useState(field.value || '')
+    const user = useAppSelector(state => state.auth.user)
+    const [valueCity, setValueCity] = useState(user?.location || '')
     const [cities, setCities] = useState<any>([])
     const [isOpen, setIsOpen] = useState(true)
     const {onChange, onBlur, value, name} = field;
@@ -33,14 +36,14 @@ const PlaceSearch: React.FC<PlaceSearchProps> = ({className, field, form, ...pro
     //---------------------------------Filtered--------------------
     const filteredCity:City[] = cities.filter((item:City) => (
         item.city.toLowerCase().includes(valueCity.toLowerCase())
-
     ))
 
     useEffect(() => {
-        if (filteredCity.length === 0) {
+        if (filteredCity.length === 0 && valueCity !== user?.location) {
             setValueCity('');
+            setIsOpen(false);
         }
-    }, [filteredCity]);
+    }, [filteredCity, valueCity, user, value]);
 //---------------------------------- Added to input ----------------------------------
     const itemClickHandler = (e: React.MouseEvent<HTMLLIElement>) => {
         const clickedElement = e.target as HTMLLIElement;
@@ -74,7 +77,7 @@ const PlaceSearch: React.FC<PlaceSearchProps> = ({className, field, form, ...pro
                 onBlur={onBlur}
                 {...props}  />
             <ul className={styles.Autocomplete}>
-                {valueCity && isOpen ? filteredCity.map(
+                {valueCity && isOpen && valueCity !== user?.location ? filteredCity.map(
                     (item: { city: string }, index: number) => (
                         <li onClick={itemClickHandler} className={styles.AutocompleteItem}
                             key={index}>{item.city}</li>
@@ -87,4 +90,3 @@ const PlaceSearch: React.FC<PlaceSearchProps> = ({className, field, form, ...pro
 };
 
 export default PlaceSearch;
-
