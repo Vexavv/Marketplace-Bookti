@@ -27,6 +27,7 @@
             "errorMessage": "This field is required."
         },
         "fild-date": {
+            "placeholder": "Publication date",
             "value": "Published",
             "errorMessage": "This field is required."
         },
