@@ -9,7 +9,7 @@ import {IoEyeOffOutline, IoEyeOutline} from "react-icons/io5";
 import Button from "../../../uiComponent/Button/Button";
 import {handleTogglePassword} from "../../../helpers/handler";
 import {useAppDispatch, useAppSelector} from "../../../hook";
-import {renamePasswordAsync} from "../../../store/slices/passwordSlice";
+import {renamePasswordAsync} from "../../../store/slices/userSlices/passwordSlice";
 
 
 

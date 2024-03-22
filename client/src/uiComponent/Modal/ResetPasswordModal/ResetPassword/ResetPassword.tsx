@@ -7,7 +7,7 @@ import {useTranslation} from "react-i18next";
 import Button from "../../../Button/Button";
 import {closeModal, openModal} from "../../../../store/slices/modalSlice";
 import {useAppDispatch, useAppSelector} from "../../../../hook";
-import {changeStatus, resetPasswordAsync} from "../../../../store/slices/passwordSlice";
+import {changeStatus, resetPasswordAsync} from "../../../../store/slices/userSlices/passwordSlice";
 
 
 // initialValues

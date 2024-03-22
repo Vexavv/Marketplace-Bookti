@@ -6,7 +6,7 @@ import LoginFormm from "../../components/RegistrationForm/LoginForm/LoginFormm";
 import {useTranslation} from "react-i18next";
 import {useAppDispatch, useAppSelector} from "../../hook";
 import {LoginProps} from "./Login.props";
-import {changeStatus} from "../../store/slices/passwordSlice";
+import {changeStatus} from "../../store/slices/userSlices/passwordSlice";
 import {closeModal, openModal} from "../../store/slices/modalSlice";
 
 

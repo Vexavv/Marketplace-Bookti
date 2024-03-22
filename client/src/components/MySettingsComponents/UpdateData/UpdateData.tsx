@@ -8,16 +8,16 @@ import {FieldSettings} from "../../../types";
 import PlaceSearch from "../../../uiComponent/PlaceSearch/PlaceSearch";
 import Button from "../../../uiComponent/Button/Button";
 import {useAppDispatch, useAppSelector} from "../../../hook";
+import {updateDataAsync} from "../../../store/slices/userSlices/updateSlice";
 
 
-interface UpdateForm {
+export interface UpdateForm {
     full_name?: string,
     email?: string,
     location: string,
-    avatar_url?: null,
-    telegram?: string,
-    show_email?: boolean,
-    show_telegram?: boolean
+    avatar_url?: null|string,
+    telegram_id?: string,
+
 
 }
 
@@ -32,9 +32,9 @@ const UpdateData = () => {
         email: user?.email || '',
         location:user?.location || '',
         avatar_url: null,
-        telegram: '',
-        show_email: false,
-        show_telegram: false
+        telegram_id: '',
+        // show_email: false,
+        // show_telegram: false
     }
 
     const validationSchemaUpdate: yup.Schema<UpdateForm> = yup.object().shape({
@@ -66,6 +66,7 @@ const UpdateData = () => {
     ]
     const handleFormSubmit = (values: UpdateForm, {setSubmitting}: any) => {
         console.log(values);
+        dispatch(updateDataAsync(values))
         setSubmitting(false);
     };
 
@@ -106,8 +107,8 @@ const UpdateData = () => {
                     <div className={styles.FormCheckBoxList}>
                         {checkBoxUpdate.map(item => (
                             <div className={styles.FormCheckBoxListCheck} key={item.id}>
-                                <Field className={styles.FormCheckBoxListCheckCheckBox} name={item.name}
-                                       type='checkbox'></Field>
+                                <input className={styles.FormCheckBoxListCheckCheckBox} name={item.name}
+                                       type='checkbox'></input>
                                 <label className={styles.FormCheckBoxListCheckLabel}
                                        htmlFor={item.name}>{item.label_text}</label>
                             </div>

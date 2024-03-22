@@ -1,7 +1,7 @@
 import {createSlice, createAsyncThunk, PayloadAction} from '@reduxjs/toolkit';
 import axios from 'axios';
-import {BASE_URL} from "../../constants/api";
-import {LoginForm} from "../../types";
+import {BASE_URL} from "../../../constants/api";
+import {LoginForm} from "../../../types";
 
 
 

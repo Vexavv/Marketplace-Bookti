@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import styles from './PopperUser.module.scss'
 import Button from "../../../uiComponent/Button/Button";
 import {useAppDispatch, useAppSelector} from "../../../hook";
-import {logout} from "../../../store/slices/authSlice";
+import {logout} from "../../../store/slices/userSlices/authSlice";
 import {Link} from "react-router-dom";
 import {Popper} from "@mui/base/Popper";
 import {useTranslation} from "react-i18next";
