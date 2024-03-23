@@ -19,7 +19,7 @@ interface UpdateState {
 }
 const initialState:UpdateState = {
     data: null,
-    status: null,
+    status: 'idle',
 };
 
 export const updateDataAsync = createAsyncThunk(
@@ -63,12 +63,18 @@ const updateSlice = createSlice({
                 state.status = 'loading';
             })
             .addCase(updateDataAsync.fulfilled, (state, action:PayloadAction<UpdateData>) => {
-                state.data = action.payload;
-                            console.log('UpdateUser:', action.payload);
-                            state.status = 'loaded';
+                if (action.payload){
+                    state.data = action.payload;
+                    console.log('UpdateUser:', action.payload);
+                    state.status = 'loaded';
+                }else {
+                    state.status = 'failed';
+                }
+
+
             })
             .addCase(updateDataAsync.rejected, state => {
-                        state.status = 'loaded';
+                        // state.status = 'loaded';
                         // state.error = action.error.message;
                     });
 

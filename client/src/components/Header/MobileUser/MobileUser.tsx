@@ -30,11 +30,11 @@ const MobileUser = () => {
                     to={loading ? '#' : '/registration'}
                     onClick={mobileUserToggle}
                 >
-                    <img
+                    {user?.avatar_url ? <img className={styles.UserAvatarUserPhoto} src={user.avatar_url} alt="avatar"/> : <img
                         className={styles.UserAvatarImg}
                         src="/header/user.svg"
                         alt="user"
-                    />
+                    />}
                 </Link>
             </div>
 
