@@ -11,7 +11,6 @@ import Button from "../../../uiComponent/Button/Button";
 import {useAppDispatch, useAppSelector} from "../../../hook";
 import {updateDataAsync} from "../../../store/slices/userSlices/updateSlice";
 import {ImageType} from "../../Bookshelf/AddBookForm/AddBook.types";
-import BookPhoto from "../../Bookshelf/AddBookForm/BookPhoto/BookPhoto";
 import UserPhoto from "./UserPhoto/UserPhoto";
 
 

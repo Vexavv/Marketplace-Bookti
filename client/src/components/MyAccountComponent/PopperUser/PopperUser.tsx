@@ -7,7 +7,7 @@ import {Link} from "react-router-dom";
 import {Popper} from "@mui/base/Popper";
 import {useTranslation} from "react-i18next";
 import {styled, css} from '@mui/system';
-import {NavigationList} from "../../../types";
+import {NavigationList, User} from "../../../types";
 import UserImage from "../../UserImage/UserImage";
 import UserNavigation from "../../UserNavigation/UserNavigation";
 
@@ -33,8 +33,21 @@ const PopperUser = () => {
     const dispatch = useAppDispatch()
 //------------------Selectors-------------------------
     const user = useAppSelector(state => state.auth.user)
-    console.log('User>>>>>>>>>', user)
+
     const loading = useAppSelector(state => state.auth.loading)
+    //
+    // const [user, setUser] = useState<User | null>(null)
+    // useEffect(() => {
+    //     const userData = useAppSelector(state => state.auth.user)
+    //     setUser(userData)
+    // }, []);
+    console.log('User>>>>>>>>>', user)
+
+
+
+
+
+
 //----------------------Logout Google ---------------------
     const handleLogout = () => {
         dispatch(logout())

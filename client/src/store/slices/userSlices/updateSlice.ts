@@ -52,6 +52,60 @@ export const updateDataAsync = createAsyncThunk(
         }
     }
 );
+// export const updateDataAsync = createAsyncThunk(
+//     'update/updateData',
+//     async (credentials: UpdateForm, { getState }) => {
+//         try {
+//             // @ts-ignore
+//             const { user_id, access_token } = getState().auth.data;
+//             const { avatar_url, ...withoutAvatar } = credentials;
+//
+//             // Проверяем, был ли предоставлен URL для аватара
+//             if (avatar_url) {
+//                 // Если URL для аватара предоставлен, обновляем и аватар, и другие данные пользователя
+//                 const response: AxiosResponse<UpdateData> = await axios.patch(
+//                     `${BASE_URL}/users/${user_id}`,
+//                     {
+//                         image: new Blob([avatar_url as any]),
+//                         user_update: new Blob([JSON.stringify(withoutAvatar)], {
+//                         type: 'application/json',
+//                     }),
+//                     },
+//                     {
+//                         headers: {
+//                             Authorization: `Bearer ${access_token}`,
+//                             'Content-Type': 'multipart/form-data',
+//                         },
+//                     }
+//                 );
+//
+//                 return response.data;
+//             } else {
+//                 // Если URL для аватара не предоставлен, обновляем только другие данные пользователя
+//                 const response: AxiosResponse<UpdateData> = await axios.patch(
+//                     `${BASE_URL}/users/${user_id}`,
+//                     {
+//                         user_update: new Blob([JSON.stringify(withoutAvatar)], {
+//                             type: 'application/json',
+//                         }),
+//                     },
+//                     {
+//                         headers: {
+//                             Authorization: `Bearer ${access_token}`,
+//                             'Content-Type': 'application/json',
+//                         },
+//                     }
+//                 );
+//
+//                 return response.data;
+//             }
+//         } catch (error) {
+//             console.error('Ошибка во время обновления данных пользователя:', error);
+//             throw error;
+//         }
+//     }
+// );
+
 
 const updateSlice = createSlice({
     name: 'update',
