@@ -19,7 +19,7 @@ interface UpdateState {
 }
 const initialState:UpdateState = {
     data: null,
-    status: 'idle',
+    status: 'gi',
 };
 
 export const updateDataAsync = createAsyncThunk(
