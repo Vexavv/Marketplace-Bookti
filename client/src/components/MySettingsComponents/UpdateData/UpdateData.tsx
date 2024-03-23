@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FocusEvent, useRef, useState} from 'react';
 import styles from './UpdateData.module.scss'
 import {useTranslation} from "react-i18next";
 import {Formik, Form, Field, ErrorMessage} from 'formik';
@@ -33,8 +33,6 @@ const UpdateData = () => {
         location:user?.location || '',
         avatar_url: null,
         telegram_id: '',
-        // show_email: false,
-        // show_telegram: false
     }
 
     const validationSchemaUpdate: yup.Schema<UpdateForm> = yup.object().shape({
@@ -58,10 +56,16 @@ const UpdateData = () => {
         {id: 2, label_text: t('mySettings:UpdateData.LabelUpdate.checkBoxTelegram'), name: 'show_telegram'},
     ]
     const handleFormSubmit = (values: UpdateForm, {setSubmitting}: any) => {
+
+
+
         console.log(values);
         dispatch(updateDataAsync(values))
         setSubmitting(false);
     };
+
+
+
 
     return (
         <div className={styles.Update}>
@@ -71,7 +75,7 @@ const UpdateData = () => {
             >
                 <Form className={styles.Form}>
                     <div className={styles.FormPhoto}>
-                        <Field component={UserPhoto} name="avatar_url"/>
+                        <Field component={UserPhoto}  name="avatar_url"/>
                     </div>
                     <div className={styles.FormWrapper}>
                         <label className={styles.FormWrapperLabel}

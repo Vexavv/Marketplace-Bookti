@@ -1,5 +1,6 @@
 
 
+
 import React, { ChangeEvent, useRef, useState } from 'react';
 import styles from './UserPhoto.module.scss';
 import Button from "../../../../uiComponent/Button/Button";
@@ -27,6 +28,9 @@ const UserPhoto: React.FC<UserPhotoProps> = ({ field }) => {
             reader.readAsDataURL(selectedFile);
 
             onChange(event);
+            console.log(event)
+
+
         }
     };
 
@@ -60,8 +64,3 @@ const UserPhoto: React.FC<UserPhotoProps> = ({ field }) => {
 };
 
 export default UserPhoto;
-
-
-
-
-
