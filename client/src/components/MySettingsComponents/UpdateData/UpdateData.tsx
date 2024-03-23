@@ -15,7 +15,7 @@ export interface UpdateForm {
     full_name?: string,
     email?: string,
     location: string,
-    avatar_url?: null|string,
+    avatar_url?: null| File,
     telegram_id?: string,
 
 
@@ -52,13 +52,6 @@ const UpdateData = () => {
             .required(t('login:Error.login.email.required')),
     })
 
-
-    // const inputField: FieldSettings[] = [
-    //     {id: 1, label_text: t('mySettings:UpdateData.LabelUpdate.newEmail'), name: 'email'},
-    //     {id: 2, label_text: t('mySettings:UpdateData.LabelUpdate.newName'), name: 'full_name', type: 'text'},
-    //     {id: 3, label_text: t('mySettings:UpdateData.LabelUpdate.newCity'), name: 'city', component:<PlaceSearch field={} form={} meta={} /> },
-    //     {id: 4, label_text: t('mySettings:UpdateData.LabelUpdate.telegram'), name: 'telegram', type:'text'},
-    // ]
 
     const checkBoxUpdate: FieldSettings[] = [
         {id: 1, label_text: t('mySettings:UpdateData.LabelUpdate.checkBoxAddress'), name: 'show_email'},
