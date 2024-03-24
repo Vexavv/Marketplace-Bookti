@@ -19,7 +19,6 @@ interface UserPhotoProps {
 const UserPhotoField: React.FC<UserPhotoProps> = ({
                                                  name,
                                                  type,
-
                                                  setImageUrl,
                                                  error,
                                                  touch,

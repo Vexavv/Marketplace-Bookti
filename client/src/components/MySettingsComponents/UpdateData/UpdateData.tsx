@@ -1,4 +1,3 @@
-
 import React, {useEffect, useState} from 'react';
 import styles from './UpdateData.module.scss'
 import {useTranslation} from "react-i18next";
@@ -24,24 +23,21 @@ export interface UpdateForm {
 
 
 }
-
-
 const UpdateData = () => {
     const {t} = useTranslation(['mySettings', 'login'])
     const dispatch = useAppDispatch()
     const user = useAppSelector(state => state.auth.user)
     console.log(user)
-    const updateDataUser = useAppSelector(state =>state.updateDataUser.updateData )
+    const updateDataUser = useAppSelector(state => state.updateDataUser.updateData)
     const [imageUrl, setImageUrl] = useState<ImageType>(null);
-
-
+    console.log(imageUrl)
 
     const initialValuesUpdateForm: UpdateForm = {
         full_name: user?.full_name || '',
         email: user?.email || '',
-        location:user?.location || '',
+        location: user?.location || '',
         avatar_url: null,
-        telegram_id:user?.telegram_id || '',
+        telegram_id: user?.telegram_id || '',
     }
 
     const validationSchemaUpdate: yup.Schema<UpdateForm> = yup.object().shape({
@@ -82,58 +78,60 @@ const UpdateData = () => {
                     validationSchema={validationSchemaUpdate}
                     onSubmit={handleFormSubmit}
             >
-                {({ errors, touched, values, setTouched, setFieldValue }) => {
+                {({errors, touched, values, setTouched, setFieldValue}) => {
                     return (
-                    <Form className={styles.Form}>
-                        <div className={styles.FormPhoto}>
-                            <UserPhoto
-                                url={
-                                    imageUrl && !errors.avatar_url
-                                        ? URL.createObjectURL(imageUrl)
-                                        : ''
-                                }
-                            />
-                            <UserPhotoField  type="file" setTouched={setTouched} setImageUrl={setImageUrl} name="avatar_url"/>
-                        </div>
-                        <div className={styles.FormWrapper}>
-                            <label className={styles.FormWrapperLabel}
-                                   htmlFor="email">{t('mySettings:UpdateData.LabelUpdate.newEmail')}</label>
-                            <Field className={styles.FormWrapperImput} name="email" type='email'></Field>
-                            <ErrorMessage className={styles.FormWrapperError} component="span" name='email'/>
-                        </div>
-                        <div className={styles.FormWrapper}>
-                            <label className={styles.FormWrapperLabel}
-                                   htmlFor="text">{t('mySettings:UpdateData.LabelUpdate.newName')}</label>
-                            <Field className={styles.FormWrapperImput} name="full_name" type='text'></Field>
-                            <ErrorMessage className={styles.FormWrapperError} component="span" name='full_name'/>
-                        </div>
-                        <div className={styles.FormWrapper}>
-                            <label className={styles.FormWrapperLabel}
-                                   htmlFor="text">{t('mySettings:UpdateData.LabelUpdate.newCity')}</label>
-                            <Field className={styles.FormWrapperImput} component={PlaceSearch} name="location"></Field>
-                            <ErrorMessage className={styles.FormWrapperError} component="span" name='location'/>
-                        </div>
-                        <div className={styles.FormWrapper}>
-                            <label className={styles.FormWrapperLabel}
-                                   htmlFor="text">{t('mySettings:UpdateData.LabelUpdate.telegram')}</label>
-                            <Field className={styles.FormWrapperImput} name="telegram_id" type='text'></Field>
-                            <ErrorMessage className={styles.FormWrapperError} component="span" name='telegram_id'/>
-                        </div>
-                        <div className={styles.FormCheckBoxList}>
-                            {checkBoxUpdate.map(item => (
-                                <div className={styles.FormCheckBoxListCheck} key={item.id}>
-                                    <input className={styles.FormCheckBoxListCheckCheckBox} name={item.name}
-                                           type='checkbox'></input>
-                                    <label className={styles.FormCheckBoxListCheckLabel}
-                                           htmlFor={item.name}>{item.label_text}</label>
-                                </div>
-                            ))}
-                        </div>
+                        <Form className={styles.Form}>
+                            <div className={styles.FormPhoto}>
+                                <UserPhoto
+                                    url={
+                                        imageUrl && !errors.avatar_url
+                                            ? URL.createObjectURL(imageUrl)
+                                            : ''
+                                    }
+                                />
+                                <UserPhotoField type="file" setTouched={setTouched} setImageUrl={setImageUrl}
+                                                name="avatar_url"/>
+                            </div>
+                            <div className={styles.FormWrapper}>
+                                <label className={styles.FormWrapperLabel}
+                                       htmlFor="email">{t('mySettings:UpdateData.LabelUpdate.newEmail')}</label>
+                                <Field className={styles.FormWrapperImput} name="email" type='email'></Field>
+                                <ErrorMessage className={styles.FormWrapperError} component="span" name='email'/>
+                            </div>
+                            <div className={styles.FormWrapper}>
+                                <label className={styles.FormWrapperLabel}
+                                       htmlFor="text">{t('mySettings:UpdateData.LabelUpdate.newName')}</label>
+                                <Field className={styles.FormWrapperImput} name="full_name" type='text'></Field>
+                                <ErrorMessage className={styles.FormWrapperError} component="span" name='full_name'/>
+                            </div>
+                            <div className={styles.FormWrapper}>
+                                <label className={styles.FormWrapperLabel}
+                                       htmlFor="text">{t('mySettings:UpdateData.LabelUpdate.newCity')}</label>
+                                <Field className={styles.FormWrapperImput} component={PlaceSearch}
+                                       name="location"></Field>
+                                <ErrorMessage className={styles.FormWrapperError} component="span" name='location'/>
+                            </div>
+                            <div className={styles.FormWrapper}>
+                                <label className={styles.FormWrapperLabel}
+                                       htmlFor="text">{t('mySettings:UpdateData.LabelUpdate.telegram')}</label>
+                                <Field className={styles.FormWrapperImput} name="telegram_id" type='text'></Field>
+                                <ErrorMessage className={styles.FormWrapperError} component="span" name='telegram_id'/>
+                            </div>
+                            <div className={styles.FormCheckBoxList}>
+                                {checkBoxUpdate.map(item => (
+                                    <div className={styles.FormCheckBoxListCheck} key={item.id}>
+                                        <input className={styles.FormCheckBoxListCheckCheckBox} name={item.name}
+                                               type='checkbox'></input>
+                                        <label className={styles.FormCheckBoxListCheckLabel}
+                                               htmlFor={item.name}>{item.label_text}</label>
+                                    </div>
+                                ))}
+                            </div>
 
-                        <div className={styles.FormButton}>
-                            <Button name='ResetPasswordButton' type="submit">{t('mySettings:Button')}</Button>
-                        </div>
-                    </Form>
+                            <div className={styles.FormButton}>
+                                <Button name='ResetPasswordButton' type="submit">{t('mySettings:Button')}</Button>
+                            </div>
+                        </Form>
                     )
                 }}
             </Formik>
@@ -143,8 +141,6 @@ const UpdateData = () => {
 };
 
 export default UpdateData;
-
-
 
 
 //

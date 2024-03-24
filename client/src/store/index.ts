@@ -11,7 +11,7 @@ import updateUserDataReducer from './slices/userSlices/updateSlice'
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['auth', 'resetPassword'],
+    whitelist: ['auth', 'resetPassword', ],
 };
 
 const rootReducer = combineReducers({
