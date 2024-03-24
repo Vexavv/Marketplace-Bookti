@@ -9,7 +9,6 @@ import Button from "../../../uiComponent/Button/Button";
 import {useTranslation} from "react-i18next";
 import {Link} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../../../hook";
-import UserImage from "../../UserImage/UserImage";
 import {logout} from "../../../store/slices/userSlices/authSlice";
 
 const MobileMenu: React.FC<MobileMenuProps> = ({mobileMenuOpen, mobileMenuToggle}) => {

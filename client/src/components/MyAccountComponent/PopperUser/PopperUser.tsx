@@ -33,19 +33,8 @@ const PopperUser = () => {
     const dispatch = useAppDispatch()
 //------------------Selectors-------------------------
     const user = useAppSelector(state => state.auth.user)
-
     const loading = useAppSelector(state => state.auth.loading)
-    //
-    // const [user, setUser] = useState<User | null>(null)
-    // useEffect(() => {
-    //     const userData = useAppSelector(state => state.auth.user)
-    //     setUser(userData)
-    // }, []);
     console.log('User>>>>>>>>>', user)
-
-
-
-
 
 
 //----------------------Logout Google ---------------------

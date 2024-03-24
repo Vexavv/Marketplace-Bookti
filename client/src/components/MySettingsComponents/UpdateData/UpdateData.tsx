@@ -1,5 +1,5 @@
 
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './UpdateData.module.scss'
 import {useTranslation} from "react-i18next";
 import {Formik, Form, Field, ErrorMessage} from 'formik';
@@ -12,6 +12,7 @@ import {useAppDispatch, useAppSelector} from "../../../hook";
 import {updateDataAsync} from "../../../store/slices/userSlices/updateSlice";
 import {ImageType} from "../../Bookshelf/AddBookForm/AddBook.types";
 import UserPhoto from "./UserPhoto/UserPhoto";
+import {getUserAsync} from "../../../store/slices/userSlices/authSlice";
 
 
 export interface UpdateForm {
@@ -29,9 +30,8 @@ const UpdateData = () => {
     const {t} = useTranslation(['mySettings', 'login'])
     const dispatch = useAppDispatch()
     const user = useAppSelector(state => state.auth.user)
-
-
-
+    console.log(user)
+    const updateDataUser = useAppSelector(state =>state.updateDataUser.updateData )
     const [imageUrl, setImageUrl] = useState<ImageType>(null);
 
 
@@ -41,7 +41,7 @@ const UpdateData = () => {
         email: user?.email || '',
         location:user?.location || '',
         avatar_url: null,
-        telegram_id: '',
+        telegram_id:user?.telegram_id || '',
     }
 
     const validationSchemaUpdate: yup.Schema<UpdateForm> = yup.object().shape({
@@ -57,6 +57,7 @@ const UpdateData = () => {
         location: yup.string()
             .matches(/^[a-zA-Zа\s'-]*$/u, t('login:Error.registration.name.city'))
             .required(t('login:Error.login.email.required')),
+        telegram_id: yup.string()
     })
 
 
@@ -69,6 +70,11 @@ const UpdateData = () => {
         dispatch(updateDataAsync(values))
         setSubmitting(false);
     };
+
+
+    useEffect(() => {
+        dispatch(getUserAsync())
+    }, [updateDataUser]);
 
     return (
         <div className={styles.Update}>
@@ -110,8 +116,8 @@ const UpdateData = () => {
                         <div className={styles.FormWrapper}>
                             <label className={styles.FormWrapperLabel}
                                    htmlFor="text">{t('mySettings:UpdateData.LabelUpdate.telegram')}</label>
-                            <Field className={styles.FormWrapperImput} name="telegram" type='text'></Field>
-                            <ErrorMessage className={styles.FormWrapperError} component="span" name='telegram'/>
+                            <Field className={styles.FormWrapperImput} name="telegram_id" type='text'></Field>
+                            <ErrorMessage className={styles.FormWrapperError} component="span" name='telegram_id'/>
                         </div>
                         <div className={styles.FormCheckBoxList}>
                             {checkBoxUpdate.map(item => (

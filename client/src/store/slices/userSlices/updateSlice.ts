@@ -15,11 +15,14 @@ interface UpdateData {
 interface UpdateState {
     loading?: boolean;
     status?: null | string;
+    updateData?: boolean
     data: UpdateData | null;
 }
 const initialState:UpdateState = {
     data: null,
-    status: 'gi',
+    status: 'idle',
+    updateData: false
+
 };
 
 export const updateDataAsync = createAsyncThunk(
@@ -121,6 +124,7 @@ const updateSlice = createSlice({
                     state.data = action.payload;
                     console.log('UpdateUser:', action.payload);
                     state.status = 'loaded';
+                    state.updateData = true;
                 }else {
                     state.status = 'failed';
                 }
@@ -128,6 +132,7 @@ const updateSlice = createSlice({
 
             })
             .addCase(updateDataAsync.rejected, state => {
+                state.updateData = false;
                         // state.status = 'loaded';
                         // state.error = action.error.message;
                     });

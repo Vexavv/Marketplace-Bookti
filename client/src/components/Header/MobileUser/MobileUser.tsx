@@ -6,18 +6,11 @@ import Drawer from '@mui/material/Drawer';
 import { useTranslation } from 'react-i18next';
 import UserImage from '../../UserImage/UserImage';
 import UserNavigation from '../../UserNavigation/UserNavigation';
-import {User} from "../../../types";
 const MobileUser = () => {
     const { t } = useTranslation('header');
     const [mobileUserOpen, setMobileUserOpen] = useState(false);
     const loading = useAppSelector(state => state.auth.loading);
     const user = useAppSelector(state => state.auth.user);
-    // const [user, setUser] = useState<User | null>(null)
-    // useEffect(() => {
-    //     const userData = useAppSelector(state => state.auth.user);
-    //     setUser(null)
-    // }, []);
-
 
     const mobileUserToggle = () => {
         setMobileUserOpen(current => !current);

@@ -124,7 +124,6 @@ const authSlice = createSlice({
                 createAccountAsync.fulfilled,
                 (state, action: PayloadAction<Data>) => {
                     state.data = action.payload;
-                    console.log('Data:', action.payload);
                     state.status = 'loaded';
                 }
             )
@@ -141,7 +140,6 @@ const authSlice = createSlice({
                 loginAsync.fulfilled,
                 (state, action: PayloadAction<Data>) => {
                     state.data = action.payload;
-                    console.log('Data:', action.payload);
                     state.status = 'loaded';
                 }
             )
@@ -159,7 +157,6 @@ const authSlice = createSlice({
                 getUserAsync.fulfilled,
                 (state, action: PayloadAction<User>) => {
                     state.user = action.payload;
-                    console.log('UserState >>>>>>>>>>', state.user);
                 }
             )
             .addCase(getUserAsync.rejected, state => {
