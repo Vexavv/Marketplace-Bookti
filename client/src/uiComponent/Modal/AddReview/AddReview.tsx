@@ -1,10 +1,10 @@
 import * as Yup from 'yup';
+import { useTranslation } from 'react-i18next';
 import { FC, useState } from 'react';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import Rating from '@mui/material/Rating';
 import Button from '../../Button/Button';
 import styles from './AddReview.module.scss';
-import { useTranslation } from 'react-i18next';
 
 interface IFormFilds {
     review: string;
@@ -16,8 +16,10 @@ const AddReview: FC = () => {
     const [stars, setStars] = useState<number>(0);
 
     const validationSchema = Yup.object().shape({
-        review: Yup.mixed().required('req'),
-        stars: Yup.mixed(),
+        review: Yup.string()
+            .required(t('reviews.form.error-req'))
+            .max(300, t('reviews.form.error-max')),
+        stars: Yup.number(),
     });
 
     const handleSubmit = async (data: IFormFilds) => {

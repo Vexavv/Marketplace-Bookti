@@ -1,8 +1,8 @@
 import { FC, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Rating from '@mui/material/Rating';
 import styles from './ReviewItem.module.scss';
 import cn from 'classnames';
-import { useTranslation } from 'react-i18next';
 
 const ReviewItem: FC = ({ text }: any) => {
     const { t } = useTranslation('profile');

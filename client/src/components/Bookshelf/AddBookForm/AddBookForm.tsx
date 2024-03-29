@@ -18,6 +18,7 @@ const AddBookForm: FC = memo(() => {
     const { status } = useAppSelector(state => state.addBook);
     const { t } = useTranslation('addBook');
     const [imageUrl, setImageUrl] = useState<ImageType>(null);
+    const currentDate = new Date().getFullYear();
 
     const validationSchema = Yup.object().shape({
         image: Yup.mixed()
@@ -121,9 +122,12 @@ const AddBookForm: FC = memo(() => {
                         />
                         <DateField
                             component="input"
+                            type="number"
                             name="publication_date"
-                            type="date"
-                            placeholder="asdasdad"
+                            min="1900"
+                            max={currentDate}
+                            step="1"
+                            placeholder={t('form.fild-date.placeholder')}
                         />
                         <TextField
                             component="input"

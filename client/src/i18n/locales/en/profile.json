@@ -31,10 +31,12 @@
     "reviews": {
         "btn-add-review": "Write a review",
         "form": {
-            "title": "Write a review",
+            "title": "Write a review, max 300 symbols",
             "clue": "Your rate",
             "placeholder": "Enter review here",
-            "btn-submit": "Submit"
+            "btn-submit": "Submit",
+            "error-req": "This field is required.",
+            "error-max": "Too Long"
         },
         "item": {
             "btn-read-more": {

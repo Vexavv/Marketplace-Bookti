@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 import {NavigationList} from "../../types";
 import {useTranslation} from "react-i18next";
 import {useAppDispatch} from "../../hook";
-import {logout} from "../../store/slices/authSlice";
+import {logout} from "../../store/slices/userSlices/authSlice";
 
 import UserNavigationProps from "./UserNavigation.props";
 const UserNavigation: React.FC<UserNavigationProps>  = ({mobileUserToggle,mobile}) => {

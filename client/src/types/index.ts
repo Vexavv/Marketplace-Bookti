@@ -48,4 +48,5 @@ export interface User {
     full_name: string;
     avatar_url: string;
     location:string;
+    telegram_id?:string
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './MobileUser.module.scss';
 import { Link } from 'react-router-dom';
 import { useAppSelector } from '../../../hook';
@@ -11,6 +11,7 @@ const MobileUser = () => {
     const [mobileUserOpen, setMobileUserOpen] = useState(false);
     const loading = useAppSelector(state => state.auth.loading);
     const user = useAppSelector(state => state.auth.user);
+
     const mobileUserToggle = () => {
         setMobileUserOpen(current => !current);
     };
@@ -30,11 +31,11 @@ const MobileUser = () => {
                     to={loading ? '#' : '/registration'}
                     onClick={mobileUserToggle}
                 >
-                    <img
+                    {user?.avatar_url ? <img className={styles.UserAvatarUserPhoto} src={user.avatar_url} alt="avatar"/> : <img
                         className={styles.UserAvatarImg}
                         src="/header/user.svg"
                         alt="user"
-                    />
+                    />}
                 </Link>
             </div>
 

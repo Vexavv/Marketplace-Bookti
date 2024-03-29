@@ -7,7 +7,7 @@ import PasswordForm from "../../components/RegistrationForm/PasswordForm/Passwor
 import {useAppDispatch, useAppSelector} from "../../hook";
 import {closeModal, openModal} from "../../store/slices/modalSlice";
 import { useLocation } from 'react-router-dom';
-import {changeStatus, setResetToken} from "../../store/slices/passwordSlice";
+import {changeStatus, setResetToken} from "../../store/slices/userSlices/passwordSlice";
 import {useNavigate} from "react-router-dom";
 
 

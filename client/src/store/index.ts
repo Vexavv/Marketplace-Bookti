@@ -2,15 +2,16 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import modalReducer from './slices/modalSlice';
-import authReducer from './slices/authSlice';
+import authReducer from './slices/userSlices/authSlice';
 import addBookReducer from './slices/addBookSlice/addBookSlice';
 import profileReducer from './slices/profileSlice/profileSlice';
-import resetPasswordReducer from './slices/passwordSlice';
+import resetPasswordReducer from './slices/userSlices/passwordSlice';
+import updateUserDataReducer from './slices/userSlices/updateSlice'
 
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['auth', 'resetPassword'],
+    whitelist: ['auth', 'resetPassword', ],
 };
 
 const rootReducer = combineReducers({
@@ -19,6 +20,8 @@ const rootReducer = combineReducers({
     addBook: addBookReducer,
     profile: profileReducer,
     resetPassword: resetPasswordReducer,
+    updateDataUser:updateUserDataReducer
+
 });
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 

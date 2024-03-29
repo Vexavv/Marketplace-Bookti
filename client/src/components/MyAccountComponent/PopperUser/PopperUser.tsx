@@ -2,12 +2,12 @@ import React, {useEffect, useState} from 'react';
 import styles from './PopperUser.module.scss'
 import Button from "../../../uiComponent/Button/Button";
 import {useAppDispatch, useAppSelector} from "../../../hook";
-import {logout} from "../../../store/slices/authSlice";
+import {logout} from "../../../store/slices/userSlices/authSlice";
 import {Link} from "react-router-dom";
 import {Popper} from "@mui/base/Popper";
 import {useTranslation} from "react-i18next";
 import {styled, css} from '@mui/system';
-import {NavigationList} from "../../../types";
+import {NavigationList, User} from "../../../types";
 import UserImage from "../../UserImage/UserImage";
 import UserNavigation from "../../UserNavigation/UserNavigation";
 
@@ -33,8 +33,10 @@ const PopperUser = () => {
     const dispatch = useAppDispatch()
 //------------------Selectors-------------------------
     const user = useAppSelector(state => state.auth.user)
-    console.log('User>>>>>>>>>', user)
     const loading = useAppSelector(state => state.auth.loading)
+    console.log('User>>>>>>>>>', user)
+
+
 //----------------------Logout Google ---------------------
     const handleLogout = () => {
         dispatch(logout())

@@ -27,6 +27,7 @@
             "errorMessage": "Це поле є обов'язковим."
         },
         "fild-date": {
+            "placeholder": "Дата написання",
             "value": "Рік видання",
             "errorMessage": "Це поле є обов'язковим."
         },

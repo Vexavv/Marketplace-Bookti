@@ -11,7 +11,7 @@ import {LoginFormProps} from "./LoginForm.props";
 import {useTranslation} from "react-i18next";
 import {useAppDispatch, useAppSelector} from "../../../hook";
 import {openModal} from "../../../store/slices/modalSlice";
-import {createAccountAsync, loginAsync, getUserAsync} from "../../../store/slices/authSlice";
+import {createAccountAsync, loginAsync, getUserAsync} from "../../../store/slices/userSlices/authSlice";
 import {handleTogglePassword} from "../../../helpers/handler";
 import PlaceSearch from "../../../uiComponent/PlaceSearch/PlaceSearch";
 
