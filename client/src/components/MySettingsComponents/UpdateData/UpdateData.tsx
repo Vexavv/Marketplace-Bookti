@@ -8,10 +8,11 @@ import {FieldSettings} from "../../../types";
 import PlaceSearch from "../../../uiComponent/PlaceSearch/PlaceSearch";
 import Button from "../../../uiComponent/Button/Button";
 import {useAppDispatch, useAppSelector} from "../../../hook";
-import {updateDataAsync} from "../../../store/slices/userSlices/updateSlice";
+import {backUpdateData, updateDataAsync} from "../../../store/slices/userSlices/updateSlice";
 import {ImageType} from "../../Bookshelf/AddBookForm/AddBook.types";
 import UserPhoto from "./UserPhoto/UserPhoto";
 import {getUserAsync} from "../../../store/slices/userSlices/authSlice";
+import {closeModal, openModal} from "../../../store/slices/modalSlice";
 
 
 export interface UpdateForm {
@@ -27,10 +28,10 @@ const UpdateData = () => {
     const {t} = useTranslation(['mySettings', 'login'])
     const dispatch = useAppDispatch()
     const user = useAppSelector(state => state.auth.user)
-    console.log(user)
     const updateDataUser = useAppSelector(state => state.updateDataUser.updateData)
+    const statusUpdate = useAppSelector(state => state.updateDataUser.status)
     const [imageUrl, setImageUrl] = useState<ImageType>(null);
-    console.log(imageUrl)
+
 
     const initialValuesUpdateForm: UpdateForm = {
         full_name: user?.full_name || '',
@@ -66,7 +67,19 @@ const UpdateData = () => {
         dispatch(updateDataAsync(values))
         setSubmitting(false);
     };
+    const handleOpenModal = () => {
+        dispatch(openModal({type: 'informMessage', props: {key: 'value'},text: t('mySettings:Message')}));
+        setTimeout(() => {
+            dispatch(closeModal());
+        }, 3000);
+    }
+    useEffect(() => {
+        if(statusUpdate === 'loaded'){
+            handleOpenModal();
+            dispatch(backUpdateData())
 
+        }
+    }, [statusUpdate]);
 
     useEffect(() => {
         dispatch(getUserAsync())
@@ -78,7 +91,7 @@ const UpdateData = () => {
                     validationSchema={validationSchemaUpdate}
                     onSubmit={handleFormSubmit}
             >
-                {({errors, touched, values, setTouched, setFieldValue}) => {
+                {({errors, setTouched}) => {
                     return (
                         <Form className={styles.Form}>
                             <div className={styles.FormPhoto}>
@@ -129,7 +142,7 @@ const UpdateData = () => {
                             </div>
 
                             <div className={styles.FormButton}>
-                                <Button name='ResetPasswordButton' type="submit">{t('mySettings:Button')}</Button>
+                                <Button name='ResetPasswordButton' type="submit">{statusUpdate ==='loading'? t('mySettings:ButtonLoad'): t('mySettings:Button')}</Button>
                             </div>
                         </Form>
                     )

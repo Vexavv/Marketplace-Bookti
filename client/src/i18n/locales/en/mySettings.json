@@ -1,6 +1,8 @@
 {
   "Back": "My settings",
   "Button": "Save",
+  "ButtonLoad": "Loading . . .",
+  "Message": "Your credentials have been successfully changed",
   "Tabs": {
     "data": "Update profile",
     "notification": "Notification",
