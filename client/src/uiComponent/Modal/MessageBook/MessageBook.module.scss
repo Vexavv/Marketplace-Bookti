@@ -11,13 +11,25 @@
             'text'
             'form';
 
-  &Img {
+  &Image {
     background-color: #d9d9d9;
     border-radius: 5px;
     grid-area: img;
     width: 120px;
     height: 150px;
     margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &BookAvatar{
+      width: 120px;
+      height: 150px;
+      border-radius: 5px;
+    }
+    &Img{
+      width: 100px;
+      height: 100px;
+    }
   }
 
   &Text {
@@ -110,9 +122,13 @@
 
 @media (min-width: 500px) {
   .Message {
-    &Img {
+    &Image {
       width: 130px;
       height: 170px;
+      &BookAvatar{
+        width: 130px;
+        height: 170px;
+      }
     }
 
     &Text {
@@ -167,10 +183,15 @@
                 'img text text'
                 'form form form';
 
-    &Img {
+    &Image {
       width: 180px;
       height: 250px;
       margin-bottom: 25px;
+      &BookAvatar{
+        width: 180px;
+        height: 250px;
+      }
+
     }
 
     &Text {
