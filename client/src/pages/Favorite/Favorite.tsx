@@ -1,9 +1,15 @@
 import React from 'react';
 import styles from './Favorite.module.scss'
 const Favorite = () => {
+
+
+
+
+
     return (
         <div>
-           Favorite
+          <p>Favorite Пока ничего нет</p>
+
         </div>
     );
 };
