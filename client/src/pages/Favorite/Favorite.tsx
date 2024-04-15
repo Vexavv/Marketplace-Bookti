@@ -3,12 +3,13 @@ import styles from './Favorite.module.scss'
 const Favorite = () => {
 
 
-
+const favBooks = null
 
 
     return (
         <div>
-          <p>Favorite Пока ничего нет</p>
+            {favBooks ? (<div>Loading...</div>) : <p>Favorite Пока ничего нет</p>}
+
 
         </div>
     );
