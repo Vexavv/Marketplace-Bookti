@@ -15,12 +15,9 @@ interface Message {
 const initialValuesLMessage: Message = {
     text: ''
 }
-const MessageBook= ({image_url, title, author, language, publication_date, genre
-
-                                           }:MessageBookProps) => {
+const MessageBook= ({image_url, title, author, language, publication_date, genre}:MessageBookProps) => {
     const {t} = useTranslation('modal')
     const dispatch = useAppDispatch()
-    // const { user } = useAppSelector(state => state.auth);
     const isMobile = useMediaQuery({maxWidth: 500});
     const isTab = useMediaQuery({maxWidth: 900});
 
@@ -31,7 +28,9 @@ const MessageBook= ({image_url, title, author, language, publication_date, genre
 
     return (
         <div className={styles.Message}>
-            <img className={styles.MessageImg} src={image_url? image_url :'/bookshelf/image.png' } alt="book"/>
+            <div className={styles.MessageImage}>
+                {image_url? <img className={styles.MessageImageBookAvatar} src={image_url} alt="Book-Avatar"/> : <img className={styles.MessageImageImg} src='/bookshelf/image.png' alt="Image"/>}
+            </div>
             <div className={styles.MessageText}>
                 <h4 className={styles.MessageTextTitle}>{title}</h4>
                 <ul className={styles.MessageTextList}>
@@ -39,7 +38,7 @@ const MessageBook= ({image_url, title, author, language, publication_date, genre
                     </li>
                     <li className={styles.MessageTextListItem}><p>Жанр книги <span>{genre}</span></p></li>
                     <li className={styles.MessageTextListItem}><p>Рік видання <span>{publication_date} рік</span></p></li>
-                    <li className={styles.MessageTextListItem}><p>Мова<span>{language}</span></p></li>
+                    <li className={styles.MessageTextListItem}><p>Мова<span >{language.charAt(0).toUpperCase() + language.slice(1).toLowerCase()}</span></p></li>
                 </ul>
             </div>
             <Formik initialValues={initialValuesLMessage}
