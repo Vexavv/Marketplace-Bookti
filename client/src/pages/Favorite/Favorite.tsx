@@ -5,6 +5,8 @@ import {useTranslation} from "react-i18next";
 import Container from "../../uiComponent/Container/Container";
 import Back from "../../uiComponent/Back/Back";
 import BookItem from "../../components/Bookshelf/BookshelfList/BookItem/BookItem";
+import FavoriteItem from "../../components/FavoriteCompanents/FavoriteItem/FavoriteItem";
+import {logout} from "../../store/slices/userSlices/authSlice";
 const Favorite = () => {
 
     const user = useAppSelector(state => state.auth.user)
@@ -18,9 +20,12 @@ const favBooks = user?.books?.items
         <Container>
             <Back text="Обране"/>
 
-            {/*{favBooks.length > 0 ? (favBooks.map(*/}
-            {/*    item => (<BookItem key={item.id} book={...item} />)*/}
-            {/*)) : <p>Favorite Пока ничего нет</p>}*/}
+            {favBooks && favBooks.length > 0 ? (favBooks.map(
+
+                item => (<FavoriteItem key={item.id} {...item} />
+
+                )
+            )) : <p>Favorite Пока ничего нет</p>}
 
 
         </Container>

@@ -53,10 +53,18 @@ export interface User {
     display_telegram?:boolean,
     wishlist?: {
         size:number
-        items:[]
+        items:[{
+            id:number,
+        }]
     },
     books?:{
         size:number
-        items:[{}]
+        items:[{
+            id:number,
+            image_url:string
+            language:string
+            title:string
+            author:string
+        }]
     }
 }
