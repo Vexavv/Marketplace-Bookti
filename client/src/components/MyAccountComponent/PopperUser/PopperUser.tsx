@@ -7,7 +7,6 @@ import {Link} from "react-router-dom";
 import {Popper} from "@mui/base/Popper";
 import {useTranslation} from "react-i18next";
 import {styled, css} from '@mui/system';
-import {NavigationList, User} from "../../../types";
 import UserImage from "../../UserImage/UserImage";
 import UserNavigation from "../../UserNavigation/UserNavigation";
 

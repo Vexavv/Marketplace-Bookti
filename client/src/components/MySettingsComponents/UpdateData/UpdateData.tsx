@@ -33,8 +33,6 @@ const UpdateData = () => {
     const [imageUrl, setImageUrl] = useState<ImageType>(null);
 
 
-
-
     const initialValuesUpdateForm: UpdateForm = {
         full_name: user?.full_name || '',
         email: user?.email || '',

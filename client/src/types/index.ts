@@ -50,5 +50,13 @@ export interface User {
     location:string;
     telegram_id?:string;
     display_email?:boolean,
-    display_telegram?:boolean
+    display_telegram?:boolean,
+    wishlist?: {
+        size:number
+        items:[]
+    },
+    books?:{
+        size:number
+        items:[{}]
+    }
 }
