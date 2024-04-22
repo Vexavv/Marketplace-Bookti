@@ -4,13 +4,16 @@ import {FavoriteItemProps} from "./FavoriteItem.props";
 
 const FavoriteItem = ({id, image_url, language, title,author}: FavoriteItemProps) => {
     return (
-        <div>
+        <div className={styles.Card}>
 
-            <p>{id}</p>
-            <img style={{width:'100px'}} src={image_url} alt="img"/>
-            <p>{language}</p>
-            <p>{title}</p>
-            <p>{author}</p>
+            <img className={styles.CardImage} src={image_url} alt="img"/>
+            <div className={styles.CardContent}>
+                <p className={styles.CardContentTitle}>"{title}"</p>
+                <p className={styles.CardContentText}>{author}</p>
+                <p className={styles.CardContentText}>Мова:{language}</p>
+
+
+            </div>
 
 
         </div>

@@ -7,25 +7,24 @@ import Back from "../../uiComponent/Back/Back";
 import BookItem from "../../components/Bookshelf/BookshelfList/BookItem/BookItem";
 import FavoriteItem from "../../components/FavoriteCompanents/FavoriteItem/FavoriteItem";
 import {logout} from "../../store/slices/userSlices/authSlice";
+
 const Favorite = () => {
 
     const user = useAppSelector(state => state.auth.user)
     console.log(user?.wishlist?.items)
     console.log(user?.books)
 
-const favBooks = user?.books?.items
-    console.log("Favorite",favBooks)
+    const favBooks = user?.books?.items
+    console.log("Favorite", favBooks)
 
     return (
         <Container>
             <Back text="Обране"/>
-
-            {favBooks && favBooks.length > 0 ? (favBooks.map(
-
-                item => (<FavoriteItem key={item.id} {...item} />
-
-                )
-            )) : <p>Favorite Пока ничего нет</p>}
+            <div className={styles.Favorite}>
+                {favBooks && favBooks.length > 0 ? (favBooks.map(
+                    item => (<FavoriteItem key={item.id} {...item} />)
+                )) : <p>Favorite Пока ничего нет</p>}
+            </div>
 
 
         </Container>
