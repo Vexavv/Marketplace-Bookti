@@ -68,7 +68,6 @@ const UpdateData = () => {
         {id: 2, label_text: t('mySettings:UpdateData.LabelUpdate.checkBoxTelegram'), name: 'display_telegram'},
     ]
     const handleFormSubmit = (values: UpdateForm, {setSubmitting}: any) => {
-        console.log(values);
         dispatch(updateDataAsync(values))
         setSubmitting(false);
     };

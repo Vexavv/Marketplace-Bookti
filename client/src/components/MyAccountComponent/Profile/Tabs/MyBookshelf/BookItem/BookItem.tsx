@@ -4,7 +4,7 @@ import {IBook} from '../../../../../../store/slices/profileSlice/profileSliceTyp
 import Tooltip from '@mui/material/Tooltip';
 import Button from '../../../../../../uiComponent/Button/Button';
 import styles from './BookItem.module.scss';
-import {closeModal, openModal} from "../../../../../../store/slices/modalSlice";
+import { openModal} from "../../../../../../store/slices/modalSlice";
 import {useAppDispatch} from "../../../../../../hook";
 import {favoriteDataAsync} from "../../../../../../store/slices/favoriteSlice/favoriteSlice";
 

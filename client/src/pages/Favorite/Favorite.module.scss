@@ -6,6 +6,7 @@
   .Favorite{
     flex-direction: row;
     gap: 15px;
+   flex-wrap: wrap;
   }
 }
 @media (min-width: 900px) {}

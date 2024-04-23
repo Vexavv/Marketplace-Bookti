@@ -3,5 +3,9 @@
     "language": "Language:",
     "delete": "Remove from favorites",
     "button": "Review"
+  },
+  "Modal": {
+    "added": "The book has been added to favorites",
+    "delete": "The book has been removed from favorites"
   }
 }
