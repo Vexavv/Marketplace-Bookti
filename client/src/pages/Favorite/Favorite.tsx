@@ -1,19 +1,27 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styles from './Favorite.module.scss'
-import {useAppSelector} from "../../hook";
+import {useAppDispatch, useAppSelector} from "../../hook";
 import {useTranslation} from "react-i18next";
 import Container from "../../uiComponent/Container/Container";
 import Back from "../../uiComponent/Back/Back";
 import BookItem from "../../components/Bookshelf/BookshelfList/BookItem/BookItem";
 import FavoriteItem from "../../components/FavoriteCompanents/FavoriteItem/FavoriteItem";
-import {logout} from "../../store/slices/userSlices/authSlice";
+import {getUserAsync, logout} from "../../store/slices/userSlices/authSlice";
 
 const Favorite = () => {
-
+const dispatch = useAppDispatch();
     const user = useAppSelector(state => state.auth.user)
-    console.log(user?.wishlist?.items)
+
     const favBooks = user?.wishlist?.items
-    console.log("Favorite", favBooks)
+
+
+//-------------------------------------------------------------------------------------------------------
+    const updateFavorite = useAppSelector(state => state.favorite.updateData)
+    useEffect(() => {
+        dispatch(getUserAsync())
+    }, [updateFavorite]);
+
+//-------------------------------------------------------------------------------------------------------
 
     return (
         <Container>

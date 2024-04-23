@@ -77,7 +77,6 @@ backUpdateData:state => {
             .addCase(updateDataAsync.fulfilled, (state, action: PayloadAction<UpdateData>) => {
                 if (action.payload) {
                     state.data = action.payload;
-                    console.log('UpdateUser:', action.payload);
                     state.status = 'loaded';
                     state.updateData = true;
                 } else {

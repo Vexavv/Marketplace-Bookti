@@ -44,6 +44,7 @@ export interface FieldSettings {
 }
 export interface User {
     id?:number
+    creation_date?:number
     email: string;
     full_name: string;
     avatar_url: string;
