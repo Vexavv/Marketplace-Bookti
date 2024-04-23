@@ -19,4 +19,5 @@ export interface ButtonProps
         | 'AddBook'
         | 'SeparateExchange'
         | 'SubscriptionUser'
+        | 'FavoriteCardButton'
 }

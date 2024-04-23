@@ -55,6 +55,10 @@ export interface User {
         size:number
         items:[{
             id:number,
+            image_url:string
+            language:string
+            title:string
+            author:string
         }]
     },
     books?:{

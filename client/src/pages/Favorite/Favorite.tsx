@@ -12,9 +12,7 @@ const Favorite = () => {
 
     const user = useAppSelector(state => state.auth.user)
     console.log(user?.wishlist?.items)
-    console.log(user?.books)
-
-    const favBooks = user?.books?.items
+    const favBooks = user?.wishlist?.items
     console.log("Favorite", favBooks)
 
     return (

@@ -10,20 +10,22 @@ import mySettings from '../i18n/locales/uk/mySettings.json';
 import mySubscriptions from '../i18n/locales/uk/mySubscriptions.json';
 import profile from '../i18n/locales/uk/profile.json';
 import separatePage from '../i18n/locales/uk/separatePage.json';
+import favorite from '../i18n/locales/uk/favorite.json';
 
 const resources = {
-  addBook,
-  bookshelf,
-  footer,
-  header,
-  home,
-  login,
-  mobileMenu,
-  modal,
-  mySettings,
-  mySubscriptions,
-  profile,
-  separatePage
+    favorite,
+    addBook,
+    bookshelf,
+    footer,
+    header,
+    home,
+    login,
+    mobileMenu,
+    modal,
+    mySettings,
+    mySubscriptions,
+    profile,
+    separatePage
 } as const;
 
 export default resources;
