@@ -5,7 +5,7 @@ import { useWindowSize } from '../../../../../hooks/useWindowSize';
 import { Rating } from 'react-simple-star-rating';
 import styles from './UserInfo.module.scss';
 import cn from 'classnames';
-import {User} from "../../../../../types";
+import { User } from '../../../../../types';
 
 interface IUserInfoProps {
     user: User | null;
