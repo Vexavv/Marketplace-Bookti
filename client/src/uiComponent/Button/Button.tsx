@@ -18,7 +18,9 @@ const Button = ({name, children, className, ...props}: ButtonProps) => {
                 [styles.BookshelfAdd]: name == 'BookshelfAdd',
                 [styles.AddBook]: name == 'AddBook',
                 [styles.SeparateExchange]: name == 'SeparateExchange',
-                [styles.SubscriptionUser]: name == 'SubscriptionUser'
+                [styles.SubscriptionUser]: name == 'SubscriptionUser',
+                [styles.FavoriteCardButton]: name == 'FavoriteCardButton'
+
             })}
             {...props}
         >

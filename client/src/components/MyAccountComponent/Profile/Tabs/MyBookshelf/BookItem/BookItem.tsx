@@ -1,30 +1,52 @@
-import { FC, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { IBook } from '../../../../../../store/slices/profileSlice/profileSliceTypes';
+import {FC, useState} from 'react';
+import {useTranslation} from 'react-i18next';
+import {IBook} from '../../../../../../store/slices/profileSlice/profileSliceTypes';
 import Tooltip from '@mui/material/Tooltip';
 import Button from '../../../../../../uiComponent/Button/Button';
 import styles from './BookItem.module.scss';
-import {closeModal, openModal} from "../../../../../../store/slices/modalSlice";
+import { openModal} from "../../../../../../store/slices/modalSlice";
 import {useAppDispatch} from "../../../../../../hook";
+import {favoriteDataAsync} from "../../../../../../store/slices/favoriteSlice/favoriteSlice";
 
-interface IBookItemProps extends IBook {}
+interface IBookItemProps extends IBook {
+}
 
 const BookItem: FC<IBookItemProps> = ({
-    image_url,
-    title,
-    author,
-    language,
-    publication_date,
-    genre
-}) => {
-    const { t } = useTranslation('profile');
+                                          image_url,
+                                          title,
+                                          author,
+                                          language,
+                                          publication_date,
+                                          genre,
+                                          id
+                                      }) => {
+    const {t} = useTranslation('profile');
     const [isFavorite, setIsFavorite] = useState<boolean>(false);
     const dispatch = useAppDispatch();
+
     //--------------------------open modal--------------------
     const handleOpenModal = () => {
-        dispatch(openModal({type: 'bookMessage', props: {key: 'value'},title:title,author:author,language:language,image_url:image_url, publication_date:publication_date, genre:genre}));
+        dispatch(openModal({
+            type: 'bookMessage',
+            props: {key: 'value'},
+            title: title,
+            author: author,
+            language: language,
+            image_url: image_url,
+            publication_date: publication_date,
+            genre: genre
+        }));
     }
-
+    //---------------------add to favorite ---------------------
+    const addToFavorites = async () => {
+        try {
+            await dispatch(favoriteDataAsync(id));
+            await setIsFavorite(!isFavorite)
+        } catch (error) {
+            console.error(error);
+        }
+    };
+    //-----------------------------------------------------------
     return (
         <div className={styles.Wrapper}>
             <div
@@ -39,7 +61,7 @@ const BookItem: FC<IBookItemProps> = ({
 
             <div className={styles.WrapperInfo}>
                 <div className={styles.WrapperInfoHeading}>
-                    <div style={{ display: 'flex' }}>
+                    <div style={{display: 'flex'}}>
                         <span>"</span>
                         <h1 title={title}>{title}</h1>
                         <span>"</span>
@@ -59,9 +81,9 @@ const BookItem: FC<IBookItemProps> = ({
                                 : t('bokkshelf.item.tooltip-favorits.false')
                         }
                     >
-                        <button onClick={() => setIsFavorite(!isFavorite)}>
+                        <button onClick={addToFavorites}>
                             {isFavorite ? (
-                                <img src="/profile/to-favorites.png" alt="" />
+                                <img src="/profile/to-favorites.png" alt=""/>
                             ) : (
                                 <img
                                     src="/profile/add-to-favorites.png"

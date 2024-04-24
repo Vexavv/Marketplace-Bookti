@@ -134,6 +134,10 @@
   color: rgb(68, 123, 87);
   font-size: 11px;
 }
+.FavoriteCardButton{
+  font-size: 11px;
+  padding: 10px;
+}
 
 @media (min-width: 400px) {
   .SubscriptionUser{
@@ -189,5 +193,8 @@
     &:hover{
       background: rgba(227, 225, 225, 0.66);
     }
+  }
+  .FavoriteCardButton{
+    font-size: 15px;
   }
 }

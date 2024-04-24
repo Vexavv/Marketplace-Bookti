@@ -1,7 +1,6 @@
 import {createSlice, createAsyncThunk, PayloadAction} from '@reduxjs/toolkit';
 import axios, {AxiosResponse} from 'axios';
 import {BASE_URL} from '../../../constants/api';
-import {User} from "../../../types";
 
 import {UpdateForm} from "../../../components/MySettingsComponents/UpdateData/UpdateData";
 
@@ -9,20 +8,23 @@ interface UpdateData {
     full_name: string,
     email: string,
     location: string,
-    telegram_id: string
+    telegram_id: string,
+    display_email?:boolean,
+    display_telegram?:boolean
 }
 
 interface UpdateState {
     loading?: boolean;
     status?: null | string;
-    updateData?: boolean
+    updateData?: boolean;
     data: UpdateData | null;
 }
 
 const initialState: UpdateState = {
     data: null,
     status: 'idle',
-    updateData: false
+    updateData: false,
+
 
 };
 
@@ -75,7 +77,6 @@ backUpdateData:state => {
             .addCase(updateDataAsync.fulfilled, (state, action: PayloadAction<UpdateData>) => {
                 if (action.payload) {
                     state.data = action.payload;
-                    console.log('UpdateUser:', action.payload);
                     state.status = 'loaded';
                     state.updateData = true;
                 } else {

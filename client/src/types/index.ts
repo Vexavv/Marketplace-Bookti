@@ -44,9 +44,32 @@ export interface FieldSettings {
 }
 export interface User {
     id?:number
+    creation_date?:number
     email: string;
     full_name: string;
     avatar_url: string;
     location:string;
-    telegram_id?:string
+    telegram_id?:string;
+    display_email?:boolean,
+    display_telegram?:boolean,
+    wishlist?: {
+        size:number
+        items:[{
+            id:number,
+            image_url:string
+            language:string
+            title:string
+            author:string
+        }]
+    },
+    books?:{
+        size:number
+        items:[{
+            id:number,
+            image_url:string
+            language:string
+            title:string
+            author:string
+        }]
+    }
 }

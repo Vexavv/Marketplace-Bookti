@@ -21,8 +21,8 @@ export interface UpdateForm {
     location: string,
     avatar_url?: ImageType,
     telegram_id?: string,
-
-
+    display_email?:boolean,
+    display_telegram?:boolean
 }
 const UpdateData = () => {
     const {t} = useTranslation(['mySettings', 'login'])
@@ -39,6 +39,9 @@ const UpdateData = () => {
         location: user?.location || '',
         avatar_url: null,
         telegram_id: user?.telegram_id || '',
+        display_email: user?.display_email || false,
+        display_telegram:user?.display_telegram || false
+
     }
 
     const validationSchemaUpdate: yup.Schema<UpdateForm> = yup.object().shape({
@@ -54,16 +57,17 @@ const UpdateData = () => {
         location: yup.string()
             .matches(/^[a-zA-Zа\s'-]*$/u, t('login:Error.registration.name.city'))
             .required(t('login:Error.login.email.required')),
-        telegram_id: yup.string()
+        telegram_id: yup.string(),
+        display_email:yup.boolean(),
+        display_telegram:yup.boolean()
+
     })
 
-
     const checkBoxUpdate: FieldSettings[] = [
-        {id: 1, label_text: t('mySettings:UpdateData.LabelUpdate.checkBoxAddress'), name: 'show_email'},
-        {id: 2, label_text: t('mySettings:UpdateData.LabelUpdate.checkBoxTelegram'), name: 'show_telegram'},
+        {id: 1, label_text: t('mySettings:UpdateData.LabelUpdate.checkBoxAddress'), name: 'display_email'},
+        {id: 2, label_text: t('mySettings:UpdateData.LabelUpdate.checkBoxTelegram'), name: 'display_telegram'},
     ]
     const handleFormSubmit = (values: UpdateForm, {setSubmitting}: any) => {
-        console.log(values);
         dispatch(updateDataAsync(values))
         setSubmitting(false);
     };
@@ -133,8 +137,10 @@ const UpdateData = () => {
                             <div className={styles.FormCheckBoxList}>
                                 {checkBoxUpdate.map(item => (
                                     <div className={styles.FormCheckBoxListCheck} key={item.id}>
-                                        <input className={styles.FormCheckBoxListCheckCheckBox} name={item.name}
-                                               type='checkbox'></input>
+                                        <Field className={styles.FormCheckBoxListCheckCheckBox}
+                                               name={item.name}
+                                               type='checkbox'
+                                        />
                                         <label className={styles.FormCheckBoxListCheckLabel}
                                                htmlFor={item.name}>{item.label_text}</label>
                                     </div>
