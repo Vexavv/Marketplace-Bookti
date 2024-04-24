@@ -78,7 +78,6 @@ export const favoriteSlice = createSlice({
         backUpFavorite:state => {
             state.updateData = false;
             state.statusAdded = 'idle';
-
         },
         backUpDeleteFavorite:state => {
             state.deleteFavorite = false;

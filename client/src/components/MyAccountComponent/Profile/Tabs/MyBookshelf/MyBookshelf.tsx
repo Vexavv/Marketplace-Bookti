@@ -14,7 +14,7 @@ const MyBookShelf: FC = memo(() => {
     const { t } = useTranslation(['profile','favorite']);
     const { content } = useLoaderData() as IResData;
 
-    //-------------------------------------------------------------
+    //------------------------------------------------------------- add to favorite---------------------------
     const dispatch = useAppDispatch()
     const updateFavorite = useAppSelector(state => state.favorite.updateData)
     const statusFavorite = useAppSelector(state => state.favorite.statusAdded)
@@ -28,7 +28,6 @@ const MyBookShelf: FC = memo(() => {
         if(statusFavorite === 'loaded'){
             handleOpenModal();
             dispatch(backUpFavorite())
-
         }
     }, [statusFavorite]);
 
