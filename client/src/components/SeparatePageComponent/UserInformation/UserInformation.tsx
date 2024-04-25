@@ -21,7 +21,8 @@ const UserInformation: FC<UserInformationProps> = ({user}) => {
             <div className={styles.InfoAvatar}>
                 {
                     user?.avatar_url?(
-                        <img src={user.avatar_url} alt="Avatar"/>
+                        <img src={user.avatar_url} alt="Avatar" width={35}
+                             height={35}/>
                     ):(<img src="/header/user.svg"
                             alt="Avatar"
                             width={35}

@@ -7,6 +7,7 @@ import Tooltip, {TooltipProps, tooltipClasses} from '@mui/material/Tooltip';
 import {styled} from "@mui/material/styles";
 import {useAppDispatch} from "../../../hook";
 import {favoriteDataAsync, favoriteDeleteAsync} from "../../../store/slices/favoriteSlice/favoriteSlice";
+import {Link} from "react-router-dom";
 
 const FavoriteItem = ({id, image_url, language, title, author}: FavoriteItemProps) => {
 
@@ -52,7 +53,10 @@ const FavoriteItem = ({id, image_url, language, title, author}: FavoriteItemProp
                     <img onClick={deleteFavorite} className={styles.CardContentDelete} src="/favorite/del.svg" alt="delet"/>
                 </MyTooltip>
                 <div className={styles.CardContentButton}>
-                    <Button name='FavoriteCardButton'>{t('Card.button')}</Button>
+                    <Link to={`/separatePage/${id}`}>
+                        <Button name='FavoriteCardButton'>{t('Card.button')}</Button>
+                    </Link>
+
                 </div>
 
 
