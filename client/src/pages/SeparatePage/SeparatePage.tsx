@@ -37,17 +37,17 @@ const SeparatePage = () => {
     const [book, setBook] = useState<Book | null>(null)
     const [ownerBook, setOwnerBook] = useState<User | null>(null)
     const owner_id = book?.user_id
+
+
     useEffect(() => {
         const fetchDataBook = async () => {
             try {
                 const response = await axios.get<Book>(`${BASE_URL}/books/${id}`);
                 setBook(response.data);
-
             } catch (error) {
                 console.log(error)
             }
         };
-
         fetchDataBook();
     }, []);
     console.log(book)
