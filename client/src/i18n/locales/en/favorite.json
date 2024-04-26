@@ -7,6 +7,6 @@
   "Modal": {
     "added": "The book has been added to favorites",
     "delete": "The book has been removed from favorites",
-    "alreadyAdded": "The book has already been added"
+    "alreadyAdded": "The book has already been added to favorites"
   }
 }

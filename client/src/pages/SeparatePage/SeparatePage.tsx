@@ -12,6 +12,7 @@ import axios from 'axios';
 import {closeModal, openModal} from "../../store/slices/modalSlice";
 import {backUpFavorite} from "../../store/slices/favoriteSlice/favoriteSlice";
 import {getUserAsync} from "../../store/slices/userSlices/authSlice";
+import {User} from "../../types";
 
 interface Book {
     id: string,
@@ -34,9 +35,10 @@ const SeparatePage = () => {
     //-----------------------------------------------------------
     const { id } = useParams();
     const [book, setBook] = useState<Book | null>(null)
-
+    const [ownerBook, setOwnerBook] = useState<User | null>(null)
+    const owner_id = book?.user_id
     useEffect(() => {
-        const fetchData = async () => {
+        const fetchDataBook = async () => {
             try {
                 const response = await axios.get<Book>(`${BASE_URL}/books/${id}`);
                 setBook(response.data);
@@ -46,13 +48,29 @@ const SeparatePage = () => {
             }
         };
 
-        fetchData();
+        fetchDataBook();
     }, []);
     console.log(book)
+
+    useEffect(() => {
+        const fetchDataOwner = async () => {
+            try {
+                const response = await axios.get<User>(`${BASE_URL}/users/${owner_id}`);
+                setOwnerBook(response.data);
+
+            } catch (error) {
+                console.log(error)
+            }
+        };
+
+        fetchDataOwner();
+    }, []);
+    console.log(ownerBook)
     //-----------------------------------------------------------
     const dispatch = useAppDispatch()
     const updateFavorite = useAppSelector(state => state.favorite.updateData)
     const statusFavorite = useAppSelector(state => state.favorite.statusAdded)
+
     const handleOpenModal = () => {
         dispatch(openModal({type: 'informMessage', props: {key: 'value'},text: t('favorite:Modal.added')}));
         setTimeout(() => {
@@ -68,6 +86,7 @@ const SeparatePage = () => {
     useEffect(() => {
         dispatch(getUserAsync())
     }, [updateFavorite]);
+
     return (
         <>
             <Container>

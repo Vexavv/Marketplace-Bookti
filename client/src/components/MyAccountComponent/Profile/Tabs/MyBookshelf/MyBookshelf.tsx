@@ -18,6 +18,7 @@ const MyBookShelf: FC = memo(() => {
     const dispatch = useAppDispatch()
     const updateFavorite = useAppSelector(state => state.favorite.updateData)
     const statusFavorite = useAppSelector(state => state.favorite.statusAdded)
+
     const handleOpenModal = () => {
         dispatch(openModal({type: 'informMessage', props: {key: 'value'},text: t('favorite:Modal.added')}));
         setTimeout(() => {

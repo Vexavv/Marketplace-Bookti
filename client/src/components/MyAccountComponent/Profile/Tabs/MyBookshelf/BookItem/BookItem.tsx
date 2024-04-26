@@ -4,8 +4,8 @@ import {IBook} from '../../../../../../store/slices/profileSlice/profileSliceTyp
 import Tooltip from '@mui/material/Tooltip';
 import Button from '../../../../../../uiComponent/Button/Button';
 import styles from './BookItem.module.scss';
-import { openModal} from "../../../../../../store/slices/modalSlice";
-import {useAppDispatch} from "../../../../../../hook";
+import {closeModal, openModal} from "../../../../../../store/slices/modalSlice";
+import {useAppDispatch, useAppSelector} from "../../../../../../hook";
 import {favoriteDataAsync} from "../../../../../../store/slices/favoriteSlice/favoriteSlice";
 
 interface IBookItemProps extends IBook {
@@ -20,7 +20,7 @@ const BookItem: FC<IBookItemProps> = ({
                                           genre,
                                           id
                                       }) => {
-    const {t} = useTranslation('profile');
+    const {t} = useTranslation(['profile','favorite']);
     const [isFavorite, setIsFavorite] = useState<boolean>(false);
     const dispatch = useAppDispatch();
 
@@ -37,10 +37,24 @@ const BookItem: FC<IBookItemProps> = ({
             genre: genre
         }));
     }
+
+    const handleOpenMessageModal = () => {
+        dispatch(openModal({type: 'informMessage', props: {key: 'value'},text: t('favorite:Modal.alreadyAdded')}));
+        setTimeout(() => {
+            dispatch(closeModal());
+        }, 3000);
+    }
     //---------------------add to favorite ---------------------
+    const user = useAppSelector(state => state.auth.user);
+    const haveBook = user?.wishlist?.items
     const addToFavorites = async () => {
         try {
-            await dispatch(favoriteDataAsync(id));
+                const check = haveBook && haveBook.find(item => item.id === id);
+                if (check) {
+                    handleOpenMessageModal()
+                } else {
+                    await dispatch(favoriteDataAsync(id));
+                }
             await setIsFavorite(!isFavorite)
         } catch (error) {
             console.error(error);

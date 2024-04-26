@@ -15,7 +15,7 @@ const BookInfo = ({
     const loading = useAppSelector(state => state.auth.loading);
     const user = useAppSelector(state => state.auth.user);
     const haveBook = user?.wishlist?.items
-    console.log(haveBook)
+
     //------------------------------------------open modal--------------------------------
     const handleOpenModal = () => {
         dispatch(openModal({
@@ -43,12 +43,10 @@ const BookInfo = ({
         try {
             if (typeof id === 'string') {
                 const check = haveBook && haveBook.find(item => item.id === id);
-
                 if (check) {
                     handleOpenMessageModal()
                 } else {
                     await dispatch(favoriteDataAsync(id));
-                    console.log('Книга успешно добавлена в избранное');
                 }
             } else {
                 console.error('ID is undefined or not a string');
