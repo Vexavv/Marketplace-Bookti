@@ -22,12 +22,6 @@ interface Data {
     refresh_token: string;
 }
 
-// export interface User {
-//     email: string;
-//     full_name: string;
-//     avatar_url: string;
-//     city:string;
-// }
 
 export interface AuthData {
     access_token: string;

@@ -43,8 +43,8 @@ export interface FieldSettings {
     component?:React.ReactElement
 }
 export interface User {
-    id?:number
-    creation_date?:number
+    id?:string
+    creation_date?:string
     email: string;
     full_name: string;
     avatar_url: string;
@@ -55,7 +55,7 @@ export interface User {
     wishlist?: {
         size:number
         items:[{
-            id:number,
+            id:string,
             image_url:string
             language:string
             title:string
@@ -65,7 +65,7 @@ export interface User {
     books?:{
         size:number
         items:[{
-            id:number,
+            id:string,
             image_url:string
             language:string
             title:string

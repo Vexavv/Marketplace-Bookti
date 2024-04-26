@@ -1,6 +1,6 @@
 export interface FavoriteItemProps {
     key:number
-    id:number
+    id:string
     image_url:string
     language:string
     title:string

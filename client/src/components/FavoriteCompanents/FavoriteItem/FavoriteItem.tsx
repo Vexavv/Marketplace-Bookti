@@ -15,7 +15,8 @@ const FavoriteItem = ({id, image_url, language, title, author}: FavoriteItemProp
     const dispatch = useAppDispatch();
     const deleteFavorite = async () => {
         try{
-            await dispatch(favoriteDeleteAsync(id));
+                await dispatch(favoriteDeleteAsync(id));
+
         }catch(error){
             console.error(error)
         }
