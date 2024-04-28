@@ -26,7 +26,13 @@
         }
     },
     "interesting": {
-        "empty": "Тут поки пусто"
+        "empty": "Тут поки пусто",
+        "item": {
+            "info-table": {
+                "lang": "Мова"
+            },
+            "btn-write": "Написати"
+        }
     },
     "reviews": {
         "btn-add-review": "Додати відгук",
