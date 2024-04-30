@@ -30,7 +30,7 @@ interface Book {
 
 const SeparatePage = () => {
     const {t} = useTranslation(['separatePage', 'login', 'favorite']);
-    const { user } = useAppSelector(state => state.auth);
+    // const { user } = useAppSelector(state => state.auth);
     const navigate = useNavigate();
     //-----------------------------------------------------------
     const { id } = useParams();
@@ -55,6 +55,7 @@ const SeparatePage = () => {
     useEffect(() => {
         const fetchDataOwner = async () => {
             try {
+
                 const response = await axios.get<User>(`${BASE_URL}/users/${owner_id}`);
                 setOwnerBook(response.data);
 
@@ -97,7 +98,7 @@ const SeparatePage = () => {
                     </button>
                     <div className={styles.WrapperContent}>
                         <BookInfo  {...book}/>
-                        <UserInformation user={user}/>
+                        <UserInformation user={ownerBook}/>
                     </div>
                     <div className={styles.WrapperDescription}>
                         <h3 className={styles.WrapperDescriptionTitle}>{t('separatePage:Title')}</h3>
