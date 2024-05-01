@@ -33,8 +33,6 @@ const PopperUser = () => {
 //------------------Selectors-------------------------
     const user = useAppSelector(state => state.auth.user)
     const loading = useAppSelector(state => state.auth.loading)
-    console.log('User>>>>>>>>>', user)
-
 
 //----------------------Logout Google ---------------------
     const handleLogout = () => {

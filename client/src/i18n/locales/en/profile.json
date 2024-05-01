@@ -26,7 +26,13 @@
         }
     },
     "interesting": {
-        "empty": "It's still empty here"
+        "empty": "It's still empty here",
+        "item": {
+            "info-table": {
+                "lang": "Language"
+            },
+            "btn-write": "Write"
+        }
     },
     "reviews": {
         "btn-add-review": "Write a review",

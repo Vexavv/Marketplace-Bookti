@@ -7,12 +7,12 @@ import {Link} from "react-router-dom";
 
 
 const newUsers: User[] = [
-    {id: 1, avatar_url: "/test/img_1.png", full_name: "Наталія Чернєва", location: "Kyiv", email: ""},
-    {id: 2, avatar_url: "/test/photoUser.png", full_name: "Ксенія Бабенко", location: "Kyiv", email: ""},
-    {id: 3, avatar_url: "", full_name: "Богдан Снігур", location: "Kyiv", email: ""},
-    {id: 4, avatar_url: "", full_name: "Єлизавета Гончар", location: "Kyiv", email: ""},
-    {id: 5, avatar_url: "/test/img.png", full_name: "Михайло Слобош", location: "Kyiv", email: ""},
-    {id: 6, avatar_url: "", full_name: "Катерина Бобр", location: "Kyiv", email: ""},
+    {id: '1', avatar_url: "/test/img_1.png", full_name: "Наталія Чернєва", location: "Kyiv", email: ""},
+    {id: '2', avatar_url: "/test/photoUser.png", full_name: "Ксенія Бабенко", location: "Kyiv", email: ""},
+    {id: '3', avatar_url: "", full_name: "Богдан Снігур", location: "Kyiv", email: ""},
+    {id: '4', avatar_url: "", full_name: "Єлизавета Гончар", location: "Kyiv", email: ""},
+    {id: '5', avatar_url: "/test/img.png", full_name: "Михайло Слобош", location: "Kyiv", email: ""},
+    {id: '6', avatar_url: "", full_name: "Катерина Бобр", location: "Kyiv", email: ""},
 ]
 const NewUsers = () => {
 

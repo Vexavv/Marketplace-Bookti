@@ -45,7 +45,7 @@ const dispatch = useAppDispatch();
             <Back text="Обране"/>
             <div className={styles.Favorite}>
                 {favBooks && favBooks.length > 0 ? (favBooks.map(
-                    item => (<FavoriteItem key={item.id} {...item} />)
+                    (item, index) => (<FavoriteItem key={index} {...item} />)
                 )) : <p>Favorite Пока ничего нет</p>}
             </div>
 

@@ -6,8 +6,8 @@ import {useTranslation} from "react-i18next";
 import {useWindowSize} from "../../../hooks/useWindowSize";
 
 const mySubscriptionsUsers: User[] = [
-    {id: 1, avatar_url: "", full_name: "Вася Семенов", location: "Kyiv", email: ""},
-    {id: 2, avatar_url: "/test/photoUser.png", full_name: "Олена Коваль", location: "Kyiv", email: ""}
+    {id: '1', avatar_url: "", full_name: "Вася Семенов", location: "Kyiv", email: ""},
+    {id: '2', avatar_url: "/test/photoUser.png", full_name: "Олена Коваль", location: "Kyiv", email: ""}
 ]
 const MySubscriptionsUsers = () => {
     const {t} = useTranslation('mySubscriptions')

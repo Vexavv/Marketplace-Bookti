@@ -81,7 +81,7 @@ export const rootRoutes: RouteObject[] = [
                 element: <RenamePassword/>,
             },
             {
-                path: 'separatePage',
+                path: 'separatePage/:id',
                 element: <SeparatePage/>,
             },
             {

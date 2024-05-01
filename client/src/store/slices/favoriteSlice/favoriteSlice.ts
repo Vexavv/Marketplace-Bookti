@@ -42,7 +42,7 @@ export const favoriteDataAsync = createAsyncThunk(
 )
 export const favoriteDeleteAsync = createAsyncThunk(
     'favorite/favoriteDelete',
-    async (bookId:number, { getState }) =>{
+    async (bookId:string, { getState }) =>{
         try {
             let authData: AuthData;
             // @ts-ignore
@@ -78,7 +78,6 @@ export const favoriteSlice = createSlice({
         backUpFavorite:state => {
             state.updateData = false;
             state.statusAdded = 'idle';
-
         },
         backUpDeleteFavorite:state => {
             state.deleteFavorite = false;

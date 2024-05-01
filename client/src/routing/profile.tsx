@@ -3,8 +3,6 @@ import MyAccount from '../pages/MyAccount/MyAccount';
 import MyBookShelf from '../components/MyAccountComponent/Profile/Tabs/MyBookshelf/MyBookshelf';
 import Interest from '../components/MyAccountComponent/Profile/Tabs/Interest/Interest';
 import Reviews from '../components/MyAccountComponent/Profile/Tabs/Reviews/Reviews';
-
-import bookshelfTabsService from '../services/BookshelfTabsService/bookshelf.tabs.service';
 import Loader from '../uiComponent/Loader/Loader';
 
 export const profileRoutes: RouteObject[] = [
@@ -15,22 +13,10 @@ export const profileRoutes: RouteObject[] = [
             {
                 path: 'my-bookshelf',
                 element: <MyBookShelf />,
-                loader: async () => {
-                    const data = await bookshelfTabsService.getData('books');
-
-                    return data;
-                },
-                HydrateFallback: Loader,
-                errorElement: <div>error</div>,
             },
             {
                 path: 'interest',
                 element: <Interest />,
-                loader: async () => {
-                    return { content: [] };
-                },
-                HydrateFallback: Loader,
-                errorElement: <div>error</div>,
             },
             {
                 path: 'reviews',
