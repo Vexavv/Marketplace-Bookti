@@ -24,19 +24,16 @@ interface Book {
     publication_date: string
     trade_format: string,
     image_url: string,
-    user_id: string
+    owner: User | null
 }
 
 
 const SeparatePage = () => {
     const {t} = useTranslation(['separatePage', 'login', 'favorite']);
-    // const { user } = useAppSelector(state => state.auth);
     const navigate = useNavigate();
     //-----------------------------------------------------------
-    const { id } = useParams();
+    const {id} = useParams();
     const [book, setBook] = useState<Book | null>(null)
-    const [ownerBook, setOwnerBook] = useState<User | null>(null)
-    const owner_id = book?.user_id
 
 
     useEffect(() => {
@@ -51,35 +48,20 @@ const SeparatePage = () => {
         fetchDataBook();
     }, []);
     console.log(book)
-
-    useEffect(() => {
-        const fetchDataOwner = async () => {
-            try {
-
-                const response = await axios.get<User>(`${BASE_URL}/users/${owner_id}`);
-                setOwnerBook(response.data);
-
-            } catch (error) {
-                console.log(error)
-            }
-        };
-
-        fetchDataOwner();
-    }, []);
-    console.log(ownerBook)
+    const owner = book?.owner ?? null;
     //-----------------------------------------------------------
     const dispatch = useAppDispatch()
     const updateFavorite = useAppSelector(state => state.favorite.updateData)
     const statusFavorite = useAppSelector(state => state.favorite.statusAdded)
 
     const handleOpenModal = () => {
-        dispatch(openModal({type: 'informMessage', props: {key: 'value'},text: t('favorite:Modal.added')}));
+        dispatch(openModal({type: 'informMessage', props: {key: 'value'}, text: t('favorite:Modal.added')}));
         setTimeout(() => {
             dispatch(closeModal());
         }, 3000);
     }
     useEffect(() => {
-        if(statusFavorite === 'loaded'){
+        if (statusFavorite === 'loaded') {
             handleOpenModal();
             dispatch(backUpFavorite())
         }
@@ -98,11 +80,11 @@ const SeparatePage = () => {
                     </button>
                     <div className={styles.WrapperContent}>
                         <BookInfo  {...book}/>
-                        <UserInformation user={ownerBook}/>
+                        <UserInformation user={owner}/>
                     </div>
                     <div className={styles.WrapperDescription}>
                         <h3 className={styles.WrapperDescriptionTitle}>{t('separatePage:Title')}</h3>
-                        <p className={styles.WrapperDescriptionText} >{book?.description}</p>
+                        <p className={styles.WrapperDescriptionText}>{book?.description}</p>
                     </div>
                 </div>
             </Container>
