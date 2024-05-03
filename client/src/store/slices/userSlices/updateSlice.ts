@@ -5,12 +5,12 @@ import {BASE_URL} from '../../../constants/api';
 import {UpdateForm} from "../../../components/MySettingsComponents/UpdateData/UpdateData";
 
 interface UpdateData {
-    full_name: string,
+    fullName: string,
     email: string,
     location: string,
-    telegram_id: string,
-    display_email?:boolean,
-    display_telegram?:boolean
+    telegramId: string,
+    displayEmail?:boolean,
+    displayTelegram?:boolean
 }
 
 interface UpdateState {
@@ -33,19 +33,19 @@ export const updateDataAsync = createAsyncThunk(
     async (credentials: UpdateForm, {getState}) => {
         try {
             // @ts-ignore
-            const {user_id, access_token} = getState().auth.data;
-            const {avatar_url, ...withoutAvatar} = credentials;
+            const {userId, accessToken} = getState().auth.data;
+            const {avatarUrl, ...withoutAvatar} = credentials;
             const response: AxiosResponse<UpdateData> = await axios.patch(
-                `${BASE_URL}/users/${user_id}`,
+                `${BASE_URL}/users/${userId}`,
                 {
-                    ...(avatar_url && {image: new Blob([credentials.avatar_url as any])}),
+                    ...(avatarUrl && {image: new Blob([credentials.avatarUrl as any])}),
                     user_update: new Blob([JSON.stringify(withoutAvatar)], {
                         type: 'application/json',
                     }),
                 },
                 {
                     headers: {
-                        Authorization: `Bearer ${access_token}`,
+                        Authorization: `Bearer ${accessToken}`,
                         'Content-Type': 'multipart/form-data',
                     },
                 }

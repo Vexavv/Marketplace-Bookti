@@ -8,11 +8,11 @@ export const addBookAsync = createAsyncThunk(
     'addBoocAsync',
     async (body: IFormFilds, { getState }) => {
         // @ts-ignore
-        const { user_id, access_token } = getState().auth.data;
+        const { userId, accessToken } = getState().auth.data;
         const { image, ...withoutImage } = body;
 
         const { data } = await axios.postForm<ISingleBook>(
-            `${BASE_URL}/books?user_id=${user_id}`,
+            `${BASE_URL}/books?user_id=${userId}`,
             {
                 image: new Blob([body.image as any]),
                 book_profile: new Blob([JSON.stringify(withoutImage)], {
@@ -21,7 +21,7 @@ export const addBookAsync = createAsyncThunk(
             },
             {
                 headers: {
-                    Authorization: `Bearer ${access_token}`,
+                    Authorization: `Bearer ${accessToken}`,
                     'Content-Type': 'multipart/form-data',
                 },
             }

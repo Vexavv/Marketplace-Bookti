@@ -16,13 +16,13 @@ import {closeModal, openModal} from "../../../store/slices/modalSlice";
 
 
 export interface UpdateForm {
-    full_name?: string,
+    fullName?: string,
     email?: string,
     location: string,
-    avatar_url?: ImageType,
-    telegram_id?: string,
-    display_email?:boolean,
-    display_telegram?:boolean
+    avatarUrl?: ImageType,
+    telegramId?: string,
+    displayEmail?:boolean,
+    displayTelegram?:boolean
 }
 const UpdateData = () => {
     const {t} = useTranslation(['mySettings', 'login'])
@@ -34,18 +34,18 @@ const UpdateData = () => {
 
 
     const initialValuesUpdateForm: UpdateForm = {
-        full_name: user?.full_name || '',
+        fullName: user?.fullName || '',
         email: user?.email || '',
         location: user?.location || '',
-        avatar_url: null,
-        telegram_id: user?.telegram_id || '',
-        display_email: user?.display_email || false,
-        display_telegram:user?.display_telegram || false
+        avatarUrl: null,
+        telegramId: user?.telegramId || '',
+        displayEmail: user?.displayEmail || false,
+        displayTelegram:user?.displayTelegram || false
 
     }
 
     const validationSchemaUpdate: yup.Schema<UpdateForm> = yup.object().shape({
-        full_name: yup.string()
+        fullName: yup.string()
             .matches(/^(?!^\s*$)[a-zA-Zа-яА-ЯіІїЇєЄґҐ\s]+$/, t('login:Error.registration.name.matches'))
             .min(2, t('login:Error.registration.name.min'))
             .max(25, t('login:Error.registration.name.max'))
@@ -57,15 +57,15 @@ const UpdateData = () => {
         location: yup.string()
             .matches(/^[a-zA-Zа\s'-]*$/u, t('login:Error.registration.name.city'))
             .required(t('login:Error.login.email.required')),
-        telegram_id: yup.string(),
-        display_email:yup.boolean(),
-        display_telegram:yup.boolean()
+        telegramId: yup.string(),
+        displayEmail:yup.boolean(),
+        displayTelegram:yup.boolean()
 
     })
 
     const checkBoxUpdate: FieldSettings[] = [
-        {id: 1, label_text: t('mySettings:UpdateData.LabelUpdate.checkBoxAddress'), name: 'display_email'},
-        {id: 2, label_text: t('mySettings:UpdateData.LabelUpdate.checkBoxTelegram'), name: 'display_telegram'},
+        {id: 1, label_text: t('mySettings:UpdateData.LabelUpdate.checkBoxAddress'), name: 'displayEmail'},
+        {id: 2, label_text: t('mySettings:UpdateData.LabelUpdate.checkBoxTelegram'), name: 'displayTelegram'},
     ]
     const handleFormSubmit = (values: UpdateForm, {setSubmitting}: any) => {
         dispatch(updateDataAsync(values))
@@ -101,13 +101,13 @@ const UpdateData = () => {
                             <div className={styles.FormPhoto}>
                                 <UserPhoto
                                     url={
-                                        imageUrl && !errors.avatar_url
+                                        imageUrl && !errors.avatarUrl
                                             ? URL.createObjectURL(imageUrl)
                                             : ''
                                     }
                                 />
                                 <UserPhotoField type="file" setTouched={setTouched} setImageUrl={setImageUrl}
-                                                name="avatar_url"/>
+                                                name="avatarUrl"/>
                             </div>
                             <div className={styles.FormWrapper}>
                                 <label className={styles.FormWrapperLabel}
@@ -118,8 +118,8 @@ const UpdateData = () => {
                             <div className={styles.FormWrapper}>
                                 <label className={styles.FormWrapperLabel}
                                        htmlFor="text">{t('mySettings:UpdateData.LabelUpdate.newName')}</label>
-                                <Field className={styles.FormWrapperImput} name="full_name" type='text'></Field>
-                                <ErrorMessage className={styles.FormWrapperError} component="span" name='full_name'/>
+                                <Field className={styles.FormWrapperImput} name="fullName" type='text'></Field>
+                                <ErrorMessage className={styles.FormWrapperError} component="span" name='fullName'/>
                             </div>
                             <div className={styles.FormWrapper}>
                                 <label className={styles.FormWrapperLabel}
@@ -131,8 +131,8 @@ const UpdateData = () => {
                             <div className={styles.FormWrapper}>
                                 <label className={styles.FormWrapperLabel}
                                        htmlFor="text">{t('mySettings:UpdateData.LabelUpdate.telegram')}</label>
-                                <Field className={styles.FormWrapperImput} name="telegram_id" type='text'></Field>
-                                <ErrorMessage className={styles.FormWrapperError} component="span" name='telegram_id'/>
+                                <Field className={styles.FormWrapperImput} name="telegramId" type='text'></Field>
+                                <ErrorMessage className={styles.FormWrapperError} component="span" name='telegramId'/>
                             </div>
                             <div className={styles.FormCheckBoxList}>
                                 {checkBoxUpdate.map(item => (

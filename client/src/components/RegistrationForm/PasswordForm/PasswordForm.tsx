@@ -13,15 +13,10 @@ import {renamePasswordAsync} from "../../../store/slices/userSlices/passwordSlic
 
 
 
-// interface PasswordValues {
-//     password: string,
-//     confirm_password: string,
-//
-//
-// } // initialValues
+
 const initialValuesPassword: LoginForm = {
     password: '',
-    confirm_password: '',
+    confirmPassword: '',
 
 }
 const PasswordForm = () => {
@@ -40,7 +35,7 @@ const PasswordForm = () => {
             .minUppercase(1, t('Error.login.password.minUppercase'))
             .minNumbers(1, t('Error.login.password.minNumbers'))
             .required(t('Error.login.email.required')),
-        confirm_password: yup.string()
+        confirmPassword: yup.string()
             .oneOf([yup.ref('password')], t('Error.registration.confirmPassword.oneOf'))
             .required(t('Error.login.email.required')),
 
@@ -80,7 +75,7 @@ const PasswordForm = () => {
                             type={isShowConfirm ? 'text' : 'password'}
                             placeholder={t('RegistrationPlaceholder.confirmPassword')}
                         />
-                        <ErrorMessage className={styles.FormInputError} component="span" name="confirm_password"/>
+                        <ErrorMessage className={styles.FormInputError} component="span" name="confirmPassword"/>
                         <span className={styles.FormVisibilityWrapperVisibility}
                               onClick={() => {
                                   handleTogglePassword(setIsShowConfirm)

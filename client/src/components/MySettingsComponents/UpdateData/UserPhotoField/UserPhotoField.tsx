@@ -50,11 +50,11 @@ const UserPhotoField: React.FC<UserPhotoProps> = ({
                                 const file = currentTarget.files?.item(0);
 
                                 setTouched({
-                                    avatar_url: true,
+                                    avatarUrl: true,
                                 });
 
                                 setImageUrl(file);
-                                e.form.setFieldValue('avatar_url', file);
+                                e.form.setFieldValue('avatarUrl', file);
                             }}
                         />
                     )}

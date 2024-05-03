@@ -8,12 +8,13 @@ import {useAppDispatch, useAppSelector} from "../../../hook";
 import {favoriteDataAsync} from "../../../store/slices/favoriteSlice/favoriteSlice";
 
 const BookInfo = ({
-                      id, title, image_url, author, genre, publication_date, language
+                      id, title, imageUrl, author, genre, publicationYear, language
                   }: BookInfoProps) => {
     const {t} = useTranslation(['separatePage','favorite']);
     const dispatch = useAppDispatch()
     const loading = useAppSelector(state => state.auth.loading);
     const user = useAppSelector(state => state.auth.user);
+
     const haveBook = user?.wishlist?.items
 
     //------------------------------------------open modal--------------------------------
@@ -24,8 +25,8 @@ const BookInfo = ({
             title: title,
             author: author,
             language: language,
-            image_url: image_url,
-            publication_date: publication_date,
+            imageUrl: imageUrl,
+            publicationYear: publicationYear,
             genre: genre
         }));
     }
@@ -41,7 +42,8 @@ const BookInfo = ({
     const [isFavorite, setIsFavorite] = useState<boolean>(false);
     const addToFavorites = async () => {
         try {
-            if (typeof id === 'string') {
+
+            if (typeof id === 'number') {
                 const check = haveBook && haveBook.find(item => item.id === id);
                 if (check) {
                     handleOpenMessageModal()
@@ -59,7 +61,7 @@ const BookInfo = ({
     };
     return (
         <div className={styles.Info}>
-            {image_url ? <img className={styles.InfoImg} src={image_url} alt="book"/> :
+            {imageUrl ? <img className={styles.InfoImg} src={imageUrl} alt="book"/> :
                 <img className={styles.InfoImg} src="/home/categories/first-book.png" alt="book"/>}
             <div className={styles.InfoDescription}>
                 <h4 className={styles.InfoDescriptionTitle}>"{title}"</h4>
@@ -76,7 +78,7 @@ const BookInfo = ({
                     </li>
                     <li className={styles.InfoDescriptionListItem}><p>{t('Book.genre')} <span>{genre}</span></p></li>
                     <li className={styles.InfoDescriptionListItem}><p>{t('Book.year')}
-                        <span>{publication_date} рік</span></p></li>
+                        <span>{publicationYear} рік</span></p></li>
                     <li className={styles.InfoDescriptionListItem}>
                         <p>{t('Book.language')}<span>{language ? language.charAt(0).toUpperCase() + language.slice(1).toLowerCase() : ''}</span>
                         </p></li>

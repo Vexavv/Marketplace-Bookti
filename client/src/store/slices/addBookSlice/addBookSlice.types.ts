@@ -1,12 +1,12 @@
 export interface ISingleBook {
-    id: string;
+    id: number;
     title: string;
     author: string;
     genre: string;
     language: string;
     description: string;
-    publication_date: string;
-    trade_format: string;
-    image_url: string;
-    user_id: string;
+    publicationYear: string;
+    tradeFormat: string;
+    imageUrl: string;
+    userId: number;
 }

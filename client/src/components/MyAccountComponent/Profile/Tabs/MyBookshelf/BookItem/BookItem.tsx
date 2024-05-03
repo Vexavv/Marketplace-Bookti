@@ -13,13 +13,13 @@ import { favoriteDataAsync } from '../../../../../../store/slices/favoriteSlice/
 
 type BookItemType = Omit<
     IBook,
-    'user_id' | 'description' | 'trade_format' | 'publication_date' | 'genre'
+    'userId' | 'description' | 'tradeFormat' | 'publicationYear' | 'genre'
 >;
 
 interface IBookItemProps extends BookItemType {}
 
 const BookItem: FC<IBookItemProps> = ({
-    image_url,
+    imageUrl,
     title,
     author,
     language,
@@ -38,7 +38,7 @@ const BookItem: FC<IBookItemProps> = ({
                 title: title,
                 author: author,
                 language: language,
-                image_url: image_url,
+                imageUrl: imageUrl,
                 // publication_date: publication_date,
                 // genre: genre,
             })
@@ -79,9 +79,9 @@ const BookItem: FC<IBookItemProps> = ({
             <div
                 className={styles.WrapperImage}
                 style={{
-                    backgroundSize: `${image_url ? 'cover' : '50%'}`,
+                    backgroundSize: `${imageUrl ? 'cover' : '50%'}`,
                     backgroundImage: `url(${
-                        image_url ? image_url : '/bookshelf/image.png'
+                        imageUrl ? imageUrl : '/bookshelf/image.png'
                     })`,
                 }}
             />

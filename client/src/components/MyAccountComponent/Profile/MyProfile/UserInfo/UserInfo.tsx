@@ -23,8 +23,8 @@ const UserInfo: FC<IUserInfoProps> = ({ user }) => {
                     [styles.IsOnline]: true,
                 })}
             >
-                {user?.avatar_url ? (
-                    <img src={user.avatar_url} alt="Avatar" />
+                {user?.avatarUrl ? (
+                    <img src={user.avatarUrl} alt="Avatar" />
                 ) : (
                     <img
                         src="/header/user.svg"
@@ -35,7 +35,7 @@ const UserInfo: FC<IUserInfoProps> = ({ user }) => {
                 )}
             </div>
             <div className={styles.UserInfoNameBox}>
-                <span>{user?.full_name}</span>
+                <span>{user?.fullName}</span>
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                     <Rating
                         initialValue={2}
