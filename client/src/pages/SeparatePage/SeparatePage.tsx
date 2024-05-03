@@ -15,15 +15,15 @@ import {getUserAsync} from "../../store/slices/userSlices/authSlice";
 import {User} from "../../types";
 
 interface Book {
-    id: string,
+    id: number,
     title: string,
     author: string,
     genre: string,
     language: string,
     description: string,
-    publication_date: string
-    trade_format: string,
-    image_url: string,
+    publicationDate: string
+    tradeFormat: string,
+    imageUrl: string,
     owner: User | null
 }
 
@@ -47,7 +47,7 @@ const SeparatePage = () => {
         };
         fetchDataBook();
     }, []);
-    console.log(book)
+    console.log('Book>>>>>>>', book)
     const owner = book?.owner ?? null;
     //-----------------------------------------------------------
     const dispatch = useAppDispatch()

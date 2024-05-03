@@ -31,7 +31,7 @@ const MobileUser = () => {
                     to={loading ? '#' : '/registration'}
                     onClick={mobileUserToggle}
                 >
-                    {user?.avatar_url ? <img className={styles.UserAvatarUserPhoto} src={user.avatar_url} alt="avatar"/> : <img
+                    {user?.avatarUrl ? <img className={styles.UserAvatarUserPhoto} src={user.avatarUrl} alt="avatar"/> : <img
                         className={styles.UserAvatarImg}
                         src="/header/user.svg"
                         alt="user"
@@ -70,8 +70,8 @@ const MobileUser = () => {
                         {user && (
                             <div className={styles.UserPrifileGreetings}>
                                 <UserImage
-                                    picture={user.avatar_url}
-                                    name={user.full_name}
+                                    picture={user.avatarUrl}
+                                    name={user.fullName}
                                     text={t('Popper.text')}
                                 />
                             </div>

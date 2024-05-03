@@ -26,15 +26,15 @@ const modalSlice = createSlice({
             title?: string,
             author?: string,
             language?: string,
-            image_url?: string | null,
-            publication_date?: string,
+            imageUrl?: string | null,
+            publicationYear?: string,
             genre?: string
         }>) => {
-            const {type, props, text, title, author, language, image_url, publication_date, genre} = action.payload;
+            const {type, props, text, title, author, language, imageUrl, publicationYear, genre} = action.payload;
             state.isOpen = true;
             state.type = type;
             state.props = props;
-            state.props = {...props, text, author, title, language, image_url, publication_date, genre};
+            state.props = {...props, text, author, title, language, imageUrl, publicationYear, genre};
 
         },
         closeModal: (state) => {

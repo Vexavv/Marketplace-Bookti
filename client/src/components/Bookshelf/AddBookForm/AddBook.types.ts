@@ -4,9 +4,9 @@ export interface IFormFilds {
     title: string;
     author: string;
     genre: string;
-    publication_date: string;
+    publicationYear: string;
     language: string;
-    trade_format: string;
+    tradeFormat: string;
     description: string;
     image: ImageType;
 }

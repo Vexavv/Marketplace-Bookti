@@ -11,8 +11,8 @@ import Button from "../../../uiComponent/Button/Button";
 
 const initialValuesNewPassword: LoginForm = {
     password: '',
-    new_password: '',
-    confirm_password: '',
+    newPassword: '',
+    confirmPassword: '',
 }
 const ChangePassword = () => {
     const {t} = useTranslation(['mySettings', 'login'])
@@ -28,14 +28,14 @@ const ChangePassword = () => {
             .minUppercase(1, t('login:Error.login.password.minUppercase'))
             .minNumbers(1, t('login:Error.login.password.minNumbers'))
             .required(t('login:Error.login.email.required')),
-        new_password: yup.string()
+        newPassword: yup.string()
             .min(8, t('login:Error.login.password.min'))
             .max(20, t('login:Error.login.password.max'))
             .minLowercase(1, t('login:Error.login.password.minLowercase'))
             .minUppercase(1, t('login:Error.login.password.minUppercase'))
             .minNumbers(1, t('login:Error.login.password.minNumbers'))
             .required(t('login:Error.login.email.required')),
-        confirm_password: yup.string()
+        confirmPassword: yup.string()
             .oneOf([yup.ref('new_password')], t('login:Error.registration.confirmPassword.oneOf'))
             .required(t('login:Error.login.email.required')),
 

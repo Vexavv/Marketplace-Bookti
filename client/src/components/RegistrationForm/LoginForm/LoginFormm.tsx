@@ -23,11 +23,11 @@ const initialValuesLogin: LoginFormValues = {
     password: ''
 }
 const initialValuesSignIn: CreateAccountValues = {
-    full_name: '',
+    fullName: '',
     email: '',
     location:'',
     password: '',
-    confirm_password: '',
+    confirmPassword: '',
     checkboxField: false,
 }
 
@@ -37,11 +37,11 @@ interface LoginFormValues {
 }
 
 interface CreateAccountValues {
-    full_name: string;
+    fullName: string;
     email: string;
     location:string;
     password: string;
-    confirm_password: string;
+    confirmPassword: string;
     checkboxField: boolean
 
 }
@@ -73,7 +73,7 @@ const LoginFormm = ({registration}: LoginFormProps) => {
     })
 
     const validationSchemaRegister: yup.Schema<LoginForm> = yup.object().shape({
-        full_name: yup.string()
+        fullName: yup.string()
             .matches(/^(?!^\s*$)[a-zA-Zа-яА-ЯіІїЇєЄґҐ\s]+$/, t('Error.registration.name.matches'))
             .min(2, t('Error.registration.name.min'))
             .max(25, t('Error.registration.name.max'))
@@ -94,7 +94,7 @@ const LoginFormm = ({registration}: LoginFormProps) => {
             .minUppercase(1, t('Error.login.password.minUppercase'))
             .minNumbers(1, t('Error.login.password.minNumbers'))
             .required(t('Error.login.email.required')),
-        confirm_password: yup.string()
+        confirmPassword: yup.string()
             .oneOf([yup.ref('password')], t('Error.registration.confirmPassword.oneOf'))
             .required(t('Error.login.email.required')),
         checkboxField: yup.boolean().oneOf([true], t('Error.registration.checkboxField')),
@@ -119,9 +119,9 @@ const LoginFormm = ({registration}: LoginFormProps) => {
 
             >
                 <Form className={styles.Form}>
-                    <Field className={styles.FormInput} type="text" name="full_name"
+                    <Field className={styles.FormInput} type="text" name="fullName"
                            placeholder={t('RegistrationPlaceholder.name')}/>
-                    <ErrorMessage className={styles.FormInputError} component="span" name="full_name"/>
+                    <ErrorMessage className={styles.FormInputError} component="span" name="fullName"/>
 
                     <Field className={styles.FormInput} type="email" name="email"
                            placeholder={t('LoginPlaceholder.email')}/>
@@ -151,11 +151,11 @@ const LoginFormm = ({registration}: LoginFormProps) => {
                     <div className={styles.FormVisibilityWrapper}>
                         <Field
                             className={styles.FormInput}
-                            name="confirm_password"
+                            name="confirmPassword"
                             type={isShowConfirm ? 'text' : 'password'}
                             placeholder={t('RegistrationPlaceholder.confirmPassword')}
                         />
-                        <ErrorMessage className={styles.FormInputError} component="span" name="confirm_password"/>
+                        <ErrorMessage className={styles.FormInputError} component="span" name="confirmPassword"/>
                         <span className={styles.FormVisibilityWrapperVisibility}
                               onClick={() => {
                                   handleTogglePassword(setIsShowConfirm)

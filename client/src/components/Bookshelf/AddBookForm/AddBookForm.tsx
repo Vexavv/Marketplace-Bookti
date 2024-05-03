@@ -47,11 +47,11 @@ const AddBookForm: FC = memo(() => {
         title: Yup.string().required(t('form.fild-name.errorMessage')),
         author: Yup.string().required(t('form.fild-author.errorMessage')),
         genre: Yup.string().required(t('form.fild-genre.errorMessage')),
-        publication_date: Yup.string().required(
+        publicationYear: Yup.string().required(
             t('form.fild-date.errorMessage')
         ),
         language: Yup.string().required(t('form.fild-language.errorMessage')),
-        trade_format: Yup.string().required(
+        tradeFormat: Yup.string().required(
             t('form.fild-exchange.errorMessage')
         ),
         description: Yup.string()
@@ -70,9 +70,9 @@ const AddBookForm: FC = memo(() => {
                 title: '',
                 author: '',
                 genre: '',
-                publication_date: '',
+                publicationYear: '',
                 language: '',
-                trade_format: t('form.fild-exchange.values', {
+                tradeFormat: t('form.fild-exchange.values', {
                     returnObjects: true,
                 })[0],
                 description: '',
@@ -138,7 +138,7 @@ const AddBookForm: FC = memo(() => {
                         <SelectFiled
                             name="trade_format"
                             setvalue={setFieldValue}
-                            value={values.trade_format}
+                            value={values.tradeFormat}
                             options={t('form.fild-exchange.values', {
                                 returnObjects: true,
                             })}

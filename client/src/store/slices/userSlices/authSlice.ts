@@ -12,20 +12,20 @@ interface CreateAccountCredentials {
     email: string;
     password: string;
     location:string;
-    full_name: string;
-    confirm_password: string;
+    fullName: string;
+    confirmPassword: string;
 }
 
 interface Data {
-    user_id: string;
-    access_token: string;
-    refresh_token: string;
+    userId: string;
+    accessToken: string;
+    refreshToken: string;
 }
 
 
 export interface AuthData {
-    access_token: string;
-    user_id: string;
+    accessToken: string;
+    userId: string;
 }
 
 interface UserState {
@@ -79,8 +79,8 @@ export const getUserAsync = createAsyncThunk(
             let authData: AuthData;
             // @ts-ignore
             authData = getState().auth.data as AuthData;
-            const token = authData.access_token;
-            const id = authData.user_id;
+            const token = authData.accessToken;
+            const id = authData.userId;
 
             const response: AxiosResponse<User> = await axios.get(
                 `${BASE_URL}/users/${id}`,

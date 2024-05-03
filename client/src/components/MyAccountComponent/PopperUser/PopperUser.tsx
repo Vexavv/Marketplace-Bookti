@@ -33,7 +33,7 @@ const PopperUser = () => {
 //------------------Selectors-------------------------
     const user = useAppSelector(state => state.auth.user)
     const loading = useAppSelector(state => state.auth.loading)
-
+    console.log(user)
 //----------------------Logout Google ---------------------
     const handleLogout = () => {
         dispatch(logout())
@@ -73,13 +73,13 @@ const PopperUser = () => {
             return <div>
                 <Button onClick={handleClick} name='UserButton'>
                     <img className={styles.PopperUser} src="/header/user.svg" alt="user"/>
-                    {user.full_name}</Button>
+                    {user.fullName}</Button>
 
     <Popper id={id} open={open} anchorEl={anchorEl}>
         <StyledPopperDiv sx={{display: {xs: 'none', md: 'flex'}, alignItems: 'center'}}
                          onClick={handleClose}>
             <div>
-                <UserImage picture={user.avatar_url} name={user.full_name}
+                <UserImage picture={user.avatarUrl} name={user.fullName}
                            text={t('Popper.text')}/>
             </div>
             <UserNavigation />

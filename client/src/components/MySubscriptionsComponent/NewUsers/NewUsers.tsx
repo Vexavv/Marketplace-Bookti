@@ -7,12 +7,12 @@ import {Link} from "react-router-dom";
 
 
 const newUsers: User[] = [
-    {id: '1', avatar_url: "/test/img_1.png", full_name: "Наталія Чернєва", location: "Kyiv", email: ""},
-    {id: '2', avatar_url: "/test/photoUser.png", full_name: "Ксенія Бабенко", location: "Kyiv", email: ""},
-    {id: '3', avatar_url: "", full_name: "Богдан Снігур", location: "Kyiv", email: ""},
-    {id: '4', avatar_url: "", full_name: "Єлизавета Гончар", location: "Kyiv", email: ""},
-    {id: '5', avatar_url: "/test/img.png", full_name: "Михайло Слобош", location: "Kyiv", email: ""},
-    {id: '6', avatar_url: "", full_name: "Катерина Бобр", location: "Kyiv", email: ""},
+    {id: 1, avatarUrl: "/test/img_1.png", fullName: "Наталія Чернєва", location: "Kyiv", email: ""},
+    {id: 2, avatarUrl: "/test/photoUser.png", fullName: "Ксенія Бабенко", location: "Kyiv", email: ""},
+    {id: 3, avatarUrl: "", fullName: "Богдан Снігур", location: "Kyiv", email: ""},
+    {id: 4, avatarUrl: "", fullName: "Єлизавета Гончар", location: "Kyiv", email: ""},
+    {id: 5, avatarUrl: "/test/img.png", fullName: "Михайло Слобош", location: "Kyiv", email: ""},
+    {id: 6, avatarUrl: "", fullName: "Катерина Бобр", location: "Kyiv", email: ""},
 ]
 const NewUsers = () => {
 
@@ -28,14 +28,14 @@ const NewUsers = () => {
                 {newUsers.map(item => (
                     <li className={styles.NewListItem} key={item.id}>
                             <div className={styles.NewListItemAvatar}>
-                                {item.avatar_url ?
-                                    <img src={item.avatar_url} alt="user-avatar"
+                                {item.avatarUrl ?
+                                    <img src={item.avatarUrl} alt="user-avatar"
                                          style={width && width <= 400 ?{ width: '40px', height: '40px' }:{ width: '50px', height: '50px' }}/>
                                     : <img src="/header/user.svg" alt="user" style={width && width <= 400 ?{ width: '30px', height: '30px' }:{ width: '40px', height: '40px' }}/>
                                 }
                             </div>
                             <div className={styles.NewListItemText}>
-                                <p className={styles.NewListItemTextName}>{item.full_name}</p>
+                                <p className={styles.NewListItemTextName}>{item.fullName}</p>
                                 <p className={styles.NewListItemTextCity}>{item.location}</p>
                             </div>
                             <div className={styles.NewListItemArrow}><img src="/subscriptions/img.png" alt="arrow"/></div>

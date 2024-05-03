@@ -26,7 +26,7 @@ const AddBookSuccess: FC = () => {
                 <h1>{t('success.title-2')}</h1>
             </div>
             <BookPhoto
-                url={data ? data.image_url : ''}
+                url={data ? data.imageUrl : ''}
                 width={198}
                 height={253}
             />

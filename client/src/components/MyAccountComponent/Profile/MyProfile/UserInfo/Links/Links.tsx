@@ -12,7 +12,7 @@ const Links: FC = () => {
         <div className={styles.Links}>
             <span>
                 {t('user-info.date-register')}{' '}
-                {getRegistrationDate(user?.creation_date!)}
+                {getRegistrationDate(user?.creationDate!)}
             </span>
             <ul>
                 <li

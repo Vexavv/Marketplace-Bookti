@@ -22,16 +22,16 @@ interface Pageable {
 }
 
 export interface IBook {
-    id: string;
+    id: number;
     title: string;
     author: string;
     genre: string;
     language: string;
     description: string;
-    publication_date: string;
-    trade_format: string;
-    image_url: string | null;
-    user_id: string | null;
+    publicationYear: string;
+    tradeFormat: string;
+    imageUrl: string | null;
+    userId: string | null;
 }
 
 interface Sort {

@@ -20,8 +20,8 @@ const UserInformation: FC<UserInformationProps> = ({user}) => {
         <div className={styles.Info}>
             <div className={styles.InfoAvatar}>
                 {
-                    user?.avatar_url?(
-                        <img src={user.avatar_url} alt="Avatar" width={35}
+                    user?.avatarUrl?(
+                        <img src={user.avatarUrl} alt="Avatar" width={35}
                              height={35}/>
                     ):(<img src="/header/user.svg"
                             alt="Avatar"
@@ -30,7 +30,7 @@ const UserInformation: FC<UserInformationProps> = ({user}) => {
                 }
             </div>
             <div className={styles.InfoData}>
-                <h3 className={styles.InfoDataName}>{user?.full_name}</h3>
+                <h3 className={styles.InfoDataName}>{user?.fullName}</h3>
                 <div className={styles.InfoDataRating} >
                     <Rating
                         initialValue={rating}

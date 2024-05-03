@@ -13,19 +13,19 @@ const initialState= {
 };
 export const favoriteDataAsync = createAsyncThunk(
     'favorite/favoriteData',
-    async (bookId:string, { getState }) =>{
+    async (bookId:number, { getState }) =>{
         try {
             let authData: AuthData;
             // @ts-ignore
             authData = getState().auth.data as AuthData;
-            const token = authData.access_token;
-            const id = authData.user_id;
+            const token = authData.accessToken;
+            const id = authData.userId;
             const response = await axios.post(
                 `${BASE_URL}/users/${id}/wishlist`,
                 null,
                 {
                     params: {
-                        book_id: bookId
+                        bookId: bookId
                     },
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -42,20 +42,20 @@ export const favoriteDataAsync = createAsyncThunk(
 )
 export const favoriteDeleteAsync = createAsyncThunk(
     'favorite/favoriteDelete',
-    async (bookId:string, { getState }) =>{
+    async (bookId:number, { getState }) =>{
         try {
             let authData: AuthData;
             // @ts-ignore
             authData = getState().auth.data as AuthData;
-            const token = authData.access_token;
-            const id = authData.user_id;
+            const token = authData.accessToken;
+            const id = authData.userId;
 
 
             const response = await axios.delete(
                 `${BASE_URL}/users/${id}/wishlist`,
                 {
                     params: {
-                        book_id: bookId
+                        bookId: bookId
                     },
                     headers: {
                         Authorization: `Bearer ${token}`

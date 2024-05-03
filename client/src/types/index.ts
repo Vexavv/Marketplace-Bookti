@@ -16,8 +16,8 @@ export interface LoginForm{
     email?:string,
     city?:string,
     password?: string,
-    confirm_password?: string,
-    new_password?: string,
+    confirmPassword?: string,
+    newPassword?: string,
     checkboxField?: boolean
 
 }
@@ -43,20 +43,20 @@ export interface FieldSettings {
     component?:React.ReactElement
 }
 export interface User {
-    id?:string
-    creation_date?:string
+    id?:number
+    creationDate?:string
     email: string;
-    full_name: string;
-    avatar_url: string;
+    fullName: string;
+    avatarUrl: string;
     location:string;
-    telegram_id?:string;
-    display_email?:boolean,
-    display_telegram?:boolean,
+    telegramId?:string;
+    displayEmail?:boolean,
+    displayTelegram?:boolean,
     wishlist?: {
         size:number
         items:[{
-            id:string,
-            image_url:string
+            id:number,
+            imageUrl:string
             language:string
             title:string
             author:string
@@ -65,8 +65,8 @@ export interface User {
     books?:{
         size:number
         items:[{
-            id:string,
-            image_url:string
+            id:number,
+            imageUrl:string
             language:string
             title:string
             author:string

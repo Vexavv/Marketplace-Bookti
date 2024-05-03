@@ -9,7 +9,7 @@ import {useAppDispatch} from "../../../hook";
 import {favoriteDataAsync, favoriteDeleteAsync} from "../../../store/slices/favoriteSlice/favoriteSlice";
 import {Link} from "react-router-dom";
 
-const FavoriteItem = ({id, image_url, language, title, author}: FavoriteItemProps) => {
+const FavoriteItem = ({id, imageUrl, language, title, author}: FavoriteItemProps) => {
 
     const {t} = useTranslation('favorite');
     const dispatch = useAppDispatch();
@@ -43,7 +43,7 @@ const FavoriteItem = ({id, image_url, language, title, author}: FavoriteItemProp
     return (
         <div className={styles.Card}>
             <div className={styles.CardImageWrapper}>
-                {image_url ? <img className={styles.CardImageWrapperImage} src={image_url} alt="Book-Avatar"/> :
+                {imageUrl ? <img className={styles.CardImageWrapperImage} src={imageUrl} alt="Book-Avatar"/> :
                     <img  src='/bookshelf/image.png' alt="Image"/>}
             </div>
             <div className={styles.CardContent}>
