@@ -6,13 +6,13 @@ import {LoginForm} from "../../../types";
 
 
 interface DataPassword {
-    user_id: string,
+    userId: string,
 }
 interface RenamePassword {
-    user_id: string,
-    access_token: string,
-    refresh_token: string,
-    status_code?: number
+    userId: string,
+    accessToken: string,
+    refreshToken: string,
+    statusCode?: number
 }
 interface PasswordState {
     resetToken: null | string;
