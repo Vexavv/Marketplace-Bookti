@@ -71,7 +71,7 @@ const PasswordForm = () => {
                     <div className={styles.FormVisibilityWrapper}>
                         <Field
                             className={styles.FormInput}
-                            name="confirm_password"
+                            name="confirmPassword"
                             type={isShowConfirm ? 'text' : 'password'}
                             placeholder={t('RegistrationPlaceholder.confirmPassword')}
                         />
