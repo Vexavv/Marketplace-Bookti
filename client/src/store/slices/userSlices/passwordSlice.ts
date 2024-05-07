@@ -56,7 +56,7 @@ export const renamePasswordAsync = createAsyncThunk('password/renamePassword', a
         }
         const updatedValues = {
             ...values,
-            reset_token: resetToken,
+            resetToken: resetToken,
         };
         const response = await axios.post(
             `${BASE_URL}/authorize/login/resetPassword/savePassword`,
