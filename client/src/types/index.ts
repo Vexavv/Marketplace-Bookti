@@ -12,9 +12,9 @@ export interface List {
 }
 
 export interface LoginForm{
-    name?: string,
+   fullName?: string,
     email?:string,
-    city?:string,
+    location?:string,
     password?: string,
     confirmPassword?: string,
     newPassword?: string,
