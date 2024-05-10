@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import { addBookAsync } from './addBookSliceAsync';
 import { ISingleBook } from './addBookSlice.types';
 
@@ -25,7 +25,7 @@ const addBookSlice = createSlice({
             .addCase(addBookAsync.pending, state => {
                 state.status = 'loading';
             })
-            .addCase(addBookAsync.fulfilled, (state, action) => {
+            .addCase(addBookAsync.fulfilled, (state, action:PayloadAction<ISingleBook>) => {
                 state.data = action.payload;
                 state.status = 'success';
             })

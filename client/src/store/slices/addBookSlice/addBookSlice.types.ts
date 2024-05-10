@@ -5,8 +5,8 @@ export interface ISingleBook {
     genre: string;
     language: string;
     description: string;
-    publicationYear: string;
-    tradeFormat: string;
+    publicationYear: number
+    exchangeFormat: string;
     imageUrl: string;
-    userId: number;
+
 }
