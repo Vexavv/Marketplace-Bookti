@@ -36,7 +36,7 @@
             "errorMessage": "This field is required."
         },
         "fild-exchange": {
-            "values": ["Swap book", "Donate book", "My wishlist"],
+            "values": ["GIFT", "EXCHANGE"],
             "errorMessage": "This field is required."
         },
         "fild-plot": {

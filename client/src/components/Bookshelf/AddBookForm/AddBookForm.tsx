@@ -47,11 +47,11 @@ const AddBookForm: FC = memo(() => {
         title: Yup.string().required(t('form.fild-name.errorMessage')),
         author: Yup.string().required(t('form.fild-author.errorMessage')),
         genre: Yup.string().required(t('form.fild-genre.errorMessage')),
-        publicationYear: Yup.string().required(
+        publicationYear: Yup.number().required(
             t('form.fild-date.errorMessage')
         ),
         language: Yup.string().required(t('form.fild-language.errorMessage')),
-        tradeFormat: Yup.string().required(
+        exchangeFormat: Yup.string().required(
             t('form.fild-exchange.errorMessage')
         ),
         description: Yup.string()
@@ -72,7 +72,7 @@ const AddBookForm: FC = memo(() => {
                 genre: '',
                 publicationYear: '',
                 language: '',
-                tradeFormat: t('form.fild-exchange.values', {
+                exchangeFormat: t('form.fild-exchange.values', {
                     returnObjects: true,
                 })[0],
                 description: '',
@@ -123,8 +123,8 @@ const AddBookForm: FC = memo(() => {
                         <DateField
                             component="input"
                             type="number"
-                            name="publication_date"
-                            min="1900"
+                            name="publicationYear"
+                            min="1850"
                             max={currentDate}
                             step="1"
                             placeholder={t('form.fild-date.placeholder')}
@@ -136,9 +136,9 @@ const AddBookForm: FC = memo(() => {
                             placeholder={t('form.fild-language.value')}
                         />
                         <SelectFiled
-                            name="trade_format"
+                            name="exchangeFormat"
                             setvalue={setFieldValue}
-                            value={values.tradeFormat}
+                            value={values.exchangeFormat}
                             options={t('form.fild-exchange.values', {
                                 returnObjects: true,
                             })}

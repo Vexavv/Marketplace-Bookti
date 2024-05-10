@@ -2,6 +2,9 @@
     "nav": "Profile",
     "user-info": {
         "date-register": "Registration date:",
+      "email": "Email is hidden by the user",
+      "noTelegram": "There is no telegram",
+      "telegram": "Addresses are taken",
         "btns": {
             "subscribe": "Sign up",
             "signed": "Signed"
