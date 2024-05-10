@@ -10,10 +10,12 @@ const UserInformation: FC<UserInformationProps> = ({user}) => {
     const { t } = useTranslation('separatePage');
     const { width } = useWindowSize();
     const [rating, setRating] = useState(0)
+    let showEmail = user?.displayEmail
+    let showTelegram = user?.displayTelegram
     const navigationLinks: List[]= [
-        {id:1,icon:'/profile/map-pin.svg/',title:user?.location},
+        {id:1,icon:'/profile/map-pin.svg/',title:user?.location,},
         {id:2,icon:'/profile/mail.svg/',title:user?.email},
-        {id:3,icon:'/profile/location.svg/',title:t('User.show')}
+        {id:3,icon:'/profile/location.svg/',title:user?.telegramId}
     ]
 
     return (
@@ -21,8 +23,7 @@ const UserInformation: FC<UserInformationProps> = ({user}) => {
             <div className={styles.InfoAvatar}>
                 {
                     user?.avatarUrl?(
-                        <img src={user.avatarUrl} alt="Avatar" width={35}
-                             height={35}/>
+                        <img src={user.avatarUrl} alt="Avatar" className={styles.InfoAvatarImage}/>
                     ):(<img src="/header/user.svg"
                             alt="Avatar"
                             width={35}
@@ -42,7 +43,10 @@ const UserInformation: FC<UserInformationProps> = ({user}) => {
                 </div>
                 <ul className={styles.InfoDataNav}>
                     {navigationLinks.map(item =>(
-                        <li className={styles.InfoDataNavItem} key={item.id}><img className={styles.InfoDataNavItemImage} src={item.icon} alt="icon"/><p className={styles.InfoDataNavItemText}>{item.title}</p></li>
+                        <li className={styles.InfoDataNavItem} key={item.id}>
+                            <img className={styles.InfoDataNavItemImage} src={item.icon} alt="icon"/>
+                            <p className={styles.InfoDataNavItemText}>{item.title}</p>
+                        </li>
                     ))}
                 </ul>
                 <Button>{t('User.button')}</Button>

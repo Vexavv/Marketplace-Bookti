@@ -8,7 +8,8 @@ export interface NavigationList {
 export interface List {
     id?: number,
     icon: string,
-    title: string | undefined
+    title?: string | undefined
+    content?: React.ReactElement;
 }
 
 export interface LoginForm{

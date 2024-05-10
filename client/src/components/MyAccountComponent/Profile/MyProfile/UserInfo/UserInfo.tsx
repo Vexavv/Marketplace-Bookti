@@ -24,7 +24,7 @@ const UserInfo: FC<IUserInfoProps> = ({ user }) => {
                 })}
             >
                 {user?.avatarUrl ? (
-                    <img src={user.avatarUrl} alt="Avatar" />
+                    <img src={user.avatarUrl} alt="Avatar" className={styles.UserInfoImageBoxAvatar} />
                 ) : (
                     <img
                         src="/header/user.svg"
