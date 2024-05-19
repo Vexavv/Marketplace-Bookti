@@ -1,59 +1,42 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import styles from './Library.module.scss'
+import {useTranslation} from "react-i18next";
 
-import {BASE_URL} from "../../constants/api";
-import axios from 'axios';
-import {Link} from "react-router-dom";
+import Container from "../../uiComponent/Container/Container";
+import Content from "../../components/LibraryComponents/Content/Content";
+import Back from "../../uiComponent/Back/Back";
+import LibrarySearch from "../../components/LibraryComponents/LibrarySearch/LibrarySearch";
+import {useWindowSize} from "../../hooks/useWindowSize";
+import LibraryCategory from "../../components/LibraryComponents/LibraryCategory/LibraryCategory";
+import MobileCategory from "../../components/LibraryComponents/LibraryCategory/MobileCategory/MobileCategory";
 
 
-interface Data {
-    // Замените типы данных на свои, соответствующие структуре вашего ответа сервера
-    content:[
-        { id: string,
-            title: string,
-            author: string,
-            genre: string,
-            language: string,
-            description: string,
-            publication_date: string
-            trade_format: string,
-            image_url: string,
-            user_id: string
-        }
-    ]
-
-    // Добавьте другие поля по необходимости
-}
 const Library = () => {
-    const [data, setData] = useState<Data | null>(null);
-    // const [book, setBook] = useState()
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get<Data>(`${BASE_URL}/books`);
-                setData(response.data);
-                setLoading(false);
-            } catch (error) {
-                setError('Ошибка при загрузке данных');
-                setLoading(false);
-            }
-        };
+    const {t} = useTranslation('library');
+    const { width } = useWindowSize();
+    const [mobileCategory, setMobileCategory] = useState(false)
 
-        fetchData();
-    }, []);
-const list = data?.content
+    const mobileCategoryToggle = () => {
+        setMobileCategory(current => !current)
+    }
+
     return (
-        <div>
-            {list?.map((item) => (
-                <div key={item.id}>
-                    <p>{item.title}</p>
-
-                    <Link to={`/separatePage/${item.id}`}><button>click</button></Link>
+        <Container>
+            <div className={styles.Wrapper}>
+                <div className={styles.WrapperArrow}>
+                    <Back text={t('Arrow')}/>
+                    <div>
+                        {width && width <= 900 ? <img onClick={mobileCategoryToggle} src="/library/categoryHandler.svg" alt="handler"/> : <LibrarySearch/> }
+                    </div>
                 </div>
-            ))}
-        </div>
+                <div className={styles.WrapperSearch}><LibrarySearch/></div>
+                <div className={styles.WrapperCategory}><LibraryCategory/></div>
+                <div className={styles.WrapperContent}><Content/></div>
+            </div>
+<MobileCategory mobileCategoryOpen={mobileCategory} mobileCategoryToggle={mobileCategoryToggle} />
+
+        </Container>
+
     );
 };
 

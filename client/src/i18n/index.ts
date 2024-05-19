@@ -29,7 +29,8 @@ import mySubscriptionsUk from './locales/uk/mySubscriptions.json'
 import mySubscriptionsEn from './locales/en/mySubscriptions.json'
 import favoriteUk from './locales/uk/favorite.json'
 import favoriteEn from './locales/en/favorite.json'
-
+import libraryUk from './locales/uk/library.json'
+import libraryEn from './locales/en/library.json'
 const resources = {
     [LOCALS.UK]: {
         header: headerUk,
@@ -45,6 +46,7 @@ const resources = {
         mySettings:mySettingsUk,
         mySubscriptions:mySubscriptionsUk,
         favorite:favoriteUk,
+        library:libraryUk,
     },
     [LOCALS.EN]: {
         header: headerEn,
@@ -60,6 +62,7 @@ const resources = {
         mySettings:mySettingsEn,
         mySubscriptions:mySubscriptionsEn,
         favorite:favoriteEn,
+        library:libraryEn,
     },
 };
 

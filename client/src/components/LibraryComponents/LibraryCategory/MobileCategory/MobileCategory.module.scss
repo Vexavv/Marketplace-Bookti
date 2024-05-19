@@ -1,0 +1,17 @@
+.Menu {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  height: 100%;
+
+  &Close {
+    font-size: 25px;
+    padding: 5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+  }
+}
