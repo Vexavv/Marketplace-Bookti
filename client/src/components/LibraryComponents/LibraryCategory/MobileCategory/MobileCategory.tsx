@@ -3,8 +3,10 @@ import {MobileCategoryProps} from "./MobileCategory.props";
 import styles from './MobileCategory.module.scss';
 import Drawer from "@mui/material/Drawer";
 import LibraryCategory from "../LibraryCategory";
+import {useTranslation} from "react-i18next";
 
-const MobileCategory:React.FC<MobileCategoryProps> = ({mobileCategoryOpen, mobileCategoryToggle}) => {
+const MobileCategory: React.FC<MobileCategoryProps> = ({mobileCategoryOpen, mobileCategoryToggle}) => {
+    const {t} = useTranslation('library');
     return (
         <Drawer anchor="left"
                 component="div"
@@ -24,9 +26,14 @@ const MobileCategory:React.FC<MobileCategoryProps> = ({mobileCategoryOpen, mobil
                         // '&:active': {color: '#BA933E'}
                     }
                 }}>
-            <div className={styles.Menu} >
+            <div className={styles.Menu}>
+                <h3 className={styles.MenuTitle}>{t('Category.Book')}</h3>
                 <img className={styles.MenuClose} onClick={mobileCategoryToggle} src="/header/x.svg" alt="close"/>
-                <LibraryCategory/>
+                <div className={styles.MenuList}>
+                    <LibraryCategory/>
+                </div>
+
+
             </div>
 
 

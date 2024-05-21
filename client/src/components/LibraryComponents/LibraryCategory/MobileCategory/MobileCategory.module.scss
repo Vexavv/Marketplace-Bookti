@@ -1,11 +1,19 @@
+@import '../../../../styles/mixins.module';
 .Menu {
-  padding: 22px;
+  //padding: 22px;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
   height: 100%;
-
+&Title{
+@include primary-font;
+  font-weight: 600;
+  line-height: 20px;
+  position: absolute;
+  top: 5px;
+  left: 20px;
+}
   &Close {
     font-size: 25px;
     padding: 5px;
@@ -13,5 +21,10 @@
     top: 0;
     right: 0;
     cursor: pointer;
+  }
+  &List{
+    padding-top: 45px ;
+    width: 90%;
+    max-width: 425px;
   }
 }

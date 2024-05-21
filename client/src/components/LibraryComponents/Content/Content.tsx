@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import styles from './Content.module.scss'
 import axios from "axios";
 import {BASE_URL} from "../../../constants/api";
-import {Link} from "react-router-dom";
+
 import ContentItem from "./ContentItem/ContentItem";
 
 
@@ -26,8 +26,6 @@ interface Data {
 const Content = () => {
 
     const [data, setData] = useState<Data | null>(null);
-    console.log(data)
-    // const [book, setBook] = useState()
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
     useEffect(() => {

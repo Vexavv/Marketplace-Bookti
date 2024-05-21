@@ -1,4 +1,19 @@
 {
   "Arrow": "Library",
-  "Placeholder": "Book title, author or genre"
+  "Placeholder": "Book title, author or genre",
+  "Category": {
+    "Book": "Categories of books",
+    "Fiction": "Fiction",
+    "LearningLanguages": "Learning languages",
+    "ChildrenLiterature": "Children's literature",
+    "History": "History",
+    "Art": "Art",
+    "Business": "Business, money, economy",
+    "Science": "Science and technology",
+    "Cooking": "Cooking",
+    "Hobbies": "Hobbies and leisure",
+    "Health": "Health",
+    "Computer": "Computer literature",
+    "Beauty": "Beauty and style"
+  }
 }

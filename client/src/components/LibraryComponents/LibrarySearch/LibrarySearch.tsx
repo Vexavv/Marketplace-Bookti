@@ -18,7 +18,7 @@ const LibrarySearch = () => {
             <form className={styles.SearchForm} onSubmit={handleSubmit}>
                 <input className={styles.SearchFormInput} onChange={handleSearchChange}  type='text'
                        value={search} placeholder={t('Placeholder')}/>
-                <Button  type='submit'>click</Button>
+                <Button name='SearchLibrary' type='submit'><img src="/library/searchLibrary.svg" alt="search"/></Button>
             </form>
         </div>
     );

@@ -19,7 +19,8 @@ const Button = ({name, children, className, ...props}: ButtonProps) => {
                 [styles.AddBook]: name == 'AddBook',
                 [styles.SeparateExchange]: name == 'SeparateExchange',
                 [styles.SubscriptionUser]: name == 'SubscriptionUser',
-                [styles.FavoriteCardButton]: name == 'FavoriteCardButton'
+                [styles.FavoriteCardButton]: name == 'FavoriteCardButton',
+                [styles.SearchLibrary]: name == 'SearchLibrary'
 
             })}
             {...props}

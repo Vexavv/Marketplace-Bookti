@@ -1,16 +1,18 @@
 .Wrapper{
   display: grid;
   justify-items: start;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-areas:
-            'arrow arrow arrow'
-            'search search search'
-            'content content content';
+            'arrow arrow arrow arrow'
+            'search search search search'
+            'content content content content';
+  padding-bottom: 20px;
   &Arrow{
     grid-area: arrow;
     width: 100%;
     display: flex;
     justify-content: space-between;
+
     img{
       cursor: pointer;
     }
@@ -34,15 +36,16 @@
   .Wrapper{
     display: grid;
     justify-items: start;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-areas:
-            'arrow arrow arrow'
-            'category content content';
+            'arrow arrow arrow arrow'
+            'category content content content';
     &Arrow{
       grid-area: arrow;
       width: 100%;
       display: flex;
       justify-content: space-between;
+      margin-bottom: 25px;
 
     }
     &Search{
