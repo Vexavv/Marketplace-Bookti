@@ -37,6 +37,7 @@
     display: grid;
     justify-items: start;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap:10px;
     grid-template-areas:
             'arrow arrow arrow arrow'
             'category content content content';

@@ -13,7 +13,7 @@ import MobileCategory from "../../components/LibraryComponents/LibraryCategory/M
 
 const Library = () => {
     const {t} = useTranslation('library');
-    const { width } = useWindowSize();
+    const {width} = useWindowSize();
     const [mobileCategory, setMobileCategory] = useState(false)
 
     const mobileCategoryToggle = () => {
@@ -26,15 +26,16 @@ const Library = () => {
                 <div className={styles.WrapperArrow}>
                     <Back text={t('Arrow')}/>
                     <div>
-                        {width && width <= 900 ? <img onClick={mobileCategoryToggle} src="/library/categoryHandler.svg" alt="handler"/> : <LibrarySearch/> }
+                        {width && width <= 900 ?
+                            <img onClick={mobileCategoryToggle} src="/library/categoryHandler.svg" alt="handler"/> :
+                            <LibrarySearch/>}
                     </div>
                 </div>
                 <div className={styles.WrapperSearch}><LibrarySearch/></div>
                 <div className={styles.WrapperCategory}><LibraryCategory/></div>
                 <div className={styles.WrapperContent}><Content/></div>
             </div>
-<MobileCategory mobileCategoryOpen={mobileCategory} mobileCategoryToggle={mobileCategoryToggle} />
-
+            <MobileCategory mobileCategoryOpen={mobileCategory} mobileCategoryToggle={mobileCategoryToggle}/>
         </Container>
 
     );

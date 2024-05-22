@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Navigation.module.scss'
-import {NavLink} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import NavigationProps from './Navigation.props'
 import {NavigationList} from "../../types";
@@ -29,9 +29,9 @@ const Navigation: React.FC<NavigationProps> = ({mobile, footer, onClick}) => {
                 <nav className={styles.FooterNav}>
                     <ul className={styles.FooterNavList}>
                         {nav.map(item => (
-                            <li key={item.name} className={styles.FooterNavListItem}><NavLink
+                            <li key={item.name} className={styles.FooterNavListItem}><Link
                                 className={styles.FooterNavListItemLink}
-                                to={item.path}>{item.name}</NavLink></li>
+                                to={item.path}>{item.name}</Link></li>
                         ))}
                     </ul>
                 </nav>) : (<nav className={mobile ? styles.MobileNav : styles.Nav}>

@@ -1,15 +1,14 @@
 import React, {useEffect, useState} from 'react';
-import styles from './Content.module.scss'
 import axios from "axios";
 import {BASE_URL} from "../../../constants/api";
-
+import styles from './Content.module.scss'
 import ContentItem from "./ContentItem/ContentItem";
 
 
 interface Data {
-    // Замените типы данных на свои, соответствующие структуре вашего ответа сервера
-    content:[
-        { id: number,
+    content: [
+        {
+            id: number,
             title: string,
             author: string,
             genre: string,
@@ -23,6 +22,7 @@ interface Data {
 
     // Добавьте другие поля по необходимости
 }
+
 const Content = () => {
 
     const [data, setData] = useState<Data | null>(null);
@@ -44,13 +44,16 @@ const Content = () => {
     }, []);
     const list = data?.content
     return (
-        <ul>
-            {list?.map((item) => (
-                <ContentItem key={item.id}{...item}></ContentItem>
+        <div>
+            <ul className={styles.List}>
+                {list?.map((item) => (
+                    <ContentItem key={item.id}{...item}></ContentItem>
+                ))}
 
-            ))}
+            </ul>
+            <div>1234567890</div>
+        </div>
 
-        </ul>
     );
 };
 
