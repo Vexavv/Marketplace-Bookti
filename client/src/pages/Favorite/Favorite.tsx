@@ -42,7 +42,7 @@ const dispatch = useAppDispatch();
 
     return (
         <Container>
-            <Back text="Обране"/>
+            <Back text={t('Arrow')}/>
             <div className={styles.Favorite}>
                 {favBooks && favBooks.length > 0 ? (favBooks.map(
                     (item, index) => (<FavoriteItem key={index} {...item} />)

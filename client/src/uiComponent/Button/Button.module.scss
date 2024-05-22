@@ -138,10 +138,15 @@
   font-size: 11px;
   padding: 10px;
 }
-
+.SearchLibrary{
+  padding: 6px 16px;
+}
 @media (min-width: 400px) {
   .SubscriptionUser{
     font-size: 13px;
+    &:active {
+      background: $gray;
+    }
   }
 }
 
@@ -196,5 +201,8 @@
   }
   .FavoriteCardButton{
     font-size: 15px;
+  }
+  .SearchLibrary{
+    padding: 8px 18px;
   }
 }

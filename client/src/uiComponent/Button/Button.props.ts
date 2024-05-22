@@ -20,4 +20,5 @@ export interface ButtonProps
         | 'SeparateExchange'
         | 'SubscriptionUser'
         | 'FavoriteCardButton'
+        | 'SearchLibrary'
 }

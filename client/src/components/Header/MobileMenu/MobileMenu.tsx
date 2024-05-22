@@ -21,18 +21,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({mobileMenuOpen, mobileMenuToggle
     const handleLogout = () => {
         dispatch(logout())
     };
-// const renderContent = ()=> {
-//     if (!loading) {
-//        return <div className={styles.MenuLogo} onClick={mobileMenuToggle}>
-//             <Link to='/'>
-//                 <Logo mobile={true}/>
-//             </Link>
-//         </div>
-//     }
-//     if (user) {
-//         return <div ><UserImage picture={user.avatar_url} name={user.full_name} text={t('Popper.text')}  nav={true}/> </div>
-//     }
-// }
+
     return (
         <Drawer anchor="left"
                 component="div"

@@ -1,0 +1,67 @@
+@import "../../../styles/variables.module";
+@import "../../../styles/mixins.module";
+.Search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+
+  &Image {
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
+  }
+
+  &Form {
+    display: flex;
+    &Input {
+      @include primary-font;
+      box-sizing: border-box;
+      border: 0.5px solid rgb(119, 119, 119);
+      border-radius: 8px;
+      box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+      height: 42px;
+      width: 100%;
+      min-width: 200px;
+      font-size: 12px;
+      padding: 15px 0 15px 5px;
+      outline: none;
+      margin-right: 10px;
+    }
+  }
+}
+@media (min-width: 500px) {
+  .Search {
+    &Image {
+      width: 32px;
+      height: 32px;
+    }
+
+    &Form {
+      &Input {
+        height: 44px;
+        min-width: 375px;
+        font-size: 16px;
+        margin-right: 15px;
+      }
+    }
+  }
+}
+@media (min-width: 900px) {
+  .Search {
+    margin-bottom: 0;
+    &Image {
+      width: 32px;
+      height: 32px;
+    }
+
+    &Form {
+      &Input {
+        height: 44px;
+        min-width: 375px;
+        font-size: 16px;
+        margin-right: 15px;
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+.List{
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+ justify-content: space-around;
+  align-items: center;
+  overflow: auto;
+  max-height: 800px;
+
+}

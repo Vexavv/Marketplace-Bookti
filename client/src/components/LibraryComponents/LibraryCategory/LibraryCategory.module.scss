@@ -1,0 +1,88 @@
+@import "../../../styles/variables.module";
+@import "../../../styles/mixins.module";
+
+.Category {
+  background: rgb(255, 255, 255);
+  width: 100%;
+
+  &List {
+    list-style: none;
+
+    &Item {
+      @include primary-font;
+      color: rgb(119, 119, 119);
+      font-weight: 500;
+      line-height: 20px;
+      border-bottom: 1px solid rgb(217, 217, 217);
+      padding: 13px 0;
+      &:active{
+        background: rgb(237, 237, 237);
+      }
+    }
+  }
+}
+
+
+
+
+
+@media (min-width: 900px) {
+  .Category {
+    border-radius: 12px;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.25);
+    background: rgb(255, 255, 255);
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &Title{
+      @include primary-font;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 29px;
+      color: rgb(0, 0, 0);
+      margin-top: 30px;
+    }
+    &List{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 35px;
+      &Item {
+        @include primary-font;
+        color: black;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 22px;
+        border-bottom: none;
+        padding: 13px 0;
+        cursor: pointer;
+        &:active{
+          background: none;
+        }
+        &:hover{
+          color:$primary-color;
+        }
+
+      }
+    }
+  }
+
+}
+@media (min-width: 1000px) {
+  .Category {
+
+    &Title{
+    }
+    &List{
+
+      &Item {
+        font-size: 18px;
+
+
+      }
+    }
+  }
+
+}
