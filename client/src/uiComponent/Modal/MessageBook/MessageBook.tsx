@@ -15,7 +15,7 @@ interface Message {
 const initialValuesLMessage: Message = {
     text: ''
 }
-const MessageBook= ({image_url, title, author, language, publication_date, genre}:MessageBookProps) => {
+const MessageBook= ({imageUrl, title, author, language, publicationYear, genre}:MessageBookProps) => {
     const {t} = useTranslation('modal')
     const dispatch = useAppDispatch()
     const isMobile = useMediaQuery({maxWidth: 500});
@@ -29,7 +29,7 @@ const MessageBook= ({image_url, title, author, language, publication_date, genre
     return (
         <div className={styles.Message}>
             <div className={styles.MessageImage}>
-                {image_url? <img className={styles.MessageImageBookAvatar} src={image_url} alt="Book-Avatar"/> : <img className={styles.MessageImageImg} src='/bookshelf/image.png' alt="Image"/>}
+                {imageUrl? <img className={styles.MessageImageBookAvatar} src={imageUrl} alt="Book-Avatar"/> : <img className={styles.MessageImageImg} src='/bookshelf/image.png' alt="Image"/>}
             </div>
             <div className={styles.MessageText}>
                 <h4 className={styles.MessageTextTitle}>{title}</h4>
@@ -37,7 +37,7 @@ const MessageBook= ({image_url, title, author, language, publication_date, genre
                     <li className={styles.MessageTextListItem}><p>Автор книги <span>{author}</span></p>
                     </li>
                     <li className={styles.MessageTextListItem}><p>Жанр книги <span>{genre}</span></p></li>
-                    <li className={styles.MessageTextListItem}><p>Рік видання <span>{publication_date} рік</span></p></li>
+                    <li className={styles.MessageTextListItem}><p>Рік видання <span>{publicationYear} рік</span></p></li>
                     <li className={styles.MessageTextListItem}><p>Мова<span >{language.charAt(0).toUpperCase() + language.slice(1).toLowerCase()}</span></p></li>
                 </ul>
             </div>

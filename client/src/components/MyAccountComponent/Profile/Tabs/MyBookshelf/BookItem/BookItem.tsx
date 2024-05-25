@@ -1,31 +1,33 @@
-import { FC, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { IBook } from '../../../../../../store/slices/profileSlice/profileSliceTypes';
+import {FC, useState} from 'react';
+import {useTranslation} from 'react-i18next';
+import {IBook} from '../../../../../../store/slices/profileSlice/profileSliceTypes';
 import Tooltip from '@mui/material/Tooltip';
 import Button from '../../../../../../uiComponent/Button/Button';
 import styles from './BookItem.module.scss';
-import {
-    closeModal,
-    openModal,
-} from '../../../../../../store/slices/modalSlice';
-import { useAppDispatch, useAppSelector } from '../../../../../../hook';
-import { favoriteDataAsync } from '../../../../../../store/slices/favoriteSlice/favoriteSlice';
+import {closeModal, openModal,} from '../../../../../../store/slices/modalSlice';
+import {useAppDispatch, useAppSelector} from '../../../../../../hook';
+import {favoriteDataAsync} from '../../../../../../store/slices/favoriteSlice/favoriteSlice';
 
-type BookItemType = Omit<
-    IBook,
-    'userId' | 'description' | 'tradeFormat' | 'publicationYear' | 'genre'
->;
+// type BookItemType = Omit<
+//     IBook,
+//     'userId' | 'description' | 'tradeFormat' | 'publicationYear' | 'genre'
+// >;
 
-interface IBookItemProps extends BookItemType {}
+// interface IBookItemProps extends BookItemType {
+// }
 
-const BookItem: FC<IBookItemProps> = ({
-    imageUrl,
-    title,
-    author,
-    language,
-    id,
-}) => {
-    const { t } = useTranslation(['profile', 'favorite']);
+const BookItem: FC<IBook> = ({
+                                          imageUrl,
+                                          title,
+                                          author,
+                                          language,
+                                          id,
+                                          publicationYear,
+                                          genre
+
+
+                                      }) => {
+    const {t} = useTranslation(['profile', 'favorite']);
     const [isFavorite, setIsFavorite] = useState<boolean>(false);
     const dispatch = useAppDispatch();
 
@@ -34,13 +36,13 @@ const BookItem: FC<IBookItemProps> = ({
         dispatch(
             openModal({
                 type: 'bookMessage',
-                props: { key: 'value' },
+                props: {key: 'value'},
                 title: title,
                 author: author,
                 language: language,
                 imageUrl: imageUrl,
-                // publication_date: publication_date,
-                // genre: genre,
+                publicationYear: publicationYear,
+                genre: genre
             })
         );
     };
@@ -49,7 +51,7 @@ const BookItem: FC<IBookItemProps> = ({
         dispatch(
             openModal({
                 type: 'informMessage',
-                props: { key: 'value' },
+                props: {key: 'value'},
                 text: t('favorite:Modal.alreadyAdded'),
             })
         );
@@ -88,7 +90,7 @@ const BookItem: FC<IBookItemProps> = ({
 
             <div className={styles.WrapperInfo}>
                 <div className={styles.WrapperInfoHeading}>
-                    <div style={{ display: 'flex' }}>
+                    <div style={{display: 'flex'}}>
                         <span>"</span>
                         <h1 title={title}>{title}</h1>
                         <span>"</span>
@@ -110,7 +112,7 @@ const BookItem: FC<IBookItemProps> = ({
                     >
                         <button onClick={addToFavorites}>
                             {isFavorite ? (
-                                <img src="/profile/to-favorites.png" alt="" />
+                                <img src="/profile/to-favorites.png" alt=""/>
                             ) : (
                                 <img
                                     src="/profile/add-to-favorites.png"

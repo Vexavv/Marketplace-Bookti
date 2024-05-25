@@ -24,14 +24,14 @@ interface Pageable {
 export interface IBook {
     id: number;
     title: string;
-    author: string;
-    genre: string;
+    author?: string;
+    genre?: string;
     language: string;
-    description: string;
-    publicationYear: string;
-    tradeFormat: string;
+    description?: string;
+    publicationYear?: string;
+    tradeFormat?: string;
     imageUrl: string | null;
-    userId: string | null;
+    userId?: string | null;
 }
 
 interface Sort {

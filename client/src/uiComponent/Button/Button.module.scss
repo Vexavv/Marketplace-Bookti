@@ -64,11 +64,14 @@
     gap: 10px;
     align-items: center !important;
     color: $primary-color;
-    text-decoration-line: underline !important;
+    //text-decoration-line: underline !important;
     background: none !important;
     box-shadow: none !important;
     padding: 0;
     margin-bottom: 12px;
+  &:hover{
+    text-decoration-line: underline ;
+  }
 }
 
 .BookshelfExchange {

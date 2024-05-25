@@ -2,11 +2,11 @@ import {IBook} from "../../../store/slices/profileSlice/profileSliceTypes";
 
 export interface MessageBookProps{
 
-        image_url:string | null,
+        imageUrl:string | null,
         title: string,
         author:string,
         language:string,
-        publication_date:string,
+        publicationYear:string,
         genre: string;
 
 
