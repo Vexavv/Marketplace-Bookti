@@ -30,7 +30,7 @@ await dispatch(deleteBookAsync(id))
             </div>
             <div className={styles.WrapperInfoBox}>
                 <div className={styles.WrapperInfoBoxHeading}>
-                    <h1 title="Маленький принц">{title}</h1>
+                    <h1>{title}</h1>
                 </div>
                 <div className={styles.WrapperInfoBoxBtnBox}>
                     <Button name="BookshelfEdit">
