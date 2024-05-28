@@ -2,8 +2,9 @@ import React from 'react';
 import styles from './LibraryCategory.module.scss';
 import {useTranslation} from "react-i18next";
 import {useWindowSize} from "../../../hooks/useWindowSize";
+import {LibraryCategoryProps} from "./LibraryCategory.props";
 
-const LibraryCategory = () => {
+const LibraryCategory:React.FC<LibraryCategoryProps> = ({onSelectCategory}) => {
     const {t} = useTranslation('library');
     const {width} = useWindowSize();
 
@@ -26,7 +27,7 @@ const LibraryCategory = () => {
             {width && width >= 900 ? <h3 className={styles.CategoryTitle}>{t('Category.Book')}</h3> : null}
             <ul className={styles.CategoryList}>
                 {categoryList.map(item => (
-                    <li className={styles.CategoryListItem} key={item.id}>{item.name}</li>
+                    <li className={styles.CategoryListItem} key={item.id} onClick={() => onSelectCategory(item.name)}>{item.name}</li>
                 ))}
             </ul>
 
