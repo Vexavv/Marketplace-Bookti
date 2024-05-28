@@ -18,7 +18,8 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    &Image{
+
+    &Image {
       width: 50px;;
       height: 50px;
       border-radius: 50px;
@@ -79,14 +80,8 @@
         align-items: center;
         gap: 8px;
         margin-bottom: 5px;
-        &:nth-child(3){
-          cursor: pointer;
-          text-decoration: underline;
-          color: #005BBB;
-          &:hover{
-            text-decoration: none;
-          }
-        }
+        color: #000000;
+
 
         &Image {
           border-radius: 5px;
@@ -107,6 +102,7 @@
     }
   }
 }
+
 @media (min-width: 500px) {
   .Info {
     justify-content: center;
@@ -116,10 +112,12 @@
       border-radius: 100px;
       width: 70px;
       height: 70px;
-      &Image{
+
+      &Image {
         width: 70px;;
         height: 70px;
       }
+
       &::before {
         right: 5px;
       }
@@ -127,6 +125,7 @@
 
     &Data {
       width: auto;
+
       &Name {
         font-size: 18px;
       }
@@ -159,6 +158,7 @@
     }
   }
 }
+
 @media (min-width: 900px) {
   .Info {
     gap: 40px;
@@ -170,10 +170,12 @@
       margin-bottom: 0;
       width: 100px;
       height: 100px;
-      &Image{
+
+      &Image {
         width: 100px;;
         height: 100px;
       }
+
       &::before {
         bottom: 7px;
         right: 7px;

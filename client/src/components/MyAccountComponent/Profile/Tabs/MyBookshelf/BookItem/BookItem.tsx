@@ -1,4 +1,4 @@
-import {FC, useState} from 'react';
+import {FC, useEffect, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {IBook} from '../../../../../../store/slices/profileSlice/profileSliceTypes';
 import Tooltip from '@mui/material/Tooltip';
@@ -30,7 +30,6 @@ const BookItem: FC<IBook> = ({
     const {t} = useTranslation(['profile', 'favorite']);
     const [isFavorite, setIsFavorite] = useState<boolean>(false);
     const dispatch = useAppDispatch();
-
     //--------------------------open modal--------------------
     const handleOpenModal = () => {
         dispatch(
@@ -62,6 +61,11 @@ const BookItem: FC<IBook> = ({
     //---------------------add to favorite ---------------------
     const user = useAppSelector(state => state.auth.user);
     const haveBook = user?.wishlist?.items;
+    useEffect(() => {
+        const checkFavorite = haveBook?.some(item => item.id === id);
+        setIsFavorite(!!checkFavorite);
+    }, [haveBook, id]);
+
     const addToFavorites = async () => {
         try {
             const check = haveBook && haveBook.find(item => item.id === id);
