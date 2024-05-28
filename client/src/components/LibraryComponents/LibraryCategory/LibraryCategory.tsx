@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import styles from './LibraryCategory.module.scss';
 import {useTranslation} from "react-i18next";
 import {useWindowSize} from "../../../hooks/useWindowSize";
@@ -8,7 +8,7 @@ const LibraryCategory:React.FC<LibraryCategoryProps> = ({onSelectCategory}) => {
     const {t} = useTranslation('library');
     const {width} = useWindowSize();
 
-    const categoryList: { id: number, name: string }[] = [
+    const categoryList: { id: number, name: string }[] = useMemo(() => [
         {id: 1, name: t('Category.Fiction')},
         {id: 2, name: t('Category.LearningLanguages')},
         {id: 3, name: t('Category.ChildrenLiterature')},
@@ -21,13 +21,13 @@ const LibraryCategory:React.FC<LibraryCategoryProps> = ({onSelectCategory}) => {
         {id: 10, name: t('Category.Health')},
         {id: 11, name: t('Category.Computer')},
         {id: 12, name: t('Category.Beauty')},
-    ]
+    ], [t])
     return (
         <div className={styles.Category}>
             {width && width >= 900 ? <h3 className={styles.CategoryTitle}>{t('Category.Book')}</h3> : null}
             <ul className={styles.CategoryList}>
                 {categoryList.map(item => (
-                    <li className={styles.CategoryListItem} key={item.id} onClick={() => onSelectCategory(item.name)}>{item.name}</li>
+                    <li className={styles.CategoryListItem} key={item.id}   onClick={() => onSelectCategory && onSelectCategory(item.name)}>{item.name}</li>
                 ))}
             </ul>
 
