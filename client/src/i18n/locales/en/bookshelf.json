@@ -37,6 +37,7 @@
     "BookItem": {
         "ExchangeBtn": "Exchange",
         "EditBnt": "Edit",
+      "DeleteBtn": "Delete",
         "Table": {
             "Author": "The author of book",
             "Genre": "Book genre",

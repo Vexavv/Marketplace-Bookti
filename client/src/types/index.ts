@@ -10,6 +10,8 @@ export interface List {
     icon: string,
     title?: string | undefined
     content?: React.ReactElement;
+    href?: string | undefined;
+    show?:boolean
 }
 
 export interface LoginForm{

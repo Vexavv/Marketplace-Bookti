@@ -11,7 +11,7 @@ import {Link} from "react-router-dom";
 
 const FavoriteItem = ({id, imageUrl, language, title, author}: FavoriteItemProps) => {
 
-    const {t} = useTranslation('favorite');
+    const {t} = useTranslation(['favorite','separatePage']);
     const dispatch = useAppDispatch();
     const deleteFavorite = async () => {
         try{
@@ -48,8 +48,8 @@ const FavoriteItem = ({id, imageUrl, language, title, author}: FavoriteItemProps
             </div>
             <div className={styles.CardContent}>
                 <p className={styles.CardContentTitle}>"{title}"</p>
-                <p className={styles.CardContentText}>{author}</p>
-                <p className={styles.CardContentText}><span>{t('Card.language')}</span>{language}</p>
+                <p className={styles.CardContentText}><span>{t('separatePage:Book.author')}</span>{author}</p>
+                <p className={styles.CardContentText}><span>{t('Card.language')}</span>{language ? language.charAt(0).toUpperCase() + language.slice(1).toLowerCase() : ''}</p>
                 <MyTooltip title={t('Card.delete')}>
                     <img onClick={deleteFavorite} className={styles.CardContentDelete} src="/favorite/del.svg" alt="delet"/>
                 </MyTooltip>

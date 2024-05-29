@@ -37,6 +37,7 @@
     "BookItem": {
         "ExchangeBtn": "Обмін",
         "EditBnt": "Редагувати",
+      "DeleteBtn": "Видалити",
         "Table": {
             "Author": "Автор книги",
             "Genre": "Жанр книги",

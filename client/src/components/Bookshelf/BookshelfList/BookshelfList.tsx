@@ -16,6 +16,8 @@ const BookshelfList: FC<IBookshelfListProps> = ({ content }) => {
     const { data } = useAppSelector(state => state.addBook);
     const { t } = useTranslation('bookshelf');
     const { width } = useWindowSize();
+    const user = useAppSelector(state => state.auth.user)
+    let myBooks = user?.books?.items
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
@@ -39,10 +41,10 @@ const BookshelfList: FC<IBookshelfListProps> = ({ content }) => {
 
     return (
         <div className={styles.Wrapper}>
-            {content.length ? (
+            {myBooks?.length ? (
                 <div className={styles.WrapperListBox}>
-                    {content.map(item => (
-                        <BookItem key={item.id} />
+                    {myBooks?.map(item => (
+                        <BookItem key={item.id} {...item} />
                     ))}
                     <div className={styles.WrapperListBoxBtnBox}>
                         <Button name="BookshelfAdd" onClick={handleOpenModal}>

@@ -22,8 +22,8 @@
     display: grid;
     grid-template-columns: min-content;
     grid-template-rows: min-content;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+    grid-column-gap: 0;
+    grid-row-gap: 0;
     margin-bottom: 55px;
 
     &:last-child {
@@ -103,6 +103,13 @@
         &BtnBox {
             display: flex;
             justify-content: end;
+          flex-direction: column;
+          &Delete{
+            color:red;
+            &:hover{
+              text-decoration-line: underline ;
+            }
+          }
 
             @media all and (max-width: 1010px) {
                 justify-content: start;

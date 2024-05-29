@@ -15,7 +15,8 @@ const Library = () => {
     const {t} = useTranslation('library');
     const {width} = useWindowSize();
     const [mobileCategory, setMobileCategory] = useState(false)
-
+    const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+    console.log(selectedCategory);
     const mobileCategoryToggle = () => {
         setMobileCategory(current => !current)
     }
@@ -32,7 +33,7 @@ const Library = () => {
                     </div>
                 </div>
                 <div className={styles.WrapperSearch}><LibrarySearch/></div>
-                <div className={styles.WrapperCategory}><LibraryCategory/></div>
+                <div className={styles.WrapperCategory}><LibraryCategory onSelectCategory={setSelectedCategory}/></div>
                 <div className={styles.WrapperContent}><Content/></div>
             </div>
             <MobileCategory mobileCategoryOpen={mobileCategory} mobileCategoryToggle={mobileCategoryToggle}/>
