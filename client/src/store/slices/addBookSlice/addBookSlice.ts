@@ -4,13 +4,19 @@ import { ISingleBook } from './addBookSlice.types';
 import {deleteBookAsync} from "./deleteBookSliceAsync";
 
 interface IInitialState {
-    status: 'success' | 'loading' | 'error' | '';
+    statusAdded: 'success' | 'loading' | 'error' | '';
+    statusDelete:'success' | 'loading' | 'error' | '';
     data: ISingleBook | null;
+    deleteBook:boolean;
+    updateData:boolean
 }
 
 const initialState: IInitialState = {
-    status: '',
+    statusAdded: '',
+    statusDelete:'',
     data: null,
+    deleteBook:false,
+    updateData: false,
 };
 
 const addBookSlice = createSlice({
@@ -18,35 +24,54 @@ const addBookSlice = createSlice({
     initialState,
     reducers: {
         setStatus: state => {
-            state.status = '';
+            state. statusAdded = '';
+            state.updateData = false;
         },
+        backUpDeleteBook: state =>{
+            state.deleteBook = false;
+            state.statusDelete = '';
+        }
     },
     extraReducers: builder => {
         builder
             .addCase(addBookAsync.pending, state => {
-                state.status = 'loading';
+                state. statusAdded = 'loading';
             })
             .addCase(addBookAsync.fulfilled, (state, action:PayloadAction<ISingleBook>) => {
-                state.data = action.payload;
-                state.status = 'success';
+                // if(action.payload){
+                    state.data = action.payload;
+                    state. statusAdded = 'success';
+                //     state.updateData = true;
+                // }else{
+                //     state.statusAdded = 'error';
+                // }
+
             })
             .addCase(addBookAsync.rejected, state => {
-                state.status = 'error';
+                state. statusAdded = 'error';
             })
         //----------------------DELETE-----------------------------------------------
     .addCase(deleteBookAsync.pending, state => {
-            state.status = 'loading';
+            state.statusDelete = 'loading';
         })
             .addCase(deleteBookAsync.fulfilled, (state, action:PayloadAction<ISingleBook>) => {
-                state.data = action.payload;
-                state.status = 'success';
+                if(action.payload){
+                    state.data = action.payload;
+                    state.statusDelete = 'success';
+                    state.deleteBook = true
+
+                }else{
+                    state.statusDelete = 'error';
+                }
+
+
             })
             .addCase(deleteBookAsync.rejected, state => {
-                state.status = 'error';
+                state.statusDelete = 'error';
             });
     },
 });
 
-export const { setStatus } = addBookSlice.actions;
+export const { setStatus,backUpDeleteBook } = addBookSlice.actions;
 
 export default addBookSlice.reducer;

@@ -36,7 +36,7 @@ const Library = () => {
                 <div className={styles.WrapperCategory}><LibraryCategory onSelectCategory={setSelectedCategory}/></div>
                 <div className={styles.WrapperContent}><Content/></div>
             </div>
-            <MobileCategory mobileCategoryOpen={mobileCategory} mobileCategoryToggle={mobileCategoryToggle}/>
+            <MobileCategory mobileCategoryOpen={mobileCategory} mobileCategoryToggle={mobileCategoryToggle} onSelectCategory={setSelectedCategory}/>
         </Container>
 
     );

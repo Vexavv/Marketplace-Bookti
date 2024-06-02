@@ -15,7 +15,7 @@ import DateField from './DateField/DateField';
 
 const AddBookForm: FC = memo(() => {
     const dispatch = useAppDispatch();
-    const { status } = useAppSelector(state => state.addBook);
+    const  statusAdded  = useAppSelector(state => state.addBook.statusAdded);
     const { t } = useTranslation('addBook');
     const [imageUrl, setImageUrl] = useState<ImageType>(null);
     const currentDate = new Date().getFullYear();
@@ -150,7 +150,7 @@ const AddBookForm: FC = memo(() => {
                             placeholder={t('form.fild-plot.value')}
                         />
                         <Button type="submit" name="BannerButton">
-                            {status === 'loading' ? (
+                            {statusAdded === 'loading' ? (
                                 <div>Loading...</div>
                             ) : (
                                 t('form.btn-public-book')

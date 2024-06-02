@@ -8,7 +8,7 @@ import Container from '../../uiComponent/Container/Container';
 import styles from './AddBook.module.scss';
 
 const AddBook: FC = () => {
-    const { status } = useAppSelector(state => state.addBook);
+    const { statusAdded } = useAppSelector(state => state.addBook);
     const { t } = useTranslation('addBook');
     const navigate = useNavigate();
 
@@ -23,7 +23,7 @@ const AddBook: FC = () => {
                     <p>{t('back')}</p>
                 </button>
             </nav>
-            {status === 'success' ? <AddBookSuccess /> : <AddBookForm />}
+            {statusAdded === 'success' ? <AddBookSuccess /> : <AddBookForm />}
         </Container>
     );
 };
