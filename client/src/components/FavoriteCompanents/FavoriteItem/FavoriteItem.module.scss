@@ -12,7 +12,7 @@
   //justify-content: space-between;
   //align-items: center;
   padding: 15px;
-  max-width: 335px;
+  width: 335px;
 
   &ImageWrapper {
     background-color: #d9d9d9;
@@ -20,14 +20,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 112px;
+    width: 100%;
+    min-width: 112px;
     height: 156px;
-    &Image{
+    &Avatar{
       border-radius: 8px;
       width: 112px;
       height: 156px;
     }
-
+&Image{
+  width: 50px;
+}
   }
 
   &Content {
@@ -73,14 +76,19 @@
   .Card {
     gap: 40px;
     padding: 30px;
-    max-width: 506px;
+
+    width: 506px;
 
     &ImageWrapper  {
-      width: 180px;
+      width: 100%;
+      min-width: 118px;
       height: 253px;
-      &Image{
+      &Avatar{
         width: 180px;
         height: 253px;
+      }
+      &Image{
+        width: 80px;
       }
     }
 

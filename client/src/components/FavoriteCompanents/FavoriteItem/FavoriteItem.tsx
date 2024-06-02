@@ -43,8 +43,8 @@ const FavoriteItem = ({id, imageUrl, language, title, author}: FavoriteItemProps
     return (
         <div className={styles.Card}>
             <div className={styles.CardImageWrapper}>
-                {imageUrl ? <img className={styles.CardImageWrapperImage} src={imageUrl} alt="Book-Avatar"/> :
-                    <img  src='/bookshelf/image.png' alt="Image"/>}
+                {imageUrl ? <img className={styles.CardImageWrapperAvatar} src={imageUrl} alt="Book-Avatar"/> :
+                    <img className={styles.CardImageWrapperImage}  src='/bookshelf/image.png' alt="Image"/>}
             </div>
             <div className={styles.CardContent}>
                 <p className={styles.CardContentTitle}>"{title}"</p>
