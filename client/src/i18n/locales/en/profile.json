@@ -18,14 +18,15 @@
     "bokkshelf": {
         "empty": "It's still empty here",
         "item": {
-            "btn-exchange": "Swap",
+            "btn-exchange": "Review",
             "info-table": {
                 "lang": "Language"
             },
             "tooltip-favorits": {
                 "true": "Remove from my wishlist",
                 "false": "Add to my wishlist"
-            }
+            },
+          "tooltip-delete": "Delete the book"
         }
     },
     "interesting": {

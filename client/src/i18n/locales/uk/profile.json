@@ -18,14 +18,15 @@
     "bokkshelf": {
         "empty": "Тут поки пусто",
         "item": {
-            "btn-exchange": "Обмін",
+            "btn-exchange": "Переглянути",
             "info-table": {
                 "lang": "Мова"
             },
             "tooltip-favorits": {
                 "true": "Видалити з мого списку бажань",
                 "false": "Додати до мого списку бажань"
-            }
+            },
+          "tooltip-delete": "Видалити книгу"
         }
     },
     "interesting": {

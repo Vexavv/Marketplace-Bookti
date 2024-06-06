@@ -20,7 +20,7 @@ const initialState: IInitialState = {
 };
 
 const addBookSlice = createSlice({
-    name: 'addBoocSlice',
+    name: 'addBookSlice',
     initialState,
     reducers: {
         setStatus: state => {
@@ -38,14 +38,15 @@ const addBookSlice = createSlice({
                 state. statusAdded = 'loading';
             })
             .addCase(addBookAsync.fulfilled, (state, action:PayloadAction<ISingleBook>) => {
-                // if(action.payload){
+                if(action.payload){
                     state.data = action.payload;
                     state. statusAdded = 'success';
-                //     state.updateData = true;
-                // }else{
-                //     state.statusAdded = 'error';
-                // }
-
+                    state.updateData = true;
+                }else{
+                    state.statusAdded = 'error';
+                }
+                console.log('DATA',state.data)
+                console.log('STATUS',state.statusAdded)
             })
             .addCase(addBookAsync.rejected, state => {
                 state. statusAdded = 'error';
@@ -59,11 +60,9 @@ const addBookSlice = createSlice({
                     state.data = action.payload;
                     state.statusDelete = 'success';
                     state.deleteBook = true
-
                 }else{
                     state.statusDelete = 'error';
                 }
-
 
             })
             .addCase(deleteBookAsync.rejected, state => {

@@ -5,7 +5,7 @@ import { BASE_URL } from '../../../constants/api';
 import { ISingleBook } from './addBookSlice.types';
 
 export const addBookAsync = createAsyncThunk(
-    'addBoocAsync',
+    'addBookAsync',
     async (body: IFormFilds, { getState }) => {
         // @ts-ignore
         const { userId, accessToken } = getState().auth.data;
@@ -26,7 +26,7 @@ export const addBookAsync = createAsyncThunk(
                 },
             }
         );
-
+        console.log('Response data:', response.data);
         return response.data;
     }
 );
