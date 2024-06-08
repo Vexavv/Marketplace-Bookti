@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import styles from './Message.module.scss';
 
-import noMessageImage from '../../assets/noNotifications.png'
+import noMessageImage from '/message/noNotifications.png'
 
 import Container from '../../uiComponent/Container/Container';
 import Back from '../../uiComponent/Back/Back';

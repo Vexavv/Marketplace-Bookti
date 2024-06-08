@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import styles from './Chat.module.scss'
 
-import emptyChatImage from '../../assets/EmptyChat.png'
+import emptyChatImage from '/chat/EmptyChat.png'
 
 import Container from '../../uiComponent/Container/Container';
 import Back from '../../uiComponent/Back/Back';
