@@ -21,4 +21,5 @@ export interface ButtonProps
         | 'SubscriptionUser'
         | 'FavoriteCardButton'
         | 'SearchLibrary'
+        | 'OpenMessage'
 }
