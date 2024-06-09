@@ -1,0 +1,47 @@
+@import '../../styles/variables.module.scss';
+@import '../../styles//mixins.module.scss';
+
+.MessagePage {
+    display: flex;
+}
+
+.MessageList {
+    width: 50%;
+    max-height: 80vh;
+
+    margin: 28px 8px;
+
+    overflow-y: scroll;
+
+    /* width */
+    &::-webkit-scrollbar {
+        width: 14px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+        background: white;
+
+        border-radius: 60px;
+        box-shadow: inset 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background: $gray;
+        border-radius: 60px;
+    }
+}
+
+.SelectedMessage {
+    width: 50%;
+
+    p {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include third-font;
+    }
+}
