@@ -38,13 +38,13 @@ const addBookSlice = createSlice({
                 state. statusAdded = 'loading';
             })
             .addCase(addBookAsync.fulfilled, (state, action:PayloadAction<ISingleBook>) => {
-                if(action.payload){
-                    state.data = action.payload;
+                // if(action.payload){
+                //     state.data = action.payload;
                     state. statusAdded = 'success';
                     state.updateData = true;
-                }else{
-                    state.statusAdded = 'error';
-                }
+                // }else{
+                //     state.statusAdded = 'error';
+                // }
                 console.log('DATA',state.data)
                 console.log('STATUS',state.statusAdded)
             })
