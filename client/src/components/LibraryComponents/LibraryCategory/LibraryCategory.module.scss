@@ -15,6 +15,7 @@
       line-height: 20px;
       border-bottom: 1px solid rgb(217, 217, 217);
       padding: 13px 0;
+      cursor: pointer;
       &:active{
         background: rgb(237, 237, 237);
       }
@@ -57,7 +58,7 @@
         line-height: 22px;
         border-bottom: none;
         padding: 13px 0;
-        cursor: pointer;
+
         &:active{
           background: none;
         }

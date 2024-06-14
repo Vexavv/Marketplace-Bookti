@@ -14,6 +14,7 @@ const Favorite = () => {
 const dispatch = useAppDispatch();
     const user = useAppSelector(state => state.auth.user)
     const statusDelete = useAppSelector(state=>state.favorite.statusDelete)
+    const updateDeleteFavorite = useAppSelector(state => state.favorite.deleteFavorite)
     const favBooks = user?.wishlist?.items
     const {t} = useTranslation('favorite');
 
@@ -33,7 +34,6 @@ const dispatch = useAppDispatch();
     }, [statusDelete]);
 
 
-    const updateDeleteFavorite = useAppSelector(state => state.favorite.deleteFavorite)
     useEffect(() => {
         dispatch(getUserAsync())
     }, [updateDeleteFavorite]);

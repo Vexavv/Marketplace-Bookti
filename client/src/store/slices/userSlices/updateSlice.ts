@@ -1,4 +1,4 @@
-import {createSlice, createAsyncThunk, PayloadAction} from '@reduxjs/toolkit';
+import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
 import axios, {AxiosResponse} from 'axios';
 import {BASE_URL} from '../../../constants/api';
 
@@ -9,8 +9,8 @@ interface UpdateData {
     email: string,
     location: string,
     telegramId: string,
-    displayEmail?:boolean,
-    displayTelegram?:boolean
+    displayEmail?: boolean,
+    displayTelegram?: boolean
 }
 
 interface UpdateState {
@@ -64,10 +64,10 @@ const updateSlice = createSlice({
     name: 'update',
     initialState,
     reducers: {
-backUpdateData:state => {
-    state.updateData = false;
-    state.status = 'idle';
-}
+        backUpdateData: state => {
+            state.updateData = false;
+            state.status = 'idle';
+        }
     },
     extraReducers: builder => {
         builder
@@ -94,5 +94,5 @@ backUpdateData:state => {
 
     },
 });
-export const{backUpdateData} = updateSlice.actions
+export const {backUpdateData} = updateSlice.actions
 export default updateSlice.reducer;

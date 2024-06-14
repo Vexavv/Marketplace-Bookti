@@ -209,3 +209,22 @@
     padding: 8px 18px;
   }
 }
+
+.OpenMessage{
+  padding: 12px;
+
+  border-radius: 8px;
+  border: 1px solid $primary-color;
+
+  background: transparent;
+
+  color: $primary-color;
+  @include primary-font;
+  font-weight: 600;
+
+  min-width: 20vw;
+
+  &:hover{
+    color: white;
+  }
+}

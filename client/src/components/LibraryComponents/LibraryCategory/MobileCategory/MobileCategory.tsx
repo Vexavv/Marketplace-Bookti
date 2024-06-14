@@ -5,7 +5,7 @@ import Drawer from "@mui/material/Drawer";
 import LibraryCategory from "../LibraryCategory";
 import {useTranslation} from "react-i18next";
 
-const MobileCategory: React.FC<MobileCategoryProps> = ({mobileCategoryOpen, mobileCategoryToggle}) => {
+const MobileCategory: React.FC<MobileCategoryProps> = ({mobileCategoryOpen, mobileCategoryToggle, onSelectCategory}) => {
     const {t} = useTranslation('library');
     return (
         <Drawer anchor="left"
@@ -30,7 +30,7 @@ const MobileCategory: React.FC<MobileCategoryProps> = ({mobileCategoryOpen, mobi
                 <h3 className={styles.MenuTitle}>{t('Category.Book')}</h3>
                 <img className={styles.MenuClose} onClick={mobileCategoryToggle} src="/header/x.svg" alt="close"/>
                 <div className={styles.MenuList}>
-                    <LibraryCategory/>
+                    <LibraryCategory onSelectCategory={onSelectCategory}/>
                 </div>
 
 

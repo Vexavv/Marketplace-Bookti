@@ -1,5 +1,6 @@
 {
     "Nav": "My bookshelf",
+  "Modal": "The book has been deleted",
     "BookshelfListNotExist": {
         "Title": "You haven't listed any books Let's do it right now!",
         "Button": "List a book"

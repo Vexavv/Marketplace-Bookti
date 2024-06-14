@@ -1,12 +1,38 @@
-import { FC } from 'react';
-import { Link, NavLink, Outlet } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import {FC, useEffect} from 'react';
+import {Link, NavLink, Outlet} from 'react-router-dom';
+import {useTranslation} from 'react-i18next';
 import Container from '../../uiComponent/Container/Container';
 import styles from './Bookshelf.module.scss';
 import cn from 'classnames';
-
+import {useAppDispatch, useAppSelector} from "../../hook";
+import {closeModal, openModal} from "../../store/slices/modalSlice";
+import {backUpDeleteBook} from "../../store/slices/addBookSlice/addBookSlice";
+import {getUserAsync} from "../../store/slices/userSlices/authSlice";
 const Bookshelf: FC = () => {
-    const { t } = useTranslation('bookshelf');
+    const dispatch = useAppDispatch();
+    const {t} = useTranslation('bookshelf');
+    const statusDeleteBook = useAppSelector(state => state.addBook.statusDelete)
+    const updateDeleteBook = useAppSelector(state => state.addBook.deleteBook)
+    //-------------------------------------------------------------------------------------------------------
+    const handleOpenModal = () => {
+        dispatch(openModal({type: 'informMessage', props: {key: 'value'},text: t('Modal')}));
+        setTimeout(() => {
+            dispatch(closeModal());
+        }, 3000);
+    }
+    useEffect(() => {
+        if(statusDeleteBook === 'success'){
+            handleOpenModal();
+            dispatch(backUpDeleteBook())
+        }
+    }, [statusDeleteBook]);
+
+
+    useEffect(() => {
+        dispatch(getUserAsync())
+    }, [updateDeleteBook]);
+
+//-------------------------------------------------------------------------------------------------------
 
     return (
         <Container>
@@ -26,12 +52,12 @@ const Bookshelf: FC = () => {
                     </nav>
                     <aside className={styles.WrapperAsideAside}>
                         <ul>
-                            {t('CounterASide', { returnObjects: true }).map(
+                            {t('CounterASide', {returnObjects: true}).map(
                                 item => (
                                     <li key={item.title}>
                                         <NavLink
                                             to={`/bookshelf/${item.link}`}
-                                            className={({ isActive }) =>
+                                            className={({isActive}) =>
                                                 cn(styles.ListLink, {
                                                     [styles.Active]: isActive,
                                                 })
@@ -47,7 +73,7 @@ const Bookshelf: FC = () => {
                     </aside>
                 </div>
                 <section className={styles.WrapperContent}>
-                    <Outlet />
+                    <Outlet/>
                 </section>
             </div>
         </Container>

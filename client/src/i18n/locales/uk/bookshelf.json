@@ -1,48 +1,49 @@
 {
-    "Nav": "Моя книжкова полиця",
-    "BookshelfListNotExist": {
-        "Title": "Ви не додали жодної книги Давайте зробимо це прямо зараз!",
-        "Button": "Додати книгу"
+  "Nav": "Моя книжкова полиця",
+  "Modal": "Книгу видалено",
+  "BookshelfListNotExist": {
+    "Title": "Ви не додали жодної книги Давайте зробимо це прямо зараз!",
+    "Button": "Додати книгу"
+  },
+  "CounterASide": [
+    {
+      "title": "Готові до обміну",
+      "link": "swapping"
     },
-    "CounterASide": [
-        {
-            "title": "Готові до обміну",
-            "link": "swapping"
-        },
-        {
-            "title": "Безкоштовні",
-            "link": "donations"
-        },
-        {
-            "title": "Мене цікавить",
-            "link": "my-wishlist"
-        },
-        {
-            "title": "На модерації",
-            "link": "moderation"
-        },
-        {
-            "title": "Відхилені",
-            "link": "rejected"
-        },
-        {
-            "title": "Зарезервовані",
-            "link": "reserved"
-        },
-        {
-            "title": "Деактивовані",
-            "link": "deactivated"
-        }
-    ],
-    "BookItem": {
-        "ExchangeBtn": "Обмін",
-        "EditBnt": "Редагувати",
-      "DeleteBtn": "Видалити",
-        "Table": {
-            "Author": "Автор книги",
-            "Genre": "Жанр книги",
-            "YearPublication": "Рік видання",
-            "Language": "Мова"
-        }
+    {
+      "title": "Безкоштовні",
+      "link": "donations"
+    },
+    {
+      "title": "Мене цікавить",
+      "link": "my-wishlist"
+    },
+    {
+      "title": "На модерації",
+      "link": "moderation"
+    },
+    {
+      "title": "Відхилені",
+      "link": "rejected"
+    },
+    {
+      "title": "Зарезервовані",
+      "link": "reserved"
+    },
+    {
+      "title": "Деактивовані",
+      "link": "deactivated"
     }
+  ],
+  "BookItem": {
+    "ExchangeBtn": "Обмін",
+    "EditBnt": "Редагувати",
+    "DeleteBtn": "Видалити",
+    "Table": {
+      "Author": "Автор книги",
+      "Genre": "Жанр книги",
+      "YearPublication": "Рік видання",
+      "Language": "Мова"
+    }
+  }
 }

@@ -7,6 +7,7 @@ import styles from './BookItem.module.scss';
 import {closeModal, openModal,} from '../../../../../../store/slices/modalSlice';
 import {useAppDispatch, useAppSelector} from '../../../../../../hook';
 import {favoriteDataAsync} from '../../../../../../store/slices/favoriteSlice/favoriteSlice';
+import {deleteBookAsync} from "../../../../../../store/slices/addBookSlice/deleteBookSliceAsync";
 
 // type BookItemType = Omit<
 //     IBook,
@@ -80,6 +81,15 @@ const BookItem: FC<IBook> = ({
         }
     };
     //-----------------------------------------------------------
+    //---------------------delete book --------------------------
+    const deleteBook = async () => {
+        try {
+            await dispatch(deleteBookAsync(id))
+        } catch (error) {
+            console.error(error)
+        }
+    }
+    //----------------------------------------------------------
     return (
         <div className={styles.Wrapper}>
             <div
@@ -107,24 +117,28 @@ const BookItem: FC<IBook> = ({
                         {t('bokkshelf.item.info-table.lang')}:{' '}
                         <span>{language}</span>
                     </p>
-                    <Tooltip
-                        title={
-                            isFavorite
-                                ? t('bokkshelf.item.tooltip-favorits.true')
-                                : t('bokkshelf.item.tooltip-favorits.false')
-                        }
-                    >
-                        <button onClick={addToFavorites}>
-                            {isFavorite ? (
-                                <img src="/profile/to-favorites.png" alt=""/>
-                            ) : (
-                                <img
-                                    src="/profile/add-to-favorites.png"
-                                    alt=""
-                                />
-                            )}
-                        </button>
-                    </Tooltip>
+
+                        <Tooltip
+                            title={
+                                isFavorite
+                                    ? t('bokkshelf.item.tooltip-favorits.true')
+                                    : t('bokkshelf.item.tooltip-favorits.false')
+                            }
+                        >
+                            <button onClick={addToFavorites}>
+                                {isFavorite ? (
+                                    <img src="/profile/to-favorites.png" alt=""/>
+                                ) : (
+                                    <img
+                                        src="/profile/add-to-favorites.png"
+                                        alt=""
+                                    />
+                                )}
+                            </button>
+                        </Tooltip>
+                        <Tooltip title={t('bokkshelf.item.tooltip-delete')}>
+                            <button onClick={deleteBook}><img src="/profile/delete.svg" alt="delete"/></button>
+                        </Tooltip>
                 </div>
 
                 <Button name="SeparateExchange" onClick={handleOpenModal}>

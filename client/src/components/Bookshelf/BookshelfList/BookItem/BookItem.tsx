@@ -1,23 +1,21 @@
-import { FC } from 'react';
+import {FC} from 'react';
 import Button from '../../../../uiComponent/Button/Button';
 import styles from './BookItem.module.scss';
-import { useTranslation } from 'react-i18next';
+import {useTranslation} from 'react-i18next';
 import {BookItemProps} from "./BookItem.props";
 import {useAppDispatch} from "../../../../hook";
 import {deleteBookAsync} from "../../../../store/slices/addBookSlice/deleteBookSliceAsync";
 
-const BookItem: FC<BookItemProps> = ({id,title, imageUrl, author, language}) => {
-    const { t } = useTranslation('bookshelf');
+const BookItem: FC<BookItemProps> = ({id, title, imageUrl, author, language}) => {
+    const {t} = useTranslation('bookshelf');
     const dispatch = useAppDispatch();
-    const deleteBook = async () =>{
-        try{
-await dispatch(deleteBookAsync(id))
-        } catch (error){
+    const deleteBook = async () => {
+        try {
+            await dispatch(deleteBookAsync(id))
+        } catch (error) {
             console.error(error)
         }
     }
-
-
 
 
     return (
@@ -34,47 +32,47 @@ await dispatch(deleteBookAsync(id))
                 </div>
                 <div className={styles.WrapperInfoBoxBtnBox}>
                     <Button name="BookshelfEdit">
-                        <img src="/bookshelf/edit.svg" alt="edit" />
+                        <img src="/bookshelf/edit.svg" alt="edit"/>
                         {t('BookItem.EditBnt')}
-                    </Button >
+                    </Button>
                     <Button name="BookshelfEdit" onClick={deleteBook}>
-                        <img  src="/bookshelf/garbage.svg" alt="cart"/>
+                        <img src="/bookshelf/garbage.svg" alt="cart"/>
                         <p className={styles.WrapperInfoBoxBtnBoxDelete}>{t('BookItem.DeleteBtn')}</p>
                     </Button>
                 </div>
             </div>
             <table className={styles.WrapperInfoBoxTable}>
                 <tbody>
-                    <tr>
-                        <th>
-                            <p>{t('BookItem.Table.Author')}</p>
-                        </th>
-                        {/*<th>*/}
-                        {/*    <p>{t('BookItem.Table.Genre')}</p>*/}
-                        {/*</th>*/}
-                        {/*<th>*/}
-                        {/*    <p>{t('BookItem.Table.YearPublication')}</p>*/}
-                        {/*</th>*/}
-                        <th>
-                            <p>{t('BookItem.Table.Language')}</p>
-                        </th>
-                    </tr>
+                <tr>
+                    <th>
+                        <p>{t('BookItem.Table.Author')}</p>
+                    </th>
+                    {/*<th>*/}
+                    {/*    <p>{t('BookItem.Table.Genre')}</p>*/}
+                    {/*</th>*/}
+                    {/*<th>*/}
+                    {/*    <p>{t('BookItem.Table.YearPublication')}</p>*/}
+                    {/*</th>*/}
+                    <th>
+                        <p>{t('BookItem.Table.Language')}</p>
+                    </th>
+                </tr>
                 </tbody>
                 <tbody>
-                    <tr>
-                        <th>
-                            <p>{author}</p>
-                        </th>
-                        {/*<th>*/}
-                        {/*    <p>{genre}</p>*/}
-                        {/*</th>*/}
-                        {/*<th>*/}
-                        {/*    <p>1942 рік</p>*/}
-                        {/*</th>*/}
-                        <th>
-                            <p>{language}</p>
-                        </th>
-                    </tr>
+                <tr>
+                    <th>
+                        <p>{author}</p>
+                    </th>
+                    {/*<th>*/}
+                    {/*    <p>{genre}</p>*/}
+                    {/*</th>*/}
+                    {/*<th>*/}
+                    {/*    <p>1942 рік</p>*/}
+                    {/*</th>*/}
+                    <th>
+                        <p>{language}</p>
+                    </th>
+                </tr>
                 </tbody>
             </table>
         </div>
