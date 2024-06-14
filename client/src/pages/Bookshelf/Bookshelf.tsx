@@ -13,9 +13,7 @@ const Bookshelf: FC = () => {
     const {t} = useTranslation('bookshelf');
     const statusDeleteBook = useAppSelector(state => state.addBook.statusDelete)
     const updateDeleteBook = useAppSelector(state => state.addBook.deleteBook)
-
     //-------------------------------------------------------------------------------------------------------
-
     const handleOpenModal = () => {
         dispatch(openModal({type: 'informMessage', props: {key: 'value'},text: t('Modal')}));
         setTimeout(() => {
@@ -35,8 +33,6 @@ const Bookshelf: FC = () => {
     }, [updateDeleteBook]);
 
 //-------------------------------------------------------------------------------------------------------
-
-
 
     return (
         <Container>
