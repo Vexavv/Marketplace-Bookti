@@ -17,7 +17,8 @@
         "minLowercase": "The password must contain at least 1 lowercase letter.",
         "minUppercase": "The password must contain at least 1 capital letter.",
         "minNumbers": "The password must contain at least 1 digit.",
-        "required": "This field is required."
+        "required": "This field is required.",
+        "matches": "The characters '-' and '_' are prohibited"
       }
     },
     "registration": {
