@@ -51,25 +51,33 @@ const Message = () => {
         <Container>
             <Back text={t('arrow')} />
             <div className={styles.MessagePage}>
-                <div className={styles.MessageList}>
-                    {messages.length ? (
-                        <MessageContainer
-                            onSelect={handleSelected}
-                            messages={messages}
-                            selectMessageId={selectedMessage}
-                        />
-                    ) : (
-                        <EmptyPage
-                            label={t('noNotifications')}
-                            img={noMessageImage}
-                        />
-                    )}
-                </div>
-                <div className={styles.SelectedMessage}>
-                    {selectedMessage ? <MessageContent message={messages[selectedMessage-1]}/> : (
-                        <p>Виберіть сповіщення, щоб його прочитати</p>
-                    )}
-                </div>
+                {messages.length ? (
+                    <>
+                        <div className={styles.MessageList}>
+                            <MessageContainer
+                                onSelect={handleSelected}
+                                messages={messages}
+                                selectMessageId={selectedMessage}
+                            />
+                        </div>
+                        <div className={styles.SelectedMessage}>
+                            {selectedMessage ? (
+                                <MessageContent
+                                    message={messages[selectedMessage - 1]}
+                                />
+                            ) : (
+                                <p>
+                                    Виберіть сповіщення, щоб його прочитати
+                                </p>
+                            )}
+                        </div>
+                    </>
+                ) : (
+                    <EmptyPage
+                        label={t('noNotifications')}
+                        img={noMessageImage}
+                    />
+                )}
             </div>
         </Container>
     );
