@@ -1,0 +1,130 @@
+@import '../../styles/mixins.module.scss';
+@import '../../styles/variables.module.scss';
+
+.Wrapper {
+    display: grid;
+    grid-template-columns: 263px calc(100% - 263px);
+
+    hr{
+        display: none;
+        margin-top: 0;
+    }
+
+    @media all and (max-width: 900px) {
+        grid-template-columns: 1fr;
+
+        hr{
+            width: 100%;
+            height: 1px;
+            display: block;
+            background: $secondary-bg-color;
+        }
+    }
+
+    &Aside {
+        @media all and (max-width: 900px) {
+            width: 100%;
+        }
+
+        &Navigation {
+            display: flex;
+
+            &Link {
+                @include primary-font;
+                display: flex;
+                align-items: center;
+                color: #000;
+                font-weight: 600;
+                line-height: 150%;
+                font-size: 18px;
+                display: flex;
+                margin-top: 8px;
+                margin-bottom: 14px;
+
+                &.Active {
+                    background-color: #000;
+                }
+
+                > img {
+                    margin-right: 20px;
+                }
+            }
+        }
+
+        &Aside {
+            width: 263px;
+            display: flex;
+            padding: 40px 45px;
+            height: fit-content;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);
+            margin-bottom: 100px;
+
+            @media all and (max-width: 900px) {
+                position: relative;
+                box-shadow: none;
+                width: 100%;
+                padding: 0;
+                margin-bottom: 20px;
+
+                &::before{
+                    content: '';
+                    width: 1px;
+                    height: 50%;
+                    background: #787878;
+                    
+                    position: absolute;
+                    left: 50%;
+                    transform: translate(-50%, - 50%);
+                    bottom: 0;
+                }
+            }
+
+            > ul {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                @media all and (max-width: 900px) {
+                    flex-direction: row;
+                    width: 100%;
+                    justify-content: space-around;
+                }
+
+                > li {
+                    @include primary-font;
+                    line-height: 150%;
+                    font-size: 18px;
+                    width: max-content;
+                    list-style: none;
+
+                    @media all and (max-width: 900px) {
+                        font-size: 16px;
+                    }
+
+                    > .ListLink {
+                        color: #000;
+
+                        &.Active {
+                            color: $primary-color;
+                        }
+
+                        > span {
+                            font-weight: 700;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &Content {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 100px;
+
+        @media all and (max-width: 900px) {
+            display: block;
+        }
+    }
+}

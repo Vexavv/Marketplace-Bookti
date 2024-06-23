@@ -1,0 +1,25 @@
+{
+    "arrow": "Profile",
+    "counterAside": [
+        {
+            "title": "Books",
+            "link": "books"
+        },
+        {
+            "title": "Reviews",
+            "link": "reviews"
+        }
+    ],
+    "noContent": "No new events",
+    "filter": {
+        "date": "Sort by date",
+        "title": "Sort by title",
+        "status": "Sort by status"
+    },
+    "columnTitle": {
+        "name": "Name",
+        "title": "Book Title",
+        "date": "Date",
+        "status": "Status"
+    }
+}

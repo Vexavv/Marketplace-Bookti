@@ -1,6 +1,7 @@
 import {RouteObject} from 'react-router-dom';
 import {bookshelfRoutes} from './bookshelf';
 import {profileRoutes} from './profile';
+import { adminRoutes } from './admin';
 import PrivateRoute from '../utils/PrivateRoute/PrivateRoute';
 import AddBook from '../pages/AddBook/AddBook';
 import Layout from '../components/Layout/Layout';
@@ -128,7 +129,11 @@ export const rootRoutes: RouteObject[] = [
 
                 ],
             },
-
+            {
+                path: 'admin',
+                element: <PrivateRoute/>,
+                children: adminRoutes,
+            },
         ],
     },
 ];

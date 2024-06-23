@@ -35,6 +35,8 @@ import messageUk from './locales/uk/message.json'
 import messageEn from './locales/en/message.json'
 import chatUk from './locales/uk/chat.json'
 import chatEn from './locales/en/chat.json'
+import adminUk from './locales/uk/admin.json'
+import adminEn from './locales/en/admin.json'
 const resources = {
     [LOCALS.UK]: {
         header: headerUk,
@@ -53,6 +55,7 @@ const resources = {
         library:libraryUk,
         message:messageUk,
         chat:chatUk,
+        admin:adminUk
     },
     [LOCALS.EN]: {
         header: headerEn,
@@ -71,6 +74,7 @@ const resources = {
         library:libraryEn,
         message:messageEn,
         chat:chatEn,
+        admin:adminEn
     },
 };
 
