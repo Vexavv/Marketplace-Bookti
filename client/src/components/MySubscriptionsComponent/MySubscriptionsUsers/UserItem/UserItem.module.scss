@@ -1,6 +1,6 @@
 @import "../../../../styles/mixins.module";
 
-Card {
+.Card {
   //display: flex;
   box-sizing: border-box;
   border: 0.5px solid rgb(119, 119, 119);
@@ -59,7 +59,7 @@ Card {
 }
 
 @media (min-width: 400px) {
-  Card {
+  .Card {
     margin-bottom: 20px;
 
     &Content {
@@ -92,7 +92,7 @@ Card {
 }
 
 @media (min-width: 900px) {
-  Card {
+  .Card {
     align-self: flex-start;
     width: 100%;
     max-width: 800px;

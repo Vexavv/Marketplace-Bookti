@@ -8,5 +8,8 @@
   "NewUsers": {
     "users": "New users",
     "more": "More"
+  },
+  "Modal":{
+    "delete": "You have unsubscribed from the user"
   }
 }

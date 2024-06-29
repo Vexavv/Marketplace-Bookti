@@ -22,12 +22,16 @@ interface UsersState {
     users: User[] | null;
     data:User | null;
     subscribers:Subscribers[] | null;
+    statusDelete:string
+    deleteSubscriber: boolean
 }
 
 const initialState: UsersState = {
     users: null,
     data:null,
-    subscribers:null
+    subscribers:null,
+    statusDelete:'idle',
+    deleteSubscriber:false
 
 };
 
@@ -35,6 +39,10 @@ const subscriptionsSlice = createSlice({
     name: 'subscriptionsSlice',
     initialState,
     reducers: {
+        backUpDeleteSubscriber:state => {
+            state.deleteSubscriber = false;
+            state.statusDelete = 'idle';
+        }
 
     },
     extraReducers: builder => {
@@ -83,24 +91,31 @@ const subscriptionsSlice = createSlice({
             // });
             //---------------------------------------------deleteSubscriberAsync---------------------
 
-            // .addCase(getSubscriberAsync.pending, state => {
-            //     })
+            .addCase(getSubscriberAsync.pending, state => {
+                state.statusDelete = 'loading';
+                })
             .addCase(
                 deleteSubscriberAsync.fulfilled,
                 (state, action: PayloadAction<Subscribers[]>) => {
-                    state.subscribers = action.payload;
-                    console.log('DELETE',state.subscribers)
+                    if (action.payload) {
+                        state.subscribers = action.payload;
+                        state.statusDelete = 'loaded';
+                        state.deleteSubscriber = true
+                    }else{
+                        state.statusDelete = 'failed';
+                    }
                 }
             )
-        // .addCase(getSubscriberAsync.rejected, state => {
-        //     // state.error = action.error.message;
-        // });
+        .addCase(getSubscriberAsync.rejected, state => {
+            state.statusDelete = 'idle';
+            // state.error = action.error.message;
+        });
     }
 
 
 });
 
-export const {  } = subscriptionsSlice.actions;
+export const {  backUpDeleteSubscriber } = subscriptionsSlice.actions;
 
 export default subscriptionsSlice.reducer;
 

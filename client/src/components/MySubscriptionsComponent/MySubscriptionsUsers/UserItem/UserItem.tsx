@@ -1,5 +1,7 @@
 import React from 'react';
 import styles from './UserItem.module.scss'
+
+console.log(styles)
 import Button from "../../../../uiComponent/Button/Button";
 import {IUserItemProps} from "./UserItem.props";
 import {useWindowSize} from "../../../../hooks/useWindowSize";
