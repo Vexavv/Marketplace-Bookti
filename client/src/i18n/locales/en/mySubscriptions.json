@@ -2,7 +2,11 @@
   "Back": "My subscriptions",
   "Tabs": {
     "subscriptions": "My subscriptions",
-    "users":"New users",
-    "Button": "Signed"
+    "users":"New users"
+  },
+  "Button": "Signed",
+  "NewUsers": {
+    "users": "New users",
+    "more": "More"
   }
 }

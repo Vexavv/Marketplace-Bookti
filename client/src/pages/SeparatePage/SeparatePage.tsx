@@ -47,7 +47,6 @@ const SeparatePage = () => {
         };
         fetchDataBook();
     }, []);
-    console.log('Book>>>>>>>', book)
     const owner = book?.owner ?? null;
     //-----------------------------------------------------------
     const dispatch = useAppDispatch()
