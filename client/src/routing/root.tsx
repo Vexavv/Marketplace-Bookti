@@ -23,7 +23,7 @@ import Forum from '../pages/Forum/Forum';
 import Chat from '../pages/Chat/Chat';
 import MySettings from "../pages/MySettings/MySettings";
 import MySubscriptions from "../pages/MySubscriptions/MySubscriptions";
-
+import Account from "../pages/Account/Account";
 export const rootRoutes: RouteObject[] = [
     {
         element: <Layout/>,
@@ -84,6 +84,10 @@ export const rootRoutes: RouteObject[] = [
             {
                 path: 'separatePage/:id',
                 element: <SeparatePage/>,
+            },
+            {
+                path: 'account/:id',
+                element: <Account/>,
             },
             {
                 path: '*',

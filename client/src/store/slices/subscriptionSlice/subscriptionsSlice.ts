@@ -1,7 +1,8 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
-import axios from 'axios';
-import { BASE_URL } from '../../../constants/api';
 import {User} from "../../../types";
+import {getNewUsersAsync} from "./getNewUsersAsync";
+import {postNewSubscriberAsync} from "./postNewSubscriber";
+import {getSubscriberAsync} from "./getSubscriber";
 
 
 
@@ -11,41 +12,16 @@ export interface AuthData {
 
 interface UsersState {
     users: User[] | null;
+    data:User | null;
+    subscriber:User | null;
 }
 
 const initialState: UsersState = {
     users: null,
+    data:null,
+    subscriber:null
 
 };
-
-
-
-export const getNewUsersAsync = createAsyncThunk(
-    'subscribe/getNewUsersAsync',
-    async (_, { getState }) => {
-        try {
-            let authData: AuthData;
-            // @ts-ignore
-            authData = getState().auth.data as AuthData;
-            const token = authData.accessToken;
-
-            const response = await axios.get(
-                `${BASE_URL}/users/new`,
-                {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                    },
-                }
-            );
-            return response.data;
-
-        } catch (error) {
-            console.error('Error during user fetching:', error);
-            throw error;
-        }
-
-    }
-);
 
 const subscriptionsSlice = createSlice({
     name: 'subscriptionsSlice',
@@ -56,7 +32,7 @@ const subscriptionsSlice = createSlice({
     extraReducers: builder => {
         builder
 
-            //------------------------------------------------------------------------------------------------------
+            //---------------------------------------------NewSubscriber---------------------
 
             // .addCase(getNewUsersAsync.pending, state => {
             // })
@@ -69,6 +45,34 @@ const subscriptionsSlice = createSlice({
             // .addCase(getNewUsersAsync.rejected, state => {
             //     // state.error = action.error.message;
             // });
+            //---------------------------------------------addedNewSubscriber---------------------
+
+            .addCase(postNewSubscriberAsync.pending, state => {
+            })
+            .addCase(
+                postNewSubscriberAsync.fulfilled,
+                (state, action: PayloadAction<User>) => {
+                    state.data = action.payload;
+                    console.log('Data',state.data)
+                }
+            )
+        .addCase(postNewSubscriberAsync.rejected, state => {
+            // state.error = action.error.message;
+        })
+        //---------------------------------------------getSubscriber---------------------
+
+    .addCase(getSubscriberAsync.pending, state => {
+        })
+            .addCase(
+                getSubscriberAsync.fulfilled,
+                (state, action) => {
+                    state.subscriber = action.payload;
+                    console.log('Subscriber',state.subscriber)
+                }
+            )
+            .addCase(getSubscriberAsync.rejected, state => {
+                // state.error = action.error.message;
+            });
     },
 });
 
