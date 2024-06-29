@@ -8,7 +8,7 @@ import profileReducer from './slices/profileSlice/profileSlice';
 import resetPasswordReducer from './slices/userSlices/passwordSlice';
 import updateUserDataReducer from './slices/userSlices/updateSlice'
 import favoriteReducer from './slices/favoriteSlice/favoriteSlice'
-
+import subscriptionsReducer from './slices/subscriptionSlice/subscriptionsSlice'
 const persistConfig = {
     key: 'root',
     storage,
@@ -23,6 +23,7 @@ const rootReducer = combineReducers({
     resetPassword: resetPasswordReducer,
     updateDataUser:updateUserDataReducer,
     favorite: favoriteReducer,
+    subscriptions:subscriptionsReducer
 
 });
 const persistedReducer = persistReducer(persistConfig, rootReducer);

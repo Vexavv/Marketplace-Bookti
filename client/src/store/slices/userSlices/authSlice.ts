@@ -81,7 +81,6 @@ export const getUserAsync = createAsyncThunk(
             authData = getState().auth.data as AuthData;
             const token = authData.accessToken;
             const id = authData.userId;
-
             const response: AxiosResponse<User> = await axios.get(
                 `${BASE_URL}/users/${id}`,
                 {
