@@ -4,7 +4,7 @@
     "subscriptions": "My subscriptions",
     "users":"New users"
   },
-  "Button": "Signed",
+  "Button": "Unsubscribe",
   "NewUsers": {
     "users": "New users",
     "more": "More"

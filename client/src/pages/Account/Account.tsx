@@ -8,11 +8,6 @@ const Account = () => {
     const {id} = useParams();
     const dispatch = useAppDispatch();
 
-    useEffect(() => {
-
-        // @ts-ignore
-        dispatch(getSubscriberAsync(id))
-    },[])
     if (!id) {
         return <div>Loading...</div>; // Либо другая обработка, если id отсутствует
     }

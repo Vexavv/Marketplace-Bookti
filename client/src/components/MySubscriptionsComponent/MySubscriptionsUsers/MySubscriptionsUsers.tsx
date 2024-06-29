@@ -1,39 +1,24 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styles from './MySubscriptionsUsers.module.scss'
-import {User} from "../../../types";
-import Button from "../../../uiComponent/Button/Button";
-import {useTranslation} from "react-i18next";
-import {useWindowSize} from "../../../hooks/useWindowSize";
+import {useAppDispatch, useAppSelector} from "../../../hook";
+import {getSubscriberAsync} from "../../../store/slices/subscriptionSlice/getSubscriber";
 
-const mySubscriptionsUsers: User[] = [
-    {id: 1, avatarUrl: "", fullName: "Вася Семенов", location: "Kyiv", email: ""},
-    {id: 2, avatarUrl: "/test/photoUser.png", fullName: "Олена Коваль", location: "Kyiv", email: ""}
-]
+import UserItem from "./UserItem/UserItem";
+
 const MySubscriptionsUsers = () => {
-    const {t} = useTranslation('mySubscriptions')
-    const {width} = useWindowSize();
+    const dispatch = useAppDispatch();
+    const mySubscriptionsUsers = useAppSelector(state => state.subscriptions.subscribers)
+
+    useEffect(() => {
+        dispatch(getSubscriberAsync())
+    },[])
+
+
     return (
         <ul className={styles.MyUsers}>
-            {mySubscriptionsUsers.map(item => (
-                <li className={styles.MyUsersItem} key={item.id}>
-                    <div className={styles.MyUsersItemContent}>
-                        <div className={styles.MyUsersItemContentAvatar}>
-                            {item.avatarUrl ? <img src={item.avatarUrl} alt="user-avatar" style={width && width <= 400 ?{ width: '40px', height: '40px' } : width && width >= 900
-                                    ? { width: '70px', height: '70px' }
-                                    : { width: '50px', height: '50px' }}/>
-                                : <img src="/header/user.svg" alt="user" style={width && width <= 400 ?{ width: '30px', height: '30px' }:{ width: '40px', height: '40px' }}/>
-                            }
-                        </div>
-                        <div className={styles.MyUsersItemContentText}>
-                            <p className={styles.MyUsersItemContentTextName}>{item.fullName}</p>
-                            <p className={styles.MyUsersItemContentTextCity}>{item.location}</p>
-                        </div>
-                        <div className={styles.MyUsersItemContentButton}>
-                            <Button name='SubscriptionUser'> <img style={{marginRight:'5px'}} src="/subscriptions/Vector.png" alt="Vector"/> {t('Button')}</Button>
-                        </div>
-                    </div>
-                </li>
-            ))}
+            { mySubscriptionsUsers ? ( mySubscriptionsUsers.map((item, index) => (
+                <UserItem key={index} {...item} />
+            ))) : <p>Loading ... </p>}
         </ul>
     );
 };

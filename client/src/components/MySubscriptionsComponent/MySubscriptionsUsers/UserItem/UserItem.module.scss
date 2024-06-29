@@ -1,0 +1,125 @@
+@import "../../../../styles/mixins.module";
+
+Card {
+  //display: flex;
+  box-sizing: border-box;
+  border: 0.5px solid rgb(119, 119, 119);
+  border-radius: 12px;
+  background: rgb(255, 255, 255);
+  list-style: none;
+  margin-bottom: 10px;
+  align-self: center;
+  width: 100%;
+  max-width: 615px;
+
+  &Content {
+    display: flex;
+    align-items: center;
+    padding: 6px;
+
+    &Avatar {
+      border-radius: 100px;
+      background: #D9D9D9;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+
+    &Text {
+      display: flex;
+      flex-direction: column;
+      margin-left: 5px;
+      align-items: flex-start;
+
+      &Name {
+        @include primary-font;
+        font-size: 10px;
+        font-weight: 500;
+        line-height: 18px;
+        margin-bottom: 3px;
+        color: #666666;
+      }
+
+      &City {
+        @include primary-font;
+        font-size: 10px;
+        font-weight: 500;
+        line-height: 15px;
+        color: #666666;
+      }
+    }
+
+    &Button {
+      margin-left: auto;
+    }
+  }
+}
+
+@media (min-width: 400px) {
+  Card {
+    margin-bottom: 20px;
+
+    &Content {
+      padding: 8px;
+
+      &Avatar {
+        width: 50px;
+        height: 50px;
+
+      }
+
+      &Text {
+        margin-left: 30px;
+
+        &Name {
+          font-size: 15px;
+          margin-bottom: 5px;
+        }
+
+        &City {
+          font-size: 12px;
+        }
+      }
+
+      &Button {
+        margin-left: auto;
+      }
+    }
+  }
+}
+
+@media (min-width: 900px) {
+  Card {
+    align-self: flex-start;
+    width: 100%;
+    max-width: 800px;
+
+    &Content {
+      padding: 13px;
+
+      &Avatar {
+        width: 70px;
+        height: 70px;
+      }
+
+      &Text {
+        margin-left: 18px;
+
+        &Name {
+          font-size: 16px;
+        }
+
+        &City {
+          font-size: 13px;
+        }
+      }
+
+      &Button {
+        margin-left: auto;
+      }
+    }
+  }
+}
