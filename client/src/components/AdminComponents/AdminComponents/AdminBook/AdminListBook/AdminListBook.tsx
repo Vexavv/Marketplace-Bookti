@@ -1,20 +1,27 @@
-import styles from './AdminBook.module.scss';
+import { FC } from 'react';
+import { number } from 'yup';
+import styles from './AdminListBook.module.scss';
 import { useTranslation } from 'react-i18next';
 
 const content: any[] = [
     {
-        name: "Марія",
-        title: "Маленький Принц",
-        date: "10.10.2024",
-        status: "Новий"
-    }
+        name: 'Марія',
+        title: 'Маленький Принц',
+        date: '10.10.2024',
+        status: 'Новий',
+    },
 ];
 
-const AdminBook = () => {
+interface typeProps {
+    // idPage: number | undefined,
+    changeBook: (id: number | undefined) => void;
+}
+
+const AdminListBook: FC<typeProps> = ({ changeBook }) => {
     const { t } = useTranslation('admin');
 
     return (
-        <div className={styles.AdminBook}>
+        <div className={styles.AdminBooks}>
             {content.length ? (
                 <div>
                     <h2>{t('filter.date')}</h2>
@@ -26,9 +33,14 @@ const AdminBook = () => {
                                 <th>{t('columnTitle.date')}</th>
                                 <th>{t('columnTitle.status')}</th>
                             </tr>
-                            {content.map((book, index) => {
+                            {content.map((book, index: number) => {
                                 return (
-                                    <tr key={`row${index}`}>
+                                    <tr
+                                        key={`row${index}`}
+                                        onClick={() => {
+                                            changeBook(1);
+                                        }}
+                                    >
                                         <td>{book.name}</td>
                                         <td>{book.title}</td>
                                         <td>{book.date}</td>
@@ -46,4 +58,4 @@ const AdminBook = () => {
     );
 };
 
-export default AdminBook;
+export default AdminListBook;

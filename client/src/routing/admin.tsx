@@ -13,13 +13,7 @@ export const adminRoutes: RouteObject[] = [
         children: [
             {
                 path: "books",
-                element: <Book/>,
-                loader: async () => {
-                    const data = await bookshelfTabsService.getData('books');
-
-                    return data;
-                },
-                errorElement: <div>error</div>,
+                element: <Book/>
             },
             {
                 path: "reviews",

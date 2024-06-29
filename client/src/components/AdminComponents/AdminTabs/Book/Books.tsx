@@ -1,14 +1,14 @@
-import { FC } from 'react';
-import { useLoaderData } from 'react-router';
-import { IResData } from '../../../../store/slices/profileSlice/profileSliceTypes';
-import AdminBook from '../../AdminComponents/AdminBook/AdminBook';
+import { FC, useState } from 'react';
+import AdminBooks from '../../AdminComponents/AdminBook/AdminBooks';
 
 const Book: FC = () => {
-    const data = useLoaderData() as IResData;
+    const [idPage, setIdPage] = useState<number | undefined>(undefined);
 
-    console.log(data);
+    function changeBook (id: number | undefined): void{
+        setIdPage(id)
+    }
 
-    return <AdminBook />;
+    return <AdminBooks idPage={idPage} changePage={changeBook}/>;
 };
 
 export default Book;

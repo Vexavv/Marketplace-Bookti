@@ -21,5 +21,15 @@
         "title": "Book Title",
         "date": "Date",
         "status": "Status"
+    },
+    "bookTable": {
+        "author": "Author of the book",
+        "genre": "Book genre",
+        "publicationYear": "Publication Year",
+        "language": "Language"
+    },
+    "button":{
+        "delete": "Delete",
+        "confirm": "Confirm"
     }
 }
