@@ -10,16 +10,19 @@ import {backUpDeleteSubscriber} from "../../../store/slices/subscriptionSlice/su
 const MySubscriptionsUsers = () => {
     const dispatch = useAppDispatch();
     const {t} = useTranslation('mySubscriptions')
-    const {subscribers,deleteSubscriber,statusDelete} = useAppSelector(state => state.subscriptions)
+    const {subscribers, deleteSubscriber, statusDelete} = useAppSelector(state => state.subscriptions)
 
+    // const reversSubscribers = subscribers?.slice().reverse();
+    // console.log(reversSubscribers)
+    console.log(subscribers)
     const handleOpenModal = () => {
-        dispatch(openModal({type: 'informMessage', props: {key: 'value'},text: t('Modal.delete')}));
+        dispatch(openModal({type: 'informMessage', props: {key: 'value'}, text: t('Modal.delete')}));
         setTimeout(() => {
             dispatch(closeModal());
         }, 3000);
     }
     useEffect(() => {
-        if(statusDelete === 'loaded'){
+        if (statusDelete === 'loaded') {
             handleOpenModal();
             dispatch(backUpDeleteSubscriber())
         }
