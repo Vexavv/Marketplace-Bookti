@@ -46,7 +46,7 @@ export interface FieldSettings {
     component?:React.ReactElement
 }
 export interface User {
-    id?:number
+    id?:number | string
     creationDate?:string
     email: string;
     fullName: string;

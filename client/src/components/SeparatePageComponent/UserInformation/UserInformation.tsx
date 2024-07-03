@@ -1,4 +1,4 @@
-import {FC, useState} from 'react';
+import {FC, useEffect, useState} from 'react';
 import styles from './UserInformation.module.scss'
 import {useTranslation} from 'react-i18next';
 import {Rating} from 'react-simple-star-rating';
@@ -6,20 +6,39 @@ import {UserInformationProps} from "./UserInformationProps";
 import {useWindowSize} from "../../../hooks/useWindowSize";
 import {List} from "../../../types";
 import Button from "../../../uiComponent/Button/Button";
+import {useAppDispatch, useAppSelector} from "../../../hook";
+import {postNewSubscriberAsync} from "../../../store/slices/subscriptionSlice/postNewSubscriber";
+import {closeModal, openModal} from "../../../store/slices/modalSlice";
+import {
+    backUpAddedSubscriber,
+    backUpDeleteSubscriber
+} from "../../../store/slices/subscriptionSlice/subscriptionsSlice";
 
 const UserInformation: FC<UserInformationProps> = ({user, admin=false}) => {
-    const {t} = useTranslation(['separatePage', 'profile']);
+    const {t} = useTranslation(['separatePage', 'profile','mySubscriptions']);
     const {width} = useWindowSize();
     const [rating, setRating] = useState(0)
-
+    const dispatch = useAppDispatch();
     let showEmail = user?.displayEmail
     let showTelegram = user?.displayTelegram
+    const {statusAdded} = useAppSelector(state => state.subscriptions)
     const navigationLinks: List[] = [
         {id: 1, icon: '/profile/map-pin.svg/', title: user?.location,},
         {id: 2, icon: '/profile/mail.svg/', title: user?.email, href: `mailto:${user?.email}`},
         {id: 3, icon: '/profile/location.svg/', title: user?.telegramId, href: `https://t.me/${user?.telegramId}`}
     ]
-
+    const handleOpenModal = () => {
+        dispatch(openModal({type: 'informMessage', props: {key: 'value'},text: t('mySubscriptions:Modal.added')}));
+        setTimeout(() => {
+            dispatch(closeModal());
+        }, 3000);
+    }
+    useEffect(() => {
+        if(statusAdded === 'loaded'){
+            handleOpenModal();
+            dispatch(backUpAddedSubscriber())
+        }
+    }, [statusAdded]);
     return (
         <div className={styles.Info}>
             <div className={styles.InfoAvatar}>
@@ -55,7 +74,13 @@ const UserInformation: FC<UserInformationProps> = ({user, admin=false}) => {
                         </li>
                     ))}
                 </ul>
-                {!admin && <Button>{t('User.button')}</Button>}
+                {!admin && user?.id &&  ( <Button onClick={() => {
+                    if (typeof user.id === 'string' || typeof user.id === 'number') {
+                        dispatch(postNewSubscriberAsync(user.id));
+                    }
+                }}>
+                    {t('User.button')}
+                </Button>)}
             </div>
         </div>
     );
