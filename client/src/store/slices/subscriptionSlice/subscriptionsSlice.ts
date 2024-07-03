@@ -4,6 +4,7 @@ import {getNewUsersAsync} from "./getNewUsersAsync";
 import {postNewSubscriberAsync} from "./postNewSubscriber";
 import {getSubscriberAsync} from "./getSubscriber";
 import {deleteSubscriberAsync} from "./deleteSubscriber";
+import {tr} from "date-fns/locale";
 
 
 
@@ -23,7 +24,9 @@ interface UsersState {
     data:User | null;
     subscribers:Subscribers[] | null;
     statusDelete:string
+    statusAdded:string
     deleteSubscriber: boolean
+    addedSubscriber: boolean
 }
 
 const initialState: UsersState = {
@@ -31,7 +34,9 @@ const initialState: UsersState = {
     data:null,
     subscribers:null,
     statusDelete:'idle',
-    deleteSubscriber:false
+    statusAdded:'idle',
+    deleteSubscriber:false,
+    addedSubscriber:false
 
 };
 
@@ -42,6 +47,10 @@ const subscriptionsSlice = createSlice({
         backUpDeleteSubscriber:state => {
             state.deleteSubscriber = false;
             state.statusDelete = 'idle';
+        },
+        backUpAddedSubscriber:state =>{
+            state.statusAdded = 'idle';
+            state.addedSubscriber = false;
         }
 
     },
@@ -63,18 +72,28 @@ const subscriptionsSlice = createSlice({
             // });
             //---------------------------------------------addedNewSubscriber---------------------
 
-            // .addCase(postNewSubscriberAsync.pending, state => {
-            // })
+            .addCase(postNewSubscriberAsync.pending, state => {
+                state.statusAdded = 'loading'
+            })
             .addCase(
                 postNewSubscriberAsync.fulfilled,
                 (state, action: PayloadAction<User>) => {
-                    state.data = action.payload;
+                    if(action.payload) {
+                        state.data = action.payload;
+                        state.statusAdded = 'loaded'
+                        state.addedSubscriber = true
+                    }else{
+                        state.statusAdded = 'failed';
+                        console.log("FAILED")
+                    }
+
                     console.log('Data',state.data)
                 }
             )
-        // .addCase(postNewSubscriberAsync.rejected, state => {
-        //     // state.error = action.error.message;
-        // })
+        .addCase(postNewSubscriberAsync.rejected, state => {
+            // state.error = action.error.message;
+            state.statusAdded = 'failed'
+        })
         //---------------------------------------------getSubscriber---------------------
 
     // .addCase(getSubscriberAsync.pending, state => {
@@ -115,7 +134,7 @@ const subscriptionsSlice = createSlice({
 
 });
 
-export const {  backUpDeleteSubscriber } = subscriptionsSlice.actions;
+export const {  backUpDeleteSubscriber,backUpAddedSubscriber } = subscriptionsSlice.actions;
 
 export default subscriptionsSlice.reducer;
 

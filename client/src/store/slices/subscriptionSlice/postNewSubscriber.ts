@@ -5,7 +5,7 @@ import {AuthData} from "./subscriptionsSlice";
 
 export const postNewSubscriberAsync = createAsyncThunk(
     'subscribe/postNewSubscriberAsync',
-    async (subscriberId:string, { getState }) => {
+    async (subscriberId:string | number, { getState }) => {
         try {
             let authData: AuthData;
             // @ts-ignore
