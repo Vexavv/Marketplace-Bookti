@@ -1,0 +1,35 @@
+{
+    "arrow": "Профіль",
+    "counterAside": [
+        {
+            "title": "Книги",
+            "link": "books"
+        },
+        {
+            "title": "Відгуки",
+            "link": "reviews"
+        }
+    ],
+    "noContent": "Немає нових подій",
+    "filter": {
+        "date": "Сортувати за датою",
+        "title": "Сортувати за назвою",
+        "status": "Сортувати за статусом"
+    },
+    "columnTitle": {
+        "name": "Імʼя",
+        "title": "Назва книги",
+        "date": "Дата",
+        "status": "Статус"
+    },
+    "bookTable": {
+        "author": "Автор книги",
+        "genre": "Жанр книги",
+        "publicationYear": "Рік видання",
+        "language": "Мова"
+    },
+    "button": {
+        "delete": "Видалити",
+        "confirm": "Схвалити"
+    }
+}

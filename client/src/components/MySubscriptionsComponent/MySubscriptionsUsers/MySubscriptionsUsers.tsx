@@ -1,39 +1,39 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styles from './MySubscriptionsUsers.module.scss'
-import {User} from "../../../types";
-import Button from "../../../uiComponent/Button/Button";
+import {useAppDispatch, useAppSelector} from "../../../hook";
+import {getSubscriberAsync} from "../../../store/slices/subscriptionSlice/getSubscriber";
+import UserItem from "./UserItem/UserItem";
 import {useTranslation} from "react-i18next";
-import {useWindowSize} from "../../../hooks/useWindowSize";
+import {closeModal, openModal} from "../../../store/slices/modalSlice";
+import {backUpDeleteSubscriber} from "../../../store/slices/subscriptionSlice/subscriptionsSlice";
 
-const mySubscriptionsUsers: User[] = [
-    {id: 1, avatarUrl: "", fullName: "Вася Семенов", location: "Kyiv", email: ""},
-    {id: 2, avatarUrl: "/test/photoUser.png", fullName: "Олена Коваль", location: "Kyiv", email: ""}
-]
 const MySubscriptionsUsers = () => {
+    const dispatch = useAppDispatch();
     const {t} = useTranslation('mySubscriptions')
-    const {width} = useWindowSize();
+    const {subscribers,deleteSubscriber,statusDelete} = useAppSelector(state => state.subscriptions)
+
+    const handleOpenModal = () => {
+        dispatch(openModal({type: 'informMessage', props: {key: 'value'},text: t('Modal.delete')}));
+        setTimeout(() => {
+            dispatch(closeModal());
+        }, 3000);
+    }
+    useEffect(() => {
+        if(statusDelete === 'loaded'){
+            handleOpenModal();
+            dispatch(backUpDeleteSubscriber())
+        }
+    }, [statusDelete]);
+    useEffect(() => {
+        dispatch(getSubscriberAsync())
+    }, [deleteSubscriber])
+
+
     return (
         <ul className={styles.MyUsers}>
-            {mySubscriptionsUsers.map(item => (
-                <li className={styles.MyUsersItem} key={item.id}>
-                    <div className={styles.MyUsersItemContent}>
-                        <div className={styles.MyUsersItemContentAvatar}>
-                            {item.avatarUrl ? <img src={item.avatarUrl} alt="user-avatar" style={width && width <= 400 ?{ width: '40px', height: '40px' } : width && width >= 900
-                                    ? { width: '70px', height: '70px' }
-                                    : { width: '50px', height: '50px' }}/>
-                                : <img src="/header/user.svg" alt="user" style={width && width <= 400 ?{ width: '30px', height: '30px' }:{ width: '40px', height: '40px' }}/>
-                            }
-                        </div>
-                        <div className={styles.MyUsersItemContentText}>
-                            <p className={styles.MyUsersItemContentTextName}>{item.fullName}</p>
-                            <p className={styles.MyUsersItemContentTextCity}>{item.location}</p>
-                        </div>
-                        <div className={styles.MyUsersItemContentButton}>
-                            <Button name='SubscriptionUser'> <img style={{marginRight:'5px'}} src="/subscriptions/Vector.png" alt="Vector"/> {t('Button')}</Button>
-                        </div>
-                    </div>
-                </li>
-            ))}
+            {subscribers && subscribers.length > 0 ? (subscribers.map((item, index) => (
+                <UserItem key={index} {...item} />
+            ))) : <p>Ви ще не додали жодного користувача </p>}
         </ul>
     );
 };

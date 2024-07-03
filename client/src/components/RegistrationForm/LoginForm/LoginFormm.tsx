@@ -88,6 +88,7 @@ const LoginFormm = ({registration}: LoginFormProps) => {
             .required(t('Error.login.email.required')),
         password: yup.string()
             .minSymbols(0)
+            .matches(/^[^\-_]+$/, t('Error.login.password.matches'))
             .min(8, t('Error.login.password.min'))
             .max(20, t('Error.login.password.max'))
             .minLowercase(1, t('Error.login.password.minLowercase'))

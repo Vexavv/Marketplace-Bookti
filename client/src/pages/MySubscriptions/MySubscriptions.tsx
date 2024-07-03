@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styles from './MySubscriptions.module.scss'
 import {useTranslation} from "react-i18next";
 import Container from "../../uiComponent/Container/Container";
@@ -8,6 +8,8 @@ import {Tab} from "../../types";
 import MySubscriptionsUsers from "../../components/MySubscriptionsComponent/MySubscriptionsUsers/MySubscriptionsUsers";
 import NewUsers from "../../components/MySubscriptionsComponent/NewUsers/NewUsers";
 import SettingsTabs from "../../uiComponent/SettingsTabs/SettingsTabs";
+import {useAppDispatch, useAppSelector} from "../../hook";
+import {getSubscriberAsync} from "../../store/slices/subscriptionSlice/getSubscriber";
 
 const MySubscriptions = () => {
     const {t} = useTranslation('mySubscriptions')
@@ -16,6 +18,10 @@ const MySubscriptions = () => {
         {id: 2, label: t('Tabs.users'), content: <NewUsers/>},
     ]
     const {width} = useWindowSize();
+
+
+
+
     return (
 
             <Container>

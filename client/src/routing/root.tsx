@@ -1,6 +1,7 @@
 import {RouteObject} from 'react-router-dom';
 import {bookshelfRoutes} from './bookshelf';
 import {profileRoutes} from './profile';
+import { adminRoutes } from './admin';
 import PrivateRoute from '../utils/PrivateRoute/PrivateRoute';
 import AddBook from '../pages/AddBook/AddBook';
 import Layout from '../components/Layout/Layout';
@@ -22,7 +23,7 @@ import Forum from '../pages/Forum/Forum';
 import Chat from '../pages/Chat/Chat';
 import MySettings from "../pages/MySettings/MySettings";
 import MySubscriptions from "../pages/MySubscriptions/MySubscriptions";
-
+import Account from "../pages/Account/Account";
 export const rootRoutes: RouteObject[] = [
     {
         element: <Layout/>,
@@ -85,6 +86,10 @@ export const rootRoutes: RouteObject[] = [
                 element: <SeparatePage/>,
             },
             {
+                path: 'account/:id',
+                element: <Account/>,
+            },
+            {
                 path: '*',
                 element: <PageNotFound/>,
             },
@@ -128,7 +133,11 @@ export const rootRoutes: RouteObject[] = [
 
                 ],
             },
-
+            {
+                path: 'admin',
+                element: <PrivateRoute/>,
+                children: adminRoutes,
+            },
         ],
     },
 ];

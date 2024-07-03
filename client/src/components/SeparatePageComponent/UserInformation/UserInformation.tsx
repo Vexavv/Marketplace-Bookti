@@ -7,7 +7,7 @@ import {useWindowSize} from "../../../hooks/useWindowSize";
 import {List} from "../../../types";
 import Button from "../../../uiComponent/Button/Button";
 
-const UserInformation: FC<UserInformationProps> = ({user}) => {
+const UserInformation: FC<UserInformationProps> = ({user, admin=false}) => {
     const {t} = useTranslation(['separatePage', 'profile']);
     const {width} = useWindowSize();
     const [rating, setRating] = useState(0)
@@ -55,10 +55,14 @@ const UserInformation: FC<UserInformationProps> = ({user}) => {
                         </li>
                     ))}
                 </ul>
-                <Button>{t('User.button')}</Button>
+                {!admin && <Button>{t('User.button')}</Button>}
             </div>
         </div>
     );
 };
+
+UserInformation.defaultProps = {
+    admin: false
+}
 
 export default UserInformation;

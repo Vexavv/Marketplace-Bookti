@@ -1,4 +1,5 @@
 import addBook from '../i18n/locales/uk/addBook.json';
+import admin from '../i18n/locales/uk/admin.json';
 import bookshelf from '../i18n/locales/uk/bookshelf.json';
 import chat from '../i18n/locales/uk/chat.json';
 import favorite from '../i18n/locales/uk/favorite.json';
@@ -17,6 +18,7 @@ import separatePage from '../i18n/locales/uk/separatePage.json';
 
 const resources = {
   addBook,
+  admin,
   bookshelf,
   chat,
   favorite,

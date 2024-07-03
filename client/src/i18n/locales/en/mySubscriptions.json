@@ -2,7 +2,14 @@
   "Back": "My subscriptions",
   "Tabs": {
     "subscriptions": "My subscriptions",
-    "users":"New users",
-    "Button": "Signed"
+    "users":"New users"
+  },
+  "Button": "Unsubscribe",
+  "NewUsers": {
+    "users": "New users",
+    "more": "More"
+  },
+  "Modal":{
+    "delete": "You have unsubscribed from the user"
   }
 }

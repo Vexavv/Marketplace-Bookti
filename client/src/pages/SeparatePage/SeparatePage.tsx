@@ -47,7 +47,6 @@ const SeparatePage = () => {
         };
         fetchDataBook();
     }, []);
-    console.log('Book>>>>>>>', book)
     const owner = book?.owner ?? null;
     //-----------------------------------------------------------
     const dispatch = useAppDispatch()
@@ -80,7 +79,7 @@ const SeparatePage = () => {
                     </button>
                     <div className={styles.WrapperContent}>
                         <BookInfo  {...book}/>
-                        <UserInformation user={owner}/>
+                        <UserInformation user={owner} admin={false} />
                     </div>
                     <div className={styles.WrapperDescription}>
                         <h3 className={styles.WrapperDescriptionTitle}>{t('separatePage:Title')}</h3>
