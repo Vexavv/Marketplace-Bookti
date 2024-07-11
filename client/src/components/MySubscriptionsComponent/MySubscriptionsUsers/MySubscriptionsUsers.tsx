@@ -11,9 +11,7 @@ const MySubscriptionsUsers = () => {
     const dispatch = useAppDispatch();
     const {t} = useTranslation('mySubscriptions')
     const {subscribers, deleteSubscriber, statusDelete} = useAppSelector(state => state.subscriptions)
-
-    // const reversSubscribers = subscribers?.slice().reverse();
-    // console.log(reversSubscribers)
+    
     console.log(subscribers)
     const handleOpenModal = () => {
         dispatch(openModal({type: 'informMessage', props: {key: 'value'}, text: t('Modal.delete')}));
