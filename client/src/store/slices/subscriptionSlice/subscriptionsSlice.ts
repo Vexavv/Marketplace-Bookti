@@ -13,6 +13,7 @@ export interface AuthData {
     userId: number
 }
 export interface Subscribers {
+    userId?:number
     avatarUrl: string
     fullName: string
     location: string

@@ -59,7 +59,6 @@ const BookInfo = ({
             setIsFavorite(true);
         } catch (error) {
             console.error(error);
-            // Дополнительно: показать пользователю сообщение об ошибке
         }
     };
 

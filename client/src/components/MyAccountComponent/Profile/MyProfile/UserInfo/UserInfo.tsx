@@ -6,6 +6,7 @@ import { Rating } from 'react-simple-star-rating';
 import styles from './UserInfo.module.scss';
 import cn from 'classnames';
 import { User } from '../../../../../types';
+import {favoriteDataAsync} from "../../../../../store/slices/favoriteSlice/favoriteSlice";
 
 interface IUserInfoProps {
     user: User | null;
@@ -15,6 +16,29 @@ const UserInfo: FC<IUserInfoProps> = ({ user }) => {
     const { t } = useTranslation('profile');
     const { width } = useWindowSize();
     const [subscribe, setSubscribe] = useState<boolean>(false);
+    //------------------------subscribe--------------------------------
+    // const addToSubscribe = async () => {
+        // if (typeof user.id !== 'number') {
+        //     console.error('ID is undefined or not a number');
+        //     return;
+        // }
+
+    //     if (haveSub?.some(item => item.id === id)) {
+    //         handleOpenMessageModal();
+    //         return;
+    //     }
+    //
+    //     try {
+    //         await dispatch(favoriteDataAsync(id));
+    //         setIsFavorite(true);
+    //     } catch (error) {
+    //         console.error(error);
+    //     }
+    // };
+
+
+
+
 
     return (
         <div className={styles.UserInfo}>
