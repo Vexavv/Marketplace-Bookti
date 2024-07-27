@@ -20,12 +20,16 @@ const UserInfo: FC<IUserInfoProps> = ({user}) => {
     const subscribers = useAppSelector(state => state.subscriptions.subscribers)
     console.log('ADD SUB', subscribers)
     const [subscribe, setSubscribe] = useState<boolean>(false);
+    // const [login, setLogin] = useState<boolean>(false);
 
     useEffect(() => {
         const checkSubscribe = subscribers?.some(item => item.userId === user?.id)
         setSubscribe(!!checkSubscribe)
     }, [subscribers, user?.id]);
 
+    // if(){
+    // setLogin(true)
+    // }
     //------------------------subscribe--------------------------------
     const addToSubscribe = async () => {
         if (typeof user?.id !== 'number') {
@@ -72,6 +76,7 @@ const UserInfo: FC<IUserInfoProps> = ({user}) => {
                 </div>
             </div>
             <div className={styles.UserInfoBoxBtns}>
+
                 {subscribe ? (
                     <button>
                         <img
