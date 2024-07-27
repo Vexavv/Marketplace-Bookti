@@ -1,43 +1,45 @@
-import { FC, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import {FC, useEffect, useState} from 'react';
+import {useTranslation} from 'react-i18next';
 
-import { useWindowSize } from '../../../../../hooks/useWindowSize';
-import { Rating } from 'react-simple-star-rating';
+import {useWindowSize} from '../../../../../hooks/useWindowSize';
+import {Rating} from 'react-simple-star-rating';
 import styles from './UserInfo.module.scss';
 import cn from 'classnames';
-import { User } from '../../../../../types';
-import {favoriteDataAsync} from "../../../../../store/slices/favoriteSlice/favoriteSlice";
+import {User} from '../../../../../types';
+import {useAppDispatch, useAppSelector} from "../../../../../hook";
+import {postNewSubscriberAsync} from "../../../../../store/slices/subscriptionSlice/postNewSubscriber";
 
 interface IUserInfoProps {
     user: User | null;
 }
 
-const UserInfo: FC<IUserInfoProps> = ({ user }) => {
-    const { t } = useTranslation('profile');
-    const { width } = useWindowSize();
+const UserInfo: FC<IUserInfoProps> = ({user}) => {
+    const {t} = useTranslation('profile');
+    const {width} = useWindowSize();
+    const dispatch = useAppDispatch();
+    const subscribers = useAppSelector(state => state.subscriptions.subscribers)
+    console.log('ADD SUB', subscribers)
     const [subscribe, setSubscribe] = useState<boolean>(false);
+
+    useEffect(() => {
+        const checkSubscribe = subscribers?.some(item => item.userId === user?.id)
+        setSubscribe(!!checkSubscribe)
+    }, [subscribers, user?.id]);
+
     //------------------------subscribe--------------------------------
-    // const addToSubscribe = async () => {
-        // if (typeof user.id !== 'number') {
-        //     console.error('ID is undefined or not a number');
-        //     return;
-        // }
+    const addToSubscribe = async () => {
+        if (typeof user?.id !== 'number') {
+            console.error('ID is undefined or not a number');
+            return;
+        }
 
-    //     if (haveSub?.some(item => item.id === id)) {
-    //         handleOpenMessageModal();
-    //         return;
-    //     }
-    //
-    //     try {
-    //         await dispatch(favoriteDataAsync(id));
-    //         setIsFavorite(true);
-    //     } catch (error) {
-    //         console.error(error);
-    //     }
-    // };
-
-
-
+        try {
+            await dispatch(postNewSubscriberAsync(user?.id));
+            setSubscribe(true);
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
 
     return (
@@ -48,7 +50,7 @@ const UserInfo: FC<IUserInfoProps> = ({ user }) => {
                 })}
             >
                 {user?.avatarUrl ? (
-                    <img src={user.avatarUrl} alt="Avatar" className={styles.UserInfoImageBoxAvatar} />
+                    <img src={user.avatarUrl} alt="Avatar" className={styles.UserInfoImageBoxAvatar}/>
                 ) : (
                     <img
                         src="/header/user.svg"
@@ -60,7 +62,7 @@ const UserInfo: FC<IUserInfoProps> = ({ user }) => {
             </div>
             <div className={styles.UserInfoNameBox}>
                 <span>{user?.fullName}</span>
-                <div style={{ display: 'flex', alignItems: 'center' }}>
+                <div style={{display: 'flex', alignItems: 'center'}}>
                     <Rating
                         initialValue={2}
                         readonly
@@ -71,7 +73,7 @@ const UserInfo: FC<IUserInfoProps> = ({ user }) => {
             </div>
             <div className={styles.UserInfoBoxBtns}>
                 {subscribe ? (
-                    <button onClick={() => setSubscribe(!subscribe)}>
+                    <button>
                         <img
                             width={20}
                             height={20}
@@ -83,7 +85,7 @@ const UserInfo: FC<IUserInfoProps> = ({ user }) => {
                 ) : (
                     <button
                         className={styles.Subscribe}
-                        onClick={() => setSubscribe(!subscribe)}
+                        onClick={addToSubscribe}
                     >
                         {t('user-info.btns.subscribe')}
                     </button>

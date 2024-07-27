@@ -25,12 +25,13 @@ const Account = () => {
             <Back text={t('back')}></Back>
             <UserInfo user={state.user}></UserInfo>
 
-            <div>
-                user {id}
 
-                <button onClick={() => dispatch(postNewSubscriberAsync(id))}>Subscribe</button>
+            {/*<div>*/}
+            {/*    user {id}*/}
 
-            </div>
+            {/*    <button onClick={() => dispatch(postNewSubscriberAsync(id))}>Subscribe</button>*/}
+
+            {/*</div>*/}
 
         </Container>
 
