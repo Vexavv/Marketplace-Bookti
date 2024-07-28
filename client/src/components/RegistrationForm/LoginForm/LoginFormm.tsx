@@ -29,6 +29,7 @@ import PlaceSearch from '../../../uiComponent/PlaceSearch/PlaceSearch';
 import { BASE_URL } from '../../../constants/api';
 import { useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
+import LoginGoogle from '../../../pages/Registration/LoginGoogle/LoginGoogle';
 
 // initialValues
 const initialValuesLogin: LoginFormValues = {
@@ -333,15 +334,13 @@ const LoginFormm = ({ registration }: LoginFormProps) => {
 
                             <p className={styles.FormText}>{t('Or')}</p>
                             <div className={styles.FormIcon}>
-                                <img
-                                    src="/login/facebook.svg"
-                                    alt="facebook"
-                                />
-                                <img
-                                    src="/login/google.svg"
-                                    alt="google"
-                                    onClick={() => googleLogin()}
-                                />
+                                <button>
+                                    <img
+                                        src="/login/facebook.svg"
+                                        alt="facebook"
+                                    />
+                                </button>
+                                <LoginGoogle/>
                             </div>
                         </Form>
                     </Formik>
@@ -429,8 +428,13 @@ const LoginFormm = ({ registration }: LoginFormProps) => {
 
                             <p className={styles.FormText}>{t('Or')}</p>
                             <div className={styles.FormIcon}>
-                                <img src="/login/facebook.svg" alt="facebook" />
-                                <img src="/login/google.svg" alt="google" />
+                                <button>
+                                    <img
+                                        src="/login/facebook.svg"
+                                        alt="facebook"
+                                    />
+                                </button>
+                                <LoginGoogle/>
                             </div>
                         </Form>
                     </Formik>
