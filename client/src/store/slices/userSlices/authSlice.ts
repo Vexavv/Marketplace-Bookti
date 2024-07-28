@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios, { AxiosResponse } from 'axios';
 import { BASE_URL } from '../../../constants/api';
-import {User} from "../../../types";
+import { User } from '../../../types';
 
 interface LoginCredentials {
     email: string;
@@ -11,7 +11,7 @@ interface LoginCredentials {
 interface CreateAccountCredentials {
     email: string;
     password: string;
-    location:string;
+    location: string;
     fullName: string;
     confirmPassword: string;
 }
@@ -21,7 +21,6 @@ interface Data {
     accessToken: string;
     refreshToken: string;
 }
-
 
 export interface AuthData {
     accessToken: string;
@@ -98,6 +97,29 @@ export const getUserAsync = createAsyncThunk(
     }
 );
 
+export const loginGoogleAsync = createAsyncThunk(
+    'auth/loginGoogle',
+    async (credentials: AuthData) => {
+        try {
+            const token = credentials.accessToken;
+            const id = credentials.userId;
+
+            const response: AxiosResponse<User> = await axios.get(
+                `https://bookti-spring-backend-kwku.onrender.com/api/v1/users/${id}`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            );
+            return response.data;
+        } catch (error) {
+            console.error('Error during user fetching:', error);
+            throw error;
+        }
+    }
+);
+
 const authSlice = createSlice({
     name: 'auth',
     initialState,
@@ -155,11 +177,25 @@ const authSlice = createSlice({
             .addCase(getUserAsync.rejected, state => {
                 state.loading = false;
                 // state.error = action.error.message;
-            });
+            })
+
+            //------------------------------------------------------------------------------------------------------
+            .addCase(loginGoogleAsync.pending, state => {
+                state.loading = true;
+            })
+            .addCase(
+                loginGoogleAsync.fulfilled,
+                (state, action: PayloadAction<User>) => {
+                    state.user = action.payload;
+                }
+            )
+            .addCase(loginGoogleAsync.rejected, state => {
+                state.loading = false;
+                // state.error = action.error.message;
+            })
     },
 });
 
 export const { logout } = authSlice.actions;
 
 export default authSlice.reducer;
-
