@@ -4,10 +4,15 @@ import { useTranslation } from 'react-i18next';
 import { useAppSelector } from '../../../../hook';
 import styles from './Tabs.module.scss';
 import cn from 'classnames';
+import {User} from "../../../../types";
 
-const Tabs: FC = () => {
+interface TabsProps {
+    user: User | null
+}
+
+
+const Tabs= ({user}:TabsProps) => {
     const { t } = useTranslation('profile');
-    const { user } = useAppSelector(state => state.auth);
 
     const myBookshelf = useMemo(
         () => ({

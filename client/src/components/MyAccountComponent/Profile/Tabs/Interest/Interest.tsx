@@ -20,9 +20,9 @@ const Interest: FC = () => {
             {/*    wishlist.map(item => <BookItem key={item.id} {...item} />)*/}
             {/*) */}
             {/*    : (*/}
-            {/*    <div className={styles.WrapperNotExist}>*/}
-            {/*        {t('interesting.empty')}*/}
-            {/*    </div>*/}
+                <div className={styles.WrapperNotExist}>
+                    {t('interesting.empty')}
+                </div>
             {/*)}*/}
         </div>
     );

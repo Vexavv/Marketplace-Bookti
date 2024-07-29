@@ -10,7 +10,7 @@ const MyProfile: FC = () => {
     return (
         <aside className={styles.UserInfo}>
             <UserInfo user={user} />
-            <Links />
+            <Links user={user} />
         </aside>
     );
 };
