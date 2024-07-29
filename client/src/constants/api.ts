@@ -1,1 +1,1 @@
-export const BASE_URL ='https://bookti-spring-backend.onrender.com/api/v1'
+export const BASE_URL ='https://bookti-spring-backend-kwku.onrender.com/api/v1'
