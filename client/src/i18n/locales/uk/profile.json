@@ -1,59 +1,69 @@
 {
-    "nav": "Профіль",
-    "user-info": {
-        "date-register": "Дата реєстрації:",
-      "email": "Пошта прихована",
-      "telegram": "Адреса прихована",
-      "noTelegram": "Телеграм відсутній",
-        "btns": {
-            "subscribe": "Підписатися",
-            "signed": "Підписані"
-        }
-    },
-    "list": [
-        { "title": "Моя книжкова полиця", "link": "my-bookshelf" },
-        { "title": "Мене цікавить", "link": "interest" },
-        { "title": "Відгуки", "link": "reviews" }
-    ],
-    "bokkshelf": {
-        "empty": "Тут поки пусто",
-        "item": {
-            "btn-exchange": "Переглянути",
-            "info-table": {
-                "lang": "Мова"
-            },
-            "tooltip-favorits": {
-                "true": "Видалити з мого списку бажань",
-                "false": "Додати до мого списку бажань"
-            },
-          "tooltip-delete": "Видалити книгу"
-        }
-    },
-    "interesting": {
-        "empty": "Тут поки пусто",
-        "item": {
-            "info-table": {
-                "lang": "Мова"
-            },
-            "btn-write": "Написати"
-        }
-    },
-    "reviews": {
-        "btn-add-review": "Додати відгук",
-        "form": {
-            "title": "Додати відгук",
-            "clue": "Ваша оцінка",
-            "placeholder": "Написати відгук, до 300 символів",
-            "btn-submit": "Відправити",
-            "error-req": "Це поле є обов'язковим.",
-            "error-max": "Надто довго"
-        },
-        "item": {
-            "btn-read-more": {
-                "true": "Читати повністю",
-                "false": "Згорнути"
-            },
-            "btn-translate": "Перекласти"
-        }
+  "nav": "Мій профіль",
+  "back": "Профіль",
+  "user-info": {
+    "date-register": "Дата реєстрації:",
+    "email": "Пошта прихована",
+    "telegram": "Адреса прихована",
+    "noTelegram": "Телеграм відсутній",
+    "btns": {
+      "subscribe": "Підписатися",
+      "signed": "Підписані"
     }
+  },
+  "list": [
+    {
+      "title": "Моя книжкова полиця",
+      "link": "my-bookshelf"
+    },
+    {
+      "title": "Мене цікавить",
+      "link": "interest"
+    },
+    {
+      "title": "Відгуки",
+      "link": "reviews"
+    }
+  ],
+  "bokkshelf": {
+    "empty": "Тут поки пусто",
+    "item": {
+      "btn-exchange": "Переглянути",
+      "info-table": {
+        "lang": "Мова"
+      },
+      "tooltip-favorits": {
+        "true": "Видалити з мого списку бажань",
+        "false": "Додати до мого списку бажань"
+      },
+      "tooltip-delete": "Видалити книгу"
+    }
+  },
+  "interesting": {
+    "empty": "Тут поки пусто",
+    "item": {
+      "info-table": {
+        "lang": "Мова"
+      },
+      "btn-write": "Написати"
+    }
+  },
+  "reviews": {
+    "btn-add-review": "Додати відгук",
+    "form": {
+      "title": "Додати відгук",
+      "clue": "Ваша оцінка",
+      "placeholder": "Написати відгук, до 300 символів",
+      "btn-submit": "Відправити",
+      "error-req": "Це поле є обов'язковим.",
+      "error-max": "Надто довго"
+    },
+    "item": {
+      "btn-read-more": {
+        "true": "Читати повністю",
+        "false": "Згорнути"
+      },
+      "btn-translate": "Перекласти"
+    }
+  }
 }

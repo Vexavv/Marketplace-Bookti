@@ -116,10 +116,17 @@
     display: flex;
     justify-content: center;
     //margin-bottom: 40px;
+
+    button{
+      background: transparent;
+      outline: none;
+      border: none;
+      padding: 0;
+    }
+
     img {
       cursor: pointer;
     }
-
   }
 }
 

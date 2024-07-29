@@ -58,7 +58,7 @@ const NewUsers = () => {
                             <p className={styles.NewListItemTextName}>{item.fullName}</p>
                             <p className={styles.NewListItemTextCity}>{item.location}</p>
                         </div>
-                        <div className={styles.NewListItemArrow}><Link to={`/account/${item.id}`}><img src="/subscriptions/img.png" alt="arrow"/></Link></div>
+                        <div className={styles.NewListItemArrow}><Link to={`/account/${item.id}`} state={{user: item}}><img src="/subscriptions/img.png" alt="arrow"/></Link></div>
 
 
                     </li>)

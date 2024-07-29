@@ -23,7 +23,7 @@
         },
         "fild-genre": {
             "placeholder": "Genre",
-            "values": ["default"],
+            "values": ["Fiction", "Learning languages", "Children's literature", "History", "Art", "Business, money, economy", "Science and technology", "Cooking", "Hobbies and leisure", "Health", "Computer literature", "Beauty and style" ],
             "errorMessage": "This field is required."
         },
         "fild-date": {

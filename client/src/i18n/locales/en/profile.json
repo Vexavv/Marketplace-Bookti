@@ -1,59 +1,69 @@
 {
-    "nav": "Profile",
-    "user-info": {
-        "date-register": "Registration date:",
-      "email": "Email is hidden by the user",
-      "noTelegram": "There is no telegram",
-      "telegram": "Addresses are taken",
-        "btns": {
-            "subscribe": "Sign up",
-            "signed": "Signed"
-        }
-    },
-    "list": [
-        { "title": "My bookshelf", "link": "my-bookshelf" },
-        { "title": "I am interested", "link": "interest" },
-        { "title": "Reviews", "link": "reviews" }
-    ],
-    "bokkshelf": {
-        "empty": "It's still empty here",
-        "item": {
-            "btn-exchange": "Review",
-            "info-table": {
-                "lang": "Language"
-            },
-            "tooltip-favorits": {
-                "true": "Remove from my wishlist",
-                "false": "Add to my wishlist"
-            },
-          "tooltip-delete": "Delete the book"
-        }
-    },
-    "interesting": {
-        "empty": "It's still empty here",
-        "item": {
-            "info-table": {
-                "lang": "Language"
-            },
-            "btn-write": "Write"
-        }
-    },
-    "reviews": {
-        "btn-add-review": "Write a review",
-        "form": {
-            "title": "Write a review, max 300 symbols",
-            "clue": "Your rate",
-            "placeholder": "Enter review here",
-            "btn-submit": "Submit",
-            "error-req": "This field is required.",
-            "error-max": "Too Long"
-        },
-        "item": {
-            "btn-read-more": {
-                "true": "Read in full",
-                "false": "Collapse"
-            },
-            "btn-translate": "Translate"
-        }
+  "nav": "My profile",
+  "back": "Profile",
+  "user-info": {
+    "date-register": "Registration date:",
+    "email": "Email is hidden by the user",
+    "noTelegram": "There is no telegram",
+    "telegram": "Addresses are taken",
+    "btns": {
+      "subscribe": "Sign up",
+      "signed": "Signed"
     }
+  },
+  "list": [
+    {
+      "title": "My bookshelf",
+      "link": "my-bookshelf"
+    },
+    {
+      "title": "I am interested",
+      "link": "interest"
+    },
+    {
+      "title": "Reviews",
+      "link": "reviews"
+    }
+  ],
+  "bokkshelf": {
+    "empty": "It's still empty here",
+    "item": {
+      "btn-exchange": "Review",
+      "info-table": {
+        "lang": "Language"
+      },
+      "tooltip-favorits": {
+        "true": "Remove from my wishlist",
+        "false": "Add to my wishlist"
+      },
+      "tooltip-delete": "Delete the book"
+    }
+  },
+  "interesting": {
+    "empty": "It's still empty here",
+    "item": {
+      "info-table": {
+        "lang": "Language"
+      },
+      "btn-write": "Write"
+    }
+  },
+  "reviews": {
+    "btn-add-review": "Write a review",
+    "form": {
+      "title": "Write a review, max 300 symbols",
+      "clue": "Your rate",
+      "placeholder": "Enter review here",
+      "btn-submit": "Submit",
+      "error-req": "This field is required.",
+      "error-max": "Too Long"
+    },
+    "item": {
+      "btn-read-more": {
+        "true": "Read in full",
+        "false": "Collapse"
+      },
+      "btn-translate": "Translate"
+    }
+  }
 }
