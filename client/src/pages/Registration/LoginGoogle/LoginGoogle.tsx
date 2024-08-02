@@ -3,8 +3,10 @@ import axios from 'axios';
 
 import { useAppDispatch } from '../../../hook';
 import {
+    getUserAsync,
     loginGoogleAsync
 } from '../../../store/slices/userSlices/authSlice';
+import { BASE_URL } from '../../../constants/api';
 
 const LoginGoogle = () => {
     const dispatch = useAppDispatch();
@@ -14,7 +16,7 @@ const LoginGoogle = () => {
             try {
                 const { access_token } = response;
 
-                const url = `https://bookti-spring-backend-kwku.onrender.com/api/v1/authorize/login/oauth/google?accessToken=${access_token}`;
+                const url = `${BASE_URL}/authorize/login/oauth/google?accessToken=${access_token}`;
 
                 const requestOptions = {
                     method: 'POST',
@@ -30,8 +32,10 @@ const LoginGoogle = () => {
                     loginGoogleAsync({
                         userId: data.data.userId,
                         accessToken: data.data.accessToken,
+                        refreshToken: data.data.refreshToken
                     })
                 );
+                await dispatch(getUserAsync());
             } catch (error: any) {
                 console.log(error);
             }
