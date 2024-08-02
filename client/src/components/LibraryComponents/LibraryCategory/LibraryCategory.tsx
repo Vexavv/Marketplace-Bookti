@@ -27,7 +27,7 @@ const LibraryCategory:React.FC<LibraryCategoryProps> = ({onSelectCategory}) => {
             {width && width >= 900 ? <h3 className={styles.CategoryTitle}>{t('Category.Book')}</h3> : null}
             <ul className={styles.CategoryList}>
                 {categoryList.map(item => (
-                    <li className={styles.CategoryListItem} key={item.id}   onClick={() => onSelectCategory && onSelectCategory(item.name)}>{item.name}</li>
+                    <li className={styles.CategoryListItem} key={item.id}   onClick={() => onSelectCategory && onSelectCategory({name: item.name, id: item.id - 1})}>{item.name}</li>
                 ))}
             </ul>
 

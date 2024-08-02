@@ -1,30 +1,37 @@
-import React, {useEffect, useState} from 'react';
-import axios from "axios";
-import {BASE_URL} from "../../../constants/api";
-import styles from './Content.module.scss'
-import ContentItem from "./ContentItem/ContentItem";
+import styles from './Content.module.scss';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 
+import { BASE_URL } from '../../../constants/api';
+
+import ContentItem from './ContentItem/ContentItem';
 
 interface Data {
     content: [
         {
-            id: number,
-            title: string,
-            author: string,
-            genre: string,
-            language: string,
-            description: string,
-            publicationYear: string
-            exchangeFormat: string,
-            imageUrl: string,
+            id: number;
+            title: string;
+            author: string;
+            genre: string;
+            language: string;
+            description: string;
+            publicationYear: string;
+            exchangeFormat: string;
+            imageUrl: string;
         }
-    ]
+    ];
 
     // Добавьте другие поля по необходимости
 }
 
-const Content = () => {
+interface Props {
+    selectedCategory: { name: string; id: number };
+    filter: string;
+}
 
+const Content: React.FC<Props> = ({ selectedCategory, filter }) => {
+    const { t } = useTranslation('addBook');
     const [data, setData] = useState<Data | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -42,17 +49,26 @@ const Content = () => {
 
         fetchData();
     }, []);
+
     const list = data?.content
+        .filter(book => {
+            const currGenre = t('form.fild-genre.values', {
+                lng: 'en',
+                returnObjects: true,
+            })[selectedCategory.id];
+
+            return book.genre === currGenre?.toLocaleLowerCase();
+        })
+        .filter(book => book.title.includes(filter) || !filter);
+
     return (
         <div>
             <ul className={styles.List}>
-                {list?.map((item) => (
-                    <ContentItem key={item.id}{...item}></ContentItem>
+                {list?.map(item => (
+                    <ContentItem key={item.id} {...item}></ContentItem>
                 ))}
-
             </ul>
         </div>
-
     );
 };
 

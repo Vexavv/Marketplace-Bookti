@@ -2,11 +2,17 @@ import React, {useState} from 'react';
 import styles from './LibrarySearch.module.scss'
 import {useTranslation} from "react-i18next";
 import Button from "../../../uiComponent/Button/Button";
-const LibrarySearch = () => {
+
+interface Props {
+    searchBook: (text: string) => void;
+}
+
+const LibrarySearch: React.FC<Props> = ({searchBook}) => {
     const {t} = useTranslation('library')
     const [search, setSearch] = useState('')
     const handleSearchChange = (event:any) => {
         setSearch(event.target.value);
+        searchBook(event.target.value)
     };
     const handleSubmit = async (event:any) => {
         event.preventDefault();

@@ -99,24 +99,8 @@ export const getUserAsync = createAsyncThunk(
 
 export const loginGoogleAsync = createAsyncThunk(
     'auth/loginGoogle',
-    async (credentials: AuthData) => {
-        try {
-            const token = credentials.accessToken;
-            const id = credentials.userId;
-
-            const response: AxiosResponse<User> = await axios.get(
-                `https://bookti-spring-backend-kwku.onrender.com/api/v1/users/${id}`,
-                {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                    },
-                }
-            );
-            return response.data;
-        } catch (error) {
-            console.error('Error during user fetching:', error);
-            throw error;
-        }
+    async (credentials: Data) => {
+        return credentials;
     }
 );
 
@@ -181,16 +165,17 @@ const authSlice = createSlice({
 
             //------------------------------------------------------------------------------------------------------
             .addCase(loginGoogleAsync.pending, state => {
-                state.loading = true;
+                state.status = 'loading';
             })
             .addCase(
                 loginGoogleAsync.fulfilled,
-                (state, action: PayloadAction<User>) => {
-                    state.user = action.payload;
+                (state, action: PayloadAction<Data>) => {
+                    state.data = action.payload;
+                    state.status = 'loaded';
                 }
             )
             .addCase(loginGoogleAsync.rejected, state => {
-                state.loading = false;
+                state.status = 'loaded';
                 // state.error = action.error.message;
             })
     },
