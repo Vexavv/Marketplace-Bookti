@@ -1,12 +1,18 @@
 .List {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 1rem;
-  overflow: auto;
-  max-height: 800px;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    overflow: auto;
+    max-height: 800px;
+}
 
-
+.Item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 200px;
+    margin: 0 0 10px 5px;
 }

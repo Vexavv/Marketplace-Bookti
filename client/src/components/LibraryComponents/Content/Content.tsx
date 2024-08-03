@@ -1,6 +1,7 @@
 import styles from './Content.module.scss';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import LazyLoad from 'react-lazyload';
 import { useTranslation } from 'react-i18next';
 
 import { BASE_URL } from '../../../constants/api';
@@ -65,7 +66,16 @@ const Content: React.FC<Props> = ({ selectedCategory, filter }) => {
         <div>
             <ul className={styles.List}>
                 {list?.map(item => (
-                    <ContentItem key={item.id} {...item}></ContentItem>
+                    <LazyLoad
+                        key={item.id}
+                        height={250}
+                        offset={100}
+                        once
+                        debounce={100}
+                        className={styles.Item}
+                    >
+                        <ContentItem {...item}></ContentItem>
+                    </LazyLoad>
                 ))}
             </ul>
         </div>
