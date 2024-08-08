@@ -1,3 +1,3 @@
 export interface LibraryCategoryProps {
-    onSelectCategory?: (category: string) => void;
+    onSelectCategory?: (category: {name: string, id: number}) => void;
 }
